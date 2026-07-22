@@ -1,0 +1,27 @@
+# Data and outputs — never commit (large files + Reddit usernames / PII)
+data/
+outputs/
+*.parquet
+
+# Secrets — never commit your API tokens
+.env
+*.token
+
+# Python virtual environment
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Model weights / caches
+models/
+*.pt
+*.bin
+
+# Notebook checkpoints
+.ipynb_checkpoints/
+
+# OS / editor cruft
+.DS_Store
+.vscode/
+.idea/

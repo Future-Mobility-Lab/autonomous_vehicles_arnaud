@@ -210,7 +210,7 @@ def write_outputs(df: pd.DataFrame, funnel) -> None:
         assert banned not in out.columns, f"{banned} would leak into the corpus"
 
     out.to_parquet(CORPUS_PARQUET, index=False)
-    out.to_csv(CORPUS_CSV, index=False)
+  out.to_csv(CORPUS_CSV, index=False, encoding="utf-8-sig")
     print(f"[write] corpus rows: {len(out)}")
     print(f"[write] {CORPUS_PARQUET}")
     print(f"[write] {CORPUS_CSV}")

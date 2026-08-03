@@ -181,6 +181,13 @@ def preprocess(items: list[dict]):
     df = df[df["clean_body"].map(is_en)]
     funnel.append(("after English filter", len(df)))
 
+    # Any stage above can legitimately empty the frame (e.g. an out-of-window
+    # diagnostic scrape). An empty DataFrame has no columns, so the metadata
+    # assignment below would raise KeyError. Return early with the funnel intact
+    # so main() can print the stage counts and exit cleanly.
+    if df.empty:
+        return df, funnel
+
     # metadata for downstream stages
     df["subreddit"] = df["subredditName"]
     df["tier"] = df["subreddit"].map(assign_tier)
@@ -210,7 +217,7 @@ def write_outputs(df: pd.DataFrame, funnel) -> None:
         assert banned not in out.columns, f"{banned} would leak into the corpus"
 
     out.to_parquet(CORPUS_PARQUET, index=False)
-  out.to_csv(CORPUS_CSV, index=False, encoding="utf-8-sig")
+    out.to_csv(CORPUS_CSV, index=False, encoding="utf-8-sig")
     print(f"[write] corpus rows: {len(out)}")
     print(f"[write] {CORPUS_PARQUET}")
     print(f"[write] {CORPUS_CSV}")

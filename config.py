@@ -20,10 +20,10 @@ REVISION 3 August 2026, after the 74-query diagnostic probe. Changes and evidenc
   * SELECTIVE BLOCKING. The scraper walks newest-first and stops at the post cap,
     so high-yield queries truncate toward recent years. Measured: 38 of 74 queries
     saturated the probe cap and 11 of those covered under 3 years. Queries flagged
-    `saturated` in the probe report are split into blocks; the other 34 run as
+    `saturated` in the probe report are split into blocks; the other 36 run as
     single-window jobs, since blocking a query that already returns everything only
     adds actor-start fees.
-  * BUDGET_USD_CAP 30 -> 75, now counted cumulatively. See DECISIONS.md A3.
+  * BUDGET_USD_CAP 30 -> 85, now counted cumulatively.
 
 Nothing here calls the network. Edit settings here, not in the scripts.
 """
@@ -41,13 +41,13 @@ ACTOR_ID = "harshmaur/reddit-scraper"
 COST_PER_RUN_USD = 0.02       # actor start
 COST_PER_ITEM_USD = 0.002     # each stored result (post OR comment)
 
-# Hard stop. USD 11.64 already spent (probe + tests); collection estimated at
+# Hard stop. USD 12.76 already spent (probe + tests); collection estimated at
 # USD 55-65, so 75 is headroom, not a spending target.
 # 01_scrape.py counts spend CUMULATIVELY from scrape_log.csv, so this cap survives
 # resumed sessions instead of resetting each run.
-BUDGET_USD_CAP = 75.00
+BUDGET_USD_CAP = 85.00
 
-AUD_USD = 0.65                # reporting only -- verify against the live rate
+AUD_USD = 0.70                # Updated early August -- verify against the live rate
 
 # ---------------------------------------------------------------------------
 # STUDY WINDOW  (must match 02_preprocess.py)
@@ -62,13 +62,25 @@ STUDY_END = "2025-04-30"
 # "quarterly" -> split into 37 quarter-blocks                 (~1,440 runs, USD 28.80)
 # "none"      -> single window per query                      (74 runs,    USD  1.48)
 #
-# Annual is the default: it fixes the multi-year recency bias affordably. It does
-# NOT guarantee balance WITHIN a year -- if a query has 30 posts in 2020 and the
-# block cap takes the 8 newest, they may cluster in Q4, which would distort a
-# QUARTERLY series. Whether this happens is UNVERIFIED: probe evidence was mixed,
-# since 10 saturated queries still spanned 6+ years, inconsistent with pure
-# newest-first ordering. Use PILOT_BLOCK_TEST below to check for ~USD 2 before
-# committing the full budget.
+# Annual is the default: it fixes the multi-year recency bias affordably. The
+# residual risk was that it enforces balance BETWEEN years without enforcing it
+# WITHIN a year -- if a query has 30 posts in 2020 and the block cap takes the 3
+# newest, they could cluster in Q4 and distort a QUARTERLY series.
+#
+# VERIFIED 3 Aug 2026 by PILOT_BLOCK_TEST (USD 1.12, r/SelfDrivingCars |
+# self-driving, 10 annual blocks). Posts spread across the calendar rather than
+# clustering at year end -- 2016 returned Feb/May/Aug, 2017 Feb/Jun/Nov, 2020
+# Feb/Mar/Apr. Pooled quarterly shares were 37/20/10/33%; chi-square 5.5 against a
+# critical 7.81 at the 5% level, so the departure from uniform is consistent with
+# sampling variation at n=30. Annual blocking is therefore sufficient, and
+# quarterly blocking (~USD 29 in extra actor-start fees) is not required.
+#
+# This also explains the mixed probe evidence: 10 saturated queries spanned 6+
+# years, which is inconsistent with strict newest-first ordering. The scraper
+# appears not to return results in pure reverse-chronological order.
+#
+# Caveat: n=30 excludes gross clustering but does not establish uniformity.
+# Re-check the within-year date distribution once the full corpus is collected.
 BLOCKING_MODE = "annual"
 
 # ---------------------------------------------------------------------------
@@ -78,7 +90,7 @@ PROBE_MAX_POSTS = 100         # diagnostic: posts only
 COLLECT_MAX_POSTS = 60        # production, UNBLOCKED queries (whole window)
 MAX_POSTS_PER_BLOCK = 3       # production, BLOCKED queries (per block). Tuned against the
 #                               probe: 3 x 10 blocks = 30 posts per blocked query,
-#                               giving ~21,700 comments for ~USD 67 -- on target and
+#                               giving ~29,400 comments for ~USD 71.75 -- on target and
 #                               within cap. At 8 it was 80 posts, MORE than an
 #                               unblocked query would take, projecting USD 109.
 MAX_COMMENTS_PER_POST = 15    # see header note on thread effects

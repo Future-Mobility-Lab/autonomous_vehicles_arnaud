@@ -41,11 +41,13 @@ ACTOR_ID = "harshmaur/reddit-scraper"
 COST_PER_RUN_USD = 0.02       # actor start
 COST_PER_ITEM_USD = 0.002     # each stored result (post OR comment)
 
-# Hard stop. USD 12.76 already spent (probe + tests); collection estimated at
-# USD 55-65, so 75 is headroom, not a spending target.
+# Hard stop. Raised USD 85 -> 110 on 16 Aug 2026 to provide headroom for the
+# Tier 3 re-probe and re-collection after the multi-word phrase-matching issue.
+# This is a safety ceiling, not a spending target.
 # 01_scrape.py counts spend CUMULATIVELY from scrape_log.csv, so this cap survives
-# resumed sessions instead of resetting each run.
-BUDGET_USD_CAP = 85.00
+# resumed sessions instead of resetting each run. Probe/test spend not written to
+# scrape_log.csv must still be tracked separately.
+BUDGET_USD_CAP = 110.00
 
 AUD_USD = 0.70                # Updated early August -- verify against the live rate
 
@@ -86,8 +88,13 @@ BLOCKING_MODE = "annual"
 # ---------------------------------------------------------------------------
 # CAPS
 # ---------------------------------------------------------------------------
-PROBE_MAX_POSTS = 100         # diagnostic: posts only
-COLLECT_MAX_POSTS = 60        # production, UNBLOCKED queries (whole window)
+PROBE_MAX_POSTS = 100
+
+# Raised 60 -> 100 on 16 Aug 2026 after the truncation-band diagnostic found
+# queries with 60-99 probe posts could remain unblocked but be capped at 60
+# during single-window collection. Maintain COLLECT_MAX_POSTS >= PROBE_MAX_POSTS
+# so an unsaturated probe result is not truncated by a lower production cap.
+COLLECT_MAX_POSTS = 100
 MAX_POSTS_PER_BLOCK = 3       # production, BLOCKED queries (per block). Tuned against the
 #                               probe: 3 x 10 blocks = 30 posts per blocked query,
 #                               giving ~29,400 comments for ~USD 71.75 -- on target and
@@ -113,10 +120,27 @@ CORE_TERMS = [
 # evidence the public does not discuss V2X by name -- and costs USD 0.02 per empty
 # run to demonstrate. Do not silently drop it.
 
-ISSUE_TERMS = [
-    "self-driving car privacy", "autonomous vehicle data",
-    "car data collection", "connected car security", "vehicle tracking",
+# Retained from the v1 Tier 3 design, now QUOTED. The actor does not phrase-match
+# unquoted 3+ token terms: measured across 78 collected files, 0% of posts returned
+# by 3-token terms contained the search phrase, against 87-98% for 1-2 token terms.
+# Quoting IS honoured -- confirmed by controlled test 16 Aug 2026; the quoted string
+# reaches Reddit's search endpoint verbatim (observed in the request URL).
+# Expected yield is LOW BUT UNKNOWN. A single quoted run for "autonomous vehicle
+# data" in r/privacy returned no posts, but that run's coverage ladder terminated
+# with a date_window_unreached skip on its final seed, so it does NOT establish
+# that the phrase is absent from the subreddit. Whether these terms have genuine
+# zero yield is an OPEN QUESTION for the re-probe, not an assumption. Retained
+# because an empty run costs ~USD 0.02 and a measured yield is worth more than a
+# dropped query.
+LEGACY_ISSUE_TERMS = [
+    '"self-driving car privacy"', '"autonomous vehicle data"',
+    '"car data collection"', '"connected car security"', '"vehicle tracking"',
 ]
+
+# Tier 3 primary terms: the SAME CORE_TERMS used by Tiers 1 and 2, unquoted.
+# Identical queries across all tiers means any difference in measured concern is
+# attributable to the COMMUNITY rather than to the query wording.
+ISSUE_TERMS = CORE_TERMS + LEGACY_ISSUE_TERMS
 
 TIERS = {
     "Tier 1": {"subreddits": ["SelfDrivingCars", "teslamotors", "RealTesla", "Waymo"],

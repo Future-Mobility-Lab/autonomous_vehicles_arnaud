@@ -4,26 +4,42 @@ config.py -- shared settings for the CAV-concern collection stage.
 Imported by 00_probe.py (diagnostic) and 01_scrape.py (production) so the queries
 the probe MEASURES are by construction the queries the scrape FETCHES.
 
-REVISION 3 August 2026, after the 74-query diagnostic probe. Changes and evidence:
+FINAL COLLECTION FRAME, August 2026.
 
-  * FULL FRAME RETAINED. Trimming was considered and rejected on measured grounds:
-    dropping the 14 lowest-yield queries saves USD 2.94 (1.3% of yield), and term
-    overlap measured on three complete subreddits is only 8-10%. Terms return
-    substantially distinct post sets, so trimming costs unique data without
-    materially cutting cost. All 74 queries stay.
-  * MAX_COMMENTS_PER_POST 25 -> 15. Posts are pure overhead (same $0.002, not
-    analysed), so a higher cap is marginally cheaper per comment -- but threads are
-    comment-rich (median 52 comments/post) and 25 comments from one thread are not
-    25 independent observations. Cap 15 costs ~USD 2 more than cap 25 and samples
-    67% more threads. Thread effects are a documented Reddit-research limitation;
-    this is a deliberate trade.
-  * SELECTIVE BLOCKING. The scraper walks newest-first and stops at the post cap,
-    so high-yield queries truncate toward recent years. Measured: 38 of 74 queries
-    saturated the probe cap and 11 of those covered under 3 years. Queries flagged
-    `saturated` in the probe report are split into blocks; the other 36 run as
-    single-window jobs, since blocking a query that already returns everything only
-    adds actor-start fees.
-  * BUDGET_USD_CAP 30 -> 85, now counted cumulatively.
+  * DIAGNOSTIC FRAME. The completed probe covered 90 query-subreddit pairs.
+    Thirty-three pairs saturated the probe threshold and were treated as
+    high-volume queries. The remaining 57 pairs were retained as single-window
+    queries.
+
+  * FULL QUERY FRAME RETAINED. Earlier trimming was considered and rejected on
+    measured grounds. Low-yield queries contributed comparatively little cost,
+    while overlap testing showed that search terms returned substantially
+    distinct post sets. Retaining the full frame therefore preserved unique data.
+
+  * COMMENT CAP. MAX_COMMENTS_PER_POST was reduced from 25 to 15 on
+    3 August 2026 to reduce within-thread concentration and sample more threads.
+    Final crawledAt audit found no observed production/recovery record timestamp
+    earlier than 3 August 2026. Ten files contain records crawled on 3 August
+    itself, so the raw timestamps do not establish whether every same-day crawl
+    occurred before or after the configuration edit.
+
+  * SELECTIVE ANNUAL BLOCKING. The scraper walks newest-first and stops at the
+    post cap, so saturated high-volume queries can truncate toward the end of a
+    long search window. The 33 saturated query pairs therefore use annual blocks.
+    The other 57 query pairs use a single study-window job because blocking an
+    unsaturated query adds actor-start cost without increasing retrieval.
+
+  * C2 SUPPLEMENTARY SAMPLING. Nine January-June supplementary blocks were added
+    for each of the 33 saturated query pairs for complete years 2016-2024.
+    Supplementary blocks use a two-post cap. This adds 297 jobs and reduces the
+    measured within-year sampling-position drift while retaining annual analysis
+    as the intended temporal resolution.
+
+  * CURRENT JOB FRAME. build_jobs() generates 684 current collection jobs.
+
+  * BUDGET. BUDGET_USD_CAP is USD 110.00. Logged collection expenditure in the
+    frozen scrape log is USD 80.25. The cap is a safety ceiling, not a spending
+    target.
 
 Nothing here calls the network. Edit settings here, not in the scripts.
 """

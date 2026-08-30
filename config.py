@@ -69,20 +69,33 @@ STUDY_END = "2025-04-30"
 # WITHIN a year -- if a query has 30 posts in 2020 and the block cap takes the 3
 # newest, they could cluster in Q4 and distort a QUARTERLY series.
 #
-# VERIFIED 3 Aug 2026 by PILOT_BLOCK_TEST (USD 1.12, r/SelfDrivingCars |
-# self-driving, 10 annual blocks). Posts spread across the calendar rather than
-# clustering at year end -- 2016 returned Feb/May/Aug, 2017 Feb/Jun/Nov, 2020
-# Feb/Mar/Apr. Pooled quarterly shares were 37/20/10/33%; chi-square 5.5 against a
-# critical 7.81 at the 5% level, so the departure from uniform is consistent with
-# sampling variation at n=30. Annual blocking is therefore sufficient, and
-# quarterly blocking (~USD 29 in extra actor-start fees) is not required.
+# SUPERSEDED. The 3 Aug 2026 pilot (n=30, r/SelfDrivingCars | self-driving)
+# concluded annual blocking was sufficient: pooled quarterly shares 37/20/10/33%,
+# chi-square 5.5 against a critical 7.81. Its own caveat was that n=30 excludes
+# gross clustering but does not establish uniformity. That caveat was correct and
+# the conclusion was wrong.
 #
-# This also explains the mixed probe evidence: 10 saturated queries spanned 6+
-# years, which is inconsistent with strict newest-first ordering. The scraper
-# appears not to return results in pure reverse-chronological order.
+# FALSIFIED 16 Aug 2026 against 181 collected year-blocked posts across four
+# subreddits: quarterly shares 10/7/15/67, chi-square 176.1. Mean sampling
+# position within the block is 0.77 where uniform would be 0.50 (t = 11.97,
+# p < 0.00001; KS D = 0.430, p < 0.00001). Cause: searchSort = "new" with
+# MAX_POSTS_PER_BLOCK = 3 returns the three NEWEST posts in each block, so the
+# sample lands at the block's end.
 #
-# Caveat: n=30 excludes gross clustering but does not establish uniformity.
-# Re-check the within-year date distribution once the full corpus is collected.
+# WORSE, THE SKEW DRIFTS. Mean within-year position rises from ~0.5-0.8 in
+# 2016-2019 to ~0.88-0.92 in 2022-2025 (slope +0.044/yr, p = 0.0055), because
+# sampling position depends on post density and density trends upward across the
+# study window. The seasonal confound therefore moves in the same direction as the
+# outcome variable and is NOT a constant offset that cancels in a trend test.
+#
+# The earlier note that 10 saturated queries spanned 6+ years is not evidence
+# against newest-first ordering: those ran UNBLOCKED at the single-window cap,
+# where the cap is not binding relative to available volume, so newest-first still
+# reaches back years. Ordering is newest-first in both regimes; only the 3-post cap
+# makes it bite.
+#
+# REMEDIATION: supplementary Jan-Jun blocks, see build_supp_windows(). Annual
+# blocking is retained; quarterly would require re-collecting everything.
 BLOCKING_MODE = "annual"
 
 # ---------------------------------------------------------------------------
@@ -100,6 +113,12 @@ MAX_POSTS_PER_BLOCK = 3       # production, BLOCKED queries (per block). Tuned a
 #                               giving ~29,400 comments for ~USD 71.75 -- on target and
 #                               within cap. At 8 it was 80 posts, MORE than an
 #                               unblocked query would take, projecting USD 109.
+SUPP_BLOCKS_ENABLED = True    # C2: Jan-Jun supplementary blocks, see build_supp_windows
+MAX_POSTS_PER_SUPP_BLOCK = 2  # 2 not 3: the measured defect was DRIFT, not level. A
+#                               June anchor is density-independent so it breaks the
+#                               drift; the residual constant H2/H1 offset cancels in a
+#                               trend test. 3 posts would cost USD 6.17 more for no
+#                               gain in trend validity.
 MAX_COMMENTS_PER_POST = 15    # see header note on thread effects
 MAX_COMMENTS_PER_RUN = 1500   # kill-switch per single run
 
@@ -207,6 +226,38 @@ def build_windows(mode: str | None = None) -> list[tuple[str, str]]:
         raise ValueError(f"BLOCKING_MODE must be annual/quarterly/none, got {mode!r}")
     return out
 
+def build_supp_windows() -> list[tuple[str, str]]:
+    """C2: Jan-Jun supplementary blocks for saturated queries.
+
+    Corrects the measured block-end clustering. With searchSort="new" and a small
+    post cap, each block's sample lands near that block's END, so annual blocks
+    produce a December-heavy sample whose position drifts with post density. A
+    Jan-Jun block anchors a second, density-independent sample point near 30 June.
+
+    Skips any year whose annual block already ends on or before 30 June (2025,
+    since STUDY_END is 2025-04-30) -- that block IS an H1 block.
+    """
+    if not SUPP_BLOCKS_ENABLED:
+        return []
+
+    y0, y1 = int(STUDY_START[:4]), int(STUDY_END[:4])
+    out: list[tuple[str, str]] = []
+
+    for y in range(y0, y1 + 1):
+        start = max(f"{y}-01-01", STUDY_START)
+        end = min(f"{y}-06-30", STUDY_END)
+
+        if start > end:
+            continue
+
+        annual_end = min(f"{y}-12-31", STUDY_END)
+
+        if annual_end <= end:
+            continue
+
+        out.append((start, end))
+
+    return out
 
 def load_saturated() -> set[tuple[str, str]]:
     """(subreddit, term) pairs that hit the probe post cap and therefore need
@@ -226,13 +277,15 @@ def load_saturated() -> set[tuple[str, str]]:
 
 def build_jobs(force_single_window: bool = False) -> list[dict]:
     """One job per (subreddit, term) for unsaturated queries; one per
-    (subreddit, term, block) for saturated ones.
+    (subreddit, term, block) for saturated ones, plus C2 Jan-Jun supplementary
+    blocks for saturated queries.
 
     force_single_window=True is used by the probe, which always measures the whole
-    window in one run regardless of the production blocking scheme.
+    window in one run and never gets supplementary blocks.
     """
     saturated = set() if force_single_window else load_saturated()
     blocks = build_windows()
+    supp = [] if force_single_window else build_supp_windows()
     whole = [(STUDY_START, STUDY_END)]
 
     jobs: list[dict] = []
@@ -241,10 +294,32 @@ def build_jobs(force_single_window: bool = False) -> list[dict]:
             for term in cfg["terms"]:
                 if PILOT_BLOCK_TEST and (sub, term) not in PILOT_BLOCK_TEST:
                     continue
+
                 is_blocked = (sub, term) in saturated
+
                 for start, end in (blocks if is_blocked else whole):
-                    jobs.append({"tier": tier, "subreddit": sub, "term": term,
-                                 "start": start, "end": end, "blocked": is_blocked})
+                    jobs.append({
+                        "tier": tier,
+                        "subreddit": sub,
+                        "term": term,
+                        "start": start,
+                        "end": end,
+                        "blocked": is_blocked,
+                        "supp": False,
+                    })
+
+                if is_blocked:
+                    for start, end in supp:
+                        jobs.append({
+                            "tier": tier,
+                            "subreddit": sub,
+                            "term": term,
+                            "start": start,
+                            "end": end,
+                            "blocked": True,
+                            "supp": True,
+                        })
+
     return jobs
 
 
@@ -288,14 +363,22 @@ def probe_input(job: dict) -> dict:
 
 
 def collect_input(job: dict) -> dict:
-    """Production: posts plus comment threads. Blocked jobs get a smaller per-run
-    post budget, because each such query gets one run per block."""
-    max_posts = MAX_POSTS_PER_BLOCK if job.get("blocked") else COLLECT_MAX_POSTS
+    """Production: posts plus comment threads. C2 supplementary Jan-Jun blocks get
+    a smaller post budget than the main annual blocks."""
+    if job.get("supp"):
+        max_posts = MAX_POSTS_PER_SUPP_BLOCK
+    elif job.get("blocked"):
+        max_posts = MAX_POSTS_PER_BLOCK
+    else:
+        max_posts = COLLECT_MAX_POSTS
+
     run_input = _base_input(job)
-    run_input.update({"crawlCommentsPerPost": True,
-                      "maxPostsCount": max_posts,
-                      "maxCommentsPerPost": MAX_COMMENTS_PER_POST,
-                      "maxCommentsCount": MAX_COMMENTS_PER_RUN})
+    run_input.update({
+        "crawlCommentsPerPost": True,
+        "maxPostsCount": max_posts,
+        "maxCommentsPerPost": MAX_COMMENTS_PER_POST,
+        "maxCommentsCount": MAX_COMMENTS_PER_RUN,
+    })
     return run_input
 
 

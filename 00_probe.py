@@ -57,11 +57,13 @@ def summarise(job: dict, items: list[dict]) -> dict:
     n_found = len(posts)
     saturated = n_found >= cfg.PROBE_MAX_POSTS
 
-    # posts the real collection would fetch
+        # posts the real collection would fetch
     if saturated and cfg.BLOCKING_MODE != "none":
         n_blocks = len(cfg.build_windows())
-        n_collect = cfg.MAX_POSTS_PER_BLOCK * n_blocks
-        n_runs = n_blocks
+        n_supp = len(cfg.build_supp_windows())
+        n_collect = (cfg.MAX_POSTS_PER_BLOCK * n_blocks
+                     + cfg.MAX_POSTS_PER_SUPP_BLOCK * n_supp)
+        n_runs = n_blocks + n_supp
     else:
         n_collect = min(n_found, cfg.COLLECT_MAX_POSTS)
         n_runs = 1

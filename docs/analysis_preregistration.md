@@ -244,3 +244,35 @@ Both filters have now failed once in this corpus, in complementary ways: the aut
 10.7% of retained comments have `authorName` recorded as `[deleted]`. No account list, however complete, can attribute those comments to a named account.
 
 Content-based filtering is therefore not a redundant second check but a necessary complement, because it operates on the one attribute every retained comment still has: the comment text.
+
+---
+
+### Deviation 1 — Stage 1 presentation includes the subreddit label
+
+**Recorded 6 September 2026, against commit 823270e.**
+
+R1 and the annotation protocol specified that Stage 1 relevance be judged on the
+comment text alone. Codebook development established that this is not workable
+for a substantial minority of items: comments that are plainly on-topic within a
+narrow community carry no internal marker of that topic. The subreddit label is
+therefore shown to annotators at Stage 1, with an explicit rule governing when it
+may be used:
+
+- Relevance **may** be inferred from the subreddit for **r/SelfDrivingCars** and
+  **r/waymo**, whose stated scope is autonomous vehicles.
+- For the remaining eight subreddits, relevance **must** be established from the
+  comment text. r/teslamotors, r/cars, r/technology, r/Futurology,
+  r/electricvehicles, r/RealTesla, r/privacy and r/cybersecurity are each broad
+  enough that community membership does not imply CAV content.
+
+Thread title and parent comment remain hidden, so the R2 missing-context trigger
+is unaffected.
+
+**Consequence for RQ4.** The topicality estimate is therefore *comment plus
+community*, not standalone text, and is more permissive than the pre-registered
+estimand. It remains a lower bound on true topicality, since context-dependent
+relevance beyond the community level is still unrecoverable. The lexical proxy
+reported alongside it is unaffected, being computed on text alone.
+
+**Consequence for the model comparison.** Whatever the annotators see, the models
+must see. Subreddit is therefore included in the Stage 1 classifier input.

@@ -1,0 +1,18 @@
+# Tranche 1 draw manifest -- R1, corpus v2.2
+seed                        24916660
+frame_rows                  12166
+frame_membership_sha256     ce85a3b046fedf3648861d446832a364ab89e7b60a0e58f10272b33b1997d7b3
+drawn_rows                  500
+draw_membership_sha256      8b214a961f3419fb14b2fb246b4a8e1cf91d94a05ef0f8d55404ee61594eb15c
+reliability_rows            100
+reliability_sha256          de05504b4c59c8f9c9baa7ee32361626352a9df4041b849e3359a5d03bfef531
+
+# stratum, size, drawn, inclusion probability
+2016-2018      2495  167 0.066934
+2019-2021      3633  167 0.045968
+2022-2025      6038  166 0.027493
+
+# ratings per annotator
+A  235
+B  233
+C  232

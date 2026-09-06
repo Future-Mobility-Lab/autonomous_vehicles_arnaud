@@ -1,5 +1,10 @@
 # Data and outputs — never commit (large files + Reddit usernames / PII)
-data/
+data/*
+!data/frozen/
+data/frozen/*
+!data/frozen/draw_frame_ids.txt
+!data/frozen/excluded_duplicate_text.txt
+!data/frozen/frame_manifest.txt
 outputs/
 *.parquet
 

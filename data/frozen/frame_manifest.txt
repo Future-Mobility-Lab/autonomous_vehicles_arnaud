@@ -1,0 +1,14 @@
+# Annotation draw frame manifest -- corpus v2.2
+corpus_rows                12776
+corpus_membership_sha256   d187adac10d98ccda1f0145713139f008705349ea6e0b4921092b1ad099559d4
+annotatable_pool           12717
+duplicate_rows_dropped     8
+tier3_rows_dropped         543
+draw_frame_rows            12166
+frame_membership_sha256    ce85a3b046fedf3648861d446832a364ab89e7b60a0e58f10272b33b1997d7b3
+temporal_fold_boundary     2021-12-29T21:39:22+00:00
+temporal_split             6083 / 6083
+era_2016_2018              2495
+era_2019_2021              3633
+era_2022_2025              6038
+random_seed                24916660

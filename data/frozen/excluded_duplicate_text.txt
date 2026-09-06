@@ -1,0 +1,10 @@
+# dropped from the annotation draw only; retained in the analysis corpus
+# rule: among rows with identical clean_body, retain the smallest id
+dvs2u4h
+enziq4y
+hor8auq
+hotobpc
+la9c737
+ld9bg9q
+lwpypak
+mnxfknf

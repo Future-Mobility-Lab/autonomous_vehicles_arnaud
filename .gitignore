@@ -8,6 +8,8 @@ data/frozen/*
 !data/frozen/codebook_example_ids.txt
 !data/frozen/tranche1_draw_ids.txt
 !data/frozen/tranche1_manifest.txt
+!data/frozen/calibration_ids.txt
+!data/frozen/calibration_manifest.txt
 outputs/
 *.parquet
 

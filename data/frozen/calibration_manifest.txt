@@ -1,0 +1,11 @@
+# Calibration round manifest -- R2, corpus v2.2
+seed                      24916760
+eligible_pool             11666
+items                     30
+per_era                   10
+membership_sha256         1302336e8ba478d4004fc9bd1d505d68f2d603706084bc36941d4f8c7f6ecbc2
+overlap_tranche1          0
+overlap_codebook          0
+
+# These items are DISCARDED after the calibration round.
+# They do not enter the annotated set and contribute to no estimate.

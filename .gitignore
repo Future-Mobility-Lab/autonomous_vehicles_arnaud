@@ -5,6 +5,7 @@ data/frozen/*
 !data/frozen/draw_frame_ids.txt
 !data/frozen/excluded_duplicate_text.txt
 !data/frozen/frame_manifest.txt
+!data/frozen/codebook_example_ids.txt
 outputs/
 *.parquet
 

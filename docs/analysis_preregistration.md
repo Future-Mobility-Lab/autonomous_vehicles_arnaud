@@ -247,6 +247,14 @@ Content-based filtering is therefore not a redundant second check but a necessar
 
 ---
 
+---
+
+## Deviations
+
+Changes made after the commit containing this pre-registration. Each is dated,
+carries its reason, and states its consequence. Rules R1–R5 above are left as
+originally written.
+
 ### Deviation 1 — Stage 1 presentation includes the subreddit label
 
 **Recorded 6 September 2026, against commit 823270e.**

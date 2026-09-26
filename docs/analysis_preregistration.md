@@ -387,3 +387,17 @@ allow.
 hit rates brings expected final counts closer to parity than allocating on
 predicted counts alone. The boosted tranche still carries no inclusion
 probabilities and is not used for prevalence.
+
+### Deviation 6 — Subsystem labelling retrofit
+
+**Recorded 26 September 2026, against commit 823270e.**
+
+R5 pre-registered subsystem labels on the 100 reliability items only. The tranche 1 production sheets were built without the `subsystem` column, a construction error. The retrofit therefore extends subsystem labelling to every item the annotator marked relevant: 137 for A, 137 for B and 140 for C, comprising 414 judgements over 298 unique items. This extension was forced by the missing column, not chosen after seeing results. Six categories estimated on approximately 57 items cannot support RQ2's ranking claim.
+
+A seventh primary value, `none`, is added for CAV-relevant comments that engage no identifiable subsystem. An optional `subsystem_secondary` field records multi-subsystem engagement while retaining a single primary nominal variable for the pre-registered Krippendorff's alpha.
+
+#### Subsystem reliability fallback pre-commitment
+
+Subsystem Krippendorff's alpha will be computed on the 57 reliability items marked relevant by all three annotators. If subsystem alpha is below 0.6, RQ2 will collapse the subsystem categories to three groups: perception (`sensing` + `in_vehicle_networks`), connectivity (`v2x` + `cybersecurity`), and data (`privacy` + `data_governance`). RQ2 will then be reported at that three-group level, with the six-way subsystem distribution retained as descriptive only.
+
+This fallback rule is fixed before any subsystem labels are returned by the annotators. Its commit timestamp is the evidence that the rule was pre-committed before the subsystem reliability result was known.

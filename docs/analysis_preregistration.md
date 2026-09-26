@@ -284,3 +284,106 @@ reported alongside it is unaffected, being computed on text alone.
 
 **Consequence for the model comparison.** Whatever the annotators see, the models
 must see. Subreddit is therefore included in the Stage 1 classifier input.
+
+### Deviation 2 — Adjudication rule for the reliability subset
+
+**Recorded 26 September 2026, against commit 823270e.**
+
+R1 and the codebook fix a 200-item reliability subset rated by all three
+annotators, and R5 stratifies folds on the Stage 2 gold class, but none of the
+pre-registration, the codebook or the calibration instructions states how the
+gold label is formed from three ratings. The rule applied is recorded here, on
+26 September 2026, after tranche 1 annotation was complete and before any
+tranche 1 agreement statistic was computed.
+
+- The gold label is the majority of the three ratings.
+- A three-way split is resolved by the author, who is also annotator A, and the
+  item is flagged as adjudicated.
+- Where two annotators code Stage 1 = Y with different Stage 2 classes and the
+  third codes N, the Stage 1 majority (relevant) stands and the author chooses
+  only between the two Stage 2 classes given. The item is flagged as
+  adjudicated.
+
+The raw-majority set and the adjudicated gold set are both reported, with every
+adjudicated item listed.
+
+**Consequence.** The author's own label is among those in disagreement on any
+adjudicated item. Keeping every majority binding, and listing each adjudicated
+item, limits that influence and makes it visible.
+
+### Deviation 3 — Methods specified for the tranche 1 analyses
+
+**Recorded 26 September 2026, against commit 823270e.**
+
+Three details that R1–R5 leave open were specified on 26 September 2026, before
+the corresponding results were computed.
+
+- **Disagreement concentration.** `calibration_instructions.md` states in
+  advance, from the reference study, that disagreement is expected to
+  concentrate at the CONCERN/OTHER boundary rather than between CONCERN and
+  ENDORSEMENT. The expectation is also assessed on the tranche 1 reliability
+  items. The headline measure is the raw count of disagreeing annotator pairs
+  at Stage 2, by class pair. Observed versus chance-expected coincidences are
+  reported alongside; if the two point different ways, both are reported and
+  the difference is stated.
+- **Intervals for weighted prevalence.** 95% intervals are logit-transformed,
+  from the era-stratified design variance with finite population correction.
+  Class shares among relevant items are treated as ratio (domain) estimates.
+- **RQ4 era comparison.** Besides direction and interval overlap, the 95%
+  interval for the difference in relevance rate, 2022–2025 minus 2016–2018, is
+  reported. The eras are sampled independently.
+
+**Consequence.** No estimand or decision rule changes. The expectation stated
+for the calibration round is extended to the production reliability items, and
+reporting the difference interval offers no mechanism, consistent with the
+relevance-rate pre-commitment in R5.
+
+### Deviation 4 — Additional exploratory analyses
+
+**Recorded 26 September 2026, against commit 823270e.**
+
+Three analyses are added. Each is reported as exploratory, alongside the
+primary figures and never in place of them.
+
+- **Encoding sensitivity.** Annotator C's workbook displayed every non-ASCII
+  character mis-decoded (see `docs/decision_register.md`). Stage 1 and Stage 2
+  α are also computed on the 76 reliability items whose text was unaffected.
+  Specified before any agreement statistic was computed.
+- **Bootstrap intervals for α.** A 95% percentile interval for each tranche 1 α
+  (Stage 1, Stage 2 and the three one-vs-rest), from 10,000 item-level
+  bootstrap resamples of the 100 reliability items, all five computed on the
+  same resamples with seed 24916660, together with the share of resamples below
+  0.7, the R2 calibration threshold. Specified after the point estimates were
+  seen and before any interval was computed, because Stage 2 α (0.739) exceeds
+  0.7 by 0.04 on 59 items.
+- **Annotator sensitivity for the class distribution.** Alongside the weighted
+  class distribution, the distribution is estimated separately from each
+  annotator's full sheet (the 100 reliability items plus that annotator's own
+  items), with era weights recomputed for each sheet. Specified after the
+  agreement results showed C coding OTHER 22 times on the shared items against
+  11 each for A and B, and before any prevalence estimate was computed. It
+  assumes assignment to annotators was random within era.
+
+**Consequence.** No primary figure changes. The additions are reported as
+exploratory, in line with Family C in R5.
+
+### Deviation 5 — Tranche 2 allocation set from pre-filter hit rates
+
+**Recorded 26 September 2026, against commit 823270e.**
+
+R1 sets the tranche 2 per-class allocation after tranche 1, on BART-MNLI
+predicted class, with the objective of equalising final class counts, and
+anticipates that realised counts fall below allocated counts by the
+pre-filter's precision. R1 does not say how the allocation is computed.
+
+It is computed as follows. BART-MNLI, with the same model and hypothesis
+templates that will screen the draw frame, is run on the 500 tranche 1 items.
+For each targeted class, the share of targeted items that turn out relevant
+and in that class is estimated against the tranche 1 labels. The allocation is
+then chosen so that expected final counts are as close to equal as those rates
+allow.
+
+**Consequence.** The pre-filter and the objective are unchanged. Using measured
+hit rates brings expected final counts closer to parity than allocating on
+predicted counts alone. The boosted tranche still carries no inclusion
+probabilities and is not used for prevalence.

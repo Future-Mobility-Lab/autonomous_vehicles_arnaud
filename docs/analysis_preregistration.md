@@ -401,3 +401,30 @@ A seventh primary value, `none`, is added for CAV-relevant comments that engage 
 Subsystem Krippendorff's alpha will be computed on the 57 reliability items marked relevant by all three annotators. If subsystem alpha is below 0.6, RQ2 will collapse the subsystem categories to three groups: perception (`sensing` + `in_vehicle_networks`), connectivity (`v2x` + `cybersecurity`), and data (`privacy` + `data_governance`). RQ2 will then be reported at that three-group level, with the six-way subsystem distribution retained as descriptive only.
 
 This fallback rule is fixed before any subsystem labels are returned by the annotators. Its commit timestamp is the evidence that the rule was pre-committed before the subsystem reliability result was known.
+
+
+### Deviation 7 — Gold rule extended to subsystem labels
+
+**Specified 30 September 2026, against commit 823270e. Committed after that
+date; the commit date is in the repository history.**
+
+Deviation 2 fixes how gold Stage 1 and Stage 2 labels are formed from three
+ratings. No committed document fixes the same for the primary subsystem label
+collected in the subsystem retrofit. The Deviation 2 rule is extended to it,
+before any subsystem share is computed:
+
+- The gold primary subsystem of a reliability item is the majority of the
+  primary labels given by the annotators who coded the item as relevant.
+- A three-way split, or a one-to-one split between two labels, is resolved by
+  the author, who is also annotator A, and the item is flagged as adjudicated.
+- Only items that are relevant in the gold set take a gold subsystem label.
+  Singly-rated items keep their single label.
+- Secondary labels take no gold value and are reported descriptively.
+
+In tranche 1, all 59 reliability items with two or more subsystem labels
+resolve by majority: 53 are unanimous and six split two to one. None is
+adjudicated.
+
+**Consequence.** Subsystem shares use one label per item, formed in the same
+way as the Stage 1 and Stage 2 labels. The author's influence is limited to one
+vote on each reliability item.

@@ -115,3 +115,11 @@ validation output on 30 September 2026, between 22:00 and 22:10 AEST.
 - Commit the Rule 2 specification and the subsystem gold rule before any
   subsystem share is computed.
 - Correct R4 §7.14 from 54 to 56 mis-decoded comments at Rev 5.
+
+### Rules recorded before any subsystem share was computed
+
+Deviation 7 extends the Deviation 2 gold rule to subsystem labels. D28 Rule 2 is
+specified in R4 (D28, Rule 2 specification, 30 September 2026): design-weighted
+π_s among CONCERN comments with the Deviation 3 interval, V2X and `none`
+excluded, first place only. This resolves the first Pending item of this
+section.

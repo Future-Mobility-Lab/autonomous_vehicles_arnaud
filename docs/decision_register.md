@@ -64,3 +64,54 @@ codebook's quick-reference card directs.
   annotated the garbled text.
 - BART-MNLI scores for the 500 tranche 1 items (Deviation 5).
 - Confirm that assignment to annotators was random within era (Deviation 4).
+
+## 30 September 2026 — Subsystem retrofit returned; D28 applied
+
+### Inputs
+
+    tranche1_subsystem_A_filled.xlsx  SHA-256 bec8eec480569df8d957df2fb048fc887095a477a732fbf9f6c811d2699c6f6b
+    tranche1_subsystem_B_filled.xlsx  SHA-256 b14d11bb09ae4a47af95d5c8513313c391324c9787af718a5a79a1667742ba8c
+    tranche1_subsystem_C_filled.xlsx  SHA-256 f466866e741e605503b449a812768e049a753e95eaec9b9ac1609fd946bb19ff
+
+Last saved (workbook metadata, AEST): A 27 September 2026 18:11; B 30 September
+2026 19:28; C 30 September 2026 20:48. D28 was committed at [hash] on
+[date and time].
+
+### Integrity checks
+
+Each sheet holds exactly its annotator's Stage 1 = Y items (137 / 137 / 140),
+in original row order with original row numbers, and with Stage 2 classes
+unchanged. Every primary label is one of the seven permitted values and none is
+blank. Every secondary label is one of the six subsystems, never repeats the
+primary and never accompanies `none`.
+
+### D28 applied
+
+Subsystem α (nominal, primary label, seven values): 0.868 on the 59 reliability
+items with two or more labels (175 pairable values); 0.867 on the 57 items
+labelled by all three annotators. Both reproduced exactly by the krippendorff
+package (0.8.2). 53 of the 59 items are unanimous; the other six are two-to-one
+splits, with no three-way splits or ties. Five of the seven categories occur in
+the reliability items. Computed outside the repository as a preview; the figure
+of record comes from the committed pipeline.
+
+Rule 1 (α < 0.6) does not fire. Rule 2's α condition (α ≥ 0.7) is met. Its
+interval condition has not been evaluated; the specification it needs is to be
+committed before any subsystem share is computed.
+
+### Update to the 26 September encoding incident
+
+The retrofit sheet for annotator C repaired 54 of the 56 mis-decoded comments.
+`l9l1aj9` and `fokovyn` were still mis-decoded, so C assigned their subsystem
+labels from garbled text (one emoji and one apostrophe affected).
+
+### Label counts displayed
+
+Per-annotator subsystem label counts appeared in the analysis session's
+validation output on 30 September 2026, between 22:00 and 22:10 AEST.
+
+### Pending
+
+- Commit the Rule 2 specification and the subsystem gold rule before any
+  subsystem share is computed.
+- Correct R4 §7.14 from 54 to 56 mis-decoded comments at Rev 5.

@@ -1,0 +1,1162 @@
+TY  - JOUR
+TI  - MADDPG Based Distributed Multirequest Pricing Mechanisms for Sensing Tasks
+T2  - IEEE Transactions on Human-Machine Systems
+SP  - 569
+EP  - 578
+AU  - J. Sun
+AU  - D. Wu
+PY  - 2025
+KW  - Mobile computing
+KW  - Sensors
+KW  - Pricing
+KW  - Medical services
+KW  - Games
+KW  - Labeling
+KW  - Crowdsensing
+KW  - Human computer interaction
+KW  - Nash equilibrium
+KW  - MADDPG
+KW  - multirequest mobile crowdsensing (MCS)
+KW  - multirequest pricing
+KW  - semi-distributed and distributed multiple requests
+KW  - uncertain demands
+DO  - 10.1109/THMS.2025.3580554
+JO  - IEEE Transactions on Human-Machine Systems
+IS  - 4
+SN  - 2168-2305
+VO  - 55
+VL  - 55
+JA  - IEEE Transactions on Human-Machine Systems
+Y1  - Aug. 2025
+AB  - Recently, mobile crowdsensing (MCS) has received widespread attention due to various application demands, such as home chronic rehabilitation via Internet, emergency rescues, and smart cities, where more than one requester (convalescents) need to recruit mobile users simultaneously (doctors) equipped with different sensors to fulfil the tasks, such as labeling, sensing, and diagnosis. However, most of existing MCS works focus on only one requester, and demands of all of mobile requesters (convalescents) are uncertain. Therefore, this article proposed semi-distributed and distributed multirequest pricing mechanisms for multirequest MCS on the basis of MADDPG, and laid theoretical foundations for home chronic rehabilitation via Internet. Extensive simulations demonstrate that our mechanisms outweigh existing benchmarks.
+ER  - 
+
+TY  - CONF
+TI  - Railway Network Evolution Why it is urgent to wait for 5G?
+T2  - 2019 IEEE 2nd 5G World Forum (5GWF)
+SP  - 1
+EP  - 6
+AU  - T. Pierre
+AU  - G. Christophe
+PY  - 2019
+KW  - 5G mobile communication
+KW  - Wireless networks
+KW  - 3G mobile communication
+KW  - Ultra reliable low latency communication
+KW  - Throughput
+KW  - Rail transportation
+KW  - Public security
+KW  - 3GPP
+KW  - Standards
+KW  - Vehicle-to-everything
+KW  - 5G-NR
+KW  - FRMCS
+KW  - MCX
+KW  - Beamforming
+KW  - Massive MIMO
+KW  - uRLLC
+DO  - 10.1109/5GWF.2019.8911656
+JO  - 2019 IEEE 2nd 5G World Forum (5GWF)
+IS  - 
+SN  - 
+VO  - 
+VL  - 
+JA  - 2019 IEEE 2nd 5G World Forum (5GWF)
+Y1  - 30 Sept.-2 Oct. 2019
+AB  - The 3GPP 5G standard is almost ready. If its first phase, completed in 2018, allows this standard to claim its 5G status, it will become totally standardized after the second round of standardization completed at the end of 2019. The 5G standard is aimed at three service areas: communication between users using their smartphones (eMBB), communication between machines (mMTC) and also critical communication requiring simultaneously reliability and reduced latency (uRLLC). Of course, these three kind of communication can be managed independently from each other. But the vehicular domain (connected cars or railway scenarios) could be the place where these three forms of communication would be strongly coupled. This paper highlights which 5G features could be deployed in the railway domain and why this unified 5G would be a more judicious choice than a 4G or any other similar standard.
+ER  - 
+
+TY  - JOUR
+TI  - Action Prediction Based on Partial Video Observation via Context and Temporal Sequential Network With Deformable Convolution
+T2  - IEEE Access
+SP  - 133527
+EP  - 133540
+AU  - K. Cheng
+AU  - E. K. Lubamba
+AU  - Q. Liu
+PY  - 2020
+KW  - Deformable models
+KW  - Computational modeling
+KW  - Context modeling
+KW  - Predictive models
+KW  - Feature extraction
+KW  - Data models
+KW  - Convolution
+KW  - Background subtraction
+KW  - deformable convolution
+KW  - sequential recurrent network
+KW  - action classification
+KW  - action prediction
+DO  - 10.1109/ACCESS.2020.3008848
+JO  - IEEE Access
+IS  - 
+SN  - 2169-3536
+VO  - 8
+VL  - 8
+JA  - IEEE Access
+Y1  - 2020
+AB  - Predicting activity motion form video is of great importance with multiple applications in computer vision. From the self-driving cars field to the health system, the earlier the anticipation the higher the classification probability success. The main challenge of prediction is accurate information of the object of interest in the frame as compared to the full-frame, from the partial observation. To this end, we propose an end-to-end two-stage architecture model that leverages pixel-level features awareness of spatiotemporal information of the object of interest. The first stage of our model is a classification block composed of 3 blocks layers: a background subtraction layer that enables the model to focus on the subject of interest followed by Deformable Convolution layers for feature extraction and finally an additive Softmax for the final classification. Learned information from the first stage is then transferred to the second stage composed of Long Short-Term Memory layers and a final loss function for prediction. The pervasive evaluation on the UT-Interaction, the HMDB51 as well as on the UCF-Sports benchmarks show the betterment of our model performance over threshold probability difference as compared to other solutions. And demonstrate an early action prediction at a lower observation ratio.
+ER  - 
+
+TY  - JOUR
+TI  - Edge-Federated Learning-Based Intelligent Intrusion Detection System for Heterogeneous Internet of Things
+T2  - IEEE Access
+SP  - 81736
+EP  - 81757
+AU  - S. S. Mahadik
+AU  - P. M. Pawar
+AU  - R. Muthalagu
+PY  - 2024
+KW  - Data models
+KW  - Training
+KW  - Security
+KW  - Computer crime
+KW  - Data privacy
+KW  - Performance evaluation
+KW  - Denial-of-service attack
+KW  - Heterogeneous networks
+KW  - Internet of Things
+KW  - Edge computing
+KW  - Heterogeneous IoT
+KW  - distributed denial of service (DDoS)
+KW  - federated learning (FL)
+KW  - independent and identically distributed (IID)
+KW  - non-IID
+KW  - edge computing (EC)
+DO  - 10.1109/ACCESS.2024.3410046
+JO  - IEEE Access
+IS  - 
+SN  - 2169-3536
+VO  - 12
+VL  - 12
+JA  - IEEE Access
+Y1  - 2024
+AB  - Distributed denial of service (DDoS) is an awful cyber threat, becoming more prevalent with mature heterogeneous IoT (HetIoT) applications like intelligent agriculture, wearables, and self-driving cars. Developing intelligent intrusion detection systems (IDS) using deep learning (DL) techniques to protect HetIoT has sparked a lot of attention. Federated learning (FL) helps to train the IDS locally with local data while respecting data privacy. Edge computing (EC) enhances security by processing data closer to the edge network. Therefore, the research contributed by integrating EC, FL, and DL and the proposed Edge-FL-based IDS. The proposed Edge-FL-based IDS aims to enhance HetIoT security by safeguarding data privacy against DDoS attacks. The research developed a DL-based convolutional neural network (CNN) classifier and used the CICDDoS2019 dataset to evaluate the success rate of the proposed Edge-FL-based IDS against DDoS attacks. The research employed IID and non-IID data distributions with participant clients K =3, K =5, and K =7. The findings indicate that the proposed Edge-FL-based IDS outperforms centralized and other state-of-the-art FL models. The proposed Edge-FL-based IDS correctly detects and classifies DDoS attacks with the following accuracy: (a) 8-class IID: K =3 is 99.98%, K =5 is 99.97%, K =7 is 99.96%. (b) 8-class non-IID: K =3 is 99.97%, K =5 is 99.94%, K =7 is 99.90%. (c) 12-class IID: K =3 is 99.96%, K =5 is 99.96%, K =7 is 99.95%. (d)12-class non-IID: K =3 is 99.07%, K =5 is 96.44%, K =7 is 52.39%.
+ER  - 
+
+TY  - CONF
+TI  - Innovative Object Detection with YOLOv4 and Adaptive Bounding Boxes
+T2  - 2025 4th International Conference on Sentiment Analysis and Deep Learning (ICSADL)
+SP  - 885
+EP  - 891
+AU  - S. M
+AU  - S. Mahapatra
+AU  - S. Jhansi
+PY  - 2025
+KW  - Location awareness
+KW  - Visualization
+KW  - Accuracy
+KW  - Filters
+KW  - Shape
+KW  - Surveillance
+KW  - Object detection
+KW  - Detectors
+KW  - Load modeling
+KW  - Biomedical imaging
+KW  - Object detection
+KW  - yolov4
+KW  - OpentCV
+KW  - State-of-art
+DO  - 10.1109/ICSADL65848.2025.10933169
+JO  - 2025 4th International Conference on Sentiment Analysis and Deep Learning (ICSADL)
+IS  - 
+SN  - 
+VO  - 
+VL  - 
+JA  - 2025 4th International Conference on Sentiment Analysis and Deep Learning (ICSADL)
+Y1  - 18-20 Feb. 2025
+AB  - This research work proposes a computer vision-based object detection system. It can recognize each and every object visible in the picture. Horizontal boundary boxes were used to detect different objects available in the detectors. However, buildings and cars in the aerial imagery are occasionally very close to form continuous objects that may suggest a direction. Therefore, some approaches such as extending the horizontal bounding box to oriented box are proposed for a better object extraction; usually via directly regressing the angle or corners. Here we propose an orientation object detector which is simple but more accurate, and it is based on YOLOv4. Here yolov4 is used to detect objects yolo can able to find more than one object in a single image. The paper will contain specific implementation methodology for yolov4 with OpenCV, which includes model configuration settings, preprocessing steps and evaluation matrices such as mean average precision (map), recall and the precision. The object detection problem has transformed into a key problem in computer vision and has enabled improvements in areas including self-driving cars, medical systems, and even surveillance systems. In this paper, we present a new object detection system based on YOLOv4 which stands for ‘You Only Look Once’ version four and uses adaptive bounding boxes. The CSPDarknet-53 and spatial pyramid pooling (SPP) are the main reasons for YOLOv4's immense popularity, as is discussed in the literature. But with the constant changes of the bounding boxes, performance accuracy suffers greatly as they have a difficult time identifying the objects bounding boxes are placed within. To counter this problem, we present an explainable adaptive bounding box technique which relies heavily on the size shape and features of the context of the object being captured. The learnable bounding box adjustment layer which serves to refine the localized bounding boxes is integrated into the head of YOLOv4, where putting the primitive guesses goes through our specialized deep neural network so filters are set and only the most accurate localization guesses are retained. This method proves useful in more complicated scenarios with the presence of occlusions, multiple objects and changes in scale.
+ER  - 
+
+TY  - CONF
+TI  - Enhanced Antlion optimization based resource allocation in vehicular cloud environment
+T2  - 2023 International Conference on Integrated Intelligence and Communication Systems (ICIICS)
+SP  - 1
+EP  - 5
+AU  - V. Jayasudha
+AU  - S. Nazrin Salma
+AU  - V. Saravanan
+AU  - M. Nivedha
+AU  - G. Vinuja
+PY  - 2023
+KW  - Cloud computing
+KW  - Simulation
+KW  - Optimization methods
+KW  - Real-time systems
+KW  - Resource management
+KW  - Security
+KW  - Sustainable development
+KW  - Resource allocation
+KW  - Vehicular cloud computing
+KW  - Ant lion optimization
+KW  - Bio inspired algorithms
+DO  - 10.1109/ICIICS59993.2023.10421066
+JO  - 2023 International Conference on Integrated Intelligence and Communication Systems (ICIICS)
+IS  - 
+SN  - 
+VO  - 
+VL  - 
+JA  - 2023 International Conference on Integrated Intelligence and Communication Systems (ICIICS)
+Y1  - 24-25 Nov. 2023
+AB  - There exists several complications with contemporary modes of transport in terms of security, accessibility, sustainability, and limitations in space. Vehicular networks are frequently seen as a viable strategy for enhancing ease and happiness in commuting. However, guaranteeing the optimal use of resources and addressing the rising needs continue to be difficult given the soaring popularity of vehicle users and the expanding diversity of requests for different services. By improving resource allocation from the perspectives of both suppliers and clients, the gaps in the prior research is closed and concentrate on resource allocation in vehicular cloud computing (VCC). The goal of our multi-objective optimisation approach for this issue is to increase levels of acceptance while conserving service supplier expenses. By adjusting the initial sample size in accordance with the pairing variable, unique overlap likelihood to favour exceptional members and increase demographic variation, we develop the Enhanced Ant lion optimization to handle such issues. The simulation results demonstrate that our suggested strategy outperforms the earlier methods in terms of performance.
+ER  - 
+
+TY  - CONF
+TI  - Implementing Machine Learning for AI-Powered Solutions in Robotics, Computer Vision, and Natural Language Processing
+T2  - 2025 Global Conference in Emerging Technology (GINOTECH)
+SP  - 1
+EP  - 6
+AU  - V. R. Kasu
+AU  - B. K. Malamuthu
+AU  - B. S. Kumar
+AU  - V. S. Pandi
+AU  - E. Sivajothi
+AU  - D. S. Deepika
+PY  - 2025
+KW  - Computer vision
+KW  - Sentiment analysis
+KW  - Service robots
+KW  - Computational modeling
+KW  - Scalability
+KW  - Computer architecture
+KW  - Reinforcement learning
+KW  - Transformers
+KW  - Real-time systems
+KW  - Data models
+KW  - Natural Language Processing (NLP)
+KW  - Computer Vision
+KW  - Convolutional Neural Networks (CNNs)
+KW  - Reinforcement Learning (RL)
+KW  - Transformer Models
+KW  - Human-Robot Interaction (HRI)
+KW  - Autonomous Systems
+KW  - Vision Transformers (ViTs)
+DO  - 10.1109/GINOTECH63460.2025.11077035
+JO  - 2025 Global Conference in Emerging Technology (GINOTECH)
+IS  - 
+SN  - 
+VO  - 
+VL  - 
+JA  - 2025 Global Conference in Emerging Technology (GINOTECH)
+Y1  - 9-11 May 2025
+AB  - Machine Learning (ML) is a relatively recent development that has had a profound impact on Robotics, Computer Vision (CV) and Natural Language Processing (NLP) by allowing automation of intelligent processing, perception and human-computer interaction. ML-driven AI solutions are crucial in these areas for real-time decision-making, pattern recognition, and autonomous operations; traditional rule-based methods tend to lack the adaptability and scalability to meet the demands of these fields. RL and deep learning have increasingly contributed to the improvement of robotic perception, motion planning, and manipulation in robotics, enabling better and more adaptive autonomous systems. Convolutional neural networks (CNNs) and transformer-based architectures have revolutionized computer vision, with applications ranging from object detection and image segmentation to facial recognition, allowing for advanced visual analysis across sectors such as healthcare, security, and self-driving cars. In NLP, the introduction of transformers like BERT and GPT has transformed the space by enabling more context-aware and human-like AI-driven language models, leading to drastic improvements in areas like speech recognition, sentiment analysis, and machine translation. This study delves into the application of ML techniques across these domains, evaluating the implications on efficiency, accuracy, and scalability along with challenges like data quality, model interpretability, and computational constraints. DQN has made advances for robotics, ViT in the domain of computer vision, and LLMs in the subject of NLU. A comparative study to analyse the progress and limitations of such state-of-the-art ML models. The results highlight the promise of multi-modal AI systems, where machine learning algorithms work in conjunction to improve robotic navigation, as well as visual perception and natural language understanding. Extending prior studies of intelligent automation, this research points the way to the development of new adaptive, human-centric, and autonomous AI innovations in diverse sectors.
+ER  - 
+
+TY  - CONF
+TI  - Summarizing Graphs at Multiple Scales: New Trends
+T2  - 2018 IEEE International Conference on Data Mining (ICDM)
+SP  - 1097
+EP  - 1097
+AU  - D. Koutra
+AU  - J. Vreeken
+AU  - F. Bonchi
+PY  - 2018
+KW  - Tutorials
+KW  - Data mining
+KW  - Conferences
+KW  - Market research
+KW  - Computer science
+KW  - Information security
+KW  - Social network services
+KW  - network summarization
+KW  - node group level
+KW  - network level
+KW  - multi network level
+KW  - large scale data
+KW  - graph summaries
+DO  - 10.1109/ICDM.2018.00141
+JO  - 2018 IEEE International Conference on Data Mining (ICDM)
+IS  - 
+SN  - 2374-8486
+VO  - 
+VL  - 
+JA  - 2018 IEEE International Conference on Data Mining (ICDM)
+Y1  - 17-20 Nov. 2018
+AB  - Recent advances in computing resources have made it possible to collect enormous amounts of interconnected data, such as social media interactions, web activity, knowledge bases, product and service purchases, autonomous vehicle routing, smart home sensor data, and more. The massive scale and complexity of this data, however, not only vastly surpasses human processing power, but also goes beyond limitations with regard to computation and storage. That is, there is an urgent need for methods and tools that summarize large interconnected data to enable faster computations, storage reduction, interactive large-scale visualization and understanding, and pattern discovery. Network summarization-which aims to find a small representation of an original, larger graph-features a variety of methods with different goals and for different input data representations (e.g., attributed graphs, time-evolving or streaming graphs, heterogeneous graphs). The objective of this tutorial is to give a systematic overview of methods for summarizing and explaining graphs at different scales: the node-group level, the network level, and the multi-network level. We emphasize the current challenges, present real-world applications, and highlight the open research problems in this vibrant research area.
+ER  - 
+
+TY  - CONF
+TI  - Object Identification Using Generative AI: An Application of Computer Vision
+T2  - 2024 IEEE 3rd World Conference on Applied Intelligence and Computing (AIC)
+SP  - 1022
+EP  - 1027
+AU  - S. Barik
+AU  - M. Behera
+AU  - P. Kumari
+AU  - S. S. Mohapatra
+AU  - T. Behera
+PY  - 2024
+KW  - YOLO
+KW  - Visualization
+KW  - Accuracy
+KW  - Pedestrians
+KW  - Generative AI
+KW  - Social networking (online)
+KW  - Detectors
+KW  - Pressing
+KW  - Streaming media
+KW  - Object recognition
+KW  - Computer vision
+KW  - Detection
+KW  - Image processing
+KW  - YOLO
+KW  - RCNN
+KW  - Generative AI
+DO  - 10.1109/AIC61668.2024.10731027
+JO  - 2024 IEEE 3rd World Conference on Applied Intelligence and Computing (AIC)
+IS  - 
+SN  - 
+VO  - 
+VL  - 
+JA  - 2024 IEEE 3rd World Conference on Applied Intelligence and Computing (AIC)
+Y1  - 27-28 July 2024
+AB  - The exponential growth of image data in recent years, driven by the widespread adoption of digital photography and the proliferation of social media platforms, presents a pressing challenge: how to efficiently identify objects within this vast sea of visual information. Traditional methods of object identification often struggle to cope with the scale and complexity of modern image datasets. Generative AI, a subset of machine learning, focuses on creating models that can generate data resembling real examples from a given domain. The most prominent approaches within Generative AI which are Variational Autoencoders and Generative Adversarial Networks have shown remarkable capabilities in generating images which are realistic and capturing complex data distributions, making them promising candidates for improving object identification tasks. Object detection has undergone significant evolution in algorithms, aiming to enhance both accuracy and speed. Thanks to the relentless numerous researcher’s effort, deep learning algorithms have swiftly advanced, resulting in improved object detection capabilities. These advancements find widespread application in various domains such as medical imaging, pedestrian detection, self-driving cars, and face detection, robotics among others, thereby streamlining tasks previously reliant on human effort. Given the expansive nature of the field and the plethora of state-of-the-art algorithms, comprehensively covering them all at once proves to be a daunting endeavor. This paper seeks to provide a foundational overview on the methodologies of object detection, focusing on the detection stages. In the realm of two-stage detectors, algorithms like RCNN, Fast RCNN, and Faster RCNN are explored, prioritizing accuracy. Conversely, one-stage detectors such as YOLO versions emphasize speed.
+ER  - 
+
+TY  - CONF
+TI  - Convolutional Neural Network Model for Traffic Sign Recognition
+T2  - 2023 3rd International Conference on Advance Computing and Innovative Technologies in Engineering (ICACITE)
+SP  - 120
+EP  - 125
+AU  - B. Narendra Kumar Rao
+AU  - R. Ranjana
+AU  - N. Panini Challa
+AU  - S. Sreenivasa Chakravarthi
+PY  - 2023
+KW  - Sentiment analysis
+KW  - Roads
+KW  - Surveillance
+KW  - Neural networks
+KW  - Traffic control
+KW  - Streaming media
+KW  - Real-time systems
+KW  - Convolutional Neural Network
+KW  - Traffic Sign Recognition
+KW  - Computer Vision
+DO  - 10.1109/ICACITE57410.2023.10182966
+JO  - 2023 3rd International Conference on Advance Computing and Innovative Technologies in Engineering (ICACITE)
+IS  - 
+SN  - 
+VO  - 
+VL  - 
+JA  - 2023 3rd International Conference on Advance Computing and Innovative Technologies in Engineering (ICACITE)
+Y1  - 12-13 May 2023
+AB  - Despite the fact that traffic sign segmentation has been publicized for a long time, the majority of past research has centered on traffic signs using graphics. This study aims to propose method for evaluating all sorts of traffic signals based on observations, including in surveillance video streams captured by a vehicle camera, both icon and word signs. Extraction of traffic sign areas of interest (ROIs), exploration and sentiment analysis of ROIs, and post-processing are the three steps of the system. To identify the Regions of interest from each shot of road markings, the most stable fractal dimension regions on grey and calibrated RGB channels are employed. The researchers suggest a multi-convolutional neural network that was trained using a large quantity of data, including fake road markings and pictures extracted from real-time scenarios, Then it refines and emphasizes them based on the most recent their descriptions. Finally, post-processing gathers all of the investors when making an isolating pronouncement. The utility of the suggested technology has been shown through experimental data. This effort aims to improve highest level of quality by flashing drivers about hazards and risks.
+ER  - 
+
+TY  - JOUR
+TI  - Dynamic Pricing Models in E-Commerce: Exploring Machine Learning Techniques to Balance Profitability and Customer Satisfaction
+T2  - IEEE Access
+SP  - 72994
+EP  - 73002
+AU  - X. Guo
+AU  - L. Zhang
+PY  - 2025
+KW  - Pricing
+KW  - Electronic commerce
+KW  - Business
+KW  - Optimization
+KW  - Data models
+KW  - Profitability
+KW  - Long short term memory
+KW  - Predictive models
+KW  - Adaptation models
+KW  - Machine learning
+KW  - Dynamic pricing
+KW  - E-commerce
+KW  - long short-term memory (LSTM)
+KW  - recurrent neural networks (RNNs)
+KW  - gradient-based optimization
+KW  - profitability
+KW  - customer satisfaction
+KW  - sequential data
+KW  - stochastic gradient descent (SGD)
+KW  - machine learning
+DO  - 10.1109/ACCESS.2025.3563371
+JO  - IEEE Access
+IS  - 
+SN  - 2169-3536
+VO  - 13
+VL  - 13
+JA  - IEEE Access
+Y1  - 2025
+AB  - This research investigates the application of Recurrent Neural Networks (RNNs), specifically Long Short-Term Memory (LSTM) networks, paired with gradient-based optimization techniques for dynamic pricing in e-commerce. The primary objective is to develop a pricing model that effectively balances profitability with customer satisfaction by leveraging sequential data, such as time-series and customer behavior patterns. The approach utilizes LSTM’s ability to capture long-term dependencies in sequential data, while optimization methods like Stochastic Gradient Descent (SGD) enhance model convergence and performance. Key findings include the superior predictive accuracy of LSTM-based models over traditional approaches like Linear Regression and Decision Trees, particularly in real-time data updates and price elasticity scenarios. Additionally, the analysis revealed that LSTM models could efficiently adapt pricing strategies in response to market dynamics, significantly improving profitability while maintaining customer satisfaction. This study provides valuable insights into the application of advanced machine learning techniques in e-commerce pricing. The results suggest that LSTM-based dynamic pricing models could optimize revenue generation, offering substantial implications for pricing strategy development in modern retail environments. Future work may explore hybrid models and multi-objective optimization techniques to further refine these models.
+ER  - 
+
+TY  - CONF
+TI  - Digital Leadership in The Era of AI: Dynamic Facial Authentication
+T2  - 2025 International Conference on Computational Engineering, Sensing Technology and Management (ICCETM)
+SP  - 1
+EP  - 6
+AU  - A. Shrivastava
+AU  - R. Praveen
+AU  - R. H. C. Alfilh
+AU  - Y. Kumar
+AU  - P. William
+AU  - A. Chaudhary
+PY  - 2025
+KW  - Faces
+KW  - Authentication
+KW  - Machining
+KW  - Accuracy
+KW  - Printing
+KW  - Face recognition
+KW  - Lighting
+KW  - Error analysis
+KW  - Machine learning
+KW  - Technology
+KW  - Dynamic Facial Authentication
+KW  - MachineHuman Interaction
+KW  - Biometric Security
+KW  - Machine Learning
+KW  - CNN
+KW  - RNN
+KW  - User Experience
+KW  - Adaptive Algorithms
+KW  - Facial Expressions
+DO  - 10.1109/ICCETM66557.2025.11557722
+JO  - 2025 International Conference on Computational Engineering, Sensing Technology and Management (ICCETM)
+IS  - 
+SN  - 
+VO  - 
+VL  - 
+JA  - 2025 International Conference on Computational Engineering, Sensing Technology and Management (ICCETM)
+Y1  - 18-18 Nov. 2025
+AB  - One of the most important biometric security techniques that helps Improve identity verification is called dynamic face validation. this access plant away perusal seventh cranial nerve expressions and movements inch material sentence. As part of the research the integration of machine-human interaction is being investigated with the goal of improving the Precision of dynamic face recognition systems and increasing their Operator acceptance. the search investigates the way inch which man factors such as arsenic emotions wear and environmental influences bear associate in nursing force along the operation of amp unit away exploitation advance car acquisition techniques such as arsenic convolutional nervous Webs (cnns) and perennial nervous Webs (rnns). In tough circumstances such as fluctuating facial expressions and inadequate lighting it is feasible to very importantly Improve validation Precision by using Adjustive Procedures. this is successful contingent away the employ of amp mixed-methods facility that combines qualitative exploiter stimulus with decimal assessments. The findings indicate that Improved machine-human interaction leads to a reduction in the number of instances of erroneous rejection an Improvement in the level of satisfaction Encountered by Operators and a more effective security Answer.
+ER  - 
+
+TY  - CONF
+TI  - Detecting anomalies in metro systems
+T2  - 2018 IEEE 4th World Forum on Internet of Things (WF-IoT)
+SP  - 302
+EP  - 307
+AU  - M. H. A. Wibowo
+AU  - H. Guo
+AU  - W. L. Goh
+PY  - 2018
+KW  - Feature extraction
+KW  - Instruments
+KW  - SCADA systems
+KW  - Inspection
+KW  - Tracking
+KW  - Payloads
+KW  - Anomaly detection
+KW  - Metro systems
+KW  - anomaly detection
+KW  - Deep Packet Inspection
+KW  - machine learning
+KW  - security system
+KW  - command
+KW  - handshake
+DO  - 10.1109/WF-IoT.2018.8355146
+JO  - 2018 IEEE 4th World Forum on Internet of Things (WF-IoT)
+IS  - 
+SN  - 
+VO  - 
+VL  - 
+JA  - 2018 IEEE 4th World Forum on Internet of Things (WF-IoT)
+Y1  - 5-8 Feb. 2018
+AB  - In an autonomous vehicle system, a secure control between vehicles and instruments is critical. Particularly, in a metro or underground system, the control is done through a Supervisory Control and Data Acquisition (SCADA) network which is wired and close system. However, this does not imply that the system is safe from attack as an attack can come from insider by sending more command or less command. This attack can be detected by comparing the features extracted from the traffic happening to the heuristic and proper data set. The comparison done is not only by comparing the distribution of the data transferred but also looking at the correlation between each instrument. The correlation is needed since several instruments might work dependently while others might work independently. Data that are compared in the analysis are the features of each instrument from the traffic which are number of command transfer, number of handshake transfer, and the ratio of command transfer to the command transfer median from the samples. These three features are then analyzed and the results will show whether there is an anomaly in a certain period.
+ER  - 
+
+TY  - CONF
+TI  - AI and ML-Driving and Exponentiating Sustainable and Quantifiable Digital Transformation
+T2  - 2020 IEEE 44th Annual Computers, Software, and Applications Conference (COMPSAC)
+SP  - 316
+EP  - 321
+AU  - C. Naseeb
+PY  - 2020
+KW  - Artificial intelligence
+KW  - Iron
+KW  - Three-dimensional displays
+KW  - Computers
+KW  - Software
+KW  - Conferences
+KW  - Artificial Intelligence, Machine Learning, Internet of things, Neuromorphic Computing, Digital Transformation, Industry 4.0, Augmented Reality.
+DO  - 10.1109/COMPSAC48688.2020.0-227
+JO  - 2020 IEEE 44th Annual Computers, Software, and Applications Conference (COMPSAC)
+IS  - 
+SN  - 0730-3157
+VO  - 
+VL  - 
+JA  - 2020 IEEE 44th Annual Computers, Software, and Applications Conference (COMPSAC)
+Y1  - 13-17 July 2020
+AB  - AI is a major transforming technology impacting every sector of life. AI is not a force to deprive humans and take over the control, rather a real enabler and lever for digital transformation. The former view aligns with Hollywood movies, and need to be undressed with the latter, which is realistic and becoming tangible over time as more organizations, and communities are leveraging AI's potential. Developing a practical understanding of AI, its capabilities, the challenges, and opportunities that it brings is fundamental to get the maximum out of its envisaged potential. The objective of this paper is to highlight how technology and industry have developed, discuss the role of AI in driving intelligent transformation concentrating on an applicable understanding of AI and related technologies. We introduce a new conceptual framework: AI's multi-dimensional role, to highlight its transformative power in multiple aspects. We also introduce an AI based Information and Model Governance Framework.
+ER  - 
+
+TY  - CONF
+TI  - Real-World Data-Driven Analysis of Environment- and Context-Dependent Driving Behavior
+T2  - 2025 IEEE Intelligent Vehicles Symposium (IV)
+SP  - 2459
+EP  - 2466
+AU  - C. Zink
+AU  - E. Lenz
+AU  - J. Kaste
+AU  - D. Dobkowitz
+AU  - F. Kallmeyer
+AU  - R. Findeisen
+PY  - 2025
+KW  - Adaptation models
+KW  - Analytical models
+KW  - Data privacy
+KW  - Rain
+KW  - Electric vehicles
+KW  - Data models
+KW  - Driver behavior
+KW  - Vehicles
+KW  - Context modeling
+KW  - Cruise control
+KW  - Real-world driving data
+KW  - context-aware driver models
+KW  - Advanced Driver Assistance Systems (ADAS)
+KW  - driving behavior analysis
+KW  - environment-adaptive modeling
+DO  - 10.1109/IV64158.2025.11097456
+JO  - 2025 IEEE Intelligent Vehicles Symposium (IV)
+IS  - 
+SN  - 2642-7214
+VO  - 
+VL  - 
+JA  - 2025 IEEE Intelligent Vehicles Symposium (IV)
+Y1  - 22-25 June 2025
+AB  - Understanding and modeling human driving behavior is essential to improve advanced driver assistance systems (ADAS) and traffic simulations. Traditional driver models are often limited in capturing context- and environment-dependent variations due to simplifying assumptions. The increasing availability of real-world driving data from connected vehicles enables the identification of context-adaptive model parameters, provided that strict privacy and anonymization measures are observed. We analyze data from 156 electric vehicles, each equipped with high-frequency data loggers, recording over 2000 signals per vehicle during a six-month period in uncontrolled environments. As a case study, we examine the approach behavior of a preceding vehicle, which is important for adaptive cruise control (ACC), and its dependence on temperature, light levels, and rain. Our findings suggest that cold temperatures and nighttime conditions increase time-headway and following distances, while the effects of rain appear less pronounced. In the long term, such datasets could refine context-aware driver models for simulation and ADAS calibration and enable personalized adaptive cruise control based on learned driving preferences. By integrating context- and environment-aware driver models, this approach bridges the gap between theoretical modeling and real-world driving behavior.
+ER  - 
+
+TY  - CONF
+TI  - A Comprehensive Framework for Next Generation of Cooperative ITSs
+T2  - 2018 IEEE 4th International Forum on Research and Technology for Society and Industry (RTSI)
+SP  - 1
+EP  - 6
+AU  - S. Chiocchio
+AU  - E. Cinque
+AU  - A. Persia
+AU  - P. Salvatori
+AU  - C. Stallo
+AU  - M. Salvitti
+AU  - F. Valentini
+AU  - M. Pratesi
+AU  - F. Rispoli
+AU  - A. Neri
+AU  - F. Santucci
+PY  - 2018
+KW  - Roads
+KW  - Hazards
+KW  - Global navigation satellite system
+KW  - Automotive engineering
+KW  - Automobiles
+KW  - Satellites
+DO  - 10.1109/RTSI.2018.8548431
+JO  - 2018 IEEE 4th International Forum on Research and Technology for Society and Industry (RTSI)
+IS  - 
+SN  - 
+VO  - 
+VL  - 
+JA  - 2018 IEEE 4th International Forum on Research and Technology for Society and Industry (RTSI)
+Y1  - 10-13 Sept. 2018
+AB  - Changing environmental conditions, the demographic trends and the consequent increase of mobility demand lead us to consider a new integrated mobility model that is able to guarantee efficient management of traffic flows, reduction of accidents and consumption, and improvements in driving and travel comfort. Accurate localization, vehicular connectivity and communication, as well as cybersecurity, will play a key role for development of future Cooperative and Intelligent Transportation Systems (C-ITS). This work presents research activities underway at the University of L' Aquila and the Radiolabs Consortium, concerning the study of techniques and technologies for secure communication and accurate geo-localization, the design and prototype implementation of management architectures and vehicle platforms, the development of dynamic and cooperative navigation services. These activities also aim to support future services in the ITS field, with a particular focus on mobility of commercial vehicles, both in normal and emergency operating conditions. Distinctive elements of this work are the identification and the services implementation of real use cases, supported by the new GALILEO satellite constellation, currently available communication technologies (V2X/4G), and the emerging 5G.
+ER  - 
+
+TY  - CONF
+TI  - Towards System Level Simulations of Public Safety Applications over 5G NR Sidelink
+T2  - 2024 IEEE World Forum on Public Safety Technology (WFPST)
+SP  - 1
+EP  - 6
+AU  - S. Gamboa
+AU  - T. R. Henderson
+AU  - W. Garey
+AU  - C. Liu
+AU  - R. Rouil
+PY  - 2024
+KW  - Schedules
+KW  - Accuracy
+KW  - Unicast
+KW  - Simulation
+KW  - Sidelink
+KW  - New Radio
+KW  - Public security
+KW  - NR
+KW  - SL
+KW  - MCPTT
+KW  - Public Safety
+DO  - 10.1109/WFPST58552.2024.00043
+JO  - 2024 IEEE World Forum on Public Safety Technology (WFPST)
+IS  - 
+SN  - 
+VO  - 
+VL  - 
+JA  - 2024 IEEE World Forum on Public Safety Technology (WFPST)
+Y1  - 14-15 May 2024
+AB  - The New Radio (NR) sidelink (SL) interface was initially specified to support NR Vehicle-to-everything (V2X) applications and lately to support NR Proximity Services (ProSe) public safety applications. Network support requirements differ between the operational demands of these two types of applications. Building upon an existing ns-3 NR V2X simulator, this paper details the extensions made to the simulator to cater to NR ProSe public safety applications. We use as case study the Mission Critical Push-to-Talk (MCPTT) application, a keystone of group communication in 5G NR public safety networks. We demonstrate through simulation results that our enhancements are essential for a more accurate representation of public safety applications.
+ER  - 
+
+TY  - CONF
+TI  - Crafting adversarial input sequences for recurrent neural networks
+T2  - MILCOM 2016 - 2016 IEEE Military Communications Conference
+SP  - 49
+EP  - 54
+AU  - N. Papernot
+AU  - P. McDaniel
+AU  - A. Swami
+AU  - R. Harang
+PY  - 2016
+KW  - Computational modeling
+KW  - Recurrent neural networks
+KW  - Adaptation models
+KW  - Neurons
+KW  - Mathematical model
+KW  - Biological neural networks
+DO  - 10.1109/MILCOM.2016.7795300
+JO  - MILCOM 2016 - 2016 IEEE Military Communications Conference
+IS  - 
+SN  - 2155-7586
+VO  - 
+VL  - 
+JA  - MILCOM 2016 - 2016 IEEE Military Communications Conference
+Y1  - 1-3 Nov. 2016
+AB  - Machine learning models are frequently used to solve complex security problems, as well as to make decisions in sensitive situations like guiding autonomous vehicles or predicting financial market behaviors. Previous efforts have shown that numerous machine learning models are vulnerable to adversarial manipulations of their inputs taking the form of adversarial samples. Such inputs are crafted by adding carefully selected perturbations to legitimate inputs so as to force the machine learning model to misbehave, for instance by outputting a wrong class if the machine learning task of interest is classification. In fact, to the best of our knowledge, all previous work on adversarial samples crafting for neural networks considered models used to solve classification tasks, most frequently in computer vision applications. In this paper, we investigate adversarial input sequences for recurrent neural networks processing sequential data. We show that the classes of algorithms introduced previously to craft adversarial samples misclassified by feed-forward neural networks can be adapted to recurrent neural networks. In a experiment, we show that adversaries can craft adversarial sequences misleading both categorical and sequential recurrent neural networks.
+ER  - 
+
+TY  - JOUR
+TI  - AttMOT: Improving Multiple-Object Tracking by Introducing Auxiliary Pedestrian Attributes
+T2  - IEEE Transactions on Neural Networks and Learning Systems
+SP  - 5454
+EP  - 5468
+AU  - Y. Li
+AU  - Z. Xiao
+AU  - L. Yang
+AU  - D. Meng
+AU  - X. Zhou
+AU  - H. Fan
+AU  - L. Zhang
+PY  - 2025
+KW  - Target tracking
+KW  - Synthetic data
+KW  - Feature extraction
+KW  - Annotations
+KW  - Pedestrians
+KW  - Human activity recognition
+KW  - Attribute assistance
+KW  - multiobject tracking (MOT)
+KW  - pedestrian attributes
+KW  - synthetic dataset
+DO  - 10.1109/TNNLS.2024.3384446
+JO  - IEEE Transactions on Neural Networks and Learning Systems
+IS  - 3
+SN  - 2162-2388
+VO  - 36
+VL  - 36
+JA  - IEEE Transactions on Neural Networks and Learning Systems
+Y1  - March 2025
+AB  - Multiobject tracking (MOT) is a fundamental problem in computer vision with numerous applications, such as intelligent surveillance and automated driving. Despite the significant progress made in MOT, pedestrian attributes, such as gender, hairstyle, body shape, and clothing features, which contain rich and high-level information, have been less explored. To address this gap, we propose a simple, effective, and generic method to predict pedestrian attributes to support general reidentification (Re-ID) embedding. We first introduce attribute multi-object tracking (AttMOT), a large, highly enriched synthetic dataset for pedestrian tracking, containing over 80k frames and six million pedestrian identity switches (IDs) with different times, weather conditions, and scenarios. To the best of authors’ knowledge, AttMOT is the first MOT dataset with semantic attributes. Subsequently, we explore different approaches to fuse Re-ID embedding and pedestrian attributes, including attention mechanisms, which we hope will stimulate the development of attribute-assisted MOT. The proposed method attribute-assisted method (AAM) demonstrates its effectiveness and generality on several representative pedestrian MOT benchmarks, including MOT17 and MOT20, through experiments on the AttMOT dataset. When applied to the state-of-the-art trackers, AAM achieves consistent improvements in multi-object tracking accuracy (MOTA), higher order tracking accuracy (HOTA), association accuracy (AssA), IDs, and IDF1 scores. For instance, on MOT17, the proposed method yields a +1.1 MOTA, +1.7 HOTA, and +1.8 IDF1 improvement when used with FairMOT. To further encourage related research, we release the data and code at https://github.com/HengLan/AttMOT.
+ER  - 
+
+TY  - CONF
+TI  - Hackers on the Go: Investigating Cyber Threats to Crowdsourced Mobility-on-Demand Platforms
+T2  - 2023 33rd International Conference on Computer Theory and Applications (ICCTA)
+SP  - 107
+EP  - 113
+AU  - H. Rizk
+AU  - H. Yamaguchi
+PY  - 2023
+KW  - Mobility as a service
+KW  - Deep learning
+KW  - Social networking (online)
+KW  - Smart cities
+KW  - Transportation industry
+KW  - Soft sensors
+KW  - Transportation
+KW  - Predictive models
+KW  - Data models
+KW  - Safety
+KW  - Mobility on Demand
+KW  - Adversarial attacks
+KW  - Defense strategies
+KW  - Urban transportation
+DO  - 10.1109/ICCTA60978.2023.10969231
+JO  - 2023 33rd International Conference on Computer Theory and Applications (ICCTA)
+IS  - 
+SN  - 2770-6575
+VO  - 
+VL  - 
+JA  - 2023 33rd International Conference on Computer Theory and Applications (ICCTA)
+Y1  - 16-18 Dec. 2023
+AB  - Mobility on Demand (MoD) has transformed transportation in smart cities, with accurate demand prediction being crucial for efficient MoD applications. Deep learning models have excelled in various domains and have been successfully applied to predict demand patterns in MoD. Leveraging diverse data sources, such as historical trip data and social media feeds, these models optimize resource allocation and service quality. However, the rise of adversarial attacks poses a threat to deep learning models. In this paper, we address the vulnerabilities in MoD systems relying on crowd-sourced data and propose a defense strategy to mitigate adversarial attacks. Our research aims to enhance the security and reliability of MoD systems, advancing the transportation industry.
+ER  - 
+
+TY  - JOUR
+TI  - Microscopic Right-of-Way Trading Mechanism for Cooperative Decision-Making: Theories and Preliminary Results
+T2  - IEEE Transactions on Intelligent Transportation Systems
+SP  - 2461
+EP  - 2477
+AU  - Z. Sun
+AU  - Z. Qin
+AU  - R. Ma
+AU  - T. Huang
+AU  - Z. Gao
+AU  - A. Ji
+PY  - 2025
+KW  - Game theory
+KW  - Trajectory
+KW  - Pricing
+KW  - Optimization
+KW  - Minimization
+KW  - Costs
+KW  - Microscopy
+KW  - Cooperative decision-making for mixed traffic (CDMMT)
+KW  - game theory
+KW  - microscopic right-of-way trading mechanism (Micro-ROWTM)
+KW  - incentive compatibility
+KW  - envy minimization
+DO  - 10.1109/TITS.2024.3498870
+JO  - IEEE Transactions on Intelligent Transportation Systems
+IS  - 2
+SN  - 1558-0016
+VO  - 26
+VL  - 26
+JA  - IEEE Transactions on Intelligent Transportation Systems
+Y1  - Feb. 2025
+AB  - In this paper, a microscopic right-of-way trading mechanism (Micro-ROWTM) is developed to encourage cooperative behavior in mixed traffic, which consists of cooperative vehicles (CoVs) and non-cooperative vehicles (NCoVs). Micro-ROWTM encompasses the following functions: (i) detection of traffic conflicts and system-improving opportunities; (ii) participants reporting their attributes; (iii) right-of-way trade proposed by the system; and (iv) trade settlement and cooperative control. In the experiments, the proposed mechanism is tested using an illustrative ramp-merging example, in which each right-of-way trade proposal is offered to a group of participants comprised of a mainline leader, a mainline follower, and a ramp vehicle. Upon the acceptance of a proposal, the mainline leader and/or mainline follower agrees to behave cooperatively (yield) to the ramp vehicle, and receive monetary compensation from the ramp vehicle in return. To help design the trading mechanism, six important definitions are introduced and discussed, including (i) strong individual rationality, (ii) system efficiency and group efficiency, (iii) dominant-strategy incentive compatibility, (iv) social welfare maximization, (v) utilitarian envy minimization and (vi) payoff difference minimization. A linear programming-based trading and taxation model which satisfies the above definitions is then developed and solved. Using the Micro-ROWTM, when the flow rate is 1000veh/h for both the mainline and ramp traffic, the ramp vehicles can save 6.8% travel time and 27.4% fuel consumption on average, and the mainline vehicles can eventually obtain a positive payoff by compensation. From a system perspective, the ramp-merging section can save 107.5s of travel time and 2450.3g of fuel consumption per hour.
+ER  - 
+
+TY  - CONF
+TI  - Lightweight and Space-efficient Vehicle Authentication based on Cuckoo Filter
+T2  - 2020 IEEE 3rd 5G World Forum (5GWF)
+SP  - 139
+EP  - 144
+AU  - C. Kalalas
+AU  - J. Alonso-Zarate
+PY  - 2020
+KW  - Protocols
+KW  - Costs
+KW  - 5G mobile communication
+KW  - Mission critical systems
+KW  - Authentication
+KW  - Probabilistic logic
+KW  - Data structures
+KW  - Vehicle authentication
+KW  - Internet of Vehicles (IoV)
+KW  - 5G-AKA
+KW  - Cuckoo filter
+DO  - 10.1109/5GWF49715.2020.9221363
+JO  - 2020 IEEE 3rd 5G World Forum (5GWF)
+IS  - 
+SN  - 
+VO  - 
+VL  - 
+JA  - 2020 IEEE 3rd 5G World Forum (5GWF)
+Y1  - 10-12 Sept. 2020
+AB  - While the emerging vehicle-to-everything (V2X) connectivity paradigm is radically transforming the automotive sector, unprecedented security challenges arise, calling for innovative security enablers with minimum impact on the ongoing communication. In dense V2X scenarios, the 5G authentication and key agreement (5G-AKA) procedure may suffer from uncontrolled failures which result in unacceptable latency levels due to the excessive signalling overhead. In this paper, we introduce a lightweight vehicle authentication scheme, as an extension of the 5G-AKA, to adequately address a high number of authentication requests. The proposed mechanism leverages the space-efficient features of the cuckoo filter, a probabilistic data structure for approximate set membership tests, to achieve authentication of multiple vehicles at a time. Our performance analysis reveals the impact of various cuckoo filter parameter configurations on the authentication efficiency. In addition, our proposed authentication mechanism is able to outperform the standardized 5G-AKA procedure in terms of latency and protocol overhead even for high vehicle load.
+ER  - 
+
+TY  - JOUR
+TI  - Parked Vehicles Task Offloading in Edge Computing
+T2  - IEEE Access
+SP  - 41592
+EP  - 41606
+AU  - K. Nguyen
+AU  - S. Drew
+AU  - C. Huang
+AU  - J. Zhou
+PY  - 2022
+KW  - Task analysis
+KW  - Cloud computing
+KW  - Edge computing
+KW  - Collaboration
+KW  - Costs
+KW  - Containers
+KW  - Computer architecture
+KW  - Parked vehicles
+KW  - cloud computing
+KW  - edge computing
+KW  - collaborative cloud-edge computing
+KW  - online task offloading
+KW  - container orchestration
+KW  - Kubernetes
+DO  - 10.1109/ACCESS.2022.3167641
+JO  - IEEE Access
+IS  - 
+SN  - 2169-3536
+VO  - 10
+VL  - 10
+JA  - IEEE Access
+Y1  - 2022
+AB  - The analytical research has recently indicated that the computational resources of Connected Autonomous Vehicles (CAVs) have been wasted since almost all vehicles spend over 95% of their time in parking lots. This paper presents a collaborative computing framework to efficiently offload online computational tasks to parked vehicles (PVs) during peak business hours. To maintain the service continuity, we advocate for integrating Kubernetes-based container orchestration to leverage its advanced features (e.g., auto-healing, load balancing, and security). We analytically formulate the task-offloading problem and then propose an intelligent meta-heuristic algorithm to dynamically deal with online heterogeneous demands. Additionally, we take a cumulative incentives model into account, where the PV owners are able to earn profit by sharing their computation resources. We also compare our algorithm with several existent heuristics on different sizes of the parking lot. Extensive simulation results show that our proposed computing framework significantly increases the possibility of accepting the online tasks and improves average task offloading cost by at least 40%. Besides, we quantify the PV availability by task acceptance ratios, which can be a critical criterion for network planners to achieve desired network service goals.
+ER  - 
+
+TY  - CONF
+TI  - Coordinate Scheduling of Plug-in Electric Vehicles at Charging Station Fed by Renewable Energy Sources
+T2  - 2023 5th International Conference on Energy, Power and Environment: Towards Flexible Green Energy Technologies (ICEPE)
+SP  - 1
+EP  - 6
+AU  - H. K. Gupta
+AU  - M. K. Shah
+AU  - K. Chopra
+PY  - 2023
+KW  - Renewable energy sources
+KW  - Energy consumption
+KW  - Vehicle-to-grid
+KW  - Costs
+KW  - Wind energy
+KW  - Green products
+KW  - Vehicular ad hoc networks
+KW  - EV scheduling
+KW  - Renewable Energy Sources
+KW  - Coordinate scheduling
+KW  - Reduction of burden from the grid
+KW  - Green Energy
+DO  - 10.1109/ICEPE57949.2023.10201636
+JO  - 2023 5th International Conference on Energy, Power and Environment: Towards Flexible Green Energy Technologies (ICEPE)
+IS  - 
+SN  - 2832-8973
+VO  - 
+VL  - 
+JA  - 2023 5th International Conference on Energy, Power and Environment: Towards Flexible Green Energy Technologies (ICEPE)
+Y1  - 15-17 June 2023
+AB  - Utilizing renewable energy sources (RES) simultaneously eliminates the need for an energy storage system (ESS), reducing overall cost. This research paper focuses on developing an algorithm for efficiently scheduling electric vehicles (EVs) charging at a charging station. The Monte Carlo Method has been used to generate the arrival times of EVs at the station for each time slot. The algorithm consists of two main components: The Vehicle Acceptance Algorithm (VAA) and the Vehicle Scheduling Algorithm (VSA). Accepted vehicles can engage in Vehicle-to-Vehicle (V2V) charging once their State of Charge (SOC) reaches a certain level. Renewable power is supplied through a combination of solar and wind energy. Upon arrival at the charging station, EVs are scheduled based on the available energy at that particular time slot, which includes the remaining energy from RES, the V2V energy of previously scheduled vehicles, and the charger's availability. In cases where there is an energy shortage during a timeslot, EV owners can charge their vehicles using grid power. In order to promote social welfare among EV owners who prefer charging with RES, certain incentives are provided alongside the low cost of charging from renewable sources.
+ER  - 
+
+TY  - CONF
+TI  - Simulating Distributed Wireless Sensor Networks for Edge-AI
+T2  - 2022 5th Conference on Cloud and Internet of Things (CIoT)
+SP  - 75
+EP  - 82
+AU  - A. Prajapati
+AU  - B. Banerjee
+PY  - 2022
+KW  - IEEE 802.15 Standard
+KW  - Wireless sensor networks
+KW  - Visualization
+KW  - Surveillance
+KW  - Transportation
+KW  - Quality of service
+KW  - Throughput
+KW  - Edge-AI
+KW  - Contiki OS
+KW  - Cooja
+KW  - Wireless sensor networks
+KW  - simulation
+KW  - Routing Protocol for Low-Power and Lossy Networks
+KW  - IEEE 802.15.4
+KW  - event-driven and targeted communication
+DO  - 10.1109/CIoT53061.2022.9766520
+JO  - 2022 5th Conference on Cloud and Internet of Things (CIoT)
+IS  - 
+SN  - 
+VO  - 
+VL  - 
+JA  - 2022 5th Conference on Cloud and Internet of Things (CIoT)
+Y1  - 28-30 March 2022
+AB  - This paper presents the simulation of distributed wireless sensor networks (WSNs) consisting of autonomous mobile nodes that communicate, with or without a central/root node, as desired for edge artificial intelligence (edge-AI). We harness the high-resolution and multidimensional sensing characteristics of IEEE 802.15.4 standard and Routing Protocol for Low-Power and Lossy Networks (RPL) to implement dynamic, asynchronous, event-driven, targeted communication in distributed WSNs. We choose Contiki-NG/Cooja to simulate two WSNs, one with and the other without a root node. The simulations are assessed on the network Quality of Service (QoS) parameters such as throughput, network lifetime, power consumption, and packet delivery ratio. The simulation outputs show that the sensor nodes at the edge communicate successfully with the specific targets responding to particular events in an autonomous and asynchronous manner. The performance is slightly degraded when using the RPL WSN with a root node. This work shows how to simulate and evaluate distributed WSNs using the Cooja simulator which would be useful for designing such networks for edge-AI applications, such as visual surveillance, monitoring in assisted living facilities, intelligent transportation with connected vehicles, automated factory floors, immersive social media experience, and so on.
+ER  - 
+
+TY  - CONF
+TI  - Driving Safety & Awareness Cooperative Business Model exploiting the 5GMETA platform
+T2  - 2022 IEEE Future Networks World Forum (FNWF)
+SP  - 299
+EP  - 304
+AU  - C. Canova
+AU  - F. Pacella
+AU  - D. Brevi
+AU  - M. Apruzzese
+AU  - R. Cavicchioli
+PY  - 2022
+KW  - Technological innovation
+KW  - Collaboration
+KW  - Data models
+KW  - Road safety
+KW  - Real-time systems
+KW  - Safety
+KW  - Stakeholders
+KW  - Business Model
+KW  - 5G
+KW  - MEC
+KW  - CCAM
+DO  - 10.1109/FNWF55208.2022.00059
+JO  - 2022 IEEE Future Networks World Forum (FNWF)
+IS  - 
+SN  - 2770-7679
+VO  - 
+VL  - 
+JA  - 2022 IEEE Future Networks World Forum (FNWF)
+Y1  - 10-14 Oct. 2022
+AB  - The introduction of the 5G in the automotive sector paves the way to new business opportunities and stakeholders collaboration, thanks to the availability of new connected vehicles technologies. To emphasise the opportunities of improved data sharing, different business modelling approaches exist, depending on the phase of the data value chain that technologies are able to cover. The 5GMETA open platform aims to leverage CCAM-based captured data to stimulate, facilitate and feed innovative products and services exploring the possibilities enabled by collaborative business models. This paper describes a new business model which focuses on a Use Case (UC) on “Driving Safety and Awareness” that exploit the 5GMETA platform, and highlight its business innovation. In this context, the value proposition relies in the ability to increase road safety thanks to a better driving-misbehaviour detection, thus providing benefits to a wide range of potential stakeholders. The UC has its foundation in the real-time data collected, in a scalable and reliable way, by the platform. The main innovation that the adoption of such business model will bring is the creation of new partnerships that may be enforced by a clear definition of the profit-sharing strategy between the actors involved.
+ER  - 
+
+TY  - JOUR
+TI  - Behavioral Biometrics for Continuous Authentication in the Internet-of-Things Era: An Artificial Intelligence Perspective
+T2  - IEEE Internet of Things Journal
+SP  - 9128
+EP  - 9143
+AU  - Y. Liang
+AU  - S. Samtani
+AU  - B. Guo
+AU  - Z. Yu
+PY  - 2020
+KW  - Authentication
+KW  - Biometrics (access control)
+KW  - Internet of Things
+KW  - Sensors
+KW  - Knowledge based systems
+KW  - Physiology
+KW  - Smart phones
+KW  - Artificial intelligence (AI)
+KW  - behavioral biometric
+KW  - body area networks
+KW  - constrained devices
+KW  - continuous authentication (CA)
+KW  - cyber–physical systems data mining
+KW  - Internet of Things (IoT)
+DO  - 10.1109/JIOT.2020.3004077
+JO  - IEEE Internet of Things Journal
+IS  - 9
+SN  - 2327-4662
+VO  - 7
+VL  - 7
+JA  - IEEE Internet of Things Journal
+Y1  - Sept. 2020
+AB  - In the Internet-of-Things (IoT) era, user authentication is essential to ensure the security of connected devices and the customization of passive services. However, conventional knowledge-based and physiological biometric-based authentication systems (e.g., password, face recognition, and fingerprints) are susceptible to shoulder surfing attacks, smudge attacks, and heat attacks. The powerful sensing capabilities of IoT devices, including smartphones, wearables, robots, and autonomous vehicles enable continuous authentication (CA) based on behavioral biometrics. The artificial intelligence (AI) approaches hold significant promise in sifting through large volumes of heterogeneous biometrics data to offer unprecedented user authentication and user identification capabilities. In this survey article, we outline the nature of CA in IoT applications, highlight the key behavioral signals, and summarize the extant solutions from an AI perspective. Based on our systematic and comprehensive analysis, we discuss the challenges and promising future directions to guide the next generation of AI-based CA research.
+ER  - 
+
+TY  - CONF
+TI  - Smart Energy Management System based on Reconfigurable AI Chip and Electrical Vehicles
+T2  - 2021 IEEE International Conference on Big Data and Smart Computing (BigComp)
+SP  - 233
+EP  - 238
+AU  - H. Huang
+AU  - M. Ogbodo
+AU  - Z. Wang
+AU  - C. Qiu
+AU  - M. Hisada
+AU  - A. B. Abdallah
+PY  - 2021
+KW  - Scalability
+KW  - AI accelerators
+KW  - Wind farms
+KW  - User interfaces
+KW  - Batteries
+KW  - Energy management systems
+KW  - Sustainable development
+KW  - Smart Energy Management System
+KW  - Virtual Power Plant
+KW  - Hardware and Software Platform
+KW  - Mobile Edge Intelligence
+KW  - AI Chip
+KW  - Electrical Vehicle
+DO  - 10.1109/BigComp51126.2021.00051
+JO  - 2021 IEEE International Conference on Big Data and Smart Computing (BigComp)
+IS  - 
+SN  - 2375-9356
+VO  - 
+VL  - 
+JA  - 2021 IEEE International Conference on Big Data and Smart Computing (BigComp)
+Y1  - 17-20 Jan. 2021
+AB  - Almost every larger city in Europe has ambitious smart city projects. This is particularly true for Hamburg, a Hanseatic city in the north of Germany. Hamburg is the smartest city in Germany according to a Federal Association for Information Technology. Although there are no megacities in the European Union (the largest city in the European Union is Berlin with 3.7 million inhabitants), the increasing urbanization is apparent and produces problems to be solved. At the same time rural depopulation creates conjugated problems.One category of these problems is mobility. Mobility can be regarded as the need to move persons and freight. In densely populated cities an increasing amount of transport users have to share a decreasing amount of space with conflicting needs. At the same time in rural areas, a dwindling supply of local public transport makes the mobility of the remaining residents more difficult. The same applies to parcel delivery or the supply of goods. Autonomous systems have great potential to create a sustainable and livable environment. The author has initiated a publicly funded project to investigate technologies of autonomous mobile systems which interact with a smart city. The test area intelligent urban mobility (Testfeld intelligente Quartiersmobilitat) at the campus of Hamburgs University of Applied Sciences is created to do research on connected and autonomous mobile systems like multipurpose robots and other mobility users like pedestrians with a smartphone. A particular focus is on neighborhood mobility. This means that distances of less than 3 kilometers usually have to be covered. The special type of needs in neighborhood mobility has two important aspects that affect development of autonomous mobile systems: It is slow mobility and the transport users are especially vulnerable. The acceptance of the residents of autonomous systems is equally important, as is the protection of privacy when collecting environmental data. They are expected to make decisions on their own in complex environments. The real world usually differs from a simulation or an experimental setup in a laboratory - a problem commonly referred to as Sim-2-Real gap. Active and non-destructive exploration is expected from an autonomous system to solve unexpected problems. Machine learning methods come into play which in turn have their own pitfalls. The author has built a specialized laboratory to investigate machine learning technology applied to autonomous systems. In this laboratory miniature autonomous vehicles are developed. The general idea of this experimental setup allows research on new methodologies for autonomous systems in a very small scale
+ER  - 
+
+TY  - CONF
+TI  - The Adversarial Attacks Threats on Computer Vision: A Survey
+T2  - 2019 IEEE 16th International Conference on Mobile Ad Hoc and Sensor Systems Workshops (MASSW)
+SP  - 25
+EP  - 30
+AU  - Y. Zhou
+AU  - M. Han
+AU  - L. Liu
+AU  - J. He
+AU  - X. Gao
+PY  - 2019
+KW  - Machine-to-machine communications
+KW  - Conferences
+KW  - Sensor systems
+KW  - adversarial attacks
+KW  - deep learning
+KW  - security
+KW  - robustness
+DO  - 10.1109/MASSW.2019.00012
+JO  - 2019 IEEE 16th International Conference on Mobile Ad Hoc and Sensor Systems Workshops (MASSW)
+IS  - 
+SN  - 
+VO  - 
+VL  - 
+JA  - 2019 IEEE 16th International Conference on Mobile Ad Hoc and Sensor Systems Workshops (MASSW)
+Y1  - 4-7 Nov. 2019
+AB  - Deep learning has shown impressive performance in various complex problems which difficult to the conventional machine learning algorithms, especially in such domains: Medical diagnosis, self-driving, identity verification, social media, and agriculture. However, based on recent research, deep learning algorithms are vulnerable to adversarial attacks with slightly crafted perturbations. The adversarial examples mislead the classifiers to targeted or non-targeted categories, and the perturbations are challenging to be perceptible from the human perspective. The threat raises the severe security problem in deep learning applications. This study aims to summarize recent research for generating adversarial examples in different aspects and reviewed the applications in the physical world. We further considered the difficulties of model robustness and potential countermeasures.
+ER  - 
+
+TY  - JOUR
+TI  - Editorial Navigating Trust, Security, and Privacy in the Digital Age
+T2  - IEEE Transactions on Reliability
+SP  - 1408
+EP  - 1409
+AU  - W. Shieh
+PY  - 2024
+DO  - 10.1109/TR.2024.3441129
+JO  - IEEE Transactions on Reliability
+IS  - 3
+SN  - 1558-1721
+VO  - 73
+VL  - 73
+JA  - IEEE Transactions on Reliability
+Y1  - Sept. 2024
+AB  - In today's highly digitalized era, constant interaction with the Internet—such as sending and receiving emails, browsing websites, and using social media—is almost unavoidable. This connectivity offers unprecedented convenience and efficiency in communication, commerce, and information sharing. However, it also introduces significant cybersecurity and privacy challenges. One of the most concerning issues is the digital footprints we leave behind, which can be exploited by hackers for various cyber-attacks.
+ER  - 
+
+TY  - JOUR
+TI  - Failures in the Loop: Human Leadership in AI-Based Decision-Making
+T2  - IEEE Transactions on Technology and Society
+SP  - 2
+EP  - 13
+AU  - K. Michael
+AU  - J. R. Schoenherr
+AU  - K. M. Vogel
+PY  - 2024
+KW  - Artificial intelligence
+KW  - Ethics
+KW  - Social networking (online)
+KW  - Stakeholders
+KW  - Chatbots
+KW  - Decision making
+KW  - Sociotechnical systems
+KW  - Social factors
+KW  - Anthropomorphism
+KW  - Information integrity
+KW  - Risk management
+KW  - Trust management
+KW  - Performance evaluation
+KW  - Quality assessment
+KW  - Software tools
+KW  - Monitoring
+KW  - Behavioral sciences
+KW  - Human factors
+KW  - Autonomous agents
+DO  - 10.1109/TTS.2024.3378587
+JO  - IEEE Transactions on Technology and Society
+IS  - 1
+SN  - 2637-6415
+VO  - 5
+VL  - 5
+JA  - IEEE Transactions on Technology and Society
+Y1  - March 2024
+AB  - The dark side of AI has been a persistent focus in discussions of popular science and academia (Appendix A), with some claiming that AI is “evil” [1]. Many commentators make compelling arguments for their concerns. Techno-elites have also contributed to the polarization of these discussions, with ultimatums that in this new era of industrialized AI, citizens will need to “[join] with the AI or risk being left behind” [2]. With such polarizing language, debates about AI adoption run the risk of being oversimplified. Discussion of technological trust frequently takes an all-or-nothing approach. All technologies – cognitive, social, material, or digital – introduce tradeoffs when they are adopted, and contain both ‘light and dark’ features [3]. But descriptions of these features can take on deceptively (or unintentionally) anthropomorphic tones, especially when stakeholders refer to the features as ‘agents’ [4], [5]. When used as an analogical heuristic, this can inform the design of AI, provide knowledge for AI operations, and potentially even predict its outcomes [6]. However, if AI agency is accepted at face value, we run the risk of having unrealistic expectations for the capabilities of these systems.
+ER  - 
+
+TY  - CONF
+TI  - Message from the Program Chair
+T2  - 2024 6th International Conference on Applied Machine Learning (ICAML)
+SP  - xvii
+EP  - xx
+PY  - 2024
+DO  - 10.1109/ICAML64299.2024.00006
+JO  - 2024 6th International Conference on Applied Machine Learning (ICAML)
+IS  - 
+SN  - 
+VO  - 
+VL  - 
+JA  - 2024 6th International Conference on Applied Machine Learning (ICAML)
+Y1  - 19-21 July 2024
+AB  - Applied Machine Learning (AML) has become an integral part of modern society, revolutionizing various aspects of our daily lives. In the real world, AML is utilized across numerous industries, including healthcare, finance, transportation, and entertainment. For instance, in healthcare, machine learning algorithms analyze patient data to predict disease outbreaks, optimize treatment plans, and enhance diagnostic accuracy. In finance, AML is used for fraud detection, credit scoring, and algorithmic trading, enabling quicker decision-making and improved risk management. The transportation sector leverages machine learning for traffic prediction, route optimization, and autonomous vehicles, ultimately enhancing efficiency and safety. These applications demonstrate how AML enhances productivity and decisionmaking, shaping a more efficient and interconnected world.
+ER  - 
+
+TY  - JOUR
+TI  - Machine Ethics: The Design and Governance of Ethical AI and Autonomous Systems [Scanning the Issue]
+T2  - Proceedings of the IEEE
+SP  - 509
+EP  - 517
+AU  - A. F. Winfield
+AU  - K. Michael
+AU  - J. Pitt
+AU  - V. Evers
+PY  - 2019
+KW  - Special issues and sections
+KW  - Ethics
+KW  - Social implications of technology
+KW  - Intelligent systems
+KW  - Autonomous vehicles
+KW  - Intelligent vehicles
+KW  - Robots
+KW  - Safety
+KW  - Privacy
+KW  - Design methodology
+KW  - Security
+KW  - Medical robotics
+DO  - 10.1109/JPROC.2019.2900622
+JO  - Proceedings of the IEEE
+IS  - 3
+SN  - 1558-2256
+VO  - 107
+VL  - 107
+JA  - Proceedings of the IEEE
+Y1  - March 2019
+AB  - The so-called fourth industrial revolution and its economic and societal implications are no longer solely an academic concern, but a matter for political as well as public debate. Characterized as the convergence of robotics, AI, autonomous systems and information technology – or cyberphysical systems – the fourth industrial revolution was the focus of the World Economic Forum, at Davos, in 2016 [1]. Also in 2016 the US White House initiated a series of public workshops on artificial intelligence (AI) and the creation of an interagency working group, and the European Parliament Committee for Legal Affairs published a draft report with recommendations to the Commission on Civil Law Rules on Robotics.
+ER  - 
+
+TY  - JOUR
+TI  - Ethics and Autonomous Systems: Perils and Promises [Point of View]
+T2  - Proceedings of the IEEE
+SP  - 1779
+EP  - 1781
+AU  - R. C. Arkin
+PY  - 2016
+KW  - Ethics
+KW  - Autonomous systems
+KW  - Social implications of technology
+KW  - Social factors
+KW  - Artificial intelligence
+KW  - Privacy
+DO  - 10.1109/JPROC.2016.2601162
+JO  - Proceedings of the IEEE
+IS  - 10
+SN  - 1558-2256
+VO  - 104
+VL  - 104
+JA  - Proceedings of the IEEE
+Y1  - Oct. 2016
+AB  - Examines the technology of autonomous systems and explores its ethical and social implications. Artificial intelligence (AI) and its role in autonomous systems have promised everything from utopian freedom to existential dystopia. The unfilled hyperbole surrounding past and present promises regarding AI futures has left many people skeptical, afraid, or just confused. Rational discussion is often left in the wake due to the fears and fantasy evoked by the press and Hollywood. Fortunately, as a byproduct, this has resulted in a blossoming of worldwide discourse on the ethical implications of the intelligent machines we are creating. Many near and mid-term ethical concerns have arisen with the advent of autonomous systems: particularly regarding driverless cars, privacy and drones, companion- and intimate robotics, the displacement of jobs by intelligent machines, and warfighting robots among others. The IEEE Global Initiative on the Ethics of Autonomous Systems, the United Nations, the International Committee of the Red Cross, the White House, and the Future of Life Institute are among many responsible organizations that are now considering the ramifications of the real-world consequences of machine autonomy as we continue to stumble about trying to find a way forward.
+ER  - 
+
+TY  - JOUR
+TI  - Nonsilicon, Non-von Neumann Computing—Part I [Scanning the Issue]
+T2  - Proceedings of the IEEE
+SP  - 11
+EP  - 18
+AU  - S. Basu
+AU  - R. E. Bryant
+AU  - G. De Micheli
+AU  - T. Theis
+AU  - L. Whitman
+PY  - 2019
+KW  - Special issues and sections
+KW  - Computational modeling
+KW  - Data storage systems
+KW  - Computer architecture
+KW  - Deep learning
+KW  - Machine learning
+KW  - Artificial intelligence
+DO  - 10.1109/JPROC.2018.2884780
+JO  - Proceedings of the IEEE
+IS  - 1
+SN  - 1558-2256
+VO  - 107
+VL  - 107
+JA  - Proceedings of the IEEE
+Y1  - Jan. 2019
+AB  - The future of computing is at crossroads. The technological advances that have sustained the exponential growth of computing performance over the last several decades are slowing and the roadmap for future advances is uncertain. The phenomenal expansion of computing power has made computers ubiquitous, spawned a $300 billion semiconductor industry, enabled unprecedented global economic growth, and transformed many aspects of society at large. Emerging technologies are placing an ever-growing and changing demand on computing, especially the profusion of data from the Internet of Things, large-scale scientific experiments (high-energy physics, astronomy, and genomics), autonomous vehicles, social media (including video), national security systems, and the finance sector. Transmitting, storing, processing, and analyzing this data explosion with the requisite speed and performance—and enabling significant processing and analysis to occur locally or at network nodes (i.e., edge computing)—may require a radical departure from the traditional computing paradigm of von Neumann computing architectures running on CMOS-based digital logic. New paradigms will likely require a range of new devices, software, design and simulation tools, and benchmarking, and may ultimately require rethinking the tasks that computing machines undertake. Recently, government, industry, and academia collectively have recognized that the future of computing requires a new, multidisciplinary research and development agenda.
+ER  - 
+
+TY  - CONF
+TI  - Message from the General Chairs
+T2  - 2025 International Conference on Emerging Technologies and Computing (IC_ETC)
+SP  - xii
+EP  - xii
+PY  - 2025
+DO  - 10.1109/IC_ETC65981.2025.11141323
+JO  - 2025 International Conference on Emerging Technologies and Computing (IC_ETC)
+IS  - 
+SN  - 
+VO  - 
+VL  - 
+JA  - 2025 International Conference on Emerging Technologies and Computing (IC_ETC)
+Y1  - 23-26 June 2025
+AB  - Welcome to the 2025 IEEE International Conference on Emerging Technologies and Computing (IEEE IC_ETC 2025), held in Brest, France, during June 23-26, 2024. IEEE IC_ETC provides an open forum for leading experts, researchers, and practitioners from around the world to present their research progresses, exchange new ideas, and identify future directions in the fields of AI & mathematical modelling, Cybersecurity and physical layer security, IoT and Industry 4.0, Robotics and autonomous vehicles, Computer Vision, Image and Signal Analysis, Cloud & Edge computing, Renewable energy & green technology, Virtual and Augmented Reality.
+ER  - 
+
+

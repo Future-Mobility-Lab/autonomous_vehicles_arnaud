@@ -428,3 +428,71 @@ adjudicated.
 **Consequence.** Subsystem shares use one label per item, formed in the same
 way as the Stage 1 and Stage 2 labels. The author's influence is limited to one
 vote on each reliability item.
+
+### Deviation 8 — RQ4: subreddit composition statement not supported in tranche 1
+
+**Specified 26 September 2026, against commit 823270e. Committed after that
+date; the commit date is in the repository history.**
+
+R5's pre-commitments state that the relevance-rate trend is reported
+directionally, "with the statement that subreddit composition does not explain
+it". To test that statement on tranche 1, an exploratory composition check was
+added, with its method fixed before any relevance rate by subreddit and era was
+computed: a Kitagawa decomposition of the 2022–2025 minus 2016–2018 difference
+over seven subreddit groups (r/waymo merged with r/SelfDrivingCars, since r/waymo
+has no tranche 1 items in 2016–2018), and era rates standardised to the pooled
+frame mix.
+
+The subreddit mix accounts for most of the difference: of +7.0 points, +6.1 come
+from the change in mix and +0.9 from changes within subreddits. The statement
+that subreddit composition does not explain the trend is therefore not made for
+tranche 1. The trend is still reported directionally, the decomposition is
+reported in place of the statement, and no mechanism is offered. The figures are
+from a preview computed outside the repository; the figures of record come from
+the committed pipeline.
+
+**Consequence for RQ4.** The tranche 1 relevance estimates cannot be read as a
+composition-free trend. The pre-commitment predates Deviation 1, which allows
+relevance to be inferred from the subreddit in r/SelfDrivingCars and r/waymo,
+the two subreddits whose share grows most across the eras. The composition check
+is reported as exploratory, in line with Family C in R5.
+
+### Deviation 9 — Subsystem estimands, sparsity rule and Family A
+
+**Specified 4 October 2026, against commit 823270e. Committed after that date;
+the commit date is in the repository history.**
+
+R5 commits to reporting which subsystems appear in expressed concern and how
+their shares develop, and defines Family A as "subsystem trend tests, one per
+subsystem". R1–R5 do not define the subsystem shares, give a rule for sparse
+subsystems, or say how Family A relates to the V2X pre-commitment. These are
+fixed here. They were fixed after subsystem α was computed and after the
+per-annotator label counts had been displayed (see `docs/decision_register.md`,
+30 September 2026), and before any subsystem share or any corpus-wide subsystem
+code was computed.
+
+- **Estimands.** The headline for RQ2 is π_s(t), the share of CONCERN comments
+  whose primary subsystem is s. Two secondary measures are reported: C_s(t), the
+  CONCERN share among relevant comments whose primary subsystem is s, and
+  E_s = C_s / C, the enrichment of concern in subsystem s. Only primary labels
+  are counted; secondary labels are reported as a descriptive sensitivity.
+- **Classifier error.** Subsystem shares are reported uncorrected for
+  subsystem-classifier error. The subsystem classifier's accuracy against the
+  retrofit labels is reported for each category, with intervals, alongside
+  every subsystem result.
+- **Sparsity rule.** Using corpus-wide counts of comments classified as
+  relevant, by primary subsystem: a subsystem whose median quarterly count over
+  2016 Q1–2024 Q4 is 50 or more is analysed at quarterly resolution; otherwise,
+  if its median annual count over 2016–2024 is 50 or more, it is analysed at
+  annual resolution; otherwise it is reported as counts only, with no trend
+  test. Cell counts are reported in every case.
+- **Family A.** Family A is one trend test on π_s(t) for each subsystem other
+  than V2X that meets the sparsity rule at quarterly or annual resolution: at
+  most five tests, with Holm–Bonferroni applied within the family. V2X is
+  reported as a count, as R5 requires, and `none` is reported descriptively;
+  neither is tested. D28 Rule 1 did not fire, so subsystems are not collapsed
+  into groups.
+
+**Consequence.** R5's "one per subsystem" becomes at most five tests, set by a
+count-based rule before any test is run. Subsystem results carry
+subsystem-classifier error that is reported but not removed.

@@ -123,3 +123,65 @@ specified in R4 (D28, Rule 2 specification, 30 September 2026): design-weighted
 π_s among CONCERN comments with the Deviation 3 interval, V2X and `none`
 excluded, first place only. This resolves the first Pending item of this
 section.
+
+## 4 October 2026 — Records entered late, and corrections
+
+Drafted on the date shown; the commit date is in the repository history.
+
+### Implementation of the tranche 1 prevalence estimates (26 September 2026)
+
+Implements Deviations 2 and 3; no new rule. Computed outside the repository as
+a preview; the figures of record come from the committed pipeline.
+
+- One label per item: the Deviation 2 gold label for the 100 reliability items,
+  the single rating for the other 400.
+- Design weights from the master key (sum 12,166). No item was skipped, so none
+  is excluded and the weights need no adjustment.
+- Standard errors: era-stratified, without-replacement variance with finite
+  population correction; class shares among relevant items use the linearised
+  ratio variance.
+- 95% intervals: logit scale (delta-method standard error), with the t quantile
+  on design degrees of freedom: 497 overall and for class shares, n_h − 1 within
+  an era.
+- All estimates, standard errors and intervals were reproduced exactly by
+  samplics 0.6.1 (TaylorEstimator).
+
+### Implementation of the tranche 1 RQ4 comparison (26 September 2026)
+
+Implements Deviations 3 and 8; no new rule. Computed outside the repository as
+a preview; the figures of record come from the committed pipeline.
+
+- Difference interval: 2022–2025 minus 2016–2018, Wald interval using the two
+  eras' design standard errors from the prevalence estimates (with finite
+  population correction), t quantile on 331 degrees of freedom (167 + 166 − 2).
+- Only the first-to-last difference is pre-specified. Other pairwise era
+  differences are not used for the RQ4 claim.
+- Composition check: subreddit mix within each era estimated from the sample
+  (simple random sampling within era); pooled frame mix weighted by era frame
+  size; seven groups as in Deviation 8, plus a two-group version
+  (r/SelfDrivingCars and r/waymo against the other six) reported alongside.
+  Descriptive; no intervals on the components.
+
+### Pending items carried from 26 September 2026
+
+- Decide whether to revise the OTHER rule (codebook Rule 8) before tranche 2 is
+  drawn; the tranche 2 allocation input depends on it.
+- Fix the Deviation 5 allocation objective (for example, maximise the smallest
+  expected final class count) before the allocation is computed.
+- Apply the same composition check to the full-corpus lexical proxy before the
+  pre-committed composition statement is used for it.
+
+### Correction to the D28 commit sentence in the 30 September section
+
+D28 was written in the design document (Revision 4, 26 September 2026), which is
+kept outside the repository, and had not been committed to the repository when
+
+the retrofit sheets were returned. The sentence in the 30 September section that
+refers to a D28 commit is superseded. The Rule 2 specification was first
+committed, in summary, at 8ec6612.
+
+### Subsystem rules recorded before any subsystem share was computed
+
+Deviation 9 fixes the subsystem estimands, the treatment of subsystem-classifier
+error, the sparsity rule and Family A. Deviation 8 records that the RQ4
+composition statement is not made for tranche 1.

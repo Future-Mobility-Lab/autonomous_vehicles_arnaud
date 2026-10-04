@@ -412,9 +412,9 @@ Past tense; Australian English. Bracketed items remain provisional until the cor
 - [x] **11.11 Log consistency.** Evidence-workbook Stage 2 pointer, B-i 1,117/1,124 correction, B-ii 2,120/2,131 labels, disk filenames, search-phase evidence provenance line and FB2 other-sources routing correction completed.
 - [x] **11.12 S2-0307.** Closed 4 October 2026. Corrected from EXCLUDE E2 to INCLUDE, moved in Zotero, added to the Full-text Screening Log and reflected in PRISMA counts.
 
-### Pending commit
+### Repository commit
 
-- [ ] **11.9 Commit.** Commit the updated literature-search records using the prescribed commit message and record the resulting commit hash in the Search Log.
+- [x] **11.9 Commit.** Closed 4 October 2026. Main literature-search commit: `fe69005` (`Literature search: citation arm, E8 addendum and log corrections`). The commit hash is recorded in the Search Log.
 
 ### Remaining substantive work
 
@@ -431,4 +431,4 @@ Past tense; Australian English. Bracketed items remain provisional until the cor
 | 0.1 | 27 Sep 2026 | *record on commit* | Created from the working literature-search record. |
 | 0.2 | 27 Sep 2026 | *record on commit* | Reconciled against both evidence logs; the two-item export gap and B-ii Scopus rationale were closed; IEEE known-item and log-consistency issues were recorded; the B-ii Scopus variant chain was reconciled. |
 | 0.3 | 2 Oct 2026 | *record on commit* | Updated from the 2 October status handover: Stage 2 figures, Zotero reconciliation and calibration results recorded; backward-citation audit added; outstanding correction and filing items documented. |
-| 0.4 | 4 Oct 2026 | *record on commit* | Applied the E8 thesis amendment to the three affected records; completed backward-citation screening; recorded decisions not to run forward citation searching or the ACL fallback; corrected S2-0307 to INCLUDE; reconciled Stage 2 and full-text counts; completed IEEE and search-log corrections; recorded the optional 118-record check as offered and not run. |
+| 0.4 | 4 Oct 2026 | fe69005 | Applied the E8 thesis amendment to the three affected records; completed backward-citation screening; recorded decisions not to run forward citation searching or the ACL fallback; corrected S2-0307 to INCLUDE; reconciled Stage 2 and full-text counts; completed IEEE and search-log corrections; recorded the optional 118-record check as offered and not run. |

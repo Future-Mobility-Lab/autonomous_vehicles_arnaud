@@ -242,3 +242,10 @@ random predicted labels                          mean  95th pct  share at or abo
 25% predicted not relevant, classes equal       177.6     190.2                       0.5%
 30% predicted not relevant, OTHER rare          178.3     195.9                       3.0%
 30% predicted not relevant, OTHER very rare     179.2     202.9                       5.2%
+
+- Pre-filter run: `facebook/bart-large-mnli` at commit `d7645e127eaf1aefc7862fd59a17a5aa8558b8ce`; 12,166 frame items
+  scored; `prefilter_scores.csv` SHA-256 `689752f57ad851e56152754092136209739018a618a4728b34d5d415d8a74b6b`.
+- Allocation computed by `tranche2_03_allocate.py`; `tranche2_allocation.json` SHA-256
+  `ce23e2290343cb87298ae1149a045728f9c54fa3bab446fc14dde8c067a5a560`.
+- Gate (expected smallest final class count at least 200): FAIL. Nothing is drawn under Deviation 10.
+- Hit rates and allocation sealed under the Blinding clause of Deviation 10.

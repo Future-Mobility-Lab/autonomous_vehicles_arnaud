@@ -185,3 +185,22 @@ committed, in summary, at 8ec6612.
 Deviation 9 fixes the subsystem estimands, the treatment of subsystem-classifier
 error, the sparsity rule and Family A. Deviation 8 records that the RQ4
 composition statement is not made for tranche 1.
+
+## 4 October 2026 — D28 Rule 2 applied
+
+Applied as specified in R4 (D28, Rule 2 specification) and summarised in this
+register at 8ec6612, after Deviation 9 was committed at 575b3af. Computed
+outside the repository as a preview; the figures of record come from the
+committed pipeline.
+
+- Labels: one primary subsystem per item under Deviation 7. All 297 items that
+  are relevant in the gold set take a label; none needed adjudication.
+- π_s among the 120 CONCERN comments, design-weighted, with 95% intervals:
+  sensing 27.8% (20.3–36.8%; 35 items); in-vehicle networks 3.7% (1.5–8.8%;
+  5 items); privacy 0.7% (0.1–4.8%; 1 item); cybersecurity and data governance
+  0 items. Not ranked: V2X 6 items; `none` 63.5% (54.2–71.8%; 73 items).
+- Test: the two largest eligible shares are sensing and in-vehicle networks.
+  Their intervals do not overlap (20.3% against 8.8%).
+- Outcome: Rule 2 is met. The ranking claim is restored, limited to sensing
+  having the largest share of expressed concern. No other ordering is claimed.
+- The figures were reproduced exactly by samplics 0.6.1.

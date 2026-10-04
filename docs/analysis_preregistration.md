@@ -737,3 +737,171 @@ pre-filter and provides the unbiased comparison. How the model comparison uses
 the two tranches is fixed before the first model run. The zero-shot
 configurations to be evaluated are fixed before the sealed files are opened,
 because the hit-rate file shows BART-MNLI's performance on tranche 1.
+
+### Deviation 11 — Tranche 2 replaced by a second natural tranche after the Deviation 10 gate failed
+
+**Recorded 4 October 2026, against commit 823270e. The commit date is in the
+repository history.**
+
+Deviation 10 set a gate for the boosted tranche: the draw would go ahead only
+if the smallest expected final class count was at least 200, and if the gate
+failed nothing would be drawn and what replaces tranche 2 would be recorded as
+a further deviation before any draw. Deviation 10 and its scripts were
+committed at 64a64a8, the pre-filter was then run, and the gate failed. The
+result and the file hashes are in `docs/decision_register.md`. Nothing has
+been drawn. This deviation records what replaces the boosted tranche. It was
+written with the pre-filter scores, the hit rates and the allocation still
+sealed. The author has opened none of them: he knows the gate result and the
+checks the scripts displayed, and nothing else.
+
+**Replacement.** Tranche 2 is a second natural tranche of 500 items, drawn as
+R1 draws tranche 1: a simple random sample without replacement within each of
+the three eras, with no pre-filter. The pre-filter of Deviation 10 plays no
+part in which items are drawn.
+
+**Why this and not another attempt.** The bar of 200 was fixed before any hit
+rate existed, so that going ahead could not be decided after the result.
+Lowering the bar, or trying other wordings, thresholds or models until one
+passed, would be that decision made after the result, and each further attempt
+would have its own chance of passing by noise. A natural tranche needs no
+pre-filter and makes no use of the failed one. Stopping at tranche 1 was the
+other course that needs no pre-filter; it would leave 500 annotated items and
+a 100-item reliability subset where R1 fixes 1,000 and 200.
+
+**What is given up.** R1's objective of equalising final class counts is not
+met. A natural tranche is expected to add to each class about what tranche 1
+gave it (120, 95 and 82), so the smallest class is expected near 164 and not
+at 200 or more. The class counts are whatever the draw gives.
+
+**Draw.** Eligible items are the 12,166 frame items less the 500 tranche 1
+items and the 30 calibration items, all of which are in the frame: 11,636
+items, as frozen by `tranche2_01_export_prefilter_input.py`. Within each era a
+simple random sample without replacement is drawn from the eligible items of
+that era, with the tranche 1 allocation: 167 (2016–2018), 167 (2019–2021) and
+166 (2022–2025). Random numbers come from NumPy's
+`default_rng([24916660, 2, k])` with k from 10 to 17, as listed in
+`tranche2_05_draw_natural.py`; none of these values is used by the Deviation
+10 scripts. The draw is made once. No other seed or allocation is tried, and
+no item is replaced or added afterwards, whatever the realised class counts
+and however many items are skipped. The script is committed with this
+deviation. Its draw was tested on synthetic data only; before this commit it
+was run once on the real inputs with `--check`, which draws and writes
+nothing. `tranche2_04_draw.py` is not run.
+
+**Reliability subset and assignment.** 100 of the 500 are rated by all three
+annotators: 34, 33 and 33 from the three eras (in proportion to the draw, by
+largest remainder, a tie going to the earlier era), drawn at random within
+era. The other 400 are shuffled within era and dealt to A, B and C in turn.
+Each annotator's sheet is in its own random order.
+
+**Presentation and instructions.** The sheets are as Deviation 10 specifies
+under Presentation and Subsystem labels: .xlsx workbooks with fixed choices,
+comment text and subreddit, Stage 1 then Stage 2, and the two subsystem
+columns hidden until the first pass is finished. The text shown is the text
+prepared for the pre-filter under Deviation 10. Tranche 2 is annotated under
+codebook v1.0. The special instruction of Deviation 10 is not given: the batch
+is a random sample, annotators are told that it was drawn in the same way as
+tranche 1, and the codebook applies unchanged, including §3.2.
+
+**Inclusion probabilities and weights.** Within an era, tranche 1 is a simple
+random sample of the frame items and contains no calibration item, and tranche
+2 is a simple random sample of the items that remain once tranche 1 and the
+calibration items are set aside. Taken together they are a simple random
+sample, without replacement, of the era's frame items other than the
+calibration items: 334, 334 and 332 items. Every item of either tranche
+carries the pooled weight N_h / n_h, where N_h is the frame size of its era
+(2,495, 3,633 and 6,038) and n_h the pooled draw. The weights use the frame
+sizes, as the tranche 1 weights do. That treats the 30 calibration items as
+represented by the sample, which is exact if they were drawn at random from
+the frame and an approximation otherwise. Leaving them out of N_h would change
+no estimate within an era and would move the share of any era by at most 0.2
+of a percentage point. For each tranche 2 item the key records the pooled
+weight and the weight for its own draw, N_h over 167 or 166, as the tranche 1
+key does.
+
+**Missing ratings.** A skipped or unreturned rating is missing, and no item is
+replaced. A reliability item with two ratings takes their label if they agree.
+If they agree at Stage 1 only, it keeps its Stage 1 label and has no Stage 2
+label; if they differ at Stage 1, it has no gold label. A reliability item
+with one rating, and a singly-rated item, take that rating. An item with no
+rating has no gold label. Items without a gold label are listed by era,
+tranche and annotator.
+
+**Prevalence.** R1 estimates prevalence on the natural tranche only. Both
+tranches are now natural, so the relevance rate, the class shares and the RQ4
+era comparison are estimated on the pooled sample, with the pooled weights and
+the intervals of Deviation 3. An item with no gold Stage 1 label is left out,
+and n_h in the weight and the interval is then the number of items of the era
+that have one; class shares are taken over the relevant items that have a
+Stage 2 label. The tranche 1 figures recorded so far are previews on half of
+the sample. Each estimate is also reported for the two tranches separately,
+each with N_h over its own draw as weight; a difference between the two
+annotation rounds is reported and is not used to choose between them. The
+composition check of Deviation 8 is repeated on the pooled sample by the same
+method, and the decomposition is reported in place of the composition
+statement, as there.
+
+**Subsystem labels.** They are collected as Deviation 10 specifies. Because
+tranche 2 is now a natural sample, its subsystem labels are used with those of
+tranche 1: the shares of the D28 Rule 2 specification are estimated on the
+pooled sample with the pooled weights, and the subsystem classifier of
+Deviation 9 is validated against the labels of both tranches. Two sentences of
+Deviation 10 lapse: the one that keeps tranche 2 subsystem labels out of the
+shares, and "Condition (ii) of Rule 2 is not recomputed". In item 3 of the D28
+Rule 2 specification, "the tranche 1 natural sample" becomes the pooled
+sample. When this was decided, the tranche 1 shares and the outcome of
+condition (ii) on them had been seen as a preview. The pooled evaluation is
+the one of record whichever way it falls, and the tranche 1 outcome is
+reported beside it. Subsystem α is re-applied to D28 as Deviation 10 fixes. If
+the pooled sample changes an outcome of D28, the change and its effect on
+Family A (Deviation 9) are recorded as a further deviation.
+
+**Blinding.** The pre-filter scores and their manifest, the hit-rate and
+allocation files and the sealed register text stay sealed on the terms of
+Deviation 10: until all three tranche 2 sheets are returned, their hashes are
+recorded and any Deviation 2 adjudication is entered, or 11 October 2026. They
+hold BART-MNLI's prediction for every frame item, including the items about to
+be annotated, and its performance on tranche 1. Deviation 10's condition that
+the zero-shot configurations are fixed before those files are opened stands.
+The tranche 2 master key and draw manifest show which items are reliability
+items. The author is annotator A and does not open them, or B's and C's
+workbooks, until all three sheets are returned or, failing that, 11 October
+2026, when outstanding ratings are recorded as not returned. This is an
+undertaking by the author and cannot be checked. B and C are still asked not
+to read the repository until their sheets are returned, because it holds the
+tranche 1 class counts and agreement figures. Tranche 2 class counts on
+single-rated items are still reported by annotator.
+
+**What changes in R1, R5, D28 and Deviations 5 and 10.**
+
+1. R1's boosted tranche, its allocation on predicted class and its objective
+   of equal class counts are replaced by the natural tranche above. Deviation
+   5 and the allocation of Deviation 10 are not used.
+2. R1's pre-filter bias analysis lapses, because there is no boosted portion.
+   The random pool of Deviation 10 is not drawn. The pre-filter's hit rates on
+   tranche 1, the allocation that was not used and the gate result are
+   reported once the files are unsealed.
+3. R1's statement that the boosted tranche is never used for prevalence has
+   nothing left to apply to: tranche 2 carries inclusion probabilities and is
+   used for prevalence as set out above.
+4. R5's first form of the temporal calibration check, "the natural tranche
+   alone", is now both tranches. That form is the one of record, including for
+   R5's condition on the corrected series. The check is also reported on each
+   tranche alone; a divergence between the tranches is reported as a
+   difference between annotation rounds or as sampling variation and is not
+   used to choose a form. The confound R5 names does not arise.
+5. D28's Rule 2 is evaluated on the pooled sample, as set out under Subsystem
+   labels.
+6. In Deviation 10, the paragraphs on the draw, the reliability subset and
+   assignment, the random pool and the annotator instruction, the account of
+   the boosted tranche's features and bias, and the sentence on what the
+   author knows of the allocation describe a draw that was not made. The
+   codebook decision, the pre-filter specification and its frozen scores, the
+   form of the sheets, the collection of subsystem labels, the re-application
+   of subsystem α to D28 and the sealing of the pre-filter outputs stand.
+
+R1's reliability subset of 200 items, 100 in each tranche, is unchanged. How
+the model comparison uses the two tranches, and what part the frozen
+pre-filter scores play in it, are fixed in a further deviation before any
+model is run and before the sealed files are opened.
+

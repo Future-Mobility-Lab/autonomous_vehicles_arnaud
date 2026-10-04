@@ -249,3 +249,39 @@ random predicted labels                          mean  95th pct  share at or abo
   `ce23e2290343cb87298ae1149a045728f9c54fa3bab446fc14dde8c067a5a560`.
 - Gate (expected smallest final class count at least 200): FAIL. Nothing is drawn under Deviation 10.
 - Hit rates and allocation sealed under the Blinding clause of Deviation 10.
+
+## 4 October 2026 — Tranche 2 gate failed; replaced by a second natural tranche
+
+Drafted on the date shown; the commit date is in the repository history.
+
+- The gate of Deviation 10 failed (see the block above: pre-filter run,
+  allocation hash, gate result). Nothing was drawn under Deviation 10 and
+  `tranche2_04_draw.py` was not run.
+- State of the files when the replacement was decided. The author had opened
+  none of `prefilter_scores.csv`, `prefilter_scores_manifest.json`,
+  `tranche2_allocation.json`, `tranche2_hit_rates.csv` or the sealed register
+  text, and had seen no hit rate, allocation, expected count, count by
+  predicted label or item-level prediction. He knew the gate result and the
+  checks the scripts displayed.
+- Decision taken by the author on 4 October 2026 and recorded in Deviation 11:
+  tranche 2 is a second natural tranche, drawn like tranche 1 with no
+  pre-filter. Lowering the bar and trying other pre-filters were rejected
+  because each would decide after the result. Stopping at tranche 1 was
+  rejected because R1 fixes 1,000 items and a 200-item reliability subset.
+- Also recorded in Deviation 11: prevalence and the D28 Rule 2 shares are
+  estimated on the two tranches pooled; the tranche 1 figures recorded so far
+  are previews on half of that sample; the pre-filter outputs stay sealed on
+  the terms of Deviation 10.
+- Before this entry was committed, `tranche2_05_draw_natural.py --check` was
+  run. It draws nothing. The block appended after this entry is printed by the
+  draw and carries hashes only.
+
+Lines printed by the `--check` run:
+
+frame by era: 2,495 / 3,633 / 6,038 (matches R1)
+tranche 1 by era: 167 / 167 / 166 (matches R1)
+calibration items by era: 10 / 10 / 10 (30 in the frame, excluded)
+eligible by era: 2,318 / 3,456 / 5,862 = 11,636
+Deviation 10 gate, as recorded in tranche2_allocation.json: FAIL (file SHA-256 ce23e2290343cb87298ae1149a045728f9c54fa3bab446fc14dde8c067a5a560)
+text: prefilter_input.csv matches step 1 and the corpus
+tranche 2 allocation by era: 167 / 167 / 166 | pooled draw of both tranches: 334 / 334 / 332

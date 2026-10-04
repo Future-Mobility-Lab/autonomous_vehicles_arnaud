@@ -285,3 +285,20 @@ eligible by era: 2,318 / 3,456 / 5,862 = 11,636
 Deviation 10 gate, as recorded in tranche2_allocation.json: FAIL (file SHA-256 ce23e2290343cb87298ae1149a045728f9c54fa3bab446fc14dde8c067a5a560)
 text: prefilter_input.csv matches step 1 and the corpus
 tranche 2 allocation by era: 167 / 167 / 166 | pooled draw of both tranches: 334 / 334 / 332
+
+- Tranche 2 (natural, Deviation 11) drawn 2026-10-05T06:58:26+11:00 by `tranche2_05_draw_natural.py`:
+  500 items, 167 / 167 / 166 by era, membership SHA-256
+  `3a1100cc537f4ec286563a28d8878e8e852cdf06583aa072f547d79331066b51`.
+- Reliability subset: 100 items, 34 / 33 / 33 by era, SHA-256
+  `1a63e4f3de0f8e2f68855003fccdf7710deee59982487f9d455864e51183e8a9`.
+- Sheets, by membership SHA-256:
+  A, 234 items, `d096ced89e52320dfd2d9eff345091bf71358aa878175ff5a1182caef8f06d9f`;
+  B, 233 items, `d4e854fbb8a11ad30638d34a6d7e843d2d777457e715e754aab5f899513cb149`;s
+  C, 233 items, `53f7c24712f6544eae0bf3586f7497f212841b4a1b1fe1e748a3fb432c6e3458`.
+- `tranche2_master_key.csv` SHA-256 `ae116f8df5f33bfc9231b35519db7a992c6acd7ae5f5bb23bf50ef2524c22d5e`;
+  `tranche2_manifest.json` SHA-256 `9aea7be28652220c8fbb75db9cba81e7c7507b8920826a0ac96389cc47dcea91`.
+  Neither file is committed to the repository. Both show which items are reliability items and are
+  not opened by the author until the three sheets are returned.
+- No pre-filter output was used. The Deviation 10 gate result was read from `tranche2_allocation.json`
+  (SHA-256 `ce23e2290343cb87298ae1149a045728f9c54fa3bab446fc14dde8c067a5a560`): FAIL.
+- Seed 24916660, components 10 to 17; NumPy 2.5.1; pandas 3.0.3.

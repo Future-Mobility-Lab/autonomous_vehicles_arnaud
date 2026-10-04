@@ -204,3 +204,41 @@ committed pipeline.
 - Outcome: Rule 2 is met. The ranking claim is restored, limited to sensing
   having the largest share of expressed concern. No other ordering is claimed.
 - The figures were reproduced exactly by samplics 0.6.1.
+
+## 4 October 2026 — Tranche 2: decisions before the draw, and the draw
+
+- The two tranche 2 items listed as pending on 4 October are closed by
+  Deviation 10: the OTHER rule (codebook Rule 8) is not revised, and the
+  Deviation 5 allocation objective is fixed.
+- Decisions taken by the author on 4 October 2026, before the pre-filter was
+  run, and recorded in Deviation 10: the codebook is not revised; the
+  pre-filter wording (the design document gives none); the allocation rule; a
+  minimum bar of 200 for going ahead; hit rates and allocation sealed until the
+  sheets are returned or 11 October 2026; subsystem labels collected in the
+  same workbook; no era stratification. B and C are asked to return their
+  sheets by 7 October 2026.
+- Order of work. The governing document places tranche 2 after tranche 1 is
+  closed, and the tranche 1 results of record have not yet been produced by the
+  committed pipeline. The draw does not wait for them. The allocation needs only
+  the tranche 1 labels, which `tranche2_common.py` derives from the completed
+  sheets and checks item by item against a recorded fingerprint (SHA-256
+  `d6f4eeeaf756831c3ba2a3165a7a548505d75a315b4f06069b9cf8ce580cd8d7`: 203 not
+  relevant, CONCERN 120, ENDORSEMENT 95, OTHER 82).
+- Calibration items: 30 ids from `data/annotation/calibration_annotator_A.csv`, of which
+  `30` are in the frame and are excluded from the draw.
+- Data handling. `data/tranche2/` holds comment text, the pre-filter scores and
+  the researcher-only key, and is not committed to the repository. The
+  pre-filter input (ids and text of the 12,166 frame items) is uploaded to
+  Google Colab for scoring and deleted from it afterwards.
+- Deviation 10 and the six scripts are committed with this entry, before the
+  pre-filter is run; the commit date is in the repository history. The gate
+  simulation was run before the pre-filter and printed the table below. The
+  blocks appended after it are printed by the scripts and carry hashes only.
+  The measured figures are sealed under the Blinding clause of Deviation 10
+  and are added when the files are unsealed.
+
+random predicted labels                          mean  95th pct  share at or above the bar
+40% predicted not relevant, classes equal       178.2     193.1                       1.8%
+25% predicted not relevant, classes equal       177.6     190.2                       0.5%
+30% predicted not relevant, OTHER rare          178.3     195.9                       3.0%
+30% predicted not relevant, OTHER very rare     179.2     202.9                       5.2%

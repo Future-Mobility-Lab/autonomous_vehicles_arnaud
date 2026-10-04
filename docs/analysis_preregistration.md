@@ -496,3 +496,244 @@ code was computed.
 **Consequence.** R5's "one per subsystem" becomes at most five tests, set by a
 count-based rule before any test is run. Subsystem results carry
 subsystem-classifier error that is reported but not removed.
+
+### Deviation 10 — Tranche 2: codebook, pre-filter, allocation rule, gate, draw and subsystem labels; R1's statement of bias direction withdrawn
+
+**Recorded 4 October 2026, against commit 823270e.**
+
+R1 fixes the design of tranche 2 and Deviation 5 fixes how its allocation is
+estimated. Neither states the pre-filter's wording, an objective that can be
+computed, or the draw procedure, and R1 leaves open whether the codebook is
+revised first. These are fixed here. The pre-filter wording below was written
+on 4 October 2026 and had not been run on any frame item when this was
+recorded. The scripts were tested on synthetic scores only.
+They are `tranche2_common.py`, `tranche2_01_export_prefilter_input.py`,
+`tranche2_02_score_prefilter.py`, `tranche2_03_allocate.py`,
+`tranche2_04_draw.py` and `tranche2_gate_null_simulation.py`, committed with
+this deviation.
+
+**Codebook.** Not revised. Tranche 2 is annotated under codebook v1.0, as
+tranche 1 was. Nothing in R1 or R2 requires a revision: R1 allows one, and R2's
+0.7 threshold governs the calibration round. Tranche 1 Stage 2 α was 0.739
+(Deviation 4), and the disagreement that remains is concentrated in OTHER.
+Revising Rule 8 now would put the two tranches under different rules, with the
+difference confounded with natural against boosted sampling, and a revised
+codebook would first have to be calibrated on fresh items. The cost is
+accepted, and it is larger than for tranche 1: the boosted tranche is designed
+to add most to the class on which the annotators agree least, and four-fifths
+of it is rated once. Agreement is reported per class for both tranches. B and
+C have not been shown the tranche 1 agreement results.
+
+One instruction differs from tranche 1. Codebook §3.2 states expected relevance
+rates for a natural sample, which do not hold here. Annotators are told, in
+these words: "This batch was chosen by an automated filter and is not a random
+sample. Some of the comments are not about connected or autonomous vehicles.
+The expected rates in section 3.2 do not apply and nothing replaces them: judge
+each comment on its own. Everything else in the codebook applies as before."
+They are not told which classes were targeted.
+
+**Pre-filter.** `facebook/bart-large-mnli`; the commit of the model files is
+recorded in the run manifest. The premise is the comment text alone
+(`clean_body`, corpus v2.2), truncated to the model's maximum input length.
+The subreddit is not used. There are four hypotheses:
+
+- relevance: "This comment is about self-driving or connected vehicles,
+  driver-assistance systems such as Autopilot, robotaxis, or the sensors,
+  software or data of such vehicles."
+- CONCERN: "This comment expresses worry, doubt or criticism about
+  self-driving or connected vehicle technology."
+- ENDORSEMENT: "This comment expresses support, approval or optimism about
+  self-driving or connected vehicle technology."
+- OTHER: "This comment is neutral or factual and takes no position on
+  self-driving or connected vehicle technology."
+
+Logits are rounded to six decimal places before anything is derived from them.
+The relevance probability is the entailment share of a softmax over the
+entailment and contradiction logits of the relevance hypothesis, and an item is
+predicted relevant at 0.5 or above. The predicted class is the class hypothesis
+with the highest entailment logit (a tie goes to the first of CONCERN,
+ENDORSEMENT, OTHER). The **predicted label** is "not relevant" for an item not
+predicted relevant, and the predicted class otherwise. A comment containing a
+literal control string of the tokenizer (such as "</s>") has that string spaced
+out for the model input, and its id is logged. Control characters that a
+workbook cell cannot hold are removed from a comment before it is scored, so
+that the model and the annotators get the same text; the number of comments
+affected is recorded. All 12,166 frame items are scored once. The scores file
+is frozen by its SHA-256 and is the reference; a later re-run is not a
+substitute for it.
+
+Hit rates, the allocation, the draw and the reliability subset use the
+predicted label, and only its three values other than "not relevant". An item
+below the relevance threshold is never drawn.
+
+**Hit rates.** For each predicted label, the share of tranche 1 items with that
+predicted label that have each tranche 1 label (not relevant, CONCERN,
+ENDORSEMENT, OTHER), weighted by the R1 design weights. The tranche 1 label is
+the gold label under Deviation 2 for the 100 reliability items and the single
+rating otherwise.
+
+**Allocation.** Let T_c be the tranche 1 count of class c, for the three
+classes CONCERN, ENDORSEMENT and OTHER; a_p the number of tranche 2 items drawn
+with predicted label p; and h_pc the hit rates. The expected final count is
+F_c = T_c + Σ_p a_p h_pc. The allocation is the set of whole numbers a_p ≥ 0
+with Σ_p a_p = 500 that maximises the smallest F_c. Ties are broken by the
+larger second-smallest F_c, then the larger maximum F_c, then the smaller
+a_CONCERN, then the smaller a_ENDORSEMENT. Expected counts are compared after
+rounding to six decimal places. No a_p exceeds the number of eligible items
+with that predicted label, and a predicted label with no tranche 1 items,
+having no measurable hit rate, receives none. Every allocation is examined.
+
+The limits of this rule are stated now. The hit rates rest on a few hundred
+tranche 1 items at most, and the allocation is sensitive to them. The rule
+gives no weight to the other classes once the smallest is fixed, so it can
+spend relevant items for a small gain in the smallest class. The expected
+counts are computed from the same rates that chose the allocation and so tend
+to overstate the smallest class; a realised count below them is expected and
+is not a shortfall.
+
+**Gate.** The draw goes ahead only if the smallest F_c is at least 200. A
+second natural tranche would be expected to leave the smallest class near 164,
+twice its tranche 1 count. With predicted labels unrelated to the tranche 1
+labels, the smallest F_c averaged about 178 in simulation and reached 200 in
+about 5% of runs at most (`tranche2_gate_null_simulation.py`, which uses the
+tranche 1 labels and random predicted labels only). The bar is a judgement
+call. Its value is that it is fixed before any hit rate is computed. The script
+reports pass or fail and nothing else. If the gate fails, nothing is drawn
+under this deviation, the files stay sealed, and what replaces tranche 2 is
+recorded as a further deviation before any draw.
+
+**Draw.** Eligible items are the 12,166 frame items less the 500 tranche 1
+items and any of the 30 calibration items that are in the frame. For each
+predicted label, a_p items are drawn by simple random sampling without
+replacement from the eligible items with that predicted label. There is no era
+stratification and no selection on confidence beyond the relevance threshold.
+Random numbers come from NumPy's `default_rng([24916660, 2, k])`, where k
+indexes the step as listed in `tranche2_common.py`. The draw is a fixed
+function of the frozen scores and the tranche 1 labels: no other seed or
+allocation is tried, no override in the scripts is used without a recorded
+deviation, and no item is replaced or added afterwards, whatever the realised
+class counts and however many items are skipped.
+
+**Reliability subset and assignment.** 100 of the 500 are rated by all three
+annotators. They are allocated across predicted labels in proportion to a_p
+(largest remainder, ties in the order CONCERN, ENDORSEMENT, OTHER) and drawn at
+random within label. The other 400 are shuffled within predicted label and
+dealt to A, B and C in turn. Each annotator's sheet is in its own random order.
+
+**Random pool.** A simple random sample of 500 eligible items, drawn without
+reference to the predicted label, is the random pool for R1's confidence
+comparison. It is not annotated. It may overlap tranche 2, and the overlap is
+recorded.
+
+**Presentation.** As in tranche 1: comment text and subreddit, Stage 1 then
+Stage 2. The text shown is the text that was scored. Predicted labels, scores
+and the reliability flag are not shown. Sheets are .xlsx workbooks with fixed
+choices for the label columns, to avoid the text-encoding fault recorded for
+one tranche 1 sheet (see `docs/decision_register.md`).
+
+**Subsystem labels.** Collected in the same workbook, not on a separate sheet
+returned later as in tranche 1 (Deviation 6). Two columns, `subsystem` and
+`subsystem_secondary`, sit beside the Stage 2 class and are hidden when the
+workbook is opened. Each annotator first completes Stage 1 and Stage 2 for
+every row, then reveals the two columns and labels every row they marked
+relevant, under `docs/subsystem_retrofit_instructions.md`: the same seven
+primary values and optional secondary value as in tranche 1. As in tranche 1,
+the annotator's own Stage 2 class is in view while the subsystem is chosen.
+Annotators are asked to finish the first pass before starting the second and
+not to change a Stage 1 or Stage 2 answer during it. That order is an
+instruction and cannot be enforced.
+
+Tranche 2 subsystem labels are not used to estimate subsystem shares, which
+rest on the natural tranche. They have two uses. The first is D28, whose α
+conditions cover the reliability units of both tranches ("57 in tranche 1,
+plus the tranche 2 equivalent"). The D28 results recorded so far rest on
+tranche 1 alone and are provisional. When tranche 2 is complete, subsystem α
+is computed on the reliability items of both tranches, pooled, in the two
+forms recorded on 30 September 2026: on the items with two or more subsystem
+labels, and on the items labelled by all three annotators. Rule 1 and
+condition (i) of Rule 2 are applied to the lower of the two figures. α is also
+reported for each tranche. Condition (ii) of Rule 2 is not recomputed, because
+it rests on the natural tranche. If the pooled figure changes either outcome,
+the change and its effect on Family A (Deviation 9) are recorded as a further
+deviation. The second use is validation of the subsystem classifier, where
+accuracy on boosted items is reported separately from accuracy on natural
+items.
+
+**Blinding.** The author is annotator A. From the pre-filter run onwards the
+scripts display checks, the gate result and file hashes only: no hit rate,
+allocation, expected count, count by predicted label or item-level prediction.
+The scores file and its manifest, the hit-rate and allocation files, the master
+key, the draw manifest and B's and C's workbooks are not opened by the author
+until all three sheets are returned, their hashes are recorded and any
+Deviation 2 adjudication is entered. If a sheet has not
+been returned by 11 October 2026, the files are unsealed on that date and the
+missing ratings are recorded as not returned. This is an undertaking by the
+author and cannot be checked. The author knows the rule and the tranche 1
+counts, and so knows that every item passed the relevance threshold and that
+the allocation favours OTHER and ENDORSEMENT, but not the measured rates or
+the numbers drawn. The author also has an interest in those classes reaching
+parity, and Rule 8 leaves room for judgement, so tranche 2 class counts on
+single-rated items are reported by annotator. B and C are asked not to read
+the repository until their sheets are returned, because the targeted classes
+can be worked out from it.
+
+**What changes in R1 and Deviation 5.** R1's design is unchanged. Five
+statements are changed or narrowed.
+
+1. "Equalising final class counts" (R1) and "as close to equal as those rates
+   allow" (Deviation 5) become a rule that maximises the smallest expected
+   count. Where a more even allocation would leave the smallest class smaller,
+   the less even one is chosen. The least-spread allocation and its expected
+   counts are written to the allocation file for comparison and are not used.
+2. All three predicted labels may receive items, not only those of the sparse
+   classes.
+3. Deviation 5's rate, "the share of targeted items that turn out relevant and
+   in that class", becomes the full design-weighted table of predicted label
+   against tranche 1 label. The design document's sketch, in which each
+   class's allocation is inflated by one over its precision, is not used: it
+   does not hold the total at 500.
+4. R1 says the boosted tranche carries no inclusion probabilities. Under this
+   draw it is a stratified simple random sample of the eligible items that are
+   predicted relevant: an item with predicted label p has inclusion probability
+   a_p / N_p, where N_p is the number of eligible items with that label. Both
+   are recorded in the allocation file. Items predicted not relevant have
+   probability zero, so the tranche cannot estimate prevalence in the frame,
+   and under R1 it is not used for prevalence.
+5. R1's statement of bias direction is withdrawn (below).
+
+Three features of the boosted tranche follow from these rules and are reported
+with it. It is not stratified by era, so its era composition is not controlled
+and will differ from tranche 1's; comparisons between the tranches are reported
+within era as well as overall, and the full-set form of R5's temporal
+calibration check inherits the difference. The pre-filter reads the text alone,
+so a relevant comment that it scores below 0.5 is absent from the boosted
+tranche, not merely rarer; this includes comments in r/SelfDrivingCars and
+r/waymo that are relevant only by the subreddit rule. The size of the gap is
+the pre-filter's Stage 1 recall on tranche 1, reported overall and for those
+two subreddits. Within each class the boosted items are those BART-MNLI
+recognises, so they may be more explicit than the class as a whole. Tranche 1
+holds all of these at the rates its design gives.
+
+**Withdrawal of R1's statement of bias direction.** R1 says the pre-filter
+inflates BART-MNLI's measured performance on the boosted portion, so that a
+supervised advantage measured there is a lower bound. That statement is
+withdrawn. It assumed that confidently classified items would be selected;
+this draw selects on predicted label and a relevance threshold only. For the
+pre-filter as specified above:
+
+- precision for a predicted label does not depend on a_p, but it is measured
+  only among items above the relevance threshold and may differ from precision
+  in the frame;
+- recall for a class depends on the mix of predicted labels drawn and is zero
+  where a_p is zero, so it can be higher or lower than in the frame;
+- every boosted item is predicted relevant, so Stage 1 recall is 1 and
+  specificity is 0, and the not-relevant class has an F1 of zero.
+
+Macro-F1 on the boosted portion can therefore move either way. Every model is
+scored on the same selected items, so figures on the boosted portion and on
+the pooled set describe those item sets and are not estimates of performance
+on the frame. R1's other statement stands: the natural tranche carries no
+pre-filter and provides the unbiased comparison. How the model comparison uses
+the two tranches is fixed before the first model run. The zero-shot
+configurations to be evaluated are fixed before the sealed files are opened,
+because the hit-rate file shows BART-MNLI's performance on tranche 1.

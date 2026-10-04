@@ -302,3 +302,36 @@ tranche 2 allocation by era: 167 / 167 / 166 | pooled draw of both tranches: 334
 - No pre-filter output was used. The Deviation 10 gate result was read from `tranche2_allocation.json`
   (SHA-256 `ce23e2290343cb87298ae1149a045728f9c54fa3bab446fc14dde8c067a5a560`): FAIL.
 - Seed 24916660, components 10 to 17; NumPy 2.5.1; pandas 3.0.3.
+
+
+## 4 October 2026 — Model comparison rules recorded before any classifier's results were seen
+
+Drafted on the date shown; the commit date is in the repository history.
+
+### Rules fixed in Deviation 12
+
+Deviation 12 fixes the Stage 2 configurations and their input, the fold
+assignment across the two tranches, the item set for Family B and for the
+prevalence correction, the deployment rules for both classifiers, the reporting
+of agreement on the 200 reliability items, two predictions, the event markers
+and the success criteria. Tranche 2 is the natural tranche of Deviation 11, so
+the item set is the relevant items of both tranches. It also fixes that no
+further model is run on any annotated item until the tranche 2 sheets are
+returned.
+
+### State of the work when Deviation 12 was committed
+
+- No classifier output had been set against a label where the author could see
+  it. The pre-filter scores, hit rates and allocation computed under Deviation
+  10 were sealed; the author knew only that its gate had failed.
+- B's and C's tranche 2 sheets had not been returned.
+- The author had not started his own tranche 2 sheet.
+
+### Pending
+
+- Commit the universal schema, the Claude prompts, the checkpoints, the dated
+  model identifiers and the fine-tuning settings with the model scripts, before
+  the first comparison run and before the sealed files are opened.
+- Commit the tranche 1 fold assignment before any model is run.
+- Define a material temporal effect for R5's calibration check before the check
+  is run.

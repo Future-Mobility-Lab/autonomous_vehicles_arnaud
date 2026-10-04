@@ -905,3 +905,173 @@ the model comparison uses the two tranches, and what part the frozen
 pre-filter scores play in it, are fixed in a further deviation before any
 model is run and before the sealed files are opened.
 
+### Deviation 12 — Model comparison, classifier deployment and reliability reporting across the two tranches
+
+**Specified 4 October 2026, against commit 823270e. The commit date is in the
+repository history.**
+
+R1, R2 and R5 fix the two tranches, the evaluation protocol, the inference
+families and the prevalence correction, and Deviations 1, 2, 10 and 11 fix the
+Stage 1 input, the gold label, the pre-filter, the tranche 2 draw and the
+treatment of missing ratings. None of them states what the Stage 2 models
+receive as input, how folds are formed across two tranches, which items carry
+the model comparison and the prevalence correction, how the deployed
+classifiers are chosen, or how agreement on the 200 reliability items is
+reported. Deviation 10 requires the zero-shot configurations to be fixed
+before its sealed files are opened, and Deviation 11 leaves the use of the two
+tranches in the model comparison to this deviation. The rules are fixed here,
+and the zero-shot configurations are named here with their wording to follow
+as stated below. This was done after the tranche 1 agreement, prevalence and
+subsystem figures had been seen as previews (see `docs/decision_register.md`)
+and after the author knew that the Deviation 10 gate had failed. That result,
+and the checks the scripts displayed, are all he knows of BART-MNLI's output.
+It was done before the author had seen any classifier's output set against a
+label, before B's and C's tranche 2 sheets were returned, and before any
+sealed file was opened.
+
+**Configurations.** Five models are compared at Stage 2: DistilBERT and
+RoBERTa, fine-tuned; and BART-MNLI (`facebook/bart-large-mnli`), Claude Haiku
+4.5 and Claude Sonnet 4.6, zero-shot. Each zero-shot model is run under a
+universal and a domain-specific label schema, giving eight configurations. For
+BART-MNLI the domain-specific schema is the three class hypotheses of
+Deviation 10, unchanged. Its Stage 2 prediction is the predicted class defined
+there, whatever the relevance probability, taken from the frozen pre-filter
+scores and not re-run. The universal schema, the prompts for the two Claude
+models, the checkpoints, the dated model identifiers and the fine-tuning
+settings are committed word for word with the model scripts, before the first
+comparison run and before the sealed files are opened. Fine-tuning settings
+are fixed in that commit and are not tuned on any evaluation fold. A response
+that names no class is retried once with the same prompt; a second such
+response is recorded as a refusal and scored as an error. No further model is
+run on any item of either tranche, for piloting or otherwise, until the model
+scripts are committed and all three tranche 2 sheets are returned, their
+hashes recorded and any adjudication under Deviations 2 and 7 entered, or 11
+October 2026 on the terms of Deviation 10.
+
+**Input.** Every Stage 2 configuration receives the comment text alone
+(`clean_body`), as the pre-filter did. R2 says the models see what the
+annotators see, and Deviation 1 applies that to Stage 1 by adding the
+subreddit to the Stage 1 classifier input. At Stage 2 the annotators could see
+the subreddit, but the codebook's subreddit rule concerns relevance only, and a
+classifier that used the subreddit could carry the subreddit mix into the
+concern series that R3 reweights. The subreddit is therefore withheld from the
+Stage 2 models.
+
+**Folds.** Within each tranche, the items with a gold label are sorted by
+comment id and assigned to five folds by
+`StratifiedKFold(n_splits=5, shuffle=True, random_state=24916660)`, stratified
+on the four-way gold label (not relevant, CONCERN, ENDORSEMENT, OTHER). Fold k
+of the annotated set is the union of fold k from each tranche. Among relevant
+items this is stratification on the Stage 2 gold class, as R5 requires. An
+item that is relevant in the gold set but has no Stage 2 gold label (Deviation
+11, Missing ratings) forms a fifth stratum and takes no part in Stage 2
+training or evaluation. The tranche 1 assignment is committed before any model
+is run, and the tranche 2 assignment when its gold labels are formed.
+
+For each fold k, each fine-tuned model is trained on the relevant items of the
+other four folds, from both tranches, and predicts the relevant items of fold
+k. Each zero-shot configuration predicts every item once.
+
+**Comparison (Family B).** The primary item set is the items of both tranches
+that are relevant in the gold set, with the predictions above. Both tranches
+are probability samples of the frame (Deviation 11), so no figure rests on
+pre-filtered items. Family B is the ten pairwise comparisons of macro-F1 among
+the five models, the zero-shot models under the universal schema, each by R5's
+item-level permutation test, with Holm–Bonferroni across the ten at 0.05.
+Every permutation test in this deviation is seeded with 24916660. Metrics are
+unweighted. Per-class F1 is reported for every configuration and
+is not tested. Figures under the domain-specific schema, and figures for each
+tranche separately, are reported beside them, uncorrected and labelled
+exploratory (Family C).
+
+**Stage 2 deployment.** The candidates are the eight configurations. The
+deployed classifier is the one with the highest CONCERN-class F1 on the primary
+item set. A configuration is tied with it if a two-sided item-level
+permutation test of the difference in CONCERN-class F1 (N = 10,000, no
+adjustment) gives p ≥ 0.05; this test only defines ties and is not a reported
+comparison. Among that configuration and those tied with it, the choice is the
+larger TPR − FPR for CONCERN against the other two classes, weighted by the
+pooled design weights of Deviation 11; then the lower measured cost per 1,000
+comments; then the first in the order DistilBERT, RoBERTa, BART-MNLI, Haiku,
+Sonnet, universal before domain-specific. A fine-tuned model that is deployed
+is retrained on every relevant gold item from both tranches before it is run
+on the corpus.
+
+**Stage 1 deployment.** The deployed relevance classifier receives the
+subreddit and the comment text (Deviation 1). It is trained and evaluated on
+the gold items of both tranches, on the folds above. The candidates are named
+in the model scripts' commit. The one with the highest balanced accuracy is
+deployed, an exact tie going to the lower cost, and it is retrained on all
+gold items of both tranches before it is run on the corpus. Accuracy is
+reported for each class and each subreddit. The text-only variant needed for
+the subreddit-rule sensitivity is specified before it is run.
+
+**Prevalence correction.** The true-positive and false-positive rates used by
+adjusted classify-and-count are estimated on the primary item set, from the
+cross-validated predictions above, weighted by the pooled design weights of
+Deviation 11. The same items choose the deployed classifier and supply its
+error rates, so the rates are somewhat optimistic; this is stated with the
+corrected series. What counts as a material temporal effect under R5 is
+defined in a further deviation before the temporal calibration check is run.
+
+**Reliability.** Stage 1 and Stage 2 α are reported for the 200 reliability
+items in one matrix and for each tranche's 100, overall and for each class
+against the rest, with intervals by the method of Deviation 4.
+
+**Missing ratings.** Gold labels where a rating is missing are formed as
+Deviation 11 fixes. Items without a gold label are left out of training and
+evaluation. α uses every item with two or more ratings.
+
+**Predictions.** Two predictions are recorded before the author has seen any
+model's output set against a label. The pre-filter has been scored against the
+tranche 1 labels by the Deviation 10 scripts; of that the author knows only
+that the gate failed, which bears weakly on the second prediction.
+
+1. "The reference study finds that the supervised advantage concentrates on its
+   implicit, affective class. If CONCERN behaves in this domain as that class
+   behaved in theirs, the same concentration should appear here. This is stated
+   as a prediction before the evaluation is run, and is reported as confirmed
+   or not confirmed rather than as a post-hoc interpretation." It is confirmed
+   if, on the primary item set, the gap in per-class F1 between the better
+   fine-tuned model and the best zero-shot model under the universal schema,
+   each chosen by macro-F1, is largest for CONCERN.
+2. Human agreement in tranche 1 is highest on CONCERN (α = 0.836) and lowest on
+   OTHER (α = 0.547). If model difficulty tracks human difficulty, the hard
+   class here will be OTHER, not CONCERN, the reverse of the reference study.
+   It is confirmed if OTHER has the lowest per-class F1 for at least three of
+   the five models under the universal schema.
+
+Each is reported as confirmed or not confirmed.
+
+**Events.** The three events named in the 41029 proposal are kept as markers on
+the plots only: the Uber ATG fatality in Tempe (2018 Q1), the Cruise robotaxi
+suspension (2023 Q4) and the Tesla Cybercab unveil (2024 Q4). No
+cross-correlation is run and no causal reading is offered. Changepoints are
+reported wherever they fall.
+
+**Success criteria.** The criteria are executional and are fixed here.
+
+1. Krippendorff's α is at least 0.7 at Stage 1 and at Stage 2 on the 200
+   reliability items. Any per-class α below 0.7 is reported beside it.
+2. The model comparison is completed under R5 and this deviation, with a
+   measured cost and refusal rate for every configuration.
+3. The concern share is reported with the prevalence correction and intervals,
+   and the subsystem measures are reported as Deviation 9 specifies.
+4. The temporal calibration check is reported on both tranches, and on each
+   alone, before the corrected series (Deviation 11).
+5. The relevance rate is reported with a design-weighted interval, beside the
+   composition check of Deviation 8 and the text-only sensitivity.
+6. The deployed Stage 2 classifier has a TPR − FPR for CONCERN of at least 0.25
+   on the primary item set. The bar is a judgement call; its value is that it
+   is fixed before the author has seen any classifier scored. If it is not
+   met, the uncorrected series is reported beside the corrected one and the
+   instability is stated.
+
+Whether the series contain changepoints is a finding, not a criterion.
+
+**Consequence.** R2's statement that the models see what the annotators see is
+narrowed at Stage 2, where the subreddit is withheld. R5's fold procedure is
+applied within each tranche and over the four-way label. Family B is ten
+comparisons on the relevant items of both tranches, and the prevalence
+correction takes its error rates from the same items.
+

@@ -1,7 +1,7 @@
 # Literature Search Manifest
 
 **File:** `docs/literature_search_manifest.md`  
-**Version:** 0.4, 4 October 2026. Updated following completion of the citation-search arm, application of the E8 amendment, screening-log corrections and final reconciliation of the literature-search records.  
+**Version:** 0.5, 5 October 2026. Updated to record the full-text workflow decisions and rulings, the aligned exclusion-code wording and the corrected Full-text Screening Log.  
 **Evidence files:** `PRISMA_search_evidence_log.xlsx` (search phase, 20–21 Sep: verbatim strings for every variant, known-item tests, year histograms) and `PRISMA_Search_and_Screening_Log_20260921.xlsx` (rebuild, screening, PRISMA Summary). Both are primary evidence.  
 **Governs:** §2.0 of the final report; supervisor feedback items FB1 and FB2.
 
@@ -56,12 +56,14 @@ This is the literature-search counterpart of `corpus_manifest.md`. It holds ever
 |---|---|
 | E1 | Not about CAVs / not the target technology |
 | E2 | Fails the strand test (see 2.4) |
-| E3 | No empirical content: editorial, commentary, position piece, keynote, poster abstract, panel or workshop summary |
+| E3 | No empirical content: editorial, commentary, position piece, keynote, poster or abstract-only item, tutorial outline, panel or workshop summary |
 | E4 | Not English |
 | E5 | Outside the publication window |
-| E6 | No abstract **and** no locatable full text |
-| E7 | Duplicate missed at deduplication, or duplicate contribution (thesis vs paper) |
-| E8 | Wrong publication type: whole proceedings volume, front matter, table of contents |
+| E6 | Full text unavailable (at Stage 2: no abstract and no locatable full text) |
+| E7 | Duplicate missed at deduplication, or duplicate contribution |
+| E8 | Wrong publication type: whole proceedings volume, front matter, table of contents. Theses are eligible |
+
+This wording was aligned with the code key of the Full-text Screening Log on 5 October 2026 (ruling R1), and the key now carries the same text. At Stage 2, E6 was applied where a record had neither an abstract nor a locatable full text; at the full-text stage it means the full text could not be obtained.
 
 ### 2.4 Strand tests
 
@@ -80,6 +82,8 @@ Operative question: *is the comparison between zero-shot and fine-tuned, or betw
 **Strand B-ii.** Include if the study estimates class prevalence in unlabelled data, or corrects classifier output for prior or label shift: quantification learning, classify-and-count and its adjusted variants, SLD/EM prior adjustment, distribution matching, label-shift correction. Exclude under E2 for confidence calibration only, for domain adaptation with no prevalence or class-prior estimand, and for uncertainty quantification in the numerical-methods sense.
 
 **MAYBE** is reserved for a missing or truncated abstract, or a study design that cannot be determined without the methods section.
+
+**Full-text stage.** The same strand tests are applied to the full paper. The rules of application, workflow decisions D1–D10 and rulings R1–R12 are set out in `full_text_screening_instructions_v1.0_20261005.md`, adopted on 5 October 2026. MAYBE is not used at full text: every record ends INCLUDE or EXCLUDE (decision D4).
 
 ---
 
@@ -264,7 +268,20 @@ By strand:
 - B-ii = 110
 - **Total = 402**
 
-The full-text stage has not yet started. Decision, exclusion code, Method, Sample/Data, Key Finding and Relation to gap remain to be completed during full-text screening.
+The full-text stage has not yet started. Decision, exclusion code, Method, Sample/Data, Key Finding and Relation to gap remain to be completed during full-text screening. Under decision D7, Method, Sample/Data and three tags are recorded for every included record; Key Finding and Relation to gap are written for records that enter the comparison table or are cited in §2.
+
+### 7.4 Rules and log
+
+Full-text screening follows `full_text_screening_instructions_v1.0_20261005.md`, adopted on 5 October 2026.
+
+On the same date the Full-text Screening Log was corrected and extended, before any full-text decision had been recorded:
+
+- the exclusion-code key was aligned with §2.3, E1 was restored, and the key was moved to the `Codes` tab;
+- the decision and exclusion-code dropdowns, previously one column to the left, were moved to the `Decision` and `Exclusion code` columns;
+- seven columns were added to the right of `Source`: Version assessed, Date assessed, Sub-reason, Evidence, Tag 1, Tag 2 and Tag 3;
+- the tabs `Codes`, `FT rulings` and `FT sessions` were added.
+
+These changes are recorded in Search Log rows 24 and 25.
 
 ---
 
@@ -411,6 +428,7 @@ Past tense; Australian English. Bracketed items remain provisional until the cor
 - [x] **11.10 IEEE Xplore correction.** Dated correction added to the Search Log and corresponding evidence-workbook notes updated.
 - [x] **11.11 Log consistency.** Evidence-workbook Stage 2 pointer, B-i 1,117/1,124 correction, B-ii 2,120/2,131 labels, disk filenames, search-phase evidence provenance line and FB2 other-sources routing correction completed.
 - [x] **11.12 S2-0307.** Closed 4 October 2026. Corrected from EXCLUDE E2 to INCLUDE, moved in Zotero, added to the Full-text Screening Log and reflected in PRISMA counts.
+- [x] **11.13 Full-text workload.** Closed 5 October 2026. Workflow decisions D1–D10 and rulings R1–R12 were adopted as recommended and are recorded in `full_text_screening_instructions_v1.0_20261005.md`. Full-text screening starts after the commit that records this.
 
 ### Repository commit
 
@@ -420,7 +438,8 @@ Past tense; Australian English. Bracketed items remain provisional until the cor
 
 - [ ] **11.7 Full-text stage.** Full-text screening has not started. Current population: 402 records.
 - [ ] **11.8 PRISMA figure and publications-per-year chart.** Build using the supervisor's template and the final reconciled evidence.
-- [ ] **11.13 Full-text workload.** Decide the screening order, retrieval procedure and per-record workflow before full-text screening starts.
+- [ ] **11.14 S2-1182 DOI field.** In the Stage 2 file of record (sheet `E8 addendum`, cell H2) the DOI recorded is that of the arXiv e-print of the thesis, not of the dissertation, which has none. Clear it by dated correction before the first full-text decision is recorded.
+- [ ] **11.15 Record corrections before §2.0 is drafted.** (a) The counts and export file recorded for the superseded B-ii Scopus search (§3.2; Search Log row 8). (b) The wording on what the known-item tests showed (§3.2, §3.3, §8.3, §10; Search Log row 10). (c) The description of the 118 generic notes, which the file of record no longer carries, and eight Stage 2 exclusions with no stated reason (§6.4; Search Log row 22). Details and proposed wording: `literature_search_corrections_20261005.md`. None changes a PRISMA count.
 
 ---
 
@@ -432,3 +451,4 @@ Past tense; Australian English. Bracketed items remain provisional until the cor
 | 0.2 | 27 Sep 2026 | *record on commit* | Reconciled against both evidence logs; the two-item export gap and B-ii Scopus rationale were closed; IEEE known-item and log-consistency issues were recorded; the B-ii Scopus variant chain was reconciled. |
 | 0.3 | 2 Oct 2026 | *record on commit* | Updated from the 2 October status handover: Stage 2 figures, Zotero reconciliation and calibration results recorded; backward-citation audit added; outstanding correction and filing items documented. |
 | 0.4 | 4 Oct 2026 | fe69005 | Applied the E8 thesis amendment to the three affected records; completed backward-citation screening; recorded decisions not to run forward citation searching or the ACL fallback; corrected S2-0307 to INCLUDE; reconciled Stage 2 and full-text counts; completed IEEE and search-log corrections; recorded the optional 118-record check as offered and not run. |
+| 0.5 | 5 Oct 2026 | *record on commit* | Recorded the full-text workflow decisions and rulings (11.13 closed); aligned the exclusion-code wording in §2.3 with the Full-text Screening Log; recorded the corrected and extended log (§7.4); opened 11.14 and 11.15. |

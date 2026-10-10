@@ -438,3 +438,232 @@ manifest may now be opened. The pre-filter outputs of Deviation 10 stay sealed
 until the zero-shot configurations are committed with the model scripts
 (Deviations 10 and 12), whatever the date, and no model is run before that
 commit.
+
+## 10 October 2026 — Edited copies of the tranche 1 sheets found and set aside
+
+Drafted on the date shown; the commit date is in the repository history.
+
+- On 10 October 2026 the tranche 1 annotation sheets in `data/annotation/` were
+  found to be copies that differ from the files recorded on 26 September 2026:
+  compared cell by cell, labels differed on 22 items (27 labels across the
+  three sheets), 7 of them reliability items, and notes had been rewritten on
+  23 items. Their comment text showed signs of a round trip through CSV files.
+  How they arose is not recorded.
+- No analysis used them. Every tranche 1 figure so far was computed from the
+  files recorded on 26 September, and the tranche 2 scripts checked the
+  tranche 1 labels against those files on 4 October.
+- They, re-saved copies of the three subsystem sheets (identical in every cell
+  to the files recorded on 30 September) and three .csv copies of the tranche 1
+  sheets were moved to `data/annotation/not_for_analysis/` and are not used.
+  The recorded files were restored to `data/annotation/`, and all seven tranche
+  1 files there match their recorded SHA-256. `models_01_prepare.py` checks
+  them again each time it runs.
+
+## 11 October 2026 — Model scripts, zero-shot configurations and fold files committed before any model run
+
+Drafted on the date shown; the commit date is in the repository history.
+
+### What this commit fixes
+
+Deviation 12 left to the model scripts' commit the universal schema, the prompts
+for the two Claude models, the checkpoints, the dated model identifiers, the
+fine-tuning settings, the Stage 1 candidates and the text-only variant. They are
+fixed word for word in `models_config.py`, committed here with the scripts that
+use it:
+
+- `models_01_prepare.py`: gold labels, fold files and model inputs (runs no model);
+- `models_02_claude.py`: Claude Haiku 4.5 and Claude Sonnet 4.6, both schemas;
+- `models_03_bart.py`: BART-MNLI, both schemas;
+- `models_04_finetune_cv.py`: DistilBERT and RoBERTa, Stage 2 and Stage 1, five folds;
+- `models_common.py`: shared helpers.
+
+Nothing in `models_config.py` below its file-location block may change after
+this commit without a recorded deviation.
+
+**Label schemas.** The domain-specific schema is the three class phrases of
+Deviation 10, unchanged. The universal schema is the same phrases with the
+domain removed, so the two schemas differ in nothing else:
+
+- CONCERN: "expresses worry, doubt or criticism"
+- ENDORSEMENT: "expresses support, approval or optimism"
+- OTHER: "is neutral or factual and takes no position"
+
+The BART-MNLI hypothesis is "This comment " + phrase + ".". Under the
+domain-specific schema these are the Deviation 10 class hypotheses word for word.
+
+**Prompt for the Claude models.** One template for both models and both
+schemas: the reference study's shared zero-shot template, word for word (Lee
+et al. 2026, *Social Network Analysis and Mining*, doi:10.1007/s13278-026-01633-0,
+Appendix F.1; Section 4.1 of the Research Square preprint). It is sent as a
+single user message, with no system prompt. The reference describes the label
+block as a bullet list without giving the bullet; here it is one line per label,
+in the order CONCERN, ENDORSEMENT, OTHER, each starting "- ". The comment is
+the comment text alone. Under the universal schema the prompt reads:
+
+```
+You are a careful annotator.
+Choose exactly ONE label for the comment.
+
+Candidate labels:
+- expresses worry, doubt or criticism
+- expresses support, approval or optimism
+- is neutral or factual and takes no position
+
+Comment:
+{comment text}
+
+Return ONLY the exact label text.
+```
+
+The reference is not consistent on one point: Section 4.1 of both versions says
+the commercial models' prompt under topic-specific labels ended "Output ONLY the
+exact label text.", while Appendix F.1 calls its template shared by all
+generative models. The F.1 wording is used for both schemas, so that the two
+schemas differ only in their label phrases.
+
+**Claude models and calls.**
+
+- Claude Haiku 4.5: `claude-haiku-4-5-20251001`, a dated snapshot.
+- Claude Sonnet 4.6: `claude-sonnet-4-6`. From the 4.6 generation Anthropic
+  issues no dated identifier; its documentation states that the dateless
+  identifier is the canonical model ID and maps to a single, fixed snapshot.
+- On 10 October 2026 both models were listed as active, with no deprecation
+  notice. Claude Haiku 4.5's retirement is listed as not sooner than
+  15 October 2026, and Anthropic gives at least 60 days' notice; the Claude
+  runs are to be made soon after this commit.
+- Each response must report the identifier requested, or that identifier
+  followed by a date, and every call of a configuration must report the same
+  one; otherwise the run stops. The identifier reported and the access window
+  (first and last call) are recorded for each configuration.
+- Every one of the 1,000 annotated items is sent once per configuration
+  (Deviation 12), at temperature 0, with at most 50 output tokens and no system
+  prompt, through the Anthropic Python SDK 1.13.0. That version no longer
+  accepts temperature as a keyword, so it is sent in the request body. The main
+  run refuses to start until a connection check (one call per model on a test
+  sentence, no annotated item) has passed under these settings, so a refusal of
+  temperature 0 would stop the work before any annotated item is sent.
+- Five concurrent requests and a 60-second timeout per call, as in the
+  reference study. Connection errors, rate limits and overload are retried by
+  the client, up to eight times; these are not the retry of Deviation 12.
+- Reading the answer: an exact match to one label phrase, ignoring case and any
+  spaces, quotation marks, asterisks, underscores, backticks, full stops,
+  colons, semicolons, exclamation marks, hyphens or bullets at either end;
+  failing that, the class whose label phrase is the only one contained in the
+  answer. An answer that names no class, or more than one, is retried once with
+  the same prompt; a second such answer is recorded as a refusal and scored as
+  an error (Deviation 12). Under the domain-specific schema an answer must
+  contain the whole domain-specific phrase, so an answer that gives only the
+  universal wording names no class there.
+- Each answered call is logged before its retry is sent, so an item cut off
+  part-way resumes from its recorded answers and no recorded item has more than
+  the one retry. A call under way at a hard stop (a closed window, a power cut)
+  is lost unanswered, as a connection error would be, and its tokens are not
+  counted; at most five calls, one per concurrent request, can be lost at each
+  hard stop.
+
+**Cost.** The cost of a Claude configuration is the tokens of every recorded
+call, including retries and calls on items cut off by an interruption, at Anthropic's
+list prices on 10 October 2026: Claude Haiku 4.5 US$1 and US$5, Claude Sonnet
+4.6 US$3 and US$15, per million input and output tokens. Cost per 1,000
+comments is that cost divided by the 1,000 items, times 1,000. Models run on our
+own hardware or on Colab carry no API charge, so their cost is zero; where two
+of them must be separated on cost (an exact tie at Stage 1), the one with fewer
+parameters costs less.
+
+**Spending ceiling (governing document, O26).** US$25 for the evaluation runs,
+the paid-evaluation budget, measured as above over all four Claude
+configurations and the connection checks. At the ceiling the run stops for
+review.
+
+**BART-MNLI.** `facebook/bart-large-mnli` at commit
+`d7645e127eaf1aefc7862fd59a17a5aa8558b8ce`, the commit recorded for the
+pre-filter run at `01f3d8a`, so both schemas use one model version. The
+universal schema is a new run by the pre-filter's method
+(`tranche2_02_score_prefilter.py` at `64a64a8`): the comment as premise,
+truncated to the model's maximum length, with any special-token string spaced
+out; predicted class the hypothesis with the highest entailment logit, a tie
+going to CONCERN, ENDORSEMENT, OTHER in that order; fp32. The domain-specific
+predictions are taken from the frozen pre-filter scores and not re-run
+(Deviation 12).
+
+**Fine-tuned models.** `distilbert/distilbert-base-uncased` at commit
+`12040accade4e8a0f71eabdb258fecc2e7e948be` and `FacebookAI/roberta-base` at
+commit `e2da8e2f811d1448a5b465c236feacd80ffbac7b`, with the reference study's
+settings (`run_finetune_cv_all.py`): AdamW (the PyTorch implementation),
+learning rate 2e-5, weight decay 0.01, batch size 8, at most 10 epochs with
+evaluation after each, early stopping after 2 epochs without a higher
+validation macro-F1 and the best checkpoint restored, linear learning-rate
+decay without warm-up, 256 sub-word tokens, no class weights, fp32. The
+validation split for early stopping is a stratified 15% of the training folds
+(random_state 24916660); the seed is 24916660 plus the fold number. Nothing is
+tuned on an evaluation fold, and the held-out fold is predicted without its
+labels, so no score is computed on it. A special-token string of the tokenizer
+inside a comment (such as "</s>") is spaced out and its id logged, as
+Deviation 10 does. The runs use transformers 5.19.0 and scikit-learn 1.9.0,
+which the scripts check.
+
+**Stage 1.** The candidates are DistilBERT and RoBERTa, fine-tuned as above on
+the gold items of both tranches, on the same folds, with the labels N and Y.
+Their input is the sentence pair ("r/" + subreddit, comment), with only the
+comment truncated (Deviation 1). The text-only variant for the subreddit-rule
+sensitivity is the deployed Stage 1 model type, with the same settings and
+folds, reading the comment alone.
+
+**Final retraining.** A deployed fine-tuned model is retrained on every eligible
+gold item of both tranches (Stage 2: every item with a gold Stage 2 class;
+Stage 1: every item with a gold Stage 1 label), with the settings above and no
+held-out split, for a fixed number of epochs: the median of the best epochs of
+its five cross-validation folds, with the learning-rate schedule of those runs
+(linear decay over 10 epochs) stopped after that epoch. The seed is 24916660.
+
+### Gold labels and folds
+
+- `models_01_prepare.py` read the ten files of record, each checked against its
+  recorded SHA-256, and formed the gold labels of both tranches by Deviations 2,
+  7 and 11 with the five adjudications recorded at `dbd8a69`. The tranche 1
+  labels match the fingerprint recorded at `64a64a8`. Tranche 2 four-way label
+  fingerprint: `d934aadf914d677085d1d75c0d9a284aabe6871e1da72dad9a793f1d4727e89b`.
+- Every item with a gold Stage 1 label also has a gold Stage 2 label or is not
+  relevant, so the four labels of Deviation 12 cover every item; the script
+  stops if one does not.
+- Fold files, committed here (StratifiedKFold, five folds, shuffle, seed
+  24916660, scikit-learn 1.9.0, NumPy 2.5.1, on the four-way gold label within
+  each tranche, items sorted by id):
+  - `splits/tranche1_folds.csv`, 500 items, SHA-256 `a3a7a23acdd98a7fcb7be639f49cd614c8ca27ffeefe783898f1a7cd11a627c3`
+  - `splits/tranche2_folds.csv`, 500 items, SHA-256 `1026d74f8566bd08576adb220cb57a335ab8c333702eafc544cac8a8d953d324`
+- The tranche 2 assignment is committed now because its gold labels are formed
+  now (Deviation 12). `.gitattributes` switches off line-ending conversion for
+  the fold files, so their bytes, and their SHA-256, do not change on checkout.
+- The comment text of every model input comes from
+  `data/tranche2/prefilter_input.csv`: the `clean_body` text of corpus v2.2 as
+  Deviation 10 prepared it for the pre-filter. `models_01_prepare.py` checks it
+  against the SHA-256 printed when it was exported on 4 October 2026
+  (`d1ae1fbe68f3f805eac720ab5bdbd7e8132333e3c1ae9ed8cfefa9106b3bcb1c`).
+- Model inputs, not committed: `data/models/zero_shot_input.csv`, 1,000 items,
+  SHA-256 `2f8d48c3c66ac608d557cc03eb5c2070b357e8f0bd8fdd01b43bce380a7a181f`;
+  `data/models/finetune_input.csv`, 1,000 items with a gold Stage 1 label, 598
+  with a gold Stage 2 class, SHA-256
+  `bcae83e718ebfa16b2f66b640f23acb5e091d775c2d53e549fa15a424e25d702`.
+
+### State of the work at this commit
+
+- `models_02_claude.py`, `models_03_bart.py` and `models_04_finetune_cv.py`
+  were tested on synthetic comments and tiny, randomly initialised models only,
+  the Claude script against a simulated API. `models_01_prepare.py`, which runs
+  no model, was run on the files of record.
+- No model has been run on any annotated item, and no classifier output has
+  been set against a label.
+- The Deviation 10 files (`prefilter_scores.csv`, `prefilter_scores.smoke.csv`,
+  `prefilter_scores_manifest.json`, `tranche2_allocation.json`,
+  `tranche2_hit_rates.csv` and the `SEALED_*.txt` files) are unopened. With this
+  commit their seal lifts (Deviations 10 and 12). The two whose SHA-256 was
+  recorded at `01f3d8a` are checked against it before they are opened:
+  `prefilter_scores.csv`
+  (`689752f57ad851e56152754092136209739018a618a4728b34d5d415d8a74b6b`), which
+  `models_03_bart.py` also checks before reading it, and
+  `tranche2_allocation.json`
+  (`ce23e2290343cb87298ae1149a045728f9c54fa3bab446fc14dde8c067a5a560`).
+- The script that scores the predictions (Family B, the deployment rules and
+  the two predictions of Deviation 12) will be committed before any prediction
+  is scored.
+

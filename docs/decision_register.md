@@ -335,3 +335,106 @@ returned.
 - Commit the tranche 1 fold assignment before any model is run.
 - Define a material temporal effect for R5's calibration check before the check
   is run.
+
+  ## 10 October 2026 — Tranche 2 sheets returned: checks, handling and adjudication
+
+Drafted on the date shown; the commit date is in the repository history.
+
+### Files of record
+
+- All three tranche 2 sheets had been returned by 10 October 2026 and were
+  checked that day. The files of record are the copies kept in
+  `data/tranche2/returned/` (not committed), last saved at 14:36–14:37 on
+  10 October 2026 (Sydney time). SHA-256:
+  - A `bbf4f4f62a72b58db73bb5239798a91e577dc0fce23b1ffc732171a1a0fa406d`
+  - B `6dd5d25735b1214d74b28bbee6947f9e6778945950610b6c04675158a993b504`
+  - C `ad73b59b1126f7813dfa295dfcca0a51d240359d7b8ee5c23b95efe0f9ecc33a`
+- They are identical in every cell to the earliest copies seen, last saved at
+  13:31 the same day and checked cell by cell, which are not kept in the
+  repository. SHA-256:
+  - A `b3f4ad01aa25deeaf3231460d621cc4cd65ae6dec9bd164b153250d161edf898`
+  - B `25147296194b947cd71de0c5cec432d555890d6257bdeba17d87e4124b068e14`
+  - C `4211590eb548006ac4fee1c063051824ea21e7243fa43de363a63d9d12f07b28`
+- Other copies saved the same day are also identical in every cell.
+
+### Handling (the author's statements; they cannot be checked from the files)
+
+- B and C each completed their sheet alone, on the author's PC, unobserved by
+  him.
+- The author finished his own sheet before he first opened B's or C's.
+- He reformatted the three files on receipt, and no rating changed. The files
+  as B and C saved them could not be found. The 13:31 copies were saved on a
+  family computer the author uses.
+
+### Checks
+
+- Membership: the SHA-256 of the 500 items, of the 100 reliability items and of
+  each sheet (A 234, B 233, C 233) match the draw block committed at `c7edc7f`.
+- 500 distinct items: 100 in all three sheets and 400 in one (A 134, B 133,
+  C 133). No item is in two annotators' own sets, and none is from tranche 1.
+- Rows are numbered in order, with no formulas and no skips. Every value comes
+  from the allowed lists. Every row coded Y has a Stage 2 class and a primary
+  subsystem, except four primary subsystems left blank by C; no row coded N has
+  either. A secondary subsystem appears only beside a different primary one.
+- The 100 shared comments have identical text and subreddit in all three
+  sheets.
+
+### Missing ratings (Deviation 11)
+
+C left the primary subsystem blank on four items coded Y: `dogu859` and
+`lsdjnzn` (C's own items) and `doh1fdn` and `dgw6fsc` (reliability items). They
+are recorded as missing; no item is re-rated or replaced. `dogu859` and
+`lsdjnzn` have no gold subsystem. `doh1fdn` takes `none`, the only primary
+label given by an annotator who coded it relevant (A coded it N). `dgw6fsc`
+takes `none` from A's and B's labels.
+
+### Adjudication (Deviations 2 and 7)
+
+Five reliability items had no majority. The author resolved each, with the
+reason given, and each is flagged as adjudicated. Secondary labels take no gold
+value.
+
+1. `cz1vh4t`, Stage 2. A N, B OTHER, C ENDORSEMENT. Relevant by majority, so
+   the choice was between OTHER and ENDORSEMENT. **ENDORSEMENT.** Rhetorical
+   question defending camera-only sensing as enough without lidar; a defence
+   of the technology is ENDORSEMENT (codebook §4.1, Rule 4).
+2. `dvznfp7`, Stage 2. A ENDORSEMENT, B OTHER, C CONCERN. **ENDORSEMENT**, the
+   author's own rating. Mixed comment (Rule 6): the closing edit gives the
+   commenter's settled view that the benefits will be enormous and such
+   accidents shouldn't be overblown; the worry about value decisions is a
+   hypothetical the commenter sets aside, so endorsement dominates.
+3. `epqj9r1`, primary subsystem. A sensing, B none, C in_vehicle_networks.
+   **in_vehicle_networks.** Doubts the car's on-board decision-making for
+   pothole avoidance, which is the driving system itself; what the car must
+   sense is secondary.
+4. `h4jy9ry`, primary subsystem. A none, B v2x, C in_vehicle_networks.
+   **data_governance**, a label none of the three gave. About liability cover
+   for accidents under Smart Summon; the codebook places liability under data
+   governance.
+5. `lifeax3`, primary subsystem. A privacy, B none, C data_governance.
+   **data_governance.** About who controls and sees a teen's trip data
+   (approvals, destinations, history), which is access to vehicle data;
+   tracking by parents is secondary.
+
+The subsystems of `cz1vh4t` (sensing) and `dvznfp7` (none) are settled by
+majority. In all, two Stage 2 labels and three primary subsystems are
+adjudicated; one decision takes the author's own rating and one takes a label
+no annotator gave.
+
+### What the author had seen
+
+Before adjudicating, the author had seen preview agreement figures computed on
+these sheets. They are not of record, and adjudication does not enter α. On
+the 200 reliability items of both tranches: Stage 1 α 0.896, Stage 2 α 0.757,
+primary-subsystem α 0.779 (items with two or more labels) and 0.769 (items
+labelled by all three). On tranche 2 alone: Stage 1 0.832, Stage 2 0.774. The
+figures of record come from the committed pipeline.
+
+### Sealing
+
+All three sheets are returned, their hashes are recorded here and the
+adjudication is entered. Under Deviation 11 the tranche 2 master key and draw
+manifest may now be opened. The pre-filter outputs of Deviation 10 stay sealed
+until the zero-shot configurations are committed with the model scripts
+(Deviations 10 and 12), whatever the date, and no model is run before that
+commit.

@@ -667,3 +667,47 @@ its five cross-validation folds, with the learning-rate schedule of those runs
   the two predictions of Deviation 12) will be committed before any prediction
   is scored.
 
+  ## 11 October 2026 — Claude runs: Claude Haiku 4.5 and Claude Sonnet 4.6, both schemas
+
+Drafted on the date shown; the commit date is in the repository history.
+
+- Run on 11 October 2026 by `models_02_claude.py` at `bb3fbfe`, on the
+  author's PC (Python 3.12.10, anthropic 1.13.0), with
+  `data/models/zero_shot_input.csv` (SHA-256
+  `2f8d48c3c66ac608d557cc03eb5c2070b357e8f0bd8fdd01b43bce380a7a181f`): every
+  one of the 1,000 annotated items once per configuration, in the order
+  haiku-universal, haiku-domain, sonnet-universal, sonnet-domain. No restart
+  was needed and no item was cut off.
+- A connection check at 09:47 (Sydney time) sent one test sentence to each
+  model and no annotated item. Both models answered under the identifiers asked
+  for, `claude-haiku-4-5-20251001` and `claude-sonnet-4-6`, and every call of
+  each configuration was answered under the same identifier.
+- Spend guards: the script's US$25 ceiling, and a US$25 monthly spend limit set
+  in the Claude Console, with automatic top-up off.
+
+| Configuration | Access window (Sydney time) | Calls | Refusals | Input / output tokens | Cost (US$) |
+|---|---|---|---|---|---|
+| haiku-universal | 09:48:20–09:50:39 | 1,003 | 3 | 148,189 / 10,579 | 0.201084 |
+| haiku-domain | 09:50:40–09:53:10 | 1,008 | 8 | 172,617 / 19,071 | 0.267972 |
+| sonnet-universal | 09:53:11–09:56:30 | 1,000 | 0 | 147,507 / 10,809 | 0.604656 |
+| sonnet-domain | 09:56:31–10:00:10 | 1,000 | 0 | 171,507 / 18,996 | 0.799461 |
+
+- Each configuration has 1,000 items, so its cost per 1,000 comments equals the
+  cost shown. Total measured spend US$1.8737, including the two
+  connection-check calls (US$0.000572).
+- Every retried item ended as a refusal: Claude Haiku 4.5 had 3 under the
+  universal schema and 8 under the domain-specific schema; Claude Sonnet 4.6
+  retried none. Refusals are scored as errors (Deviation 12). Every call ended
+  with stop reason `end_turn`.
+- Files, kept in `data/models/claude/` and not committed, SHA-256:
+  - `haiku-universal_predictions.csv` `56d4dac6e9fdef0755df5a57e6595bfa3ea01aa529e9be43da7a71cd8d7d51fd`
+  - `haiku-universal_log.jsonl` `25ac03f499e4c859466e3b8c9bdea5829bd938d309a9724ed6d5cfd426c0858f`
+  - `haiku-domain_predictions.csv` `1381ea3de49f61c5ff2beadd04469766715b177bfdf168ab1cc8a6f1b7906cd2`
+  - `haiku-domain_log.jsonl` `b61432e10c2829792397c1bf1ace11da28f3f469221ae15055ccaab7f3ffe712`
+  - `sonnet-universal_predictions.csv` `d421907b0a87800834b6379b667c88fca945c1cd6ad937ccfe3fbd67ad3afbf3`
+  - `sonnet-universal_log.jsonl` `a35898b422af3ad40b76d9b394d556f944e2cd3169fa59b152f6719b6bbc5a98`
+  - `sonnet-domain_predictions.csv` `71b56f7270545d131a6cfe5649a1162a1b244b5f91298ff770e1ac80a4abbbaa`
+  - `sonnet-domain_log.jsonl` `50dbfacad8fd9f0d2129f5ac9ee74a9d184ac32059e0e1fde9b5dcb01ac72baa`
+- No prediction has been set against a label. The prediction and log files
+  were sent to Claude with the manifests on 11 October; Claude checked their
+  SHA-256 against the manifests and did not open them.

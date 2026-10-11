@@ -711,3 +711,145 @@ Drafted on the date shown; the commit date is in the repository history.
 - No prediction has been set against a label. The prediction and log files
   were sent to Claude with the manifests on 11 October; Claude checked their
   SHA-256 against the manifests and did not open them.
+
+  ## 11 October 2026 — Colab runs, BART-MNLI domain-specific predictions, and the evaluation script committed before any prediction is scored
+
+Drafted on the date shown; the commit date is in the repository history.
+
+### Colab runs: BART-MNLI (universal schema), DistilBERT and RoBERTa
+
+- Run on 11 October 2026 on Google Colab (NVIDIA A100-SXM4-40GB) by
+  `models_03_bart.py` and `models_04_finetune_cv.py` at `bb3fbfe`. The four
+  scripts uploaded (`models_config.py`, `models_common.py` and the two run
+  scripts) and the two inputs, `data/models/zero_shot_input.csv` (`2f8d48c3…`)
+  and `data/models/finetune_input.csv` (`bcae83e7…`), were checked against
+  their SHA-256 before any run. Python 3.13.15, torch 2.11.0+cu130,
+  transformers 5.19.0, scikit-learn 1.9.0, accelerate 1.15.0, NumPy 2.1.3;
+  fp32. The manifests were written between 10:41 and 11:07 (Sydney time).
+- No restart, disconnection or stop. No held-out fold was scored and no
+  prediction was set against a label. Both Stage 1 text-only variants were
+  run, to save a second session; only the deployed Stage 1 type's variant is
+  scored (Deviation 12, `models_config.py`).
+- BART-MNLI, universal schema: `facebook/bart-large-mnli` at the pinned commit
+  `d7645e127eaf1aefc7862fd59a17a5aa8558b8ce` (the library reported no loaded
+  commit); 1,000 items; none truncated at the 1,024-token limit; no
+  special-token string had to be spaced out.
+- Fine-tuning, five folds each. The best epoch is the epoch of the checkpoint
+  restored by early stopping; a deployed model's final retraining uses the
+  median of its five.
+
+| Run | Items | Train / early stopping / held out, per fold | Best epochs, folds 1–5 | Minutes |
+|---|---|---|---|---|
+| stage2_distilbert | 598 | 405–407 / 72 / 119–121 | 4, 3, 4, 4, 4 | 1.51 |
+| stage2_roberta | 598 | 405–407 / 72 / 119–121 | 5, 2, 9, 4, 7 | 3.41 |
+| stage1_distilbert | 1,000 | 680 / 120 / 200 | 5, 3, 2, 6, 3 | 2.38 |
+| stage1_roberta | 1,000 | 680 / 120 / 200 | 5, 5, 5, 2, 2 | 4.40 |
+| stage1_distilbert_textonly | 1,000 | 680 / 120 / 200 | 3, 4, 4, 3, 1 | 2.06 |
+| stage1_roberta_textonly | 1,000 | 680 / 120 / 200 | 9, 3, 3, 2, 3 | 4.40 |
+
+- No special-token string had to be spaced out in any fine-tuning run.
+
+### BART-MNLI, domain-specific schema
+
+- `models_03_bart.py --schema domain --confirm-unsealed` at `bb3fbfe`, on the
+  author's PC, 11 October 2026 at 11:57 (Sydney time). The predictions are the
+  predicted classes held in the frozen pre-filter scores (`prefilter_scores.csv`,
+  checked against `689752f5…` recorded at `01f3d8a`; model commit
+  `d7645e12…`), not re-run (Deviation 12). The script displayed no prediction.
+
+### Prediction files (in `data/models/`, not committed), SHA-256
+
+- `bart/bart_universal_predictions.csv` `c7f6b1eccc433cd805b96a322ea3c82d086d016b2b8440feb6bb7b90e88be5e5`
+- `bart/bart_domain_predictions.csv` `9e9280679dc6696332c896f763b33bd64fabc3eabe82a35aa5806e2accbe5e10`
+- `finetune/stage2_distilbert_predictions.csv` `985b45605edf54fa9e95d311a3a9f86eea11e599eb49e8c350b0778feb93a6db`
+- `finetune/stage2_roberta_predictions.csv` `b17357f25060ed91ad2d9a9a51ea093b85afc9a2210db491c2e107811cac1597`
+- `finetune/stage1_distilbert_predictions.csv` `ae59ab2d9b29f539744056da9fbd4dec3826beefa07d1d50b9ed9d4b046e6cfd`
+- `finetune/stage1_roberta_predictions.csv` `7258458df43c047ff8b8088fa8a855468acd1e6b8835dddcd42e85c3d8502b57`
+- `finetune/stage1_distilbert_textonly_predictions.csv` `2c3bb9ed8dcd7e71617df2c31f85ca8544cbc7db6898d9e50d6212d6f7dd400b`
+- `finetune/stage1_roberta_textonly_predictions.csv` `24d8e3a0de3e8d03d1c6be09fc162b74ff3a51265859bd7248580d0a8c40d94e`
+- The four Claude prediction files are recorded at `a7ad389`.
+- The manifests and these eight files were sent to Claude on 11 October. Claude
+  checked each file's SHA-256 against its manifest and each manifest against
+  the committed settings, by script, reading selected fields only (hashes,
+  epochs, minutes, versions). No prediction file and no validation score was
+  opened.
+
+### Evaluation script, committed before any prediction is scored
+
+- `models_05_evaluate.py`, SHA-256
+  `98ac1d519414206d86153dcecd44e505629533a5a92395c60a944b6bfb88c734`. It is the
+  first and only step that sets predictions against the gold labels. It
+  implements R5 and Deviation 12: macro-F1 and per-class F1 of the eight Stage 2
+  configurations; Family B (ten comparisons, Holm–Bonferroni at 0.05); Family C;
+  the Stage 2 and Stage 1 deployment rules; the weighted error rates for
+  adjusted classify-and-count; the two predictions; α for the 200 reliability
+  items and for each tranche's 100; success criteria 1, 2 and 6.
+- Before it scores anything it checks every input against the record and stops
+  at the first difference: the scripts committed at `bb3fbfe`, the fold files,
+  the gold-label fingerprints, the two inputs, the twelve prediction files
+  (SHA-256 above and at `a7ad389`) and their manifests, the files of record,
+  and `tranche2_master_key.csv` against the SHA-256 recorded with the draw at
+  `c7edc7f` (its era column sets every design weight). It also checks that its
+  α code reproduces the tranche 1 figures recorded under Deviation 4 (0.959,
+  0.739, 0.836, 0.797 and 0.547, to three decimals). Run with `--preflight`, it
+  makes all of these checks and scores nothing; it was run that way on the
+  author's PC before this commit and passed.
+- Permutation tests (R5, Deviation 12): two-sided, 10,000 permutations, gold
+  labels never permuted, every test seeded with 24916660. As in the reference
+  study (Lee et al. 2026, Appendix E.1), each permutation swaps the two
+  configurations' predictions of each item with probability one half, and p is
+  the share of permutations whose absolute difference is at least the observed
+  one, floored at 1/10,000.
+- α intervals (Deviation 12, by the method of Deviation 4): for each set of
+  reliability items (the 200 in one matrix, and each tranche's 100), 10,000
+  item-level bootstrap resamples of the set's items with seed 24916660, all
+  five α computed on the same resamples; the 95% percentile interval and the
+  share of resamples below 0.7. For the 200, items are resampled from both
+  tranches together.
+
+### Rules fixed in this commit where the committed text is silent
+
+Decided by the author on 11 October 2026, before any prediction was scored:
+
+1. The p-value is computed as the reference study computes it (above). A
+   comparison is significant when its Holm-adjusted p is below 0.05, and
+   otherwise "not demonstrably significant"; a configuration is tied when its
+   unadjusted p is 0.05 or more (Deviation 12).
+2. Family C (exploratory, uncorrected): the nine Family B comparisons that
+   involve a zero-shot model, repeated with the zero-shot models under the
+   domain-specific schema; the ten Family B comparisons within each tranche;
+   and universal against domain-specific for each zero-shot model: 32 tests.
+3. In the CONCERN rates (the deployment tie-break and the prevalence
+   correction) a refusal counts as "not CONCERN": a miss on a CONCERN item and
+   never a false positive, as a deployed configuration's refusals would be
+   counted on the corpus. In F1 a refusal is scored as an error (Deviation 12).
+4. Success criterion 6 is judged on the weighted TPR − FPR, the rates the
+   correction uses; the unweighted figure is reported beside it.
+5. Prediction 1: the gap is the fine-tuned minus the zero-shot model's
+   per-class F1, signed, as written; "largest for CONCERN" means strictly
+   larger than both other gaps. The report states any class on which the
+   zero-shot model is better.
+6. Exact ties: if two configurations share the highest CONCERN-class F1, the
+   first in the committed order is the reference for the tie test; in
+   prediction 1, "chosen by macro-F1" takes the first in the committed order;
+   in prediction 2, "lowest" means strictly lowest.
+7. Descriptive and untested: the mean and standard deviation (n − 1) over the
+   five folds of macro-F1 and per-class F1, and Wilson 95% intervals for the
+   Stage 1 accuracies by class and by subreddit.
+
+### State of the work at this commit
+
+- The script was tested on synthetic data only: six scenarios covering every
+  path of both deployment rules, each recomputed independently (scikit-learn,
+  statsmodels, the krippendorff package, and a separate permutation and
+  bootstrap loop), and more than twenty cases in which an input was altered,
+  each of which stops it. It was reviewed independently twice, and every
+  finding was fixed.
+- No prediction has been set against a label. `tranche2_hit_rates.csv`,
+  `tranche2_allocation.json` and the `SEALED_*.txt` files are unopened; they
+  are opened after this commit, `tranche2_allocation.json` after its SHA-256 is
+  checked against `ce23e229…`.
+- The Google Drive folder used for the Colab runs (`capstone_models_2026`,
+  holding the scripts, the two inputs and the outputs) is deleted after this
+  commit; the outputs are kept in `data/models/`.
+

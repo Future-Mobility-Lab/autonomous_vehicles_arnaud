@@ -853,3 +853,125 @@ Decided by the author on 11 October 2026, before any prediction was scored:
   holding the scripts, the two inputs and the outputs) is deleted after this
   commit; the outputs are kept in `data/models/`.
 
+## 11 October 2026 — Evaluation of record; the Deviation 10 files unsealed
+
+Drafted on the date shown; the commit date is in the repository history.
+
+### Evaluation of record
+
+- `models_05_evaluate.py` at `34403e6` (SHA-256
+  `98ac1d519414206d86153dcecd44e505629533a5a92395c60a944b6bfb88c734`) was run
+  once on the author's PC on 11 October 2026 at 13:08 (Sydney time), with
+  `--confirm-committed`, after its preflight had passed. Every input matched its
+  recorded SHA-256. Python 3.12.10, NumPy 2.5.1, pandas 3.0.3, scikit-learn 1.9.0.
+- Outputs, in `data/models/evaluation/` (not committed), SHA-256:
+  - `evaluation_results.json` `411f6c23ef6525b077c74fec15b8e5a06c59c550a8f3f2d15e99eb7d354d32e4`
+  - `evaluation_report.md` `5bad3bf0a7b176496138d3df307e23555a1b1e3cd233e2b1c7c9d6cc462ff09a`
+  - `stage2_metrics.csv` `053a6d1582e7125366124a7dec2ec779f95926dc0bc710a82959d0da91c3a563`
+  - `pairwise_tests.csv` `0f56926e99437e62a19af99edb473e0d0b788aef470f90fd9aa3143872e7ca87`
+  - `stage1_metrics.csv` `2d8682a5cfa1e98703dd44558c60df1484c2b4048cc7fc654ac4d79953260418`
+  - `reliability_alpha.csv` `18619e8544b7cdfe4377b8c06d51f27132a9c78fd4aee803370d301ded17d8e1`
+- Item sets: 598 items relevant in the gold set with a Stage 2 class (tranche 1
+  297, tranche 2 301; CONCERN 225, ENDORSEMENT 189, OTHER 184); 1,000 items with
+  a Stage 1 label (598 relevant, 402 not relevant).
+
+| Configuration | Macro-F1 | F1 CONCERN | F1 ENDORSEMENT | F1 OTHER | Weighted TPR − FPR | Cost per 1,000 (US$) |
+|---|---|---|---|---|---|---|
+| DistilBERT | 0.456 | 0.513 | 0.405 | 0.450 | 0.166 | 0 |
+| RoBERTa | 0.523 | 0.580 | 0.493 | 0.495 | 0.329 | 0 |
+| BART-MNLI, universal | 0.328 | 0.586 | 0.399 | 0.000 | 0.192 | 0 |
+| BART-MNLI, domain-specific | 0.356 | 0.602 | 0.454 | 0.011 | 0.233 | 0 |
+| Claude Haiku 4.5, universal | 0.618 | 0.715 | 0.628 | 0.510 | 0.512 | 0.2011 |
+| Claude Haiku 4.5, domain-specific | 0.725 | 0.809 | 0.695 | 0.670 | 0.700 | 0.2680 |
+| Claude Sonnet 4.6, universal | 0.656 | 0.742 | 0.693 | 0.532 | 0.557 | 0.6047 |
+| Claude Sonnet 4.6, domain-specific | 0.750 | 0.815 | 0.763 | 0.673 | 0.709 | 0.7995 |
+
+- Family B (Holm–Bonferroni across ten): all ten differences in macro-F1 are
+  significant (Holm-adjusted p from 0.0010 to 0.0363). The narrowest is Claude
+  Haiku 4.5 against Claude Sonnet 4.6 under the universal schema (difference
+  −0.038, adjusted p 0.0363).
+- Family C (exploratory, uncorrected): the domain-specific schema raised
+  macro-F1 for every zero-shot model (BART-MNLI +0.027, p 0.0034; Claude Haiku
+  4.5 +0.107 and Claude Sonnet 4.6 +0.094, both p 0.0001, the floor).
+- Stage 2 deployment: Claude Sonnet 4.6 under the domain-specific schema had
+  the highest CONCERN-class F1 (0.815). Claude Haiku 4.5 under the
+  domain-specific schema was tied with it (difference 0.006, p 0.727); no other
+  configuration was (p 0.0001 each). Between the two, the larger weighted
+  TPR − FPR decided, 0.709 against 0.700. **Deployed: Claude Sonnet 4.6,
+  domain-specific schema.** It is zero-shot, so no retraining applies.
+- Error rates for adjusted classify-and-count, weighted by the pooled design
+  weights: TPR 0.9469, FPR 0.2376, TPR − FPR 0.7093 (unweighted 0.9467, 0.2279,
+  0.7188). The same items chose the classifier, so the rates are somewhat
+  optimistic.
+- Prediction 1: **not confirmed.** RoBERTa, the better fine-tuned model, against
+  Claude Sonnet 4.6, the best zero-shot model under the universal schema: gaps
+  in per-class F1 of −0.161 (CONCERN), −0.200 (ENDORSEMENT) and −0.038 (OTHER).
+  The zero-shot model is better on every class.
+- Prediction 2: **confirmed.** OTHER has the lowest per-class F1 for three of the
+  five models, the three zero-shot models. For DistilBERT and RoBERTa the
+  lowest is ENDORSEMENT (RoBERTa 0.493, against 0.495 for OTHER).
+- Stage 1 deployment: RoBERTa with subreddit and comment, balanced accuracy
+  0.871 (DistilBERT 0.847). **Deployed: RoBERTa.** Accuracy 0.928 on relevant
+  and 0.813 on not-relevant items. Its text-only variant: balanced accuracy
+  0.801. Final retraining: 5 epochs, the median of its best epochs 5, 5, 5, 2, 2.
+- Reliability (nominal α; 95% bootstrap interval and share of resamples below
+  0.7, Deviation 4): on the 200 items, Stage 1 0.896 (0.843–0.944; 0.0%) and
+  Stage 2 0.757 (0.675–0.830; 8.5%); CONCERN against the rest 0.844, ENDORSEMENT
+  0.801, OTHER 0.604 (0.471–0.720; 94.4%). Tranche 1: Stage 1 0.959 and Stage 2
+  0.739, as recorded in September; tranche 2: 0.832 and 0.774.
+- Success criteria: 1 met, with OTHER against the rest (0.604) reported beside
+  it; 2 met; 6 met (0.709 against the bar of 0.25). Criteria 3, 4 and 5 are
+  settled by later analyses.
+
+### Deviation 10 files unsealed
+
+- After the evaluation script was committed at `34403e6`, `tranche2_allocation.json`
+  was checked against the SHA-256 recorded at `01f3d8a` (`ce23e229…`; it
+  matches) and opened, with `tranche2_hit_rates.csv` (SHA-256
+  `621d0d152f93369ee39d368df173cb8307167bea3f702b3f212ee434f67c5df4`) and
+  `SEALED_step3_register_figures.txt` (SHA-256
+  `4fd62a1a1b7a07f234b821c457a911eb296c32b2c7c7f0309b75eb17d07c3f79`). The
+  sealed text, as the script wrote it on 4 October, follows unchanged.
+
+### Tranche 2 allocation: measured figures
+
+Unsealed under the Blinding clause of Deviation 10. Produced by `tranche2_03_allocate.py`;
+the file hashes were recorded before the draw.
+
+- Tranche 1 items by predicted label: N 162, CONCERN 271, ENDORSEMENT 67, OTHER 0.
+- Design-weighted hit rates: the share of tranche 1 items with each predicted label whose
+  tranche 1 label is CONCERN / ENDORSEMENT / OTHER / not relevant:
+    - predicted CONCERN: 39.5% / 20.8% / 17.8% / 21.9% (271 items)
+    - predicted ENDORSEMENT: 7.9% / 41.9% / 22.3% / 28.0% (67 items)
+    - predicted OTHER: n/a / n/a / n/a / n/a (0 items)
+- Stage 1 pre-filter against the tranche 1 labels, design-weighted: precision 76.9%, recall 85.9%.
+- Eligible items: 11,636; by predicted label N 3,970, CONCERN 5,838, ENDORSEMENT 1,824, OTHER 4.
+- Allocations examined: 501.
+- Allocation on predicted label: CONCERN 95, ENDORSEMENT 405, OTHER 0 (sum 500).
+- Expected final counts: CONCERN 189.4, ENDORSEMENT 284.4, OTHER 189.1; expected not relevant among the 500: 134.1.
+- Gate: expected smallest final count 189.1 against the minimum of 200: FAIL.
+- For comparison only, the least-spread allocation: CONCERN 275, ENDORSEMENT 225, OTHER 0, with expected final counts CONCERN 246.4, ENDORSEMENT 246.5, OTHER 181.0.
+- No tranche 1 item had predicted label OTHER, so it had no measurable hit rate and received no allocation.
+
+- In short: BART-MNLI predicted OTHER for none of the 500 tranche 1 items and
+  for 4 of the 11,636 eligible items, so OTHER could grow only as a by-product
+  of the other predicted labels. The allocation that maximised the smallest
+  expected final count (CONCERN 95, ENDORSEMENT 405) left OTHER at 189.1,
+  below the bar of 200; with random predicted labels the simulation committed
+  with Deviation 10 gave a mean near 178. The evaluation of record agrees:
+  BART-MNLI's OTHER F1 is 0.000 under the universal schema and 0.011 under the
+  domain-specific schema.
+- The allocation file also records that the three tranche 1 workbooks read by
+  the pre-filter scripts on 4 October differed byte for byte from the files of
+  record (SHA-256 `c58943e7…`, `63152e44…`, `3a2c1fe5…`; the master key
+  matched), and the scripts printed a note saying so at the time. Every label
+  they used matched the recorded tranche 1 label fingerprint (`d6f4eeea…`), and
+  the hit rates and the gate use those labels only, so neither is affected.
+
+### Next
+
+- Final retraining of the deployed Stage 1 classifier, and the corpus runs of
+  both deployed classifiers.
+- A further deviation defining a material temporal effect, committed before the
+  temporal calibration check is run (Deviation 12).
+

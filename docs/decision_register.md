@@ -708,10 +708,7 @@ Drafted on the date shown; the commit date is in the repository history.
   - `sonnet-universal_log.jsonl` `a35898b422af3ad40b76d9b394d556f944e2cd3169fa59b152f6719b6bbc5a98`
   - `sonnet-domain_predictions.csv` `71b56f7270545d131a6cfe5649a1162a1b244b5f91298ff770e1ac80a4abbbaa`
   - `sonnet-domain_log.jsonl` `50dbfacad8fd9f0d2129f5ac9ee74a9d184ac32059e0e1fde9b5dcb01ac72baa`
-- No prediction has been set against a label. The prediction and log files
-  were sent to Claude with the manifests on 11 October; Claude checked their
-  SHA-256 against the manifests and did not open them.
-
+- No prediction has been set against a label. 
   ## 11 October 2026 — Colab runs, BART-MNLI domain-specific predictions, and the evaluation script committed before any prediction is scored
 
 Drafted on the date shown; the commit date is in the repository history.
@@ -768,11 +765,7 @@ Drafted on the date shown; the commit date is in the repository history.
 - `finetune/stage1_distilbert_textonly_predictions.csv` `2c3bb9ed8dcd7e71617df2c31f85ca8544cbc7db6898d9e50d6212d6f7dd400b`
 - `finetune/stage1_roberta_textonly_predictions.csv` `24d8e3a0de3e8d03d1c6be09fc162b74ff3a51265859bd7248580d0a8c40d94e`
 - The four Claude prediction files are recorded at `a7ad389`.
-- The manifests and these eight files were sent to Claude on 11 October. Claude
-  checked each file's SHA-256 against its manifest and each manifest against
-  the committed settings, by script, reading selected fields only (hashes,
-  epochs, minutes, versions). No prediction file and no validation score was
-  opened.
+
 
 ### Evaluation script, committed before any prediction is scored
 
@@ -974,4 +967,219 @@ the file hashes were recorded before the draw.
   both deployed classifiers.
 - A further deviation defining a material temporal effect, committed before the
   temporal calibration check is run (Deviation 12).
+
+## 12 October 2026 — Deviation 13 committed before any corpus run of the deployed classifiers
+
+Drafted on 11 October 2026 and completed on the date shown; the commit date is
+in the repository history.
+
+### What this commit fixes
+
+Deviation 13 (`docs/analysis_preregistration.md`): the corpus runs of the
+deployed classifiers, under a spending ceiling of US$23 for the two API runs;
+the subsystem classifier of Deviation 9, with its prompt word for word, and the
+narrowing of R2 that it brings (the classifier sees less than the annotators
+did); the temporal calibration check and the definition of a material temporal
+effect that Deviation 12 requires; the prevalence correction, with the
+three-class adjusted classify-and-count in place of SLD EM; the bootstrap
+intervals of the corrected series; the reweighting target of pre-registration
+rule R3 and a rule for a subreddit with few comments in a year; the trend,
+changepoint and decomposition settings; the thread-size decomposition of
+pre-registration rule R4 where the rule is silent or can be read two ways, and
+one change to it (its outcomes are not applied when the primary series shows no
+significant trend); the two relevance-error series; the RQ4 and RQ2
+computations, with Deviation 9's measures weighted as the primary series and
+corrected for Stage 2 error; the sensitivity analyses that are run and the
+analyses that are not (the 15-word floor, title-augmented relevance, the O17(c)
+re-annotation, and runs that train on one temporal block and test on the
+other); the Tier 3 treatment; and the scripts of record. In this entry R2, R3,
+R4 and R5 are rules of the pre-registration, not revisions of the design
+document.
+
+### State of the work at this commit
+
+The statements below about what has not been run, computed, tabulated or seen
+are the author's and cannot be checked from the files.
+
+- The evaluation of record (this register, 11 October 2026, "Evaluation of
+  record; the Deviation 10 files unsealed", commit `e5c563b`) has been seen in
+  full, with the unsealed figures of the Deviation 10 pre-filter.
+- Neither deployed classifier has been run on any comment outside the 1,000
+  items of the two tranches, and no output of either exists for such a comment.
+  The subsystem classifier has been run on no comment, and its prompt has been
+  sent to no model.
+- BART-MNLI scored the 12,166 frame comments as the Deviation 10 pre-filter on
+  4 October 2026 (`01f3d8a`). Its unsealed figures are in the entry named
+  above, and the author has made no tabulation of its predictions by quarter,
+  year, era or temporal block, by subreddit or tier, or by thread size. No
+  other model has been run on any comment of corpus v2.2, or of an earlier
+  version of it, to classify relevance, stance, sentiment or subsystem: the
+  sentiment model and the zero-shot subsystem coding that `README.md` and
+  `MODEL_NOTES.md` still describe belong to the 41029 proposal and were not run
+  on this corpus. Both files are out of date and are to be rewritten.
+- No error rate has been computed from the predictions by temporal block or by
+  era, on either tranche or on both. The evaluation output gives the deployed
+  Stage 2 classifier's CONCERN rates with and without the design weights
+  (false-positive rate 0.2376 against 0.2279; true-positive rate 0.9469 against
+  0.9467). The first pair points to a higher false-positive rate in the later
+  eras, and with the gold class counts by era the figures as the output gives
+  them would fix the rates by era exactly. That reconstruction has not been
+  made. Deviation 13 sets this out, with the direction in which such a
+  difference moves the block-specific series. The prediction files, gold labels
+  and timestamps are held by the author.
+- Recorded so far as previews computed outside the repository, and so not of
+  record: the tranche 1 prevalence and RQ4 figures and the D28 Rule 2 shares
+  (entries of 4 October), and the subsystem α on tranche 1 (30 September) and
+  on both tranches (0.779 and 0.769; 10 October).
+- Not yet computed by a committed script: the design-weighted prevalence and
+  class-share estimates on the pooled sample, with their intervals; the RQ4 era
+  comparison and the Deviation 8 composition check on the pooled sample; the
+  subsystem α of record and the D28 outcomes on the pooled sample; the tranche
+  1 analyses of Deviations 3 and 4 other than the α figures of the evaluation
+  of record; and the corpus description figures for corpus v2.2, with the join
+  of `commentsCount` to its comments. The record shows no preview of the
+  pooled-sample prevalence, class-share or RQ4 figures, or of the D28 Rule 2
+  shares on the pooled sample; the previews of the pooled subsystem α are those
+  named above.
+- Spending. Deviation 13 holds the two API runs under a ceiling of US$23: the
+  Console's monthly limit of US$25 (entry on the Claude runs) less the
+  US$1.8737 spent on the evaluation runs, rounded down. Credit will be added
+  before the runs start. The two runs are expected to cost about US$18 to US$21
+  at list prices. The basis is the token counts of the evaluation runs, an
+  estimated token count for the subsystem prompt, which no run has measured,
+  and an assumed 63% to 70% of the 12,212 Tier 1+2 comments classified relevant
+  (7,700 to 8,600; in cross-validation the deployed Stage 1 model classified
+  630 of the 1,000 tranche items relevant). A longer token count for that
+  prompt, or more comments, would bring the cost to the ceiling, and Deviation
+  13 fixes what happens then.
+
+### How the text was arrived at
+
+- Drafted on 11 October 2026 decisions recorded below, and reviewed in two rounds, and
+  after amendment checked once more. The first round had the first draft, the retrofit
+  instructions, `models_config.py`, the evaluation output of record,
+  `README.md` and `MODEL_NOTES.md`. The second had the second draft and, in
+  addition, the committed pre-registration, this register, the codebook, the
+  corpus manifest, `models_common.py` and `models_02_claude.py`. The other
+  model scripts, `config.py`, the design document and the evaluation report
+  were before neither round. The second round's findings were applied to the
+  text on 11 October. On 12 October the amended text was checked against the
+  same sources by two further instances, and what they found was corrected in
+  the text committed here; those last corrections were not themselves reviewed
+  again. Claims about methods were recomputed on synthetic data. No annotation
+  data and no prediction file was used in the review or in the redrafting.
+- The statements of Deviation 13 and of this entry that rest on the author's
+  word were put to him as a list, and he confirmed each before this commit.
+- Label definitions. The first draft's label phrases followed the codebook's
+  reference table (§4.3). They were replaced by the definitions of the retrofit
+  instructions, under which the subsystem labels of both tranches were assigned
+  (Deviations 6 and 10).
+- Material temporal effect. The trigger was decided on 11 October before the
+  first draft and is unchanged. The lean in the false-positive rate was noticed
+  in the first review round. Simulations in both rounds, on design constants
+  and assumed counts, using no annotation data, prediction file or corpus
+  output, showed that with equal error rates in both blocks the trigger is met
+  in between about a fifth and two-thirds of cases, depending on what is
+  assumed, because each block's rates rest on part of the 598 items. The
+  qualification by the interval of the slope difference was added after the
+  first round for that reason, and after the lean had been noticed. In those
+  simulations the qualification calls a difference of 0.10 in the
+  false-positive rate established in about half of cases, and one of 0.06 in
+  about a fifth. They were run outside the repository and their scripts are not
+  committed, so these figures cannot be reproduced from the repository. Both
+  series are reported whatever the outcome.
+- Reweighting. The first draft merged r/waymo with r/SelfDrivingCars, as
+  Deviation 8 does for RQ4. R3's eight subreddits are kept: r/waymo has no
+  comment before 2018 (corpus manifest), and a merged group would leave the mix
+  of the two subreddits inside it unstandardised. The companion series on the
+  subreddits retained in every year was added.
+- The relevance-error series and the seasonality check were rewritten, because
+  the first draft's forms did not do what they claimed. Intervals now redraw
+  threads, not single comments.
+
+### Decisions recorded
+
+This section is the author's account and the working record of the sessions; it
+cannot be checked from the files. The decisions were taken by the author on 11
+October 2026, and each decision recorded below followed the recommendation. The subsystem
+classifier, the trigger for a material effect, the replacement of SLD EM, the
+reweighting target, the text-only sensitivity and the analyses not run were
+decided before the first draft, about an hour after the evaluation of record
+was run. The rest were decided after the first review round, in which the lean
+in the false-positive rate was noticed. One of the earlier decisions was
+replaced after that round: r/waymo merged with r/SelfDrivingCars for the
+reweighting. The first draft's spending ceiling of US$20 had not been put to
+the author; the ceiling he decided is the one below.
+
+- Subsystem classifier: Claude Sonnet 4.6, zero-shot, comment text only, with
+  the definitions of the retrofit instructions in full and the label name
+  returned, in place of keyword rules followed by BART-MNLI. Spending ceiling
+  of US$23 for the two API runs.
+- Material temporal effect: the block-specific series fails either of R3's two
+  criteria against the primary series. A material effect is described as
+  established, or as not distinguishable from sampling error in the block
+  rates, by the bootstrap interval of the difference in Sen's slope. Both
+  series are reported whatever the outcome.
+- SLD EM replaced by the three-class adjusted classify-and-count, because the
+  deployed classifier returns no probabilities; compared with the primary
+  series by R3's criteria as an exploratory check.
+- Reweighting: the pooled 2016–2024 subreddit mix of the comments classified
+  relevant as target; R3's eight subreddits; a subreddit-year under ten
+  comments left out.
+- Changepoints: a rule for calling one supported, and an exact search.
+- Seasonality: the corpus manifest's half-year comparison, with the effect of
+  the sampling drift measured directly.
+- Relevance-error shares estimated by era.
+- Text-only sensitivity from the cross-validated text-only predictions on the
+  tranche items and the gold labels of the six subreddits where relevance is
+  judged from the text; no corpus run of the text-only variant.
+- Not run: the 15-word floor, title-augmented relevance, the O17(c)
+  re-annotation, and runs that train on one temporal block and test on the
+  other.
+
+Put to the author in writing on 11 October with a recommendation. He misread or
+did not understand them on first reading; they were then explained in plain
+words, and he accepted them before this commit: intervals that redraw threads
+within a quarter; the companion series on the subreddits retained in all nine
+years; a refusal counted as not CONCERN and, in the three-class correction, as
+OTHER; the subsystem measures weighted as the primary series; the penalty grid
+1, 2, 3, 4, 6, 8, 12 and 16; the change across the span measured as eight times
+Sen's slope; and Tier 3 figures as descriptive. On the subsystem measures he
+deferred to the committed text. 
+
+Other settings of Deviation 13 were drafted. Among them: RQ1's test taken as a family of one
+at 0.05; R4's outcomes not applied without a significant trend; the reading of
+the subsystem classifier's answer; the cost estimate that gates the subsystem
+run and the rule that only the ceiling may change; the rule for a comment that
+the API rejects; the secondary-label sensitivity resting on the annotators'
+labels alone; and the undertaking that no corpus output is tabulated before the
+series-analysis script is committed.
+
+### Noted
+
+- Codebook §4.3 and the retrofit instructions place teleoperation, the driving
+  system itself, access to data and liability differently, and only the
+  codebook names localisation; Deviation 13 sets this out. The three subsystem
+  adjudications of 10 October give reasons that follow the codebook's table.
+  They are left as recorded, and the subsystem classifier's agreement with the
+  gold labels is reported with and without those three items.
+- The item carried from 26 September in the entry of 4 October 2026, to apply
+  the composition check to the full-corpus lexical proxy before a composition
+  statement is made for it, is taken into Deviation 13.
+
+### Next
+
+- Commit the deployment scripts, with the subsystem prompt word for word,
+  before the corpus runs; then the Stage 1 final retraining and corpus run, and
+  the Stage 2 and subsystem runs, each recorded here with its hashes.
+- Commit the sample-analysis script before it is run; its outputs are the
+  figures of record for the pooled estimates, the subsystem α and D28 on the
+  pooled sample, the tranche 1 checks of Deviations 3 and 4, and the block
+  rates of the temporal calibration check.
+- Commit the corpus-description script, with the `commentsCount` join, before
+  it is run.
+- Commit the series-analysis script before it is run on the corpus outputs and
+  before any corpus output is tabulated.
+- Rewrite `README.md` and `MODEL_NOTES.md` once the series scripts are
+  committed.
 

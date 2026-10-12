@@ -1075,3 +1075,979 @@ applied within each tranche and over the four-way label. Family B is ten
 comparisons on the relevant items of both tranches, and the prevalence
 correction takes its error rates from the same items.
 
+### Deviation 13 — Corpus deployment, the temporal calibration check, the subsystem classifier and the series analyses
+
+**Specified 11 and 12 October 2026, against commit 823270e. The commit date is
+in the repository history.**
+
+R3, R4 and R5 fix the reweighted and pooled series, the thread-size
+decomposition, the trend statistic, the prevalence correction and the temporal
+calibration check. Deviations 9, 11 and 12 fix the subsystem estimands, the
+pooled sample, the rules that chose the deployed classifiers and the items that
+supply their error rates. None of them states what counts as a material
+temporal effect, which Deviation 12 requires to be defined before the check is
+run; how the deployed classifiers are run over the corpus; what the subsystem
+classifier is; what the reweighting target of R3 is; how the intervals of the
+corrected series are formed; with what settings the trend statistic is
+computed; which changepoint, decomposition and sensitivity procedures are run;
+or which analyses planned earlier are not run. These are fixed here. Where this
+deviation reads an earlier rule in one of two possible ways, narrows it or
+changes it, that is listed under "What changes" below.
+
+**What had been seen.** The rules were fixed after the evaluation of record had
+been seen in full (`docs/decision_register.md`, "11 October 2026 — Evaluation
+of record; the Deviation 10 files unsealed"): the model comparison with its
+results by tranche and by fold, the Stage 1 comparison with accuracy by class
+and by subreddit for both candidates and for the deployed model's text-only
+variant, the deployed classifiers, their error rates, the reliability figures
+and the unsealed figures of Deviation 10.
+
+The author also knew the gold labels of both tranches, including the subsystem
+labels. Figures computed from them as previews had been seen. On tranche 1
+these were the design-weighted relevance rate overall and by era, the
+difference between the 2022–2025 and 2016–2018 rates and its decomposition by
+subreddit (Deviation 8), the design-weighted class shares among relevant items,
+the agreement figures (Deviation 4), the subsystem α and the shares of the D28
+Rule 2 specification (register, 30 September and 4 October 2026). On both
+tranches they were the agreement figures (register, 10 October 2026) and the
+class counts of the evaluation of record. The register records no tabulation of
+the gold Stage 2 classes or of the subsystem labels by era, year or temporal
+block, and the author states that none had been made. He also knew the corpus
+description figures of `docs/corpus_manifest.md`, which describes corpus v1, of
+R3 and R5, and of the design document: counts by tier, by year and by
+subreddit, the sizes of the subreddit-year and subreddit-quarter cells that R3
+summarises, the lexical proxy, capture by thread size and the within-year
+sampling position. Thread size had not been tabulated by year.
+
+The rules were fixed before the deployed Stage 1 classifier or the deployed
+Stage 2 classifier had been run on any comment outside the 1,000 items of the
+two tranches, and before any output of either existed for such a comment. The
+subsystem classifier had been run on no comment, and its prompt had been sent
+to no model. Beyond the tranche items, on which every model of the evaluation
+of record was run, one model named in this pre-registration had been run more
+widely: BART-MNLI, as the pre-filter of Deviation 10, scored the 12,166
+comments of the draw frame on 4 October 2026. Its figures stayed sealed until
+11 October 2026, apart from the gate result and the checks the scripts
+displayed, which the author knew from 4 October 2026 (Deviations 11 and 12).
+They are in the register entry named above: its hit rates and its Stage 1
+precision and recall on the tranche 1 items, counts by predicted label for
+those items and for the 11,636 comments then eligible, the allocation and the
+gate figures. The author has made no tabulation of its predictions by quarter,
+year, era or temporal block, by subreddit or tier, or by thread size. BART-MNLI
+is not deployed, and its scores enter no analysis fixed here. No other model
+had been run on any comment of corpus v2.2, or of an earlier version of it, to
+classify relevance, stance, sentiment or subsystem: the sentiment model and the
+zero-shot subsystem coding that the repository's `README.md` and
+`MODEL_NOTES.md` still describe belong to the 41029 proposal and were not run
+on this corpus, and the two files are out of date.
+
+No error rate had been computed from the predictions by temporal block or by
+era, for either deployed classifier. The results file of the evaluation of
+record gives the deployed Stage 2 classifier's results by tranche and by
+cross-validation fold, and none by block, era or year; the author states that
+the report and the tables written by the same run give none either. The results
+file does give the CONCERN rates of every configuration both with the design
+weights and without them: for the deployed classifier a false-positive rate of
+0.237641 against 0.227882 (85 of 373 items) and a true-positive rate of
+0.946922 against 0.946667 (213 of 225). The weights differ by era, so a
+weighted figure above the unweighted one means that the rate leans higher where
+the weights are larger, in the later eras. For the false-positive rate, if the
+items were spread evenly over the three eras and the two earlier eras shared
+one rate, the latest era's rate would be about 0.06 higher, about one and a
+quarter standard errors from zero; the true-positive rates show no such lean.
+The figures hold more than a lean. Given the numbers of gold CONCERN items and
+of other gold-relevant items in each era, which follow from the gold labels and
+keys the author holds, the weighted rates as the output gives them (to six
+decimals, and their difference as an exact fraction) are enough to fix the
+classifier's true and false positives in each era exactly, and the latest era
+is the late block of the check below but for the comments created between the
+boundary and the end of 2021. That reconstruction had not been made: not by the
+author, and not in the review and redrafting of this deviation, in which no
+annotation data and no prediction file was used. The approximate inference
+above is the only use made of the figures. If the false-positive rate is higher
+in the late block, correcting with block-specific rates lowers the late
+quarters and raises the early ones, so the block-specific series would have a
+lower slope than the primary series (both are defined below). The figures were
+in view when the trigger for a material effect was decided; the inference was
+drawn afterwards, while this deviation was reviewed, and before the
+qualification of a material effect was added.
+
+The prediction files, gold labels and timestamps needed to compute rates by
+block are held by the author. The statements in this section about what had not
+been run, computed, tabulated or seen are the author's and cannot be checked
+from the files.
+
+**Corpus runs.** Periods are calendar quarters, half-years and years of a
+comment's creation time in UTC; the eras and the two temporal blocks are not
+periods in this sense. The comment text of every run is `clean_body` of corpus
+v2.2 prepared as Deviation 10 prepared it for the pre-filter, the text every
+evaluation input used; for the 12,166 frame comments it is checked against the
+pre-filter input file of record, from which the evaluation inputs were taken.
+
+The deployed Stage 1 classifier (RoBERTa, subreddit and comment) is retrained
+once on the 1,000 tranche items under the final-retraining rule of the model
+scripts' commit (`bb3fbfe`): the settings of the evaluation runs, no held-out
+split, seed 24916660, and 5 epochs, the median of its best epochs (5, 5, 5, 2
+and 2). It is run once over all 12,776 comments of corpus v2.2, with the input
+of that commit (the sentence pair "r/" + subreddit and comment, only the
+comment truncated; Deviation 1). A comment is classified relevant by the
+decision rule of the cross-validation runs of record (the model scripts'
+commit, `bb3fbfe`), unchanged.
+
+The deployed Stage 2 classifier (Claude Sonnet 4.6, `claude-sonnet-4-6`,
+domain-specific schema, with the prompt, settings, identifier checks, reading
+of the answer and retry rule of that commit) is run once over every Tier 1+2
+comment classified relevant, on the comment text alone. Tier 3 comments receive
+Stage 1 only: R5 analyses Tier 3 qualitatively, "subject to the same relevance
+filter as the other tiers".
+
+The 1,000 tranche items are classified like every other comment, so that the
+series rest on one instrument. For them the Stage 1 prediction is in-sample,
+because the retrained model has seen their labels; this is stated with the
+series. On the tranche items that both runs cover, the Stage 2 labels of the
+corpus run and of the evaluation run are compared: the number and share given
+the same label are reported with the table of the two runs' labels, a refusal
+being a fourth value. The error rates of record are those of the evaluation run
+and are not re-estimated.
+
+A response that names no class is retried once, and a second such response is a
+refusal (Deviation 12). On the corpus a refusal counts as not CONCERN in the
+concern share, as the register fixed for the rates before any prediction was
+scored (11 October 2026, the entry on the evaluation script), and as OTHER in
+the three-class correction below. Refusals are counted by quarter. A call that
+fails after the client's retries with a connection error, a timeout, a
+rate-limit response (status 429) or a server error (status 500 or above) is not
+a refusal: the run stops and resumes from its log. The run also stops on any
+other error from the API, as the evaluation runs did. When it is resumed, the
+comment that was rejected is sent first. If it is rejected again it is set
+aside and the run goes on; if the next 20 comments are all answered without an
+API error, the comment set aside is recorded as a refusal (in the subsystem
+run, as unclassified) and listed in the register, and otherwise the run stops
+again. The request is not altered to get it through.
+
+Every call is logged as in the evaluation runs, and each run's outputs are
+hashed and recorded in the register. The two API runs, Stage 2 and the
+subsystem classifier below, are held under one spending ceiling of US$23: the
+Claude Console's monthly limit of US$25 less the US$1.8737 spent on the
+evaluation runs, rounded down. It is measured over every logged call of both
+runs and their connection checks at the list prices of the model scripts'
+commit. A call under way at a hard stop is not logged and may still be billed
+(register, 11 October 2026, the entry on the model scripts), so the measured
+spend can fall short of the true spend by up to five calls at each stop. The
+Stage 2 run is made first. Before the subsystem run its cost is estimated as
+((IN + n × D) × 3 + OUT × 15) / 1,000,000 US dollars, where 3 and 15 are the
+list prices in US dollars per million input and output tokens, IN and OUT are
+the input and output tokens logged by the Stage 2 run, n is the number of its
+calls, and D is the number of input tokens the API reports for the subsystem
+prompt on the connection-check sentence less the number it reports for the
+Stage 2 prompt (domain-specific schema) on the same sentence. OUT overstates
+the output of a run that returns a label name, and nothing is added for retries
+or for the tranche items classified for validation only. The subsystem run is
+not started if the estimate, added to the spend so far, is above the ceiling,
+and a run halts if the ceiling is reached while it is under way. In either case
+the only thing that may change is the ceiling: the new ceiling is recorded in
+the register with the reason, the run then starts or resumes from its log, each
+comment keeping the answer it already has, and the model, prompt, settings and
+set of comments stay as fixed here. No output of the Stage 2 run is tabulated
+before the subsystem run is complete.
+
+**Subsystem classifier (Deviation 9).** The corpus-wide primary subsystem is
+assigned by Claude Sonnet 4.6 (`claude-sonnet-4-6`), zero-shot, with the
+settings, identifier checks, concurrency and retry rule of the deployed Stage 2
+classifier. It chooses one of the seven primary values of the subsystem
+retrofit (Deviation 6), and it is given the comment text alone. The annotators
+chose the subsystem with their own Stage 2 class in view (Deviation 10) and
+could see the subreddit, which the instructions tell them not to let decide;
+the classifier is given neither, so that neither is an input to the subsystem
+label. Its prompt is the Stage 2 template with two changes: each label line
+gives the value's name and its definition, and the last line asks for the name
+alone, so that the definitions can be given in full without being repeated in
+every answer. The definitions are those the annotators were given for the
+subsystem labels of both tranches (`docs/subsystem_retrofit_instructions.md`,
+version 1.0, "The seven values"; Deviations 6 and 10), word for word with the
+Markdown marks removed; the definition of `none` ends with the first sentence
+of that document's rule 7. The other rules of its section "How to choose" are
+not given. The prompt reads as follows, each label on one line:
+
+```
+You are a careful annotator.
+Choose exactly ONE label for the comment.
+
+Candidate labels:
+- sensing: the vehicle's perception of the world outside it. Cameras, lidar, radar, ultrasonics, sensor fusion, what the car can and cannot see, sensor failure or degradation, camera-only versus lidar arguments.
+- in_vehicle_networks: data moving inside the vehicle. CAN bus, ECUs, domain controllers, infotainment (IVI) as a networked component, over-the-air software updates to vehicle systems, onboard compute.
+- v2x: the vehicle talking to something outside itself. V2V, V2I, vehicle-to-cloud, fleet telemetry uplink, connected infrastructure, traffic signal communication, remote operation or teleoperation links.
+- cybersecurity: attack, defence, or vulnerability. Hacking, remote takeover, spoofing a sensor or GPS, ransomware, key or access control, security of updates.
+- privacy: what is collected about people and who can see it. Cabin cameras, location history, driver monitoring, footage handed to police or insurers, surveillance framing, whether owners can opt out.
+- data_governance: the rules and ownership around data rather than the data path itself. Who owns the recorded data, regulation and compliance, disclosure obligations, data retention, consent regimes, standards bodies, liability framed around data or evidence.
+- none: the comment is CAV-relevant but engages no identifiable subsystem. This is a real and common answer. Use it for comments about autonomy in general, company or market commentary, timelines, safety statistics with no mechanism, and jokes. When genuinely torn between a subsystem and none, choose none.
+
+Comment:
+{comment text}
+
+Return ONLY the label name.
+```
+
+The codebook's reference table of subsystems (`docs/annotation_codebook.md`,
+§4.3), which the annotators also had, is not the source of the definitions. It
+differs from the instructions: it lists teleoperation and "the driving system
+itself" under in-vehicle networks and "Who owns or accesses vehicle data,
+liability, accountability, regulation" under data governance, where the
+instructions put teleoperation links under V2X, who can see what is collected
+under privacy, liability under data governance only when it is framed around
+data or evidence, and autonomy in general under `none`. It also lists
+localisation under sensing, which the instructions do not mention. The
+subsystem labels were assigned under the instructions, so the classifier is
+given the instructions.
+
+The answer is read by the rule of the evaluation runs, adapted to label names.
+It is cleaned as in those runs (white space collapsed, lower case, the same
+characters stripped from both ends). If the cleaned answer is one of the seven
+label names, that name is the label. Otherwise each name is searched for in it:
+an underscore of the name may be matched by an underscore, one space or one
+hyphen, and a match counts only where the character before it and the character
+after it, if there is one, is not a letter from a to z, a digit or an
+underscore (`re.search("(?<![a-z0-9_])" + name.replace("_", "[ _-]") +
+"(?![a-z0-9_])", answer)`). The answer is not altered, and if exactly one name
+is matched, once or more, it is the label. The evaluation runs looked for a
+label phrase anywhere in the answer; a name is matched here as a whole word
+because `none` occurs inside other words. An answer that names no label, or
+more than one, is retried once with the same prompt; after a second such answer
+the comment is unclassified. Unclassified comments form an eighth value, which
+is reported and never tested. The classifier assigns no secondary label: the
+descriptive sensitivity on secondary labels that Deviation 9 names is reported
+from the annotators' secondary labels on the pooled sample (Deviation 7), and
+none is made corpus-wide.
+
+The classifier is run once over every Tier 1+2 comment classified relevant, and
+over any tranche item that is relevant in the gold set and not among them, so
+that it is validated on every item of both tranches that has a gold primary
+subsystem (Deviation 7); items without one are counted, and labels given only
+for validation enter no corpus figure. Two shares are reported for each value,
+with Wilson 95% intervals on the unweighted counts: of the items with that gold
+value, the share to which the classifier gives the same value; and of the items
+to which the classifier gives that value, the share whose gold value is the
+same. They are given for both tranches together and for each tranche, with the
+table of gold value against classifier value and the overall agreement. The
+three tranche 2 items whose gold subsystem was adjudicated (register, 10
+October 2026) were decided with reasons that follow the codebook's table, so
+the figures are also given without them. Subsystem shares are not corrected for
+the subsystem classifier's error (Deviation 9).
+
+The design document's keyword-then-BART-MNLI coding is not used. In the Stage 2
+comparison of record BART-MNLI had the lowest macro-F1 of the five models under
+either schema (0.328 and 0.356) and predicted OTHER for none of the 598 items
+under the universal schema and for one under the domain-specific schema. Claude
+Sonnet 4.6 under the domain-specific schema had the highest macro-F1 (0.750)
+and was deployed at Stage 2 after a tie with Claude Haiku 4.5 on CONCERN-class
+F1 (Deviation 12). No model has been compared on subsystem coding: the choice
+carries a result on stance to a different task, and the classifier's agreement
+with the gold labels is measured as above and not assumed.
+
+If the pooled subsystem α brings D28 Rule 1 into effect (Deviations 10 and 11),
+the change is recorded as a further deviation, as Deviation 11 requires, before
+any corpus output of the subsystem classifier is tabulated. The classifier is
+not run again: its six subsystem values are collapsed into the three groups of
+Deviation 6, `none` staying apart.
+
+**Temporal calibration check (R5, Deviation 12).** The check is reported before
+the corrected series and conditions it (R5). R5 lists the chronological
+two-block split at the frozen boundary as the evaluation structure of the
+check, in a protocol whose primary metrics are macro-F1 and per-class F1, and
+does not say which classifier is evaluated on the split or which quantity
+conditions the corrected series. Here the error rates of the deployed Stage 2
+classifier, which are what the correction uses, are estimated on it. The items
+of the primary item set (Deviation 12) are split at `2021-12-29T21:39:22Z` into
+an early block (created before the boundary) and a late block (created at or
+after it), and the TPR and FPR for CONCERN against the other two classes,
+weighted by the pooled design weights of Deviation 11, are computed for each
+block from the predictions of record. This is done on both tranches together,
+the form of record (Deviation 11), and on each tranche alone. Each block rate
+and each late-minus-early difference is reported with a 95% percentile interval
+from the item resamples defined below, a figure for one tranche being formed
+from those items of each resample that belong to that tranche, with the pooled
+design weights and no separate draw; the unweighted counts behind each rate are
+given with a Wilson 95% interval, because a percentile interval cannot move off
+a rate of exactly 1. The macro-F1 and per-class F1 of the deployed Stage 2
+classifier are reported for each block, unweighted, as description. The
+deployed classifier is zero-shot, so no model is trained on one block and
+tested on the other, and the fine-tuned models, none of which is deployed at
+Stage 2, are not run on the split. For the deployed Stage 1 classifier, which
+is trained on items of every era and run over comments of every era, the
+accuracy on each class, with Wilson 95% intervals, and the balanced accuracy
+are reported for each block from its cross-validated predictions, unweighted as
+in the evaluation of record, as description.
+
+The *primary series* is the corrected reweighted concern share by quarter, 2016
+Q1 to 2024 Q4, with the overall rates of record; the same series by year or
+half-year is named as such. A temporal effect is *material* when the series
+recomputed with block-specific error rates fails either of R3's two criteria
+against the primary series. The *block-specific series* is the primary series
+recomputed with the early-block rates for every quarter up to and including
+2021 Q4 and the late-block rates from 2022 Q1, the block rates being those of
+both tranches together. The boundary falls at 21:39 UTC on 29 December 2021, so
+comments created from then to the end of 31 December 2021 lie in the late block
+and take the early rates. The criteria are R3's, with the block-specific series
+in the place of the pooled one: agreement of conclusion (the sign of Sen's
+slope, and whether the Mann–Kendall test is significant) and overlap of
+estimate (the block-specific Sen's slope falls inside the interval of the
+primary series' Sen's slope). Here and wherever this deviation applies R3's two
+criteria, the interval is the Gilbert interval defined under Trend statistics,
+computed on the 36 quarterly values before clipping; a test is significant when
+its p-value is below 0.05; a Sen's slope of exactly zero agrees in sign only
+with another of zero; and the quarters of 2025 enter neither criterion.
+
+Each block's rates rest on part of the 598 items, so the block-specific series
+can fail the criteria through sampling error in those rates alone. A material
+effect is therefore qualified. In each of the 2,000 resamples defined below the
+primary and the block-specific series are both recomputed, from the overall and
+the block rates of the redrawn items and the classified shares of the redrawn
+comments, and the difference between their Sen's slopes, block-specific minus
+primary, is taken. The 95% percentile interval of that difference is reported
+whatever the outcome. A material effect is described as *established* if the
+interval excludes zero, and as *not distinguishable from sampling error in the
+block rates* if it includes zero.
+
+Whatever the outcome, both series are reported with their Sen's slopes and
+Gilbert intervals, beside the block rates and their differences. If the effect
+is not material, the primary series is the result and one sentence records that
+the block-specific series agrees. If it is material, the conclusion drawn from
+the primary series, a trend or the absence of one, is stated as holding only
+under error rates that are stable over time, with the qualification above, and
+the finding is carried into the discussion and the limitations. The primary
+series keeps the overall rates in either case: R5 treats a material effect as a
+condition on the corrected series and does not provide for another series to
+take its place. The rule rests on R3's criteria and not on a cut-off on the
+rates themselves, because a difference in rates matters to RQ1 only through
+what it does to the corrected trend.
+
+**Prevalence correction (R5, Deviation 12).** The concern share of a period is
+the reweighted share of comments classified CONCERN among the Tier 1+2 comments
+classified relevant in the period, corrected by adjusted classify-and-count
+with the weighted CONCERN rates of record of the deployed Stage 2 classifier
+(TPR 0.946922 and FPR 0.237641 in the evaluation output of record, 0.9469 and
+0.2376 in the register): corrected share = (classified share − FPR) / (TPR −
+FPR). The rates are recomputed at full precision from the predictions of record
+and checked against these figures. A share for a half-year or a year is formed
+from the comments of that period, not from quarterly values. An out-of-range
+value is clipped to [0, 1] and the raw value is reported beside it (R5). R5
+does not say which of the two enters a statistic: trend statistics, the
+changepoint search, the decompositions and all differences use the values
+before clipping, except in the two relevance-error series below, and the
+clipped values are those plotted and tabulated.
+
+R5's robustness check by SLD expectation-maximisation is not run: it needs
+class posterior probabilities, and the deployed classifier returns a label
+only. In its place the three-class adjusted classify-and-count is reported for
+every quarter. Let M_ij be the weighted rate at which items of gold class i are
+classified j on the primary item set, and q_j the quarter's reweighted share of
+comments classified j, a refusal counted as OTHER. The corrected class shares
+p_i of the quarter solve the three equations Σ_i p_i M_ij = q_j. For display,
+negative components are set to zero and the rest rescaled to sum to one, with
+the raw solution beside them; Sen's slope, the Mann–Kendall test, R3's criteria
+and every resample use the CONCERN component of the raw solution. The binary
+correction is the special case in which, among the comments that are not
+CONCERN, ENDORSEMENT and OTHER keep in every quarter the proportions they have
+in the weighted sample; the classifier takes the two for CONCERN at different
+rates (32 of 189 and 53 of 184 items in the evaluation output of record), and
+the three-class correction estimates their proportions for each quarter
+instead. Both corrections assume that the rates M_ij are the same in every
+quarter. The CONCERN component carries the intervals defined below and is
+compared with the primary series by R3's two criteria; the comparison is
+exploratory (Family C) and leaves the primary series unchanged. The same items
+chose the deployed classifier and supply its rates, so the rates are somewhat
+optimistic; this is stated with the series (Deviation 12).
+
+**Intervals for the corrected series.** Every corrected share of a corpus
+series that is reported, and every reported difference between two of them,
+carries a 95% percentile interval (the 2.5th and 97.5th percentiles,
+`numpy.percentile` with its default method) from 2,000 bootstrap resamples. The
+two relevance-error series below and the ENDORSEMENT and OTHER components of
+the three-class correction carry none. One resample is one redraw of the
+primary item set and one redraw of the corpus comments: resample k uses row k
+of every index array below, and every statistic of that resample, differences
+and slopes included, is formed from those same two draws. Percentiles are taken
+before the ends of an interval for a share are clipped to [0, 1]. The number of
+resamples is a judgement call; its value is that it is fixed before any corpus
+output exists.
+
+The floors of ten comments, the subreddit-years left out and the periods that
+have a value are fixed on the full corpus and are not applied again in a
+resample. Where a statistic has no value in a resample, because its denominator
+is empty there or its equations have no solution, that resample is left out for
+that statistic only: the percentiles are taken over those that remain
+(`numpy.nanpercentile`), the number left out is reported, and no interval is
+given where it exceeds 100 of the 2,000.
+
+*Items.* The 598 items are redrawn with replacement within each era stratum,
+the tranches pooled, and every rate (TPR, FPR, the block rates and the rates
+M_ij) is re-estimated from the redrawn items with the pooled design weights.
+The 2,000 item resamples are drawn first and on their own generator,
+`numpy.random.default_rng([24916660, 3, 1])`: stratum by stratum in era order,
+the items of a stratum sorted by comment id as strings in code-point order,
+each stratum's draw being `rng.integers(0, n, size=(2000, n))` for its n items.
+They are the resamples of the temporal calibration check, and they serve every
+period and every series, so that all intervals share one draw of the rates. The
+SHA-256 of the three index arrays (each as little-endian 64-bit integers in
+row-major order, the three joined in era order) is recorded in the register
+when they are first generated, and every later script checks it.
+
+*Comments.* The Tier 1+2 comments classified relevant are redrawn by thread
+within each quarter, 2016 Q1 to 2025 Q2. Among the m threads (`parsedPostId`)
+with at least one such comment in the quarter, m threads are drawn with
+replacement, and every such comment of a drawn thread in that quarter is taken.
+The generator is `numpy.random.default_rng([24916660, 3, 2])`, quarter by
+quarter in time order, the threads of a quarter sorted by id as strings in
+code-point order, each quarter's draw being `rng.integers(0, m, size=(2000,
+m))`. Comments of one thread are not independent of each other, and redrawing a
+thread's comments of a quarter together keeps that dependence in the interval.
+Each comment keeps the reweighting weight it has in the full corpus: the target
+shares, the year weights and the subreddit-years left out are not recomputed in
+a resample, while every share and composition formed from the comments is
+recomputed from the redrawn comments with those weights.
+
+The interval reflects sampling error in the Stage 2 error rates and the
+variability of the classified share among the threads of a period. It does not
+reflect Stage 1 error (examined below), error in the gold labels, the choice of
+the deployed classifier on the same items, or change in the error rates over
+time, which is the subject of the temporal calibration check. Design-weighted
+prevalence and class-share estimates on the annotated sample keep the intervals
+of Deviation 3.
+
+**Reweighting (R3).** The reweighted series is primary. R3 weights by subreddit
+at annual resolution, over the eight Tier 1+2 subreddits, and does not state
+the target composition or what is done with a subreddit that is absent or
+nearly absent in a year (`docs/corpus_manifest.md`, which describes corpus v1,
+shows r/RealTesla with no comment in 2016 and r/waymo with none in 2016 or
+2017). Both are fixed here, on the Tier 1+2 comments classified relevant.
+
+The target share of a subreddit is its share of all such comments in 2016–2024,
+computed once: the mix of the comments that the trend statistic covers, in
+which each year counts in proportion to its number of such comments. A
+subreddit is *retained* in a year when it has ten or more such comments in that
+year, ten being the figure R3 uses to describe a sparse cell; the comments of a
+subreddit-year that is not retained are left out of that year's reweighted
+series. In year y a retained comment of subreddit g has weight w(g, y) = t(g,
+y) / s(g, y), where t(g, y) is the target share of g divided by the summed
+target shares of the subreddits retained in y, and s(g, y) is g's share of the
+retained comments of y. The weights of a year sum to its number of retained
+comments, so a figure pooled over years weights each year by that number. The
+weights of a year are applied to its quarters, as R3 requires, and to its
+half-years, so a year's mix equals the target of its retained subreddits
+exactly and a quarter's only approximately; no further rule applies when a
+retained subreddit has no comment in a quarter. Weights are not trimmed. The
+subreddit-years left out, their comment counts, the largest weight and the
+effective sample size of each quarter (the square of the summed weights over
+the sum of the squared weights) are tabulated. The quarters of 2025 are
+weighted by the same rule on its four months, with the 2016–2024 target; under
+R3 they enter no trend statistic and no annual table, and are shown on the
+quarterly plot only. The target and the floor of ten are judgement calls; their
+value is that they are fixed before any corpus output exists.
+
+A year with a subreddit left out is standardised to a different mix from the
+other years. The series restricted, in every year, to the subreddits retained
+in all nine years 2016–2024 is therefore reported beside the primary series and
+compared with it by R3's two criteria. Its target shares are those of the
+primary series renormalised over those subreddits, and its year weights are
+recomputed on them; in 2025 it uses those of them that are also retained
+in 2025. If either criterion fails, both series are reported in full, and the
+difference is stated as the effect of leaving out the subreddits not retained
+in every year.
+
+The pooled series weights every Tier 1+2 comment classified relevant equally,
+including those left out of the reweighted series; it is corrected as the
+primary series is and compared with it as R3 states. R3's tier-level quarterly
+reweighting gives each quarter the value v_1 p_1 + v_2 p_2, where p_1 and p_2
+are the shares classified CONCERN among that quarter's Tier 1 and Tier 2
+comments classified relevant, and v_1 and v_2 are the two tiers' shares of all
+such comments in 2016–2024. A quarter in which either tier has fewer than ten
+comments classified relevant has no value. The series is corrected and
+reported, with its Sen's slope, Gilbert interval and Mann–Kendall p-value, as
+the robustness check R3 names.
+
+**Trend statistics (R3).** The primary trend statistic is Sen's slope, the
+median of the pairwise slopes, on the 36 quarterly values of the primary
+series, reported per quarter and per year, the yearly slope and its limits
+being four times the quarterly ones. R3 asks for a distribution-free confidence
+interval and gives neither its level nor its method. It is the 95% interval of
+Gilbert (1987) with ranks rounded to the nearest whole number, which
+`scipy.stats.theilslopes(y, x, alpha=0.95)` returns and which is used because
+`pymannkendall` returns the slope without an interval; for 36 untied values its
+limits are the 243rd and 388th of the 630 ordered pairwise slopes. This is the
+*Gilbert interval* of this deviation. Significance is by the Mann–Kendall test
+that R3 commits, two-sided, from `pymannkendall.original_test` (normal
+approximation with continuity correction and tie-corrected variance). R3 asks
+whether the test is significant "at the Holm-corrected level" and names no
+family; RQ1's test belongs to none of the families of R5, so it is taken as a
+family of one and the level is 0.05.
+
+For the primary series the Hamed and Rao (1998) variance correction for serial
+correlation, `pymannkendall.hamed_rao_modification_test` with `lag=1`, is
+reported beside the test and does not replace it. One lag is a judgement call:
+36 values support no more. As implemented, the correction changes the variance
+only when the lag-1 autocorrelation of the detrended ranks lies more than 1.96
+divided by the square root of the number of values from zero (0.327 for 36
+values), and otherwise returns the uncorrected test. The autocorrelation, as
+the library computes it (the summed products of successive deviations of the
+ranks from their mean, over their summed squares), is reported, and if the
+corrected variance is not positive the corrected test is reported as not
+computable. A series of fewer than ten values is tested by the exact two-sided
+permutation p-value of the Mann–Kendall statistic over all orderings of its
+values, because the normal approximation is poor at that length; the
+`pymannkendall` value is given beside it. A period with no comment in the
+denominator of its share has no value: it is left out of the Mann–Kendall
+statistic, pairwise slopes use the true distance in time, and the Hamed–Rao
+correction, the changepoint search and STL are not computed for a series with a
+gap.
+
+R3's two criteria are applied to the pooled series against the reweighted
+series as written, with the readings above. Where this deviation compares
+another series with the primary series by R3's two criteria and states no other
+consequence, both are reported with their Sen's slopes, Gilbert intervals and
+Mann–Kendall p-values whichever way the criteria fall; a criterion that fails
+is stated with the series and in the limitations, and the primary series stays
+the result. The corpus manifest records that sampling within a year is uneven
+and does not support claims at quarterly resolution; the 36 quarterly values
+are used as R3 commits, as repeated measurements of one trend, and no claim is
+made about a single quarter.
+
+**Changepoints and decomposition (Deviation 12).** Changepoints are sought in
+the primary series and, where stated below, in the block-specific series, and
+in no other: the 36 quarterly values of a series before clipping, standardised
+to zero mean and unit variance (divisor 36). For each penalty of the fixed grid
+1, 2, 3, 4, 6, 8, 12 and 16, the segmentation is the one that minimises the sum
+of squared deviations from the segment means plus the penalty times the number
+of changepoints, every segment being at least four quarters long. It is found
+exactly, by dynamic programming over zero to eight changepoints
+(`ruptures.Dynp`, least-squares cost, minimum size 4, jump 1), because the
+pruned search of `ruptures.Pelt` is not exact under a minimum segment length. A
+changepoint is named by the first quarter of the new segment and counts as
+appearing at a grid value only if that same quarter is returned. Every
+changepoint is reported with the number of grid values at which it appears.
+
+A least-squares cost for a change in mean places changepoints along any steady
+trend, and at small penalties in noise alone, so appearing across the grid is
+not by itself evidence of a step. The report calls a changepoint *supported*
+only if (a) the same quarter is returned at every grid value from 4 to 16 and
+(b) a single step at that quarter fits the 36 values better than a straight
+line by BIC, both fitted by least squares: 36 ln(RSS_step / 36) + 3 ln 36 < 36
+ln(RSS_line / 36) + 2 ln 36. The label is descriptive and carries no error
+rate: a steady trend with noise, or serially correlated noise, can meet both
+conditions. Of a changepoint that does not meet both, and of the series when
+none does, the report states that the series does not distinguish a step from a
+steady trend or from noise. A supported changepoint at 2021 Q4, 2022 Q1 or 2022
+Q2 is reported with the note that a difference in error rates between the two
+blocks of the temporal calibration check would put a step near the boundary;
+the search is repeated on the block-specific series, with the same grid and the
+same two conditions, and the changepoint keeps the label only if the same
+quarter is supported there. Because no claim is made about a single quarter, a
+supported changepoint is described by its year. The grid, the range from 4 to
+16 and the minimum segment of four quarters are judgement calls and are not
+derived; their value is that they are fixed before the series exists.
+
+STL decomposition of the 36 values before clipping, not standardised
+(`statsmodels.tsa.seasonal.STL`: period 4, robust, seasonal smoother 7, trend
+smoother 9, low-pass filter 5, all of degree 1, no jumps, 2 inner and 15 outer
+iterations), is reported in an appendix as a description of the trend component
+and not as a test. As a supporting estimate labelled exploratory (Family C), a
+binomial generalised linear model with logit link, unweighted, of the
+classified CONCERN indicator (a refusal counted as not CONCERN) on calendar
+year, as a number centred at 2020, and subreddit, as an eight-level factor,
+over every Tier 1+2 comment classified relevant in 2016–2024, is reported with
+the year odds ratio and its Wald 95% interval from standard errors clustered on
+thread (`cov_type="cluster"` with the library's defaults). It rests on
+classified labels and is not corrected for classifier error, which draws the
+odds ratio towards one if the error rates do not change over time and can move
+it either way if they do. The three events of Deviation 12 appear as markers on
+the plots only.
+
+**Thread-size composition (R4).** `commentsCount` is joined from the post
+record of each comment's thread (`parsedPostId`); where a thread has more than
+one post record, the largest reported count is used. The buckets are those of
+`docs/corpus_manifest.md`: 1–5, 6–15, 16–50, 51–200, 201–1,000 and more than
+1,000 reported comments. A comment whose thread has no post record, no reported
+count or a reported count of zero is left out of the decomposition and counted.
+The decomposition is annual, 2016–2024. It uses the Stage 2 labels as
+classified, on the remaining comments that the reweighting retains, each with
+its weight from the primary series. For bucket b and year y, a(b, y) is the
+weighted share of the year's comments in the bucket and r(b) is the weighted
+share classified CONCERN among all the bucket's comments of 2016–2024. The
+synthetic series is S(y) = Σ_b a(b, y) r(b), and the observed series O(y) is
+the weighted share classified CONCERN in year y on the same comments.
+
+R4 calls C and T the "change across the study span" and does not say how the
+change is measured or over which years. The plain reading, the last year minus
+the first, is not used, because it would carry the noise of both years: C is
+eight times Sen's slope of the nine values of S, and T is eight times Sen's
+slope of the nine values of O, over 2016–2024, the span of R3's trend
+statistic. |C| is compared with 0.20 × |T| and 0.50 × |T| as R4 fixes. The
+correction is the same increasing straight-line map of the classified share in
+every year, and the a(b, y) of a year sum to one, so C / T is the same
+corrected or uncorrected. Because r(b) is pooled over the years, S also moves
+when the concern share and the bucket mix both trend, even if no bucket differs
+from another within a year. The ratio that a straight-line trend common to
+every bucket would produce is therefore reported beside C / T: it is Sen's
+slope over the nine years of Σ_b a(b, y) y_b, where y_b is the weighted mean
+year of the comments of bucket b.
+
+R4's outcomes use two terms it does not define. The trend "stated net of" C is
+T − C, given also on the corrected scale as (T − C) / (TPR − FPR). The
+"size-stratified series" is the annual series Z(y) = Σ_b a(b) r(b, y), where
+a(b) is the bucket's weighted share of the comments of 2016–2024 and r(b, y) is
+the weighted share classified CONCERN in bucket b and year y; a bucket with no
+comment in a year is left out of that year and the a(b) of the others are
+rescaled. It is corrected like the primary series, and its trend is eight times
+its Sen's slope, with the exact test for nine values. It is reported, with its
+trend, whatever the outcome. If R4's third outcome applies, it is reported
+first as the result for RQ1, with the primary series beside it; every
+comparison in this deviation is still made against the quarterly reweighted
+series, which keeps the name primary series here.
+
+R4's comparison presupposes a trend to be explained. If the Mann–Kendall test
+of the primary series is not significant, T cannot be told from zero and the
+ratio is governed by noise: |C|, 0.20 × |T| and 0.50 × |T| are then reported,
+R4's outcomes are not applied, and |C| / (TPR − FPR) is reported as a change in
+corrected share.
+
+**Relevance error.** The Stage 1 classifier's error is reported, not corrected.
+From its cross-validated predictions on the 1,000 tranche items two shares are
+estimated for each era stratum (within a stratum the design weights are equal,
+so each is a sample proportion): e_in, the share of comments classified
+relevant that are not relevant, and e_out, the share of comments classified not
+relevant that are relevant. Take a quarter with n_in Tier 1+2 comments
+classified relevant and n_out classified not relevant (unweighted counts over
+the subreddit-years that the reweighting retains) and reweighted classified
+CONCERN share x, with e_in and e_out those of the era that contains the
+quarter. The expected number wrongly included is e_in × n_in and the expected
+number wrongly left out is e_out × n_out. A comment wrongly included has no
+stance; what is unknown is whether Stage 2 classified it CONCERN. A comment
+wrongly left out was never classified; what is unknown is its stance. Two
+series are formed by taking the two unknowns to opposite extremes.
+
+- Low series: every comment wrongly included was classified CONCERN and no
+  comment wrongly left out is CONCERN. The classified share among the comments
+  rightly included is max(x − e_in, 0) / (1 − e_in); it is corrected as the
+  primary series is and clipped to [0, 1], giving p_lo, and the value is p_lo ×
+  (n_in − e_in × n_in) / (n_in − e_in × n_in + e_out × n_out).
+- High series: no comment wrongly included was classified CONCERN and every
+  comment wrongly left out is CONCERN. The classified share among the comments
+  rightly included is min(x, 1 − e_in) / (1 − e_in); it is corrected and
+  clipped, giving p_hi, and the value is (p_hi × (n_in − e_in × n_in) + e_out ×
+  n_out) / (n_in − e_in × n_in + e_out × n_out).
+
+The two series are reported with the primary series, each with its Sen's slope.
+In them p_lo and p_hi are clipped as written and the slope is taken on the
+values so formed, the one exception to the rule that trend statistics use the
+values before clipping. They bound the series at the estimated e_in and e_out
+if the comments wrongly included and wrongly left out carry the average weight
+of their quarter; where such comments are concentrated in subreddits with large
+or small weights the series can lie outside them. They carry no interval, their
+slopes are not bounds on the slope, and they are wide by construction. Where
+the series is likely to lie between them is shown by two figures from the
+annotated sample, with Wilson 95% intervals on the unweighted counts: the share
+of the wrongly included items that the Stage 2 predictions of record classify
+CONCERN, and the gold CONCERN share of the wrongly left out items. The shares
+e_in and e_out are applied to every comment of a quarter, the tranche items
+included, although their Stage 1 predictions in the corpus run are in-sample.
+
+On the annotated sample, with the pooled design weights, the CONCERN share is
+also reported three ways: among the gold-relevant items, from the gold labels;
+among the items that the cross-validated Stage 1 prediction classifies
+relevant, as the share that the Stage 2 prediction of record classifies
+CONCERN; and that second share corrected by the binary adjusted
+classify-and-count with the rates of record. The first two carry the intervals
+of Deviation 3 and the third carries none. The Stage 2 rates were estimated on
+the gold-relevant items of this sample, so the third figure differs from the
+first only through Stage 1 error.
+
+**RQ4 and the subreddit rule (Deviations 1, 8 and 11).** The relevance rate
+overall and by era is the design-weighted estimate on the pooled sample with
+the intervals of Deviation 3, and the composition check of Deviation 8 is
+repeated on the pooled sample, as Deviation 11 fixes. Beside it, as the
+text-only sensitivity of Deviation 12, the design-weighted era rates are
+reported (a) from the cross-validated predictions of the text-only Stage 1
+variant on the same 1,000 items and (b) from the gold labels of the items in
+the six Tier 1+2 subreddits where relevance must be established from the text
+(all but r/SelfDrivingCars and r/waymo), each decomposed by the method of
+Deviation 8. The text-only variant was trained on labels formed under the
+subreddit rule, so (a) shows how far those labels can be recovered from the
+text and not what annotation from the text alone would give; (b) rests on
+labels that were judged from the text. The text-only variant is not run over
+the corpus. The lexical proxy is applied to the 1,000 tranche items and
+compared item by item with the gold Stage 1 label, by subreddit, and is
+recomputed over corpus v2.2 by subreddit and era for the bound it provides. Its
+term list and matching rule are those in the repository when this deviation is
+committed, unchanged, and the register names the file and the commit when the
+sample-analysis script is committed. The composition check of Deviation 8 is
+applied to the proxy's era rates before any statement about composition is made
+for it. The relevance-rate trend is reported directionally and without a
+mechanism (R5).
+
+**RQ2 (Deviations 9 and 11).** π_s(t), C_s(t) and E_s are the measures
+Deviation 9 defines. They are computed from the Tier 1+2 comments classified
+relevant that the reweighting retains, with the weights of the primary series,
+over 2016 Q1 to 2024 Q4; 2025 is shown descriptively. Deviation 9 leaves the
+subsystem classifier's error uncorrected and is silent on the Stage 2
+classifier's. In the evaluation of record about three in ten of the items
+classified CONCERN are not CONCERN (85 of 298), and on the corpus that share
+moves with the concern share, so a measure formed from classified comments
+would partly repeat the trend of RQ1. The measures of record are therefore
+corrected for Stage 2 error with the rates of record. With K_s and N_s the
+weighted numbers of comments of primary subsystem s classified CONCERN and
+classified relevant in a period, s running over the seven values and the
+unclassified comments, A_s = (K_s − FPR × N_s) / (TPR − FPR). The A_s enter
+every sum, ratio, trend statistic and resample as computed, negative values
+included: π_s = A_s / Σ_s A_s, C_s = A_s / N_s, and E_s = C_s / C over
+2016–2024, where C in this ratio is Deviation 9's concern share, Σ_s A_s / Σ_s
+N_s on the same comments, and E_s has no value if C is not positive. For
+display a value of π_s or C_s outside [0, 1] is clipped to [0, 1] and the raw
+value is reported beside it. A period in which Σ_s A_s is not positive has no
+value of π_s, a period with nothing in a measure's denominator has no value of
+it, and a zero share is a zero. The correction assumes that the Stage 2 rates
+are the same in every subsystem, and the measures formed from the Stage 2
+labels as classified are reported beside the corrected ones. Each reported
+value carries a 95% percentile interval from the bootstrap above. A material
+temporal effect conditions the corrected subsystem measures in the same words
+as the primary series.
+
+The sparsity rule of Deviation 9 is applied to the unweighted counts of Tier
+1+2 comments classified relevant, by primary subsystem, whether or not the
+reweighting retains them; Deviation 9 says "corpus-wide counts", and the
+subsystem classifier is run on Tiers 1 and 2 only. Family A is one two-sided
+Mann–Kendall test with Sen's slope on π_s(t) for each of sensing, in-vehicle
+networks, cybersecurity, privacy and data governance that meets the sparsity
+rule, at the resolution the rule gives; the family is the tests so run, with
+Holm–Bonferroni within it, a test being significant when its Holm-adjusted
+p-value is below 0.05. A subsystem analysed on nine annual values takes the
+exact test defined above. V2X is reported as a count and `none` descriptively
+(R5, Deviation 9). The design-weighted subsystem shares of the D28 Rule 2
+specification are reported on the pooled sample, as Deviation 11 fixes.
+
+**Sensitivity analyses (Family C).** Three analyses are reported without
+correction for multiple comparisons and labelled exploratory, as R5 states for
+Family C. Each is run on the comments and predictions above and needs no
+further model run. The registered rules R3 (the pooled series) and R4
+(thread-size composition) are applied as set out above; they are not
+exploratory and keep their own consequences, R4 as changed above.
+
+1. *Seasonality.* As `docs/corpus_manifest.md` plans: for each complete year
+   2016–2024, the corrected reweighted share in January–June and in
+   July–December, and the mean over the nine years of the first minus the
+   second, with its bootstrap interval. The two halves differ in their mix of
+   subreddits and queries, because the supplementary sampling added
+   January–June posts for saturated queries only (corpus manifest), so the
+   difference describes the half-years as sampled; it is reported as
+   description and decides nothing. The manifest records a drift in the
+   within-year sampling position of about 0.10 of a year across the span, which
+   can bias the annual series only if concern varies with the season. Its
+   effect is measured directly, by the decomposition of R4 with the month of
+   the year in place of the thread-size bucket, on every comment that the
+   reweighting retains: the twelve month-of-year concern shares are held at
+   their pooled 2016–2024 values, each year's composition by month is applied
+   to them, and C_m is eight times Sen's slope of the resulting annual series,
+   with T recomputed on the same comments. |C_m| is compared with 0.20 × |T|,
+   R4's first cut-point, and this comparison decides the manifest's two
+   outcomes: below the cut-point the drift is reported as not consequential,
+   and otherwise as a material limitation with the trend also stated net of
+   C_m. If the primary trend is not significant, the outcome is not applied
+   and |C_m| / (TPR − FPR) is reported. The ratio that a straight-line trend
+   common to every month would produce is reported beside C_m / T, as for the
+   thread-size buckets. The drift moves comments between the months of a year,
+   which can change an annual share and changes a quarterly share only through
+   the mix of months within the quarter; the check therefore bears on the
+   annual series, and so on T and R4, more than on the 36 quarterly values of
+   the primary statistic.
+2. *Word floor at 25 words.* The primary series recomputed on the comments of
+   25 words or more, by the word count that `02_preprocess.py` applies for its
+   20-word floor: the target shares stay those of the primary series, the
+   retained subreddit-years and the year weights are recomputed on the subset,
+   and the rates of record are unchanged. It is compared with the primary
+   series by R3's two criteria.
+3. *Tier strata.* The corrected quarterly series for Tier 1 and for Tier 2
+   separately, each weighting its own comments equally, with the bootstrap
+   intervals above and the Sen's slope, Gilbert interval and Mann–Kendall
+   p-value of each, beside the primary series. A quarter with fewer than ten
+   comments classified relevant in the tier has no value. No criterion is
+   applied.
+
+Three analyses planned in the project's design are not run. A floor at 15
+words: the frozen corpus has no comment below 20 words, so it would need the
+corpus rebuilt from the raw files and the added comments classified. Relevance
+classification with the post title added: R2 keeps Stage 1 blind to the title
+in every case, no title was shown to the annotators, and labels assigned with
+the title in view do not exist, so its gain could not be measured. The
+re-annotation held open as O17(c) in the governing document, which would show
+how the subreddit rule of Deviation 1 bears on the relevance labels: its
+question is answered only in part, by the era rates on the six subreddits and
+the text-only variant described under RQ4. The subreddit-rule sensitivity
+itself is reported under RQ4 above.
+
+**Tier 3.** Tier 3 comments are classified at Stage 1 only. No Tier 3 comment
+is in the draw frame or in either tranche (R5), so the classifier's accuracy on
+Tier 3 is unmeasured, and it met neither Tier 3 subreddit in training; the Tier
+3 figures are therefore descriptive. The share of all comments classified
+relevant that Tier 3 supplies is reported, and the Tier 3 comments classified
+relevant are read by the author for the qualitative account, any quotation
+being kept to 15 words or fewer.
+
+**Scripts of record.** The corpus runs, the sample analyses (the pooled
+prevalence and class-share estimates, the RQ4 era comparison and its
+composition check, the text-only sensitivity and the lexical-proxy comparison,
+the subsystem α and the D28 outcomes on the pooled sample, the tranche 1 checks
+of Deviations 3 and 4, the weighted three-class rates, the relevance-error
+shares and the three-way comparison, and the block rates and block metrics of
+the temporal calibration check) and the series analyses are each run by a
+script committed before it is run on the data of record, and the figures of
+record are the outputs of those scripts. The corpus description figures (year
+totals, composition by year, thread counts, the preprocessing funnel, the
+lexical proxy, the reweighting cell sizes and the within-year sampling
+position) are regenerated from corpus v2.2 by a committed script, and
+`commentsCount` is joined from the raw post records by the same script. Figures
+recorded so far as previews are superseded by the outputs of the committed
+scripts wherever the two differ, and any difference is recorded.
+
+The scripts that make the corpus runs print progress, the number of comments
+each run covers, counts of refusals and of unclassified comments, spend and
+file hashes only. No output of a corpus run is tabulated or read against
+period, era, subreddit, tier, subsystem or thread size before the
+series-analysis script is committed, and no rate is computed by temporal block
+before the sample-analysis script is committed; this is an undertaking by the
+author and cannot be checked. A script found to be in error after it has run on
+the data of record is corrected by a new commit, and the register records the
+error, both outputs and which stands. Every figure that this deviation says is
+reported, given, tabulated, counted, shown or stated appears whatever its
+value: in the report, in its appendices, or in a results file committed to the
+repository and cited in the report. Library versions are recorded with each
+output: those of the project's pinned environment for the scripts run on the
+author's PC, and for the Stage 1 retraining and corpus run, which need a GPU
+session, the versions that the model scripts' commit fixes (transformers 5.19.0
+and scikit-learn 1.9.0) with the others as the session provides them.
+
+**What changes in R2, R3, R4, R5 and Deviations 9, 11 and 12, and in the corpus
+manifest's plan.**
+
+1. R2's statement that the models see what the annotators see is narrowed
+   again, for the subsystem classifier, as Deviation 12 narrowed it at Stage 2.
+   The annotators chose the subsystem with their own Stage 2 class in view,
+   could see the subreddit, and had the seven rules of the instructions'
+   section "How to choose"; the classifier receives the comment text and the
+   seven definitions, with the first sentence of rule 7.
+2. R3 is applied over its eight subreddits, with the readings and additions
+   stated here. Readings: its "Holm-corrected level" is taken as 0.05, because
+   R3 names no family and RQ1's test is a family of one; its tier-level check,
+   which R3 justifies by "three strata", has two, because the series cover
+   Tiers 1 and 2 only (R5); and a Sen's slope of exactly zero agrees in sign
+   only with another of zero. Fixed here, where R3 is silent: the target
+   composition; the rule for a subreddit with fewer than ten comments in a
+   year, with the companion series on the subreddits retained in every year;
+   the application of a year's weights to its half-years; the form of the
+   tier-level reweighting, with no value in a quarter where either tier has
+   fewer than ten comments classified relevant; the correction of the pooled
+   and tier-level series as the primary series is corrected; the level (95%)
+   and method of the interval of Sen's slope; and what is reported when a
+   comparison by R3's criteria carries no stated consequence.
+3. R4 is applied with three readings, three additions and one change. Readings:
+   the "change across the study span" is eight times Sen's slope of the annual
+   values 2016–2024, for C and for T, and not the last year minus the first;
+   the buckets are those of the corpus manifest, with comments whose thread has
+   no post record, no reported count or a reported count of zero left out; and
+   R4's third outcome, in which "the size-stratified series is reported as
+   primary", is read as reported first as the result for RQ1, with the
+   quarterly reweighted series beside it, which keeps the name primary series
+   in this deviation. Additions: the trend "stated net of" C and the
+   "size-stratified series" are defined as above, and the ratio that a common
+   straight-line trend would produce is reported beside C / T. Change: R4's
+   outcomes are not applied when the primary series shows no significant trend.
+4. R5's SLD expectation-maximisation check is replaced by the three-class
+   adjusted classify-and-count. R5 lists the chronological two-block split as
+   an evaluation structure beside the cross-validation, with macro-F1 and
+   per-class F1 as the primary metrics; here the split decides the check
+   through the weighted TPR and FPR of the deployed Stage 2 classifier in each
+   block, the two F1 metrics are reported by block as description, and no model
+   is trained on one block and tested on the other. A material temporal effect
+   is defined by R3's criteria, with the qualification above. R5's clipping of
+   out-of-range estimates is applied to the values displayed, and statistics
+   use the values before clipping, on which R5 is silent; the two
+   relevance-error series are the one exception. R5 computes concern shares
+   over the Tier 1+2 analysis corpus of 12,212 comments; here they are computed
+   among the comments of that corpus classified relevant, and the reweighted
+   series and every analysis that uses its weights also leave out the comments
+   of subreddit-years that are not retained, whose number is reported, while
+   the pooled series keeps them.
+5. Deviation 9's subsystem classifier is Claude Sonnet 4.6, zero-shot, as
+   above, in place of the design document's keyword-then-BART-MNLI coding.
+   Deviation 9's measures are computed on the comments that the reweighting
+   retains, with the weights of the primary series, and are corrected for Stage
+   2 error; Deviation 9 is silent on weighting and on Stage 2 error. Its
+   sparsity rule is applied to counts over Tiers 1 and 2. The classifier
+   assigns no secondary label, so Deviation 9's descriptive sensitivity on
+   secondary labels rests on the annotators' labels alone. Family A's tests on
+   nine annual values are exact.
+6. Deviation 11's temporal check "on each tranche alone" and the definition
+   that Deviation 12 leaves to "a further deviation" are specified here.
+   Deviation 12's refusal, a second answer that names no class, is extended to
+   a comment that the API rejects again when a run is resumed, as set out under
+   Corpus runs. Deviation 12's success criteria are unchanged; the analyses
+   fixed here are those by which criteria 3, 4 and 5 are judged, the subsystem
+   measures of criterion 3 being Deviation 9's as amended in item 5.
+7. The seasonality check that `docs/corpus_manifest.md` plans is carried out as
+   sensitivity 1. Its outcome is decided by a direct measure of the drift's
+   effect, judged against R4's first cut-point, and not by the size of the
+   half-year difference, which the manifest names and does not define.
+
+**Cost.** The robustness check on the correction no longer comes from a second
+method: the three-class correction uses the same items and the same assumption
+of stable rates as the binary one. No model is trained on one temporal block
+and tested on the other, so RQ3 cannot say how the fine-tuned models hold
+across the boundary, and the deployed Stage 1 model's behaviour over time is
+described only from random folds. The temporal check has little power on 598
+items: it can establish only a large difference in rates, and a smaller one
+would bias the corrected trend unseen. The qualification of a material temporal
+effect was added after the evaluation output had been read as pointing to a
+higher false-positive rate in the latest era. A difference of that size, about
+0.06, would if real raise the late quarters of the primary series against the
+early ones by about five points at the sample's concern share, and is too small
+for the check to establish reliably.
+
+R3's "Holm-corrected level" is read as 0.05, the least strict reading. The
+Mann–Kendall test of record treats the 36 quarterly values as independent,
+although they share annual weights and one set of error rates and the manifest
+holds that the sampling supports annual claims only; the Hamed–Rao figure is
+reported beside it and does not replace it. R4's outcomes are not applied
+without a significant trend, so a composition effect that hides a trend is
+reported and not acted on. Some subreddit-years are left out of the reweighted
+series. The subsystem classifier is chosen without a comparison on its own task
+and is given less than the annotators had, the gold labels it is measured
+against were assigned with two descriptions of the subsystems in view, and its
+error is measured but not corrected. The correction of the subsystem measures
+assumes Stage 2 error rates that are equal across subsystems, which is not
+tested, and their intervals leave out the subsystem classifier's error. The
+Stage 1 predictions of the 1,000 tranche items, about 8% of the Tier 1+2
+corpus, are in-sample. The error rates of record are not re-estimated whatever
+the agreement between the corpus run and the evaluation run. The 15-word floor
+and title-augmented relevance are not examined, and the effect of the subreddit
+rule on the gold relevance labels is examined only through a classifier trained
+on those labels and through the era rates on the six subreddits.
+
+**Mitigation.** Both versions of the corrected series, the block rates and the
+interval of the difference in slope are reported whatever the temporal check
+finds. The three-class correction is reported for every quarter in the place of
+SLD expectation-maximisation. The subsystem classifier is validated against
+every gold primary subsystem of both tranches, with and without the three
+adjudicated items, and the subsystem measures are given as classified beside
+the corrected ones. The companion series, the pooled series and the tier-level
+series stand beside the primary series. Stage 1 error is shown by the two
+relevance-error series and by the three-way comparison on the annotated sample.
+The Stage 2 labels of the corpus run are compared with those of the evaluation
+run on the tranche items. Every script is committed before it is run on the
+data of record.
+
+**Consequence.** The rules stated here were fixed before any output of the
+deployed classifiers or of the subsystem classifier existed for a comment
+outside the two tranches. What they leave to the scripts is fixed when the
+scripts are committed. The temporal check decides, by a rule written before it
+was run, how the corrected trend is qualified, and both versions of the series
+are reported whatever it finds. The subsystem measures rest on a classifier
+that is given less than the annotators had, whose agreement with the gold
+labels is measured and whose error is not corrected.
+

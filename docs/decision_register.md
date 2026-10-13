@@ -708,7 +708,10 @@ Drafted on the date shown; the commit date is in the repository history.
   - `sonnet-universal_log.jsonl` `a35898b422af3ad40b76d9b394d556f944e2cd3169fa59b152f6719b6bbc5a98`
   - `sonnet-domain_predictions.csv` `71b56f7270545d131a6cfe5649a1162a1b244b5f91298ff770e1ac80a4abbbaa`
   - `sonnet-domain_log.jsonl` `50dbfacad8fd9f0d2129f5ac9ee74a9d184ac32059e0e1fde9b5dcb01ac72baa`
-- No prediction has been set against a label. 
+- No prediction has been set against a label. On 11 October the prediction
+  and log files were checked against the manifests by SHA-256, without being
+  opened.
+
   ## 11 October 2026 — Colab runs, BART-MNLI domain-specific predictions, and the evaluation script committed before any prediction is scored
 
 Drafted on the date shown; the commit date is in the repository history.
@@ -765,7 +768,10 @@ Drafted on the date shown; the commit date is in the repository history.
 - `finetune/stage1_distilbert_textonly_predictions.csv` `2c3bb9ed8dcd7e71617df2c31f85ca8544cbc7db6898d9e50d6212d6f7dd400b`
 - `finetune/stage1_roberta_textonly_predictions.csv` `24d8e3a0de3e8d03d1c6be09fc162b74ff3a51265859bd7248580d0a8c40d94e`
 - The four Claude prediction files are recorded at `a7ad389`.
-
+- On 11 October each of these eight files was checked against its manifest by
+  SHA-256, and each manifest against the committed settings, by script,
+  reading selected fields only (hashes, epochs, minutes, versions). No
+  prediction file and no validation score was opened.
 
 ### Evaluation script, committed before any prediction is scored
 
@@ -1055,8 +1061,9 @@ are the author's and cannot be checked from the files.
 
 ### How the text was arrived at
 
-- Drafted on 11 October 2026 decisions recorded below, and reviewed in two rounds, and
-  after amendment checked once more. The first round had the first draft, the retrofit
+- Drafted on 11 October 2026 from the author's decisions recorded below, and
+  reviewed in two rounds, and after amendment checked once more. The first
+  round had the first draft, the retrofit
   instructions, `models_config.py`, the evaluation output of record,
   `README.md` and `MODEL_NOTES.md`. The second had the second draft and, in
   addition, the committed pre-registration, this register, the codebook, the
@@ -1064,7 +1071,7 @@ are the author's and cannot be checked from the files.
   model scripts, `config.py`, the design document and the evaluation report
   were before neither round. The second round's findings were applied to the
   text on 11 October. On 12 October the amended text was checked against the
-  same sources by two further instances, and what they found was corrected in
+  same sources in two separate checks, and what they found was corrected in
   the text committed here; those last corrections were not themselves reviewed
   again. Claims about methods were recomputed on synthetic data. No annotation
   data and no prediction file was used in the review or in the redrafting.
@@ -1101,7 +1108,8 @@ are the author's and cannot be checked from the files.
 
 This section is the author's account and the working record of the sessions; it
 cannot be checked from the files. The decisions were taken by the author on 11
-October 2026, and each decision recorded below followed the recommendation. The subsystem
+October 2026 from written options, with a recommendation for each,
+and each decision recorded below followed the recommendation. The subsystem
 classifier, the trigger for a material effect, the replacement of SLD EM, the
 reweighting target, the text-only sensitivity and the analyses not run were
 decided before the first draft, about an hour after the evaluation of record
@@ -1145,9 +1153,12 @@ years; a refusal counted as not CONCERN and, in the three-class correction, as
 OTHER; the subsystem measures weighted as the primary series; the penalty grid
 1, 2, 3, 4, 6, 8, 12 and 16; the change across the span measured as eight times
 Sen's slope; and Tier 3 figures as descriptive. On the subsystem measures he
-deferred to the committed text. 
+deferred to the committed text. Deviation 9 is silent on Stage 2 error, and
+the correction with the rates of record, the uncorrected measures beside it,
+was proposed to him, and he accepted it before this commit.
 
-Other settings of Deviation 13 were drafted. Among them: RQ1's test taken as a family of one
+Other settings of Deviation 13 stand because the author did not object to them
+as drafted. Among them: RQ1's test taken as a family of one
 at 0.05; R4's outcomes not applied without a significant trend; the reading of
 the subsystem classifier's answer; the cost estimate that gates the subsystem
 run and the rule that only the ceiling may change; the rule for a comment that
@@ -1183,3 +1194,9 @@ series-analysis script is committed.
 - Rewrite `README.md` and `MODEL_NOTES.md` once the series scripts are
   committed.
 
+## 13 October 2026 — Wording of seven passages revised
+
+Seven passages in two entries of 11 October 2026 and in the entry of 12 October
+2026 (Deviation 13) were reworded in the commit that adds this note. No figure,
+date or decision was changed. The earlier wording is in the repository history
+at `be001c7`.

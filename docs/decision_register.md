@@ -1200,3 +1200,90 @@ Seven passages in two entries of 11 October 2026 and in the entry of 12 October
 2026 (Deviation 13) were reworded in the commit that adds this note. No figure,
 date or decision was changed. The earlier wording is in the repository history
 at `be001c7`.
+
+## 13 October 2026 — Deviation 14 and the sample-analysis script committed before the sample analyses are run
+
+Drafted on 13 October 2026; the commit date is in the repository history.
+
+### What this commit fixes
+
+- Deviation 14 (`docs/analysis_preregistration.md`): the matching rule of the
+  lexical proxy, which Deviation 13 takes from the repository and which no
+  committed file held; and the reach of Deviation 2's raw-majority report.
+- `analysis_01_sample.py`, the sample-analysis script of Deviation 13,
+  SHA-256 `95f7a48c7509c58eca11330814be32fef0a8c1e430447790fdccfa5da6fdd952`.
+  It computes the analyses of the 1,000 annotated items that Deviation 13
+  assigns to it: the design-weighted relevance rate and class shares with their
+  intervals, on the pooled sample and for each tranche, and the difference
+  between the tranches; the RQ4 era comparison and the Deviation 8 composition
+  check on the pooled sample; the text-only sensitivity; the lexical proxy
+  against the gold Stage 1 labels; the subsystem α and the D28 outcomes on the
+  pooled sample; the tranche 1 analyses of Deviations 3 and 4; Deviation 2's
+  adjudicated items and raw-majority set; the error rates of the deployed
+  classifiers, the three-class rates, the relevance-error shares by era and the
+  three-way comparison; and the block rates of the temporal calibration check,
+  with the 2,000 item resamples. Its docstring lists what it computes and the
+  16 rules it fixes where the committed text is silent or says how a committed
+  rule is applied.
+- The lexical proxy, as Deviation 13 requires the register to name it: the term
+  list `CORE_TERMS` in `config.py` as committed at `be001c7` (SHA-256
+  `92ebb86e725d86c08344862ec7dba2c6dcfe3834af079a8a632ccf46505abb61`, with LF
+  line endings), and the matching rule of Deviation 14, committed here.
+
+### State of the work at this commit
+
+The statements below are the author's and cannot be checked from the files.
+
+- Before this commit the script was run on the data of record only in its
+  preflight mode. The preflight checks every input that has a recorded SHA-256
+  against it, and corpus v2.2 and the frame against the memberships and counts
+  that R5 records; reproduces the figures of record that rest on those inputs;
+  compares four previews with what the script computes; and runs every
+  analysis once as a dry run, with each item's era, temporal block and design
+  weight taken from another item, discarding the result unseen. The lexical
+  proxy uses none of the three, so the dry run computes it on the real items
+  and discards it unseen with the rest. The preflight shows no rate by temporal
+  block and writes nothing.
+- No error rate, F1 or accuracy of any classifier has been seen by temporal
+  block, on either tranche or on both, and no lexical-proxy figure for the
+  tranche items has been seen.
+
+### How the text and the script were arrived at
+
+This section is the author's account and the working record of the sessions;
+it cannot be checked from the files.
+
+- The script was tested on synthetic data only: a generated repository with
+  fake annotation workbooks, master keys, corpus, frame and prediction files,
+  run through `models_01_prepare.py` and `models_05_evaluate.py`. The
+  estimates, counts and intervals in the main blocks of the results file were
+  compared with an independent recomputation (samplics 0.6.1 for the survey
+  estimates, the krippendorff package, scikit-learn, statsmodels, pandas, a
+  separate implementation of the proxy rule and a plain loop over the 2,000
+  resamples), with no failure in three scenarios. A second run gave the same
+  bytes; 23 fault cases each stopped as intended, and 4 carried on as
+  intended. The test scripts are not committed, so these checks cannot be
+  repeated from the repository. No annotation data, prediction file or corpus
+  output was used in testing or in the review.
+- The script was reviewed in two rounds before the matching rule was added.
+  The final file, Deviation 14 and this entry were checked once more before
+  this commit; the corrections made after that check were not themselves
+  reviewed again.
+- Decisions taken by the author on 13 October 2026, each from written options
+  with a recommendation, and each following it: the matching rule of Deviation
+  14; the design document's comparison with a second term list not reported;
+  `sample_results.json` and `sample_report.md` copied to `results/` and
+  committed after the run; the annotators' secondary subsystem labels described
+  as counts only; the raw-majority figures of Deviation 2 limited to the
+  estimates of this script; the preflight's dry run on shuffled eras and
+  blocks; and the four previews compared in the preflight. The 16 rules of the
+  script were put to him in plain words, and he accepted them before this
+  commit.
+
+### Next
+
+- Run `analysis_01_sample.py --confirm-committed` once; record here the SHA-256
+  of its outputs and of the item index arrays; copy `sample_results.json` and
+  `sample_report.md` to `results/` and commit them.
+- The other items under "Next" in the entry of 12 October stand.
+

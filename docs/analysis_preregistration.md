@@ -2051,3 +2051,77 @@ are reported whatever it finds. The subsystem measures rest on a classifier
 that is given less than the annotators had, whose agreement with the gold
 labels is measured and whose error is not corrected.
 
+### Deviation 14 — Matching rule of the lexical proxy; the reach of Deviation 2's raw-majority report
+
+**Specified 13 October 2026, against commit 823270e. The commit date is in the
+repository history.**
+
+Deviation 13 applies the lexical proxy to the 1,000 tranche items, compares it
+item by item with the gold Stage 1 label by subreddit, and recomputes it over
+corpus v2.2 by subreddit and era. It takes the proxy's term list and matching
+rule from the repository as they stood when it was committed, at `be001c7`. The
+repository then held the term list, `CORE_TERMS` in `config.py`, but no
+matching rule: no committed script applies the term list to the text of
+comments. The proxy figures of the design document were computed outside the
+repository, on corpus v1 with the project's term list and on corpus v2 with a
+separately written term list that is not in the repository. Its rates by era,
+among them 42.7% for 2022–2025, are of the second kind.
+
+**Rule.** A comment carries a CAV term if its `clean_body` in corpus v2.2
+contains one of the eight terms of `CORE_TERMS` as a whole word, in any letter
+case. The words of a term may be joined by one hyphen (U+002D), one space
+(U+0020) or nothing, and a final "s" is allowed. In Python 3.12, with
+`re.IGNORECASE`, a comment carries a CAV term if `re.search` finds one of these
+patterns in its `clean_body`:
+
+```
+\bself[- ]?drivings?\b
+\bautonomous[- ]?vehicles?\b
+\brobotaxis?\b
+\bautopilots?\b
+\bfsds?\b
+\bwaymos?\b
+\bv2xs?\b
+\blidars?\b
+```
+
+"Whole word" and "letter case" mean what `\b` and `re.IGNORECASE` mean for text
+patterns in Python: a word character is a letter or digit of any script, or an
+underscore. The rule counts "self driving", "selfdriving", "Waymo's" and
+"robotaxis". It does not count a term inside a longer word ("waymore",
+"FSDv12"), beside a digit or an underscore ("waymo2", "_Waymo_"), or in another
+spelling ("robo-taxi"). The five quoted Tier 3 search phrases in `config.py`
+(`LEGACY_ISSUE_TERMS`) are not used. The term list is read from `config.py` as
+committed at `be001c7`, unchanged. The rule applies wherever the proxy is
+computed, on the tranche items and over corpus v2.2. Deviation 13's sentence
+"Its term list and matching rule are those in the repository when this
+deviation is committed, unchanged" stands for the term list; the matching rule
+is the one above. When the sample-analysis script is committed, the register
+names `config.py` and `be001c7` for the term list and this deviation for the
+rule.
+
+**Figures already seen.** When this rule was fixed, the author knew every proxy
+figure of the design document (Revision 4), among them the rates by subreddit,
+by reply depth, by era and by year, the thread-level and Tier 3 counts, and the
+proxy set beside the tranche 1 relevance rate, overall and by subreddit. They
+were computed with other term lists or on an earlier corpus, and they are
+previews, not figures of record. The author states that no proxy figure for
+any tranche item had been seen. Before the sample-analysis script is
+committed, its preflight computes the proxy on the 1,000 items in a dry run and
+discards it unseen. The design document's statement that a second, separately
+written term list agrees with the project's list within one to five points is
+not made, because that list is not in the repository.
+
+**Deviation 2's raw-majority report.** Deviation 2 reports the raw-majority set
+beside the adjudicated gold set, with every adjudicated item listed. The
+raw-majority report covers the estimates of the sample-analysis script listed
+in its rule 9: the class shares, the weighted CONCERN rates, the three-class
+rates, the subsystem shares π_s and condition (ii) of D28 Rule 2. The model
+comparison of the evaluation of record (11 October 2026) was reported on the
+adjudicated gold set only and is not recomputed on the raw-majority set.
+
+**Consequence.** The proxy figures of record are those that the committed
+scripts compute under this rule. They are not the design document's, which
+used other term lists or an earlier corpus, and they may differ from them. The
+model comparison of record rests on the adjudicated gold set alone. Nothing
+else in Deviations 2 and 13 changes.

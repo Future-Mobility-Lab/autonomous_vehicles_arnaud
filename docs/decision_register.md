@@ -1287,3 +1287,10 @@ it cannot be checked from the files.
   `sample_report.md` to `results/` and commit them.
 - The other items under "Next" in the entry of 12 October stand.
 
+## 14 October 2026 — Sample analyses: run of record
+
+- `analysis_01_sample.py` (SHA-256 `95f7a48c7509c58eca11330814be32fef0a8c1e430447790fdccfa5da6fdd952`) run 2026-10-14T21:15:11+11:00 with `--confirm-committed`. Every input with a recorded SHA-256 matched it; corpus v2.2 and the frame matched R5.
+- Outputs, in `data/analysis/sample/run_95f7a48c7509/` (not committed): `sample_results.json` SHA-256 `be9db9a168e6d432d5f7b6190a7a204a624e1aa4992cd399cbb90288a383c5d7`; `sample_report.md` `e24f8fa5e66192788ebb4f48f894bb5841eb095486ccad2fb13c796ff273867a`.
+- Item index arrays (`numpy.random.default_rng([24916660, 3, 1])`, 2,000 resamples; strata of 196, 183, 219 items): SHA-256 `5e3eea48169360cb9e8f85c2826373d4bf92a0d85759a3c3b41ed4eaa35da394`.
+- Lexical proxy: term list `CORE_TERMS` in `config.py` as committed at `be001c7` (SHA-256 `92ebb86e725d86c08344862ec7dba2c6dcfe3834af079a8a632ccf46505abb61`); matching rule of Deviation 14.
+- Corpus v2.2 file SHA-256 `958f480ec13d469dbf285714e2601e5035cf05e10126a7f9b598e32e4b33b39d`; frame list `ce85a3b046fedf3648861d446832a364ab89e7b60a0e58f10272b33b1997d7b3` (both recorded here for the first time; R5 records the memberships).

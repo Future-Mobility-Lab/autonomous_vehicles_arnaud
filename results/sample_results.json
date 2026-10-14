@@ -1,0 +1,3532 @@
+{
+  "specification": "R1, R5 and Deviations 1 to 14 of docs/analysis_preregistration.md; analysis_01_sample.py",
+  "prevalence": {
+    "pooled": {
+      "items": 1000,
+      "relevance_rate": {
+        "overall": {
+          "items": 1000,
+          "denominator_items": 1000,
+          "numerator_items": 598,
+          "estimate": 0.61134,
+          "estimate_exact": "51546046/84316463",
+          "se": 0.015641,
+          "low": 0.580243,
+          "high": 0.641557,
+          "df": 997
+        },
+        "2016-2018": {
+          "items": 334,
+          "denominator_items": 334,
+          "numerator_items": 196,
+          "estimate": 0.586826,
+          "estimate_exact": "98/167",
+          "se": 0.025113,
+          "low": 0.536714,
+          "high": 0.635203,
+          "df": 333
+        },
+        "2019-2021": {
+          "items": 334,
+          "denominator_items": 334,
+          "numerator_items": 183,
+          "estimate": 0.547904,
+          "estimate_exact": "183/334",
+          "se": 0.02599,
+          "low": 0.496453,
+          "high": 0.598351,
+          "df": 333
+        },
+        "2022-2025": {
+          "items": 332,
+          "denominator_items": 332,
+          "numerator_items": 219,
+          "estimate": 0.659639,
+          "estimate_exact": "219/332",
+          "se": 0.025318,
+          "low": 0.608224,
+          "high": 0.70755,
+          "df": 331
+        }
+      },
+      "relevant_items_without_a_stage2_label": 0,
+      "class_shares_among_relevant": {
+        "CONCERN": {
+          "items": 1000,
+          "denominator_items": 598,
+          "numerator_items": 225,
+          "estimate": 0.380068,
+          "estimate_exact": "78363931/206184184",
+          "se": 0.020451,
+          "low": 0.340833,
+          "high": 0.420935,
+          "df": 997
+        },
+        "ENDORSEMENT": {
+          "items": 1000,
+          "denominator_items": 598,
+          "numerator_items": 189,
+          "estimate": 0.316275,
+          "estimate_exact": "65210923/206184184",
+          "se": 0.019559,
+          "low": 0.2792,
+          "high": 0.355843,
+          "df": 997
+        },
+        "OTHER": {
+          "items": 1000,
+          "denominator_items": 598,
+          "numerator_items": 184,
+          "estimate": 0.303657,
+          "estimate_exact": "31304665/103092092",
+          "se": 0.019283,
+          "low": 0.267196,
+          "high": 0.342766,
+          "df": 997
+        }
+      },
+      "era_difference_2022_2025_minus_2016_2018": {
+        "difference": 0.072812,
+        "difference_exact": "4037/55444",
+        "se": 0.03566,
+        "low": 0.002792,
+        "high": 0.142832,
+        "df": 664,
+        "direction": "higher in 2022-2025",
+        "era_intervals_overlap": true
+      }
+    },
+    "tranche 1": {
+      "items": 500,
+      "relevance_rate": {
+        "overall": {
+          "items": 500,
+          "denominator_items": 500,
+          "numerator_items": 297,
+          "estimate": 0.607163,
+          "estimate_exact": "102387697/168632926",
+          "se": 0.022627,
+          "low": 0.561934,
+          "high": 0.650626,
+          "df": 497
+        },
+        "2016-2018": {
+          "items": 167,
+          "denominator_items": 167,
+          "numerator_items": 98,
+          "estimate": 0.586826,
+          "estimate_exact": "98/167",
+          "se": 0.036917,
+          "low": 0.512559,
+          "high": 0.657342,
+          "df": 166
+        },
+        "2019-2021": {
+          "items": 167,
+          "denominator_items": 167,
+          "numerator_items": 90,
+          "estimate": 0.538922,
+          "estimate_exact": "90/167",
+          "se": 0.03779,
+          "low": 0.463997,
+          "high": 0.612129,
+          "df": 166
+        },
+        "2022-2025": {
+          "items": 166,
+          "denominator_items": 166,
+          "numerator_items": 109,
+          "estimate": 0.656627,
+          "estimate_exact": "109/166",
+          "se": 0.036454,
+          "low": 0.581532,
+          "high": 0.724627,
+          "df": 165
+        }
+      },
+      "relevant_items_without_a_stage2_label": 0,
+      "class_shares_among_relevant": {
+        "CONCERN": {
+          "items": 500,
+          "denominator_items": 297,
+          "numerator_items": 120,
+          "estimate": 0.406489,
+          "estimate_exact": "41619504/102387697",
+          "se": 0.029948,
+          "low": 0.349239,
+          "high": 0.466398,
+          "df": 497
+        },
+        "ENDORSEMENT": {
+          "items": 500,
+          "denominator_items": 297,
+          "numerator_items": 95,
+          "estimate": 0.322431,
+          "estimate_exact": "33012955/102387697",
+          "se": 0.028531,
+          "low": 0.269096,
+          "high": 0.380828,
+          "df": 497
+        },
+        "OTHER": {
+          "items": 500,
+          "denominator_items": 297,
+          "numerator_items": 82,
+          "estimate": 0.27108,
+          "estimate_exact": "27755238/102387697",
+          "se": 0.026919,
+          "low": 0.221522,
+          "high": 0.327066,
+          "df": 497
+        }
+      },
+      "era_difference_2022_2025_minus_2016_2018": {
+        "difference": 0.0698,
+        "difference_exact": "1935/27722",
+        "se": 0.051882,
+        "low": -0.03226,
+        "high": 0.17186,
+        "df": 331,
+        "direction": "higher in 2022-2025",
+        "era_intervals_overlap": true
+      }
+    },
+    "tranche 2": {
+      "items": 500,
+      "relevance_rate": {
+        "overall": {
+          "items": 500,
+          "denominator_items": 500,
+          "numerator_items": 301,
+          "estimate": 0.615517,
+          "estimate_exact": "103796487/168632926",
+          "se": 0.022546,
+          "low": 0.570376,
+          "high": 0.658753,
+          "df": 497
+        },
+        "2016-2018": {
+          "items": 167,
+          "denominator_items": 167,
+          "numerator_items": 98,
+          "estimate": 0.586826,
+          "estimate_exact": "98/167",
+          "se": 0.036917,
+          "low": 0.512559,
+          "high": 0.657342,
+          "df": 166
+        },
+        "2019-2021": {
+          "items": 167,
+          "denominator_items": 167,
+          "numerator_items": 93,
+          "estimate": 0.556886,
+          "estimate_exact": "93/167",
+          "se": 0.037659,
+          "low": 0.481814,
+          "high": 0.629447,
+          "df": 166
+        },
+        "2022-2025": {
+          "items": 166,
+          "denominator_items": 166,
+          "numerator_items": 110,
+          "estimate": 0.662651,
+          "estimate_exact": "55/83",
+          "se": 0.036298,
+          "low": 0.587715,
+          "high": 0.730219,
+          "df": 165
+        }
+      },
+      "relevant_items_without_a_stage2_label": 0,
+      "class_shares_among_relevant": {
+        "CONCERN": {
+          "items": 500,
+          "denominator_items": 301,
+          "numerator_items": 105,
+          "estimate": 0.354005,
+          "estimate_exact": "36744427/103796487",
+          "se": 0.028996,
+          "low": 0.299307,
+          "high": 0.412809,
+          "df": 497
+        },
+        "ENDORSEMENT": {
+          "items": 500,
+          "denominator_items": 301,
+          "numerator_items": 94,
+          "estimate": 0.310203,
+          "estimate_exact": "3577552/11532943",
+          "se": 0.027905,
+          "low": 0.25819,
+          "high": 0.367503,
+          "df": 497
+        },
+        "OTHER": {
+          "items": 500,
+          "denominator_items": 301,
+          "numerator_items": 102,
+          "estimate": 0.335793,
+          "estimate_exact": "34854092/103796487",
+          "se": 0.028529,
+          "low": 0.282232,
+          "high": 0.393939,
+          "df": 497
+        }
+      },
+      "era_difference_2022_2025_minus_2016_2018": {
+        "difference": 0.075824,
+        "difference_exact": "1051/13861",
+        "se": 0.051773,
+        "low": -0.026021,
+        "high": 0.177669,
+        "df": 331,
+        "direction": "higher in 2022-2025",
+        "era_intervals_overlap": true
+      }
+    },
+    "tranche 2 minus tranche 1": {
+      "relevance_rate_overall": {
+        "tranche1": 0.607163,
+        "tranche2": 0.615517,
+        "difference": 0.008354,
+        "difference_exact": "704395/84316463",
+        "se": 0.032545,
+        "low": -0.055511,
+        "high": 0.07222,
+        "df": 994
+      },
+      "relevance_rate_2016-2018": {
+        "tranche1": 0.586826,
+        "tranche2": 0.586826,
+        "difference": 0.0,
+        "difference_exact": "0/1",
+        "se": 0.054048,
+        "low": -0.10632,
+        "high": 0.10632,
+        "df": 332
+      },
+      "relevance_rate_2019-2021": {
+        "tranche1": 0.538922,
+        "tranche2": 0.556886,
+        "difference": 0.017964,
+        "difference_exact": "3/167",
+        "se": 0.054621,
+        "low": -0.089482,
+        "high": 0.12541,
+        "df": 332
+      },
+      "relevance_rate_2022-2025": {
+        "tranche1": 0.656627,
+        "tranche2": 0.662651,
+        "difference": 0.006024,
+        "difference_exact": "1/166",
+        "se": 0.052166,
+        "low": -0.096596,
+        "high": 0.108644,
+        "df": 330
+      },
+      "CONCERN_share_among_relevant": {
+        "tranche1": 0.406489,
+        "tranche2": 0.354005,
+        "difference": -0.052485,
+        "difference_exact": "-557781047767829/10627483260620439",
+        "se": 0.04244,
+        "low": -0.135768,
+        "high": 0.030798,
+        "df": 994
+      },
+      "ENDORSEMENT_share_among_relevant": {
+        "tranche1": 0.322431,
+        "tranche2": 0.310203,
+        "difference": -0.012228,
+        "difference_exact": "-14439218098821/1180831473402271",
+        "se": 0.040635,
+        "low": -0.091968,
+        "high": 0.067512,
+        "df": 994
+      },
+      "OTHER_share_among_relevant": {
+        "tranche1": 0.27108,
+        "tranche2": 0.335793,
+        "difference": 0.064713,
+        "difference_exact": "687734010657218/10627483260620439",
+        "se": 0.039942,
+        "low": -0.013668,
+        "high": 0.143094,
+        "df": 994
+      },
+      "note": "description: tranche 2 minus tranche 1; not used to choose between the tranches (Deviation 11)"
+    }
+  },
+  "rq4": {
+    "era_difference_pooled": {
+      "difference": 0.072812,
+      "difference_exact": "4037/55444",
+      "se": 0.03566,
+      "low": 0.002792,
+      "high": 0.142832,
+      "df": 664,
+      "direction": "higher in 2022-2025",
+      "era_intervals_overlap": true
+    },
+    "composition_check_pooled": {
+      "status": "exploratory (Family C, R5)",
+      "seven_groups": {
+        "era_rates": {
+          "2016-2018": 0.586826,
+          "2019-2021": 0.547904,
+          "2022-2025": 0.659639
+        },
+        "items_by_era": {
+          "2016-2018": 334,
+          "2019-2021": 334,
+          "2022-2025": 332
+        },
+        "difference_2022_2025_minus_2016_2018": 0.072812,
+        "mix_part": 0.037026,
+        "within_group_part": 0.035787,
+        "standardised_era_rates_pooled_frame_mix": {
+          "2016-2018": 0.594875,
+          "2019-2021": 0.54984,
+          "2022-2025": 0.638012
+        },
+        "pooled_frame_mix": {
+          "teslamotors": 0.193122,
+          "selfdrivingcars+waymo": 0.260739,
+          "realtesla": 0.098229,
+          "electricvehicles": 0.155633,
+          "cars": 0.127178,
+          "futurology": 0.103759,
+          "technology": 0.061341
+        },
+        "groups": {
+          "teslamotors": {
+            "2016-2018": {
+              "items": 107,
+              "share_of_era": 0.320359,
+              "rate": 0.654206
+            },
+            "2019-2021": {
+              "items": 84,
+              "share_of_era": 0.251497,
+              "rate": 0.642857
+            },
+            "2022-2025": {
+              "items": 35,
+              "share_of_era": 0.105422,
+              "rate": 0.657143
+            }
+          },
+          "selfdrivingcars+waymo": {
+            "2016-2018": {
+              "items": 52,
+              "share_of_era": 0.155689,
+              "rate": 0.884615
+            },
+            "2019-2021": {
+              "items": 72,
+              "share_of_era": 0.215569,
+              "rate": 0.888889
+            },
+            "2022-2025": {
+              "items": 110,
+              "share_of_era": 0.331325,
+              "rate": 0.954545
+            }
+          },
+          "realtesla": {
+            "2016-2018": {
+              "items": 17,
+              "share_of_era": 0.050898,
+              "rate": 0.588235
+            },
+            "2019-2021": {
+              "items": 38,
+              "share_of_era": 0.113772,
+              "rate": 0.578947
+            },
+            "2022-2025": {
+              "items": 36,
+              "share_of_era": 0.108434,
+              "rate": 0.666667
+            }
+          },
+          "electricvehicles": {
+            "2016-2018": {
+              "items": 19,
+              "share_of_era": 0.056886,
+              "rate": 0.315789
+            },
+            "2019-2021": {
+              "items": 49,
+              "share_of_era": 0.146707,
+              "rate": 0.326531
+            },
+            "2022-2025": {
+              "items": 67,
+              "share_of_era": 0.201807,
+              "rate": 0.447761
+            }
+          },
+          "cars": {
+            "2016-2018": {
+              "items": 53,
+              "share_of_era": 0.158683,
+              "rate": 0.433962
+            },
+            "2019-2021": {
+              "items": 49,
+              "share_of_era": 0.146707,
+              "rate": 0.306122
+            },
+            "2022-2025": {
+              "items": 34,
+              "share_of_era": 0.10241,
+              "rate": 0.352941
+            }
+          },
+          "futurology": {
+            "2016-2018": {
+              "items": 61,
+              "share_of_era": 0.182635,
+              "rate": 0.540984
+            },
+            "2019-2021": {
+              "items": 24,
+              "share_of_era": 0.071856,
+              "rate": 0.291667
+            },
+            "2022-2025": {
+              "items": 30,
+              "share_of_era": 0.090361,
+              "rate": 0.466667
+            }
+          },
+          "technology": {
+            "2016-2018": {
+              "items": 25,
+              "share_of_era": 0.07485,
+              "rate": 0.32
+            },
+            "2019-2021": {
+              "items": 18,
+              "share_of_era": 0.053892,
+              "rate": 0.277778
+            },
+            "2022-2025": {
+              "items": 20,
+              "share_of_era": 0.060241,
+              "rate": 0.55
+            }
+          }
+        },
+        "flags": []
+      },
+      "two_groups": {
+        "era_rates": {
+          "2016-2018": 0.586826,
+          "2019-2021": 0.547904,
+          "2022-2025": 0.659639
+        },
+        "items_by_era": {
+          "2016-2018": 334,
+          "2019-2021": 334,
+          "2022-2025": 332
+        },
+        "difference_2022_2025_minus_2016_2018": 0.072812,
+        "mix_part": 0.069704,
+        "within_group_part": 0.003108,
+        "standardised_era_rates_pooled_frame_mix": {
+          "2016-2018": 0.623878,
+          "2019-2021": 0.567539,
+          "2022-2025": 0.628508
+        },
+        "pooled_frame_mix": {
+          "narrow": 0.260739,
+          "broad": 0.739261
+        },
+        "groups": {
+          "narrow": {
+            "2016-2018": {
+              "items": 52,
+              "share_of_era": 0.155689,
+              "rate": 0.884615
+            },
+            "2019-2021": {
+              "items": 72,
+              "share_of_era": 0.215569,
+              "rate": 0.888889
+            },
+            "2022-2025": {
+              "items": 110,
+              "share_of_era": 0.331325,
+              "rate": 0.954545
+            }
+          },
+          "broad": {
+            "2016-2018": {
+              "items": 282,
+              "share_of_era": 0.844311,
+              "rate": 0.531915
+            },
+            "2019-2021": {
+              "items": 262,
+              "share_of_era": 0.784431,
+              "rate": 0.454198
+            },
+            "2022-2025": {
+              "items": 222,
+              "share_of_era": 0.668675,
+              "rate": 0.513514
+            }
+          }
+        },
+        "flags": []
+      }
+    },
+    "composition_check_tranche1_beside_the_preview": {
+      "status": "exploratory (Family C, R5)",
+      "seven_groups": {
+        "era_rates": {
+          "2016-2018": 0.586826,
+          "2019-2021": 0.538922,
+          "2022-2025": 0.656627
+        },
+        "items_by_era": {
+          "2016-2018": 167,
+          "2019-2021": 167,
+          "2022-2025": 166
+        },
+        "difference_2022_2025_minus_2016_2018": 0.0698,
+        "mix_part": 0.061227,
+        "within_group_part": 0.008573,
+        "standardised_era_rates_pooled_frame_mix": {
+          "2016-2018": 0.608361,
+          "2019-2021": 0.54637,
+          "2022-2025": 0.623272
+        },
+        "pooled_frame_mix": {
+          "teslamotors": 0.179109,
+          "selfdrivingcars+waymo": 0.298323,
+          "realtesla": 0.100631,
+          "electricvehicles": 0.128738,
+          "cars": 0.13891,
+          "futurology": 0.080376,
+          "technology": 0.073914
+        },
+        "groups": {
+          "teslamotors": {
+            "2016-2018": {
+              "items": 54,
+              "share_of_era": 0.323353,
+              "rate": 0.666667
+            },
+            "2019-2021": {
+              "items": 38,
+              "share_of_era": 0.227545,
+              "rate": 0.631579
+            },
+            "2022-2025": {
+              "items": 15,
+              "share_of_era": 0.090361,
+              "rate": 0.666667
+            }
+          },
+          "selfdrivingcars+waymo": {
+            "2016-2018": {
+              "items": 24,
+              "share_of_era": 0.143713,
+              "rate": 0.875
+            },
+            "2019-2021": {
+              "items": 40,
+              "share_of_era": 0.239521,
+              "rate": 0.9
+            },
+            "2022-2025": {
+              "items": 66,
+              "share_of_era": 0.39759,
+              "rate": 0.954545
+            }
+          },
+          "realtesla": {
+            "2016-2018": {
+              "items": 9,
+              "share_of_era": 0.053892,
+              "rate": 0.555556
+            },
+            "2019-2021": {
+              "items": 20,
+              "share_of_era": 0.11976,
+              "rate": 0.5
+            },
+            "2022-2025": {
+              "items": 18,
+              "share_of_era": 0.108434,
+              "rate": 0.555556
+            }
+          },
+          "electricvehicles": {
+            "2016-2018": {
+              "items": 10,
+              "share_of_era": 0.05988,
+              "rate": 0.4
+            },
+            "2019-2021": {
+              "items": 25,
+              "share_of_era": 0.149701,
+              "rate": 0.36
+            },
+            "2022-2025": {
+              "items": 24,
+              "share_of_era": 0.144578,
+              "rate": 0.333333
+            }
+          },
+          "cars": {
+            "2016-2018": {
+              "items": 29,
+              "share_of_era": 0.173653,
+              "rate": 0.413793
+            },
+            "2019-2021": {
+              "items": 26,
+              "share_of_era": 0.155689,
+              "rate": 0.307692
+            },
+            "2022-2025": {
+              "items": 19,
+              "share_of_era": 0.114458,
+              "rate": 0.368421
+            }
+          },
+          "futurology": {
+            "2016-2018": {
+              "items": 28,
+              "share_of_era": 0.167665,
+              "rate": 0.642857
+            },
+            "2019-2021": {
+              "items": 9,
+              "share_of_era": 0.053892,
+              "rate": 0.111111
+            },
+            "2022-2025": {
+              "items": 10,
+              "share_of_era": 0.060241,
+              "rate": 0.4
+            }
+          },
+          "technology": {
+            "2016-2018": {
+              "items": 13,
+              "share_of_era": 0.077844,
+              "rate": 0.153846
+            },
+            "2019-2021": {
+              "items": 9,
+              "share_of_era": 0.053892,
+              "rate": 0.222222
+            },
+            "2022-2025": {
+              "items": 14,
+              "share_of_era": 0.084337,
+              "rate": 0.5
+            }
+          }
+        },
+        "flags": []
+      },
+      "two_groups": {
+        "era_rates": {
+          "2016-2018": 0.586826,
+          "2019-2021": 0.538922,
+          "2022-2025": 0.656627
+        },
+        "items_by_era": {
+          "2016-2018": 167,
+          "2019-2021": 167,
+          "2022-2025": 166
+        },
+        "difference_2022_2025_minus_2016_2018": 0.0698,
+        "mix_part": 0.105497,
+        "within_group_part": -0.035697,
+        "standardised_era_rates_pooled_frame_mix": {
+          "2016-2018": 0.638859,
+          "2019-2021": 0.566841,
+          "2022-2025": 0.607534
+        },
+        "pooled_frame_mix": {
+          "narrow": 0.298323,
+          "broad": 0.701677
+        },
+        "groups": {
+          "narrow": {
+            "2016-2018": {
+              "items": 24,
+              "share_of_era": 0.143713,
+              "rate": 0.875
+            },
+            "2019-2021": {
+              "items": 40,
+              "share_of_era": 0.239521,
+              "rate": 0.9
+            },
+            "2022-2025": {
+              "items": 66,
+              "share_of_era": 0.39759,
+              "rate": 0.954545
+            }
+          },
+          "broad": {
+            "2016-2018": {
+              "items": 143,
+              "share_of_era": 0.856287,
+              "rate": 0.538462
+            },
+            "2019-2021": {
+              "items": 127,
+              "share_of_era": 0.760479,
+              "rate": 0.425197
+            },
+            "2022-2025": {
+              "items": 100,
+              "share_of_era": 0.60241,
+              "rate": 0.46
+            }
+          }
+        },
+        "flags": []
+      }
+    }
+  },
+  "text_only_sensitivity": {
+    "status": "exploratory (Family C, R5)",
+    "a_text_only_variant_cross_validated_predictions": {
+      "rates": {
+        "overall": {
+          "items": 1000,
+          "denominator_items": 1000,
+          "numerator_items": 616,
+          "estimate": 0.618747,
+          "estimate_exact": "52170546/84316463",
+          "se": 0.015719,
+          "low": 0.587459,
+          "high": 0.64908,
+          "df": 997
+        },
+        "2016-2018": {
+          "items": 334,
+          "denominator_items": 334,
+          "numerator_items": 212,
+          "estimate": 0.634731,
+          "estimate_exact": "106/167",
+          "se": 0.024557,
+          "low": 0.585214,
+          "high": 0.681553,
+          "df": 333
+        },
+        "2019-2021": {
+          "items": 334,
+          "denominator_items": 334,
+          "numerator_items": 192,
+          "estimate": 0.57485,
+          "estimate_exact": "96/167",
+          "se": 0.025816,
+          "low": 0.523453,
+          "high": 0.624679,
+          "df": 333
+        },
+        "2022-2025": {
+          "items": 332,
+          "denominator_items": 332,
+          "numerator_items": 212,
+          "estimate": 0.638554,
+          "estimate_exact": "53/83",
+          "se": 0.02567,
+          "low": 0.586692,
+          "high": 0.687377,
+          "df": 331
+        }
+      },
+      "decomposition": {
+        "era_rates": {
+          "2016-2018": 0.634731,
+          "2019-2021": 0.57485,
+          "2022-2025": 0.638554
+        },
+        "items_by_era": {
+          "2016-2018": 334,
+          "2019-2021": 334,
+          "2022-2025": 332
+        },
+        "difference_2022_2025_minus_2016_2018": 0.003824,
+        "mix_part": -0.044975,
+        "within_group_part": 0.048798,
+        "standardised_era_rates_pooled_frame_mix": {
+          "2016-2018": 0.592131,
+          "2019-2021": 0.571101,
+          "2022-2025": 0.646617
+        },
+        "pooled_frame_mix": {
+          "teslamotors": 0.193122,
+          "selfdrivingcars+waymo": 0.260739,
+          "realtesla": 0.098229,
+          "electricvehicles": 0.155633,
+          "cars": 0.127178,
+          "futurology": 0.103759,
+          "technology": 0.061341
+        },
+        "groups": {
+          "teslamotors": {
+            "2016-2018": {
+              "items": 107,
+              "share_of_era": 0.320359,
+              "rate": 0.719626
+            },
+            "2019-2021": {
+              "items": 84,
+              "share_of_era": 0.251497,
+              "rate": 0.678571
+            },
+            "2022-2025": {
+              "items": 35,
+              "share_of_era": 0.105422,
+              "rate": 0.771429
+            }
+          },
+          "selfdrivingcars+waymo": {
+            "2016-2018": {
+              "items": 52,
+              "share_of_era": 0.155689,
+              "rate": 0.596154
+            },
+            "2019-2021": {
+              "items": 72,
+              "share_of_era": 0.215569,
+              "rate": 0.708333
+            },
+            "2022-2025": {
+              "items": 110,
+              "share_of_era": 0.331325,
+              "rate": 0.709091
+            }
+          },
+          "realtesla": {
+            "2016-2018": {
+              "items": 17,
+              "share_of_era": 0.050898,
+              "rate": 0.705882
+            },
+            "2019-2021": {
+              "items": 38,
+              "share_of_era": 0.113772,
+              "rate": 0.631579
+            },
+            "2022-2025": {
+              "items": 36,
+              "share_of_era": 0.108434,
+              "rate": 0.722222
+            }
+          },
+          "electricvehicles": {
+            "2016-2018": {
+              "items": 19,
+              "share_of_era": 0.056886,
+              "rate": 0.315789
+            },
+            "2019-2021": {
+              "items": 49,
+              "share_of_era": 0.146707,
+              "rate": 0.428571
+            },
+            "2022-2025": {
+              "items": 67,
+              "share_of_era": 0.201807,
+              "rate": 0.492537
+            }
+          },
+          "cars": {
+            "2016-2018": {
+              "items": 53,
+              "share_of_era": 0.158683,
+              "rate": 0.584906
+            },
+            "2019-2021": {
+              "items": 49,
+              "share_of_era": 0.146707,
+              "rate": 0.387755
+            },
+            "2022-2025": {
+              "items": 34,
+              "share_of_era": 0.10241,
+              "rate": 0.441176
+            }
+          },
+          "futurology": {
+            "2016-2018": {
+              "items": 61,
+              "share_of_era": 0.182635,
+              "rate": 0.655738
+            },
+            "2019-2021": {
+              "items": 24,
+              "share_of_era": 0.071856,
+              "rate": 0.416667
+            },
+            "2022-2025": {
+              "items": 30,
+              "share_of_era": 0.090361,
+              "rate": 0.666667
+            }
+          },
+          "technology": {
+            "2016-2018": {
+              "items": 25,
+              "share_of_era": 0.07485,
+              "rate": 0.6
+            },
+            "2019-2021": {
+              "items": 18,
+              "share_of_era": 0.053892,
+              "rate": 0.555556
+            },
+            "2022-2025": {
+              "items": 20,
+              "share_of_era": 0.060241,
+              "rate": 0.65
+            }
+          }
+        },
+        "flags": []
+      }
+    },
+    "b_gold_labels_in_the_six_subreddits": {
+      "items": 766,
+      "rates": {
+        "overall": {
+          "items": 1000,
+          "denominator_items": 766,
+          "numerator_items": 383,
+          "estimate": 0.499029,
+          "estimate_exact": "41473871/83109198",
+          "se": 0.018542,
+          "low": 0.462713,
+          "high": 0.535355,
+          "df": 997
+        },
+        "2016-2018": {
+          "items": 334,
+          "denominator_items": 282,
+          "numerator_items": 150,
+          "estimate": 0.531915,
+          "estimate_exact": "25/47",
+          "se": 0.027695,
+          "low": 0.477272,
+          "high": 0.585803,
+          "df": 333
+        },
+        "2019-2021": {
+          "items": 334,
+          "denominator_items": 262,
+          "numerator_items": 119,
+          "estimate": 0.454198,
+          "estimate_exact": "119/262",
+          "se": 0.029356,
+          "low": 0.397315,
+          "high": 0.512303,
+          "df": 333
+        },
+        "2022-2025": {
+          "items": 332,
+          "denominator_items": 222,
+          "numerator_items": 114,
+          "estimate": 0.513514,
+          "estimate_exact": "19/37",
+          "se": 0.032659,
+          "low": 0.449397,
+          "high": 0.577188,
+          "df": 331
+        }
+      },
+      "decomposition": {
+        "era_rates": {
+          "2016-2018": 0.531915,
+          "2019-2021": 0.454198,
+          "2022-2025": 0.513514
+        },
+        "items_by_era": {
+          "2016-2018": 282,
+          "2019-2021": 262,
+          "2022-2025": 222
+        },
+        "difference_2022_2025_minus_2016_2018": -0.018401,
+        "mix_part": -0.045952,
+        "within_group_part": 0.027551,
+        "standardised_era_rates_pooled_frame_mix": {
+          "2016-2018": 0.492683,
+          "2019-2021": 0.430257,
+          "2022-2025": 0.526371
+        },
+        "pooled_frame_mix": {
+          "teslamotors": 0.261236,
+          "realtesla": 0.132874,
+          "electricvehicles": 0.210525,
+          "cars": 0.172034,
+          "futurology": 0.140355,
+          "technology": 0.082976
+        },
+        "groups": {
+          "teslamotors": {
+            "2016-2018": {
+              "items": 107,
+              "share_of_era": 0.379433,
+              "rate": 0.654206
+            },
+            "2019-2021": {
+              "items": 84,
+              "share_of_era": 0.320611,
+              "rate": 0.642857
+            },
+            "2022-2025": {
+              "items": 35,
+              "share_of_era": 0.157658,
+              "rate": 0.657143
+            }
+          },
+          "realtesla": {
+            "2016-2018": {
+              "items": 17,
+              "share_of_era": 0.060284,
+              "rate": 0.588235
+            },
+            "2019-2021": {
+              "items": 38,
+              "share_of_era": 0.145038,
+              "rate": 0.578947
+            },
+            "2022-2025": {
+              "items": 36,
+              "share_of_era": 0.162162,
+              "rate": 0.666667
+            }
+          },
+          "electricvehicles": {
+            "2016-2018": {
+              "items": 19,
+              "share_of_era": 0.067376,
+              "rate": 0.315789
+            },
+            "2019-2021": {
+              "items": 49,
+              "share_of_era": 0.187023,
+              "rate": 0.326531
+            },
+            "2022-2025": {
+              "items": 67,
+              "share_of_era": 0.301802,
+              "rate": 0.447761
+            }
+          },
+          "cars": {
+            "2016-2018": {
+              "items": 53,
+              "share_of_era": 0.187943,
+              "rate": 0.433962
+            },
+            "2019-2021": {
+              "items": 49,
+              "share_of_era": 0.187023,
+              "rate": 0.306122
+            },
+            "2022-2025": {
+              "items": 34,
+              "share_of_era": 0.153153,
+              "rate": 0.352941
+            }
+          },
+          "futurology": {
+            "2016-2018": {
+              "items": 61,
+              "share_of_era": 0.216312,
+              "rate": 0.540984
+            },
+            "2019-2021": {
+              "items": 24,
+              "share_of_era": 0.091603,
+              "rate": 0.291667
+            },
+            "2022-2025": {
+              "items": 30,
+              "share_of_era": 0.135135,
+              "rate": 0.466667
+            }
+          },
+          "technology": {
+            "2016-2018": {
+              "items": 25,
+              "share_of_era": 0.088652,
+              "rate": 0.32
+            },
+            "2019-2021": {
+              "items": 18,
+              "share_of_era": 0.068702,
+              "rate": 0.277778
+            },
+            "2022-2025": {
+              "items": 20,
+              "share_of_era": 0.09009,
+              "rate": 0.55
+            }
+          }
+        },
+        "flags": []
+      }
+    }
+  },
+  "lexical_proxy": {
+    "source": {
+      "file": "config.py",
+      "commit": "be001c7",
+      "sha256_lf": "92ebb86e725d86c08344862ec7dba2c6dcfe3834af079a8a632ccf46505abb61",
+      "term_list": "CORE_TERMS",
+      "rule": "Deviation 14 of docs/analysis_preregistration.md"
+    },
+    "patterns_ignoring_case": [
+      "\\bself[- ]?drivings?\\b",
+      "\\bautonomous[- ]?vehicles?\\b",
+      "\\brobotaxis?\\b",
+      "\\bautopilots?\\b",
+      "\\bfsds?\\b",
+      "\\bwaymos?\\b",
+      "\\bv2xs?\\b",
+      "\\blidars?\\b"
+    ],
+    "text": "clean_body of corpus v2.2",
+    "annotated_items_whose_clean_body_differs_from_the_model_input_text": 0,
+    "items_where_the_model_input_text_gives_another_result": 0,
+    "by_subreddit": {
+      "teslamotors": {
+        "items": 226,
+        "proxy_and_gold_relevant": 78,
+        "proxy_only": 2,
+        "gold_only": 69,
+        "neither": 77,
+        "agreement": {
+          "k": 155,
+          "n": 226,
+          "share": 0.685841,
+          "wilson95_low": 0.622645,
+          "wilson95_high": 0.742825
+        },
+        "gold_relevant_items_matched": {
+          "k": 78,
+          "n": 147,
+          "share": 0.530612,
+          "wilson95_low": 0.450187,
+          "wilson95_high": 0.609478
+        },
+        "matched_items_relevant": {
+          "k": 78,
+          "n": 80,
+          "share": 0.975,
+          "wilson95_low": 0.913356,
+          "wilson95_high": 0.993117
+        }
+      },
+      "selfdrivingcars": {
+        "items": 180,
+        "proxy_and_gold_relevant": 57,
+        "proxy_only": 0,
+        "gold_only": 105,
+        "neither": 18,
+        "agreement": {
+          "k": 75,
+          "n": 180,
+          "share": 0.416667,
+          "wilson95_low": 0.347121,
+          "wilson95_high": 0.489695
+        },
+        "gold_relevant_items_matched": {
+          "k": 57,
+          "n": 162,
+          "share": 0.351852,
+          "wilson95_low": 0.282522,
+          "wilson95_high": 0.428045
+        },
+        "matched_items_relevant": {
+          "k": 57,
+          "n": 57,
+          "share": 1.0,
+          "wilson95_low": 0.936861,
+          "wilson95_high": 1.0
+        }
+      },
+      "realtesla": {
+        "items": 91,
+        "proxy_and_gold_relevant": 36,
+        "proxy_only": 2,
+        "gold_only": 20,
+        "neither": 33,
+        "agreement": {
+          "k": 69,
+          "n": 91,
+          "share": 0.758242,
+          "wilson95_low": 0.660982,
+          "wilson95_high": 0.834582
+        },
+        "gold_relevant_items_matched": {
+          "k": 36,
+          "n": 56,
+          "share": 0.642857,
+          "wilson95_low": 0.511939,
+          "wilson95_high": 0.755434
+        },
+        "matched_items_relevant": {
+          "k": 36,
+          "n": 38,
+          "share": 0.947368,
+          "wilson95_low": 0.827145,
+          "wilson95_high": 0.985446
+        }
+      },
+      "waymo": {
+        "items": 54,
+        "proxy_and_gold_relevant": 23,
+        "proxy_only": 0,
+        "gold_only": 30,
+        "neither": 1,
+        "agreement": {
+          "k": 24,
+          "n": 54,
+          "share": 0.444444,
+          "wilson95_low": 0.320025,
+          "wilson95_high": 0.576244
+        },
+        "gold_relevant_items_matched": {
+          "k": 23,
+          "n": 53,
+          "share": 0.433962,
+          "wilson95_low": 0.309504,
+          "wilson95_high": 0.567346
+        },
+        "matched_items_relevant": {
+          "k": 23,
+          "n": 23,
+          "share": 1.0,
+          "wilson95_low": 0.856883,
+          "wilson95_high": 1.0
+        }
+      },
+      "electricvehicles": {
+        "items": 135,
+        "proxy_and_gold_relevant": 35,
+        "proxy_only": 1,
+        "gold_only": 17,
+        "neither": 82,
+        "agreement": {
+          "k": 117,
+          "n": 135,
+          "share": 0.866667,
+          "wilson95_low": 0.799075,
+          "wilson95_high": 0.913968
+        },
+        "gold_relevant_items_matched": {
+          "k": 35,
+          "n": 52,
+          "share": 0.673077,
+          "wilson95_low": 0.537562,
+          "wilson95_high": 0.784779
+        },
+        "matched_items_relevant": {
+          "k": 35,
+          "n": 36,
+          "share": 0.972222,
+          "wilson95_low": 0.858303,
+          "wilson95_high": 0.99508
+        }
+      },
+      "cars": {
+        "items": 136,
+        "proxy_and_gold_relevant": 27,
+        "proxy_only": 2,
+        "gold_only": 23,
+        "neither": 84,
+        "agreement": {
+          "k": 111,
+          "n": 136,
+          "share": 0.816176,
+          "wilson95_low": 0.742708,
+          "wilson95_high": 0.872274
+        },
+        "gold_relevant_items_matched": {
+          "k": 27,
+          "n": 50,
+          "share": 0.54,
+          "wilson95_low": 0.403989,
+          "wilson95_high": 0.670303
+        },
+        "matched_items_relevant": {
+          "k": 27,
+          "n": 29,
+          "share": 0.931034,
+          "wilson95_low": 0.780354,
+          "wilson95_high": 0.980879
+        }
+      },
+      "futurology": {
+        "items": 115,
+        "proxy_and_gold_relevant": 30,
+        "proxy_only": 3,
+        "gold_only": 24,
+        "neither": 58,
+        "agreement": {
+          "k": 88,
+          "n": 115,
+          "share": 0.765217,
+          "wilson95_low": 0.679958,
+          "wilson95_high": 0.833331
+        },
+        "gold_relevant_items_matched": {
+          "k": 30,
+          "n": 54,
+          "share": 0.555556,
+          "wilson95_low": 0.423756,
+          "wilson95_high": 0.679975
+        },
+        "matched_items_relevant": {
+          "k": 30,
+          "n": 33,
+          "share": 0.909091,
+          "wilson95_low": 0.764274,
+          "wilson95_high": 0.968596
+        }
+      },
+      "technology": {
+        "items": 63,
+        "proxy_and_gold_relevant": 13,
+        "proxy_only": 3,
+        "gold_only": 11,
+        "neither": 36,
+        "agreement": {
+          "k": 49,
+          "n": 63,
+          "share": 0.777778,
+          "wilson95_low": 0.660877,
+          "wilson95_high": 0.86275
+        },
+        "gold_relevant_items_matched": {
+          "k": 13,
+          "n": 24,
+          "share": 0.541667,
+          "wilson95_low": 0.350749,
+          "wilson95_high": 0.721087
+        },
+        "matched_items_relevant": {
+          "k": 13,
+          "n": 16,
+          "share": 0.8125,
+          "wilson95_low": 0.569911,
+          "wilson95_high": 0.934084
+        }
+      },
+      "all eight subreddits": {
+        "items": 1000,
+        "proxy_and_gold_relevant": 299,
+        "proxy_only": 13,
+        "gold_only": 299,
+        "neither": 389,
+        "agreement": {
+          "k": 688,
+          "n": 1000,
+          "share": 0.688,
+          "wilson95_low": 0.658611,
+          "wilson95_high": 0.71595
+        },
+        "gold_relevant_items_matched": {
+          "k": 299,
+          "n": 598,
+          "share": 0.5,
+          "wilson95_low": 0.460054,
+          "wilson95_high": 0.539946
+        },
+        "matched_items_relevant": {
+          "k": 299,
+          "n": 312,
+          "share": 0.958333,
+          "wilson95_low": 0.930027,
+          "wilson95_high": 0.975491
+        }
+      }
+    }
+  },
+  "subsystem": {
+    "alpha": {
+      "both tranches (200 items)": {
+        "two_or_more_labels": {
+          "alpha": 0.7789,
+          "alpha_exact": "27746/35621",
+          "units": 120,
+          "pairable_values": 351
+        },
+        "all_three_annotators": {
+          "alpha": 0.7685,
+          "alpha_exact": "24803/32273",
+          "units": 111,
+          "pairable_values": 333
+        }
+      },
+      "tranche 1 (100 items)": {
+        "two_or_more_labels": {
+          "alpha": 0.8683,
+          "alpha_exact": "1721/1982",
+          "units": 59,
+          "pairable_values": 175
+        },
+        "all_three_annotators": {
+          "alpha": 0.8671,
+          "alpha_exact": "1664/1919",
+          "units": 57,
+          "pairable_values": 171
+        }
+      },
+      "tranche 2 (100 items)": {
+        "two_or_more_labels": {
+          "alpha": 0.7039,
+          "alpha_exact": "4577/6502",
+          "units": 61,
+          "pairable_values": 176
+        },
+        "all_three_annotators": {
+          "alpha": 0.6797,
+          "alpha_exact": "537/790",
+          "units": 54,
+          "pairable_values": 162
+        }
+      }
+    },
+    "pi_s_pooled": {
+      "shares": {
+        "sensing": {
+          "items": 1000,
+          "denominator_items": 225,
+          "numerator_items": 60,
+          "estimate": 0.23953,
+          "estimate_exact": "18770500/78363931",
+          "se": 0.028116,
+          "low": 0.188751,
+          "high": 0.298936,
+          "df": 997
+        },
+        "in_vehicle_networks": {
+          "items": 1000,
+          "denominator_items": 225,
+          "numerator_items": 13,
+          "estimate": 0.050549,
+          "estimate_exact": "3961185/78363931",
+          "se": 0.014096,
+          "low": 0.029049,
+          "high": 0.086543,
+          "df": 997
+        },
+        "v2x": {
+          "numerator_items": 9,
+          "denominator_items": 225,
+          "note": "reported as a count (R5)"
+        },
+        "cybersecurity": {
+          "items": 1000,
+          "denominator_items": 225,
+          "numerator_items": 2,
+          "estimate": 0.006491,
+          "estimate_exact": "508624/78363931",
+          "se": 0.004409,
+          "low": 0.001705,
+          "high": 0.024386,
+          "df": 997
+        },
+        "privacy": {
+          "items": 1000,
+          "denominator_items": 225,
+          "numerator_items": 4,
+          "estimate": 0.017978,
+          "estimate_exact": "82870/4609643",
+          "se": 0.008841,
+          "low": 0.006806,
+          "high": 0.046627,
+          "df": 997
+        },
+        "data_governance": {
+          "items": 1000,
+          "denominator_items": 225,
+          "numerator_items": 5,
+          "estimate": 0.019415,
+          "estimate_exact": "1521421/78363931",
+          "se": 0.008775,
+          "low": 0.00795,
+          "high": 0.046634,
+          "df": 997
+        },
+        "none": {
+          "items": 1000,
+          "denominator_items": 225,
+          "numerator_items": 132,
+          "estimate": 0.627266,
+          "estimate_exact": "1143140/1822417",
+          "se": 0.032241,
+          "low": 0.562152,
+          "high": 0.688069,
+          "df": 997
+        }
+      },
+      "concern_items_with_gold_subsystem": 225,
+      "concern_items_without_gold_subsystem": 0
+    },
+    "pi_s_tranche1": {
+      "shares": {
+        "sensing": {
+          "items": 500,
+          "denominator_items": 120,
+          "numerator_items": 35,
+          "estimate": 0.277633,
+          "estimate_exact": "11554937/41619504",
+          "se": 0.042285,
+          "low": 0.202542,
+          "high": 0.367726,
+          "df": 497
+        },
+        "in_vehicle_networks": {
+          "items": 500,
+          "denominator_items": 120,
+          "numerator_items": 5,
+          "estimate": 0.036555,
+          "estimate_exact": "1521421/41619504",
+          "se": 0.016771,
+          "low": 0.014668,
+          "high": 0.088179,
+          "df": 497
+        },
+        "v2x": {
+          "numerator_items": 6,
+          "denominator_items": 120,
+          "note": "reported as a count (R5)"
+        },
+        "cybersecurity": {
+          "items": 500,
+          "denominator_items": 120,
+          "numerator_items": 0,
+          "estimate": 0.0,
+          "estimate_exact": "0/1",
+          "se": 0.0,
+          "low": null,
+          "high": null,
+          "df": 497
+        },
+        "privacy": {
+          "items": 500,
+          "denominator_items": 120,
+          "numerator_items": 1,
+          "estimate": 0.007245,
+          "estimate_exact": "100513/13873168",
+          "se": 0.007061,
+          "low": 0.001059,
+          "high": 0.047824,
+          "df": 497
+        },
+        "data_governance": {
+          "items": 500,
+          "denominator_items": 120,
+          "numerator_items": 0,
+          "estimate": 0.0,
+          "estimate_exact": "0/1",
+          "se": 0.0,
+          "low": null,
+          "high": null,
+          "df": 497
+        },
+        "none": {
+          "items": 500,
+          "denominator_items": 120,
+          "numerator_items": 73,
+          "estimate": 0.634766,
+          "estimate_exact": "26418647/41619504",
+          "se": 0.04527,
+          "low": 0.542167,
+          "high": 0.718365,
+          "df": 497
+        }
+      },
+      "concern_items_with_gold_subsystem": 120,
+      "concern_items_without_gold_subsystem": 0
+    },
+    "d28_pooled_of_record": {
+      "alpha_used": 0.7685,
+      "alpha_used_exact": "24803/32273",
+      "rule1_alpha_below_0_6": false,
+      "rule2_condition_i_alpha_at_least_0_7": true,
+      "largest_eligible": "sensing",
+      "second_largest_eligible": "in_vehicle_networks",
+      "lower_limit_of_largest": 0.188751,
+      "upper_limit_of_second": 0.086543,
+      "rule2_condition_ii_intervals_do_not_overlap": true,
+      "rule2_met": true
+    },
+    "d28_tranche1_beside": {
+      "alpha_used": 0.8671,
+      "alpha_used_exact": "1664/1919",
+      "rule1_alpha_below_0_6": false,
+      "rule2_condition_i_alpha_at_least_0_7": true,
+      "largest_eligible": "sensing",
+      "second_largest_eligible": "in_vehicle_networks",
+      "lower_limit_of_largest": 0.202542,
+      "upper_limit_of_second": 0.088179,
+      "rule2_condition_ii_intervals_do_not_overlap": true,
+      "rule2_met": true
+    },
+    "d28_outcome_against_tranche1": {
+      "reference_outcome_on_tranche1": {
+        "rule1_fires": false,
+        "rule2_met": true,
+        "first_place": "sensing"
+      },
+      "changed": {
+        "rule1": false,
+        "rule2": false,
+        "rule2_first_place": false
+      },
+      "further_deviation_required": false
+    },
+    "secondary_labels": {
+      "status": "descriptive (Deviations 7 and 9)",
+      "tranche 1": {
+        "all_ratings_with_a_primary": {
+          "ratings_with_a_primary": 414,
+          "ratings_with_a_secondary": 18,
+          "by_subsystem": {
+            "sensing": {
+              "as_primary": 107,
+              "as_secondary": 5,
+              "as_either": 112
+            },
+            "in_vehicle_networks": {
+              "as_primary": 15,
+              "as_secondary": 3,
+              "as_either": 18
+            },
+            "v2x": {
+              "as_primary": 18,
+              "as_secondary": 2,
+              "as_either": 20
+            },
+            "cybersecurity": {
+              "as_primary": 0,
+              "as_secondary": 4,
+              "as_either": 4
+            },
+            "privacy": {
+              "as_primary": 6,
+              "as_secondary": 1,
+              "as_either": 7
+            },
+            "data_governance": {
+              "as_primary": 2,
+              "as_secondary": 3,
+              "as_either": 5
+            },
+            "none": {
+              "as_primary": 266,
+              "as_secondary": 0,
+              "as_either": 266
+            }
+          },
+          "primary_by_secondary": {
+            "sensing": {
+              "sensing": 0,
+              "in_vehicle_networks": 3,
+              "v2x": 2,
+              "cybersecurity": 1,
+              "privacy": 0,
+              "data_governance": 1
+            },
+            "in_vehicle_networks": {
+              "sensing": 4,
+              "in_vehicle_networks": 0,
+              "v2x": 0,
+              "cybersecurity": 0,
+              "privacy": 0,
+              "data_governance": 0
+            },
+            "v2x": {
+              "sensing": 0,
+              "in_vehicle_networks": 0,
+              "v2x": 0,
+              "cybersecurity": 3,
+              "privacy": 1,
+              "data_governance": 2
+            },
+            "cybersecurity": {
+              "sensing": 0,
+              "in_vehicle_networks": 0,
+              "v2x": 0,
+              "cybersecurity": 0,
+              "privacy": 0,
+              "data_governance": 0
+            },
+            "privacy": {
+              "sensing": 1,
+              "in_vehicle_networks": 0,
+              "v2x": 0,
+              "cybersecurity": 0,
+              "privacy": 0,
+              "data_governance": 0
+            },
+            "data_governance": {
+              "sensing": 0,
+              "in_vehicle_networks": 0,
+              "v2x": 0,
+              "cybersecurity": 0,
+              "privacy": 0,
+              "data_governance": 0
+            },
+            "none": {
+              "sensing": 0,
+              "in_vehicle_networks": 0,
+              "v2x": 0,
+              "cybersecurity": 0,
+              "privacy": 0,
+              "data_governance": 0
+            }
+          }
+        },
+        "ratings_whose_own_class_is_concern": {
+          "ratings_with_a_primary": 167,
+          "ratings_with_a_secondary": 9,
+          "by_subsystem": {
+            "sensing": {
+              "as_primary": 49,
+              "as_secondary": 2,
+              "as_either": 51
+            },
+            "in_vehicle_networks": {
+              "as_primary": 7,
+              "as_secondary": 0,
+              "as_either": 7
+            },
+            "v2x": {
+              "as_primary": 10,
+              "as_secondary": 1,
+              "as_either": 11
+            },
+            "cybersecurity": {
+              "as_primary": 0,
+              "as_secondary": 3,
+              "as_either": 3
+            },
+            "privacy": {
+              "as_primary": 3,
+              "as_secondary": 0,
+              "as_either": 3
+            },
+            "data_governance": {
+              "as_primary": 0,
+              "as_secondary": 3,
+              "as_either": 3
+            },
+            "none": {
+              "as_primary": 98,
+              "as_secondary": 0,
+              "as_either": 98
+            }
+          },
+          "primary_by_secondary": {
+            "sensing": {
+              "sensing": 0,
+              "in_vehicle_networks": 0,
+              "v2x": 1,
+              "cybersecurity": 1,
+              "privacy": 0,
+              "data_governance": 1
+            },
+            "in_vehicle_networks": {
+              "sensing": 1,
+              "in_vehicle_networks": 0,
+              "v2x": 0,
+              "cybersecurity": 0,
+              "privacy": 0,
+              "data_governance": 0
+            },
+            "v2x": {
+              "sensing": 0,
+              "in_vehicle_networks": 0,
+              "v2x": 0,
+              "cybersecurity": 2,
+              "privacy": 0,
+              "data_governance": 2
+            },
+            "cybersecurity": {
+              "sensing": 0,
+              "in_vehicle_networks": 0,
+              "v2x": 0,
+              "cybersecurity": 0,
+              "privacy": 0,
+              "data_governance": 0
+            },
+            "privacy": {
+              "sensing": 1,
+              "in_vehicle_networks": 0,
+              "v2x": 0,
+              "cybersecurity": 0,
+              "privacy": 0,
+              "data_governance": 0
+            },
+            "data_governance": {
+              "sensing": 0,
+              "in_vehicle_networks": 0,
+              "v2x": 0,
+              "cybersecurity": 0,
+              "privacy": 0,
+              "data_governance": 0
+            },
+            "none": {
+              "sensing": 0,
+              "in_vehicle_networks": 0,
+              "v2x": 0,
+              "cybersecurity": 0,
+              "privacy": 0,
+              "data_governance": 0
+            }
+          }
+        }
+      },
+      "tranche 2": {
+        "all_ratings_with_a_primary": {
+          "ratings_with_a_primary": 419,
+          "ratings_with_a_secondary": 23,
+          "by_subsystem": {
+            "sensing": {
+              "as_primary": 91,
+              "as_secondary": 9,
+              "as_either": 100
+            },
+            "in_vehicle_networks": {
+              "as_primary": 35,
+              "as_secondary": 3,
+              "as_either": 38
+            },
+            "v2x": {
+              "as_primary": 20,
+              "as_secondary": 4,
+              "as_either": 24
+            },
+            "cybersecurity": {
+              "as_primary": 5,
+              "as_secondary": 0,
+              "as_either": 5
+            },
+            "privacy": {
+              "as_primary": 9,
+              "as_secondary": 2,
+              "as_either": 11
+            },
+            "data_governance": {
+              "as_primary": 10,
+              "as_secondary": 5,
+              "as_either": 15
+            },
+            "none": {
+              "as_primary": 249,
+              "as_secondary": 0,
+              "as_either": 249
+            }
+          },
+          "primary_by_secondary": {
+            "sensing": {
+              "sensing": 0,
+              "in_vehicle_networks": 0,
+              "v2x": 1,
+              "cybersecurity": 0,
+              "privacy": 0,
+              "data_governance": 3
+            },
+            "in_vehicle_networks": {
+              "sensing": 5,
+              "in_vehicle_networks": 0,
+              "v2x": 2,
+              "cybersecurity": 0,
+              "privacy": 1,
+              "data_governance": 0
+            },
+            "v2x": {
+              "sensing": 4,
+              "in_vehicle_networks": 2,
+              "v2x": 0,
+              "cybersecurity": 0,
+              "privacy": 0,
+              "data_governance": 0
+            },
+            "cybersecurity": {
+              "sensing": 0,
+              "in_vehicle_networks": 1,
+              "v2x": 1,
+              "cybersecurity": 0,
+              "privacy": 0,
+              "data_governance": 0
+            },
+            "privacy": {
+              "sensing": 0,
+              "in_vehicle_networks": 0,
+              "v2x": 0,
+              "cybersecurity": 0,
+              "privacy": 0,
+              "data_governance": 2
+            },
+            "data_governance": {
+              "sensing": 0,
+              "in_vehicle_networks": 0,
+              "v2x": 0,
+              "cybersecurity": 0,
+              "privacy": 1,
+              "data_governance": 0
+            },
+            "none": {
+              "sensing": 0,
+              "in_vehicle_networks": 0,
+              "v2x": 0,
+              "cybersecurity": 0,
+              "privacy": 0,
+              "data_governance": 0
+            }
+          }
+        },
+        "ratings_whose_own_class_is_concern": {
+          "ratings_with_a_primary": 149,
+          "ratings_with_a_secondary": 10,
+          "by_subsystem": {
+            "sensing": {
+              "as_primary": 34,
+              "as_secondary": 3,
+              "as_either": 37
+            },
+            "in_vehicle_networks": {
+              "as_primary": 16,
+              "as_secondary": 2,
+              "as_either": 18
+            },
+            "v2x": {
+              "as_primary": 6,
+              "as_secondary": 1,
+              "as_either": 7
+            },
+            "cybersecurity": {
+              "as_primary": 5,
+              "as_secondary": 0,
+              "as_either": 5
+            },
+            "privacy": {
+              "as_primary": 3,
+              "as_secondary": 0,
+              "as_either": 3
+            },
+            "data_governance": {
+              "as_primary": 8,
+              "as_secondary": 4,
+              "as_either": 12
+            },
+            "none": {
+              "as_primary": 77,
+              "as_secondary": 0,
+              "as_either": 77
+            }
+          },
+          "primary_by_secondary": {
+            "sensing": {
+              "sensing": 0,
+              "in_vehicle_networks": 0,
+              "v2x": 0,
+              "cybersecurity": 0,
+              "privacy": 0,
+              "data_governance": 3
+            },
+            "in_vehicle_networks": {
+              "sensing": 2,
+              "in_vehicle_networks": 0,
+              "v2x": 0,
+              "cybersecurity": 0,
+              "privacy": 0,
+              "data_governance": 0
+            },
+            "v2x": {
+              "sensing": 1,
+              "in_vehicle_networks": 1,
+              "v2x": 0,
+              "cybersecurity": 0,
+              "privacy": 0,
+              "data_governance": 0
+            },
+            "cybersecurity": {
+              "sensing": 0,
+              "in_vehicle_networks": 1,
+              "v2x": 1,
+              "cybersecurity": 0,
+              "privacy": 0,
+              "data_governance": 0
+            },
+            "privacy": {
+              "sensing": 0,
+              "in_vehicle_networks": 0,
+              "v2x": 0,
+              "cybersecurity": 0,
+              "privacy": 0,
+              "data_governance": 1
+            },
+            "data_governance": {
+              "sensing": 0,
+              "in_vehicle_networks": 0,
+              "v2x": 0,
+              "cybersecurity": 0,
+              "privacy": 0,
+              "data_governance": 0
+            },
+            "none": {
+              "sensing": 0,
+              "in_vehicle_networks": 0,
+              "v2x": 0,
+              "cybersecurity": 0,
+              "privacy": 0,
+              "data_governance": 0
+            }
+          }
+        }
+      },
+      "both tranches": {
+        "all_ratings_with_a_primary": {
+          "ratings_with_a_primary": 833,
+          "ratings_with_a_secondary": 41,
+          "by_subsystem": {
+            "sensing": {
+              "as_primary": 198,
+              "as_secondary": 14,
+              "as_either": 212
+            },
+            "in_vehicle_networks": {
+              "as_primary": 50,
+              "as_secondary": 6,
+              "as_either": 56
+            },
+            "v2x": {
+              "as_primary": 38,
+              "as_secondary": 6,
+              "as_either": 44
+            },
+            "cybersecurity": {
+              "as_primary": 5,
+              "as_secondary": 4,
+              "as_either": 9
+            },
+            "privacy": {
+              "as_primary": 15,
+              "as_secondary": 3,
+              "as_either": 18
+            },
+            "data_governance": {
+              "as_primary": 12,
+              "as_secondary": 8,
+              "as_either": 20
+            },
+            "none": {
+              "as_primary": 515,
+              "as_secondary": 0,
+              "as_either": 515
+            }
+          },
+          "primary_by_secondary": {
+            "sensing": {
+              "sensing": 0,
+              "in_vehicle_networks": 3,
+              "v2x": 3,
+              "cybersecurity": 1,
+              "privacy": 0,
+              "data_governance": 4
+            },
+            "in_vehicle_networks": {
+              "sensing": 9,
+              "in_vehicle_networks": 0,
+              "v2x": 2,
+              "cybersecurity": 0,
+              "privacy": 1,
+              "data_governance": 0
+            },
+            "v2x": {
+              "sensing": 4,
+              "in_vehicle_networks": 2,
+              "v2x": 0,
+              "cybersecurity": 3,
+              "privacy": 1,
+              "data_governance": 2
+            },
+            "cybersecurity": {
+              "sensing": 0,
+              "in_vehicle_networks": 1,
+              "v2x": 1,
+              "cybersecurity": 0,
+              "privacy": 0,
+              "data_governance": 0
+            },
+            "privacy": {
+              "sensing": 1,
+              "in_vehicle_networks": 0,
+              "v2x": 0,
+              "cybersecurity": 0,
+              "privacy": 0,
+              "data_governance": 2
+            },
+            "data_governance": {
+              "sensing": 0,
+              "in_vehicle_networks": 0,
+              "v2x": 0,
+              "cybersecurity": 0,
+              "privacy": 1,
+              "data_governance": 0
+            },
+            "none": {
+              "sensing": 0,
+              "in_vehicle_networks": 0,
+              "v2x": 0,
+              "cybersecurity": 0,
+              "privacy": 0,
+              "data_governance": 0
+            }
+          }
+        },
+        "ratings_whose_own_class_is_concern": {
+          "ratings_with_a_primary": 316,
+          "ratings_with_a_secondary": 19,
+          "by_subsystem": {
+            "sensing": {
+              "as_primary": 83,
+              "as_secondary": 5,
+              "as_either": 88
+            },
+            "in_vehicle_networks": {
+              "as_primary": 23,
+              "as_secondary": 2,
+              "as_either": 25
+            },
+            "v2x": {
+              "as_primary": 16,
+              "as_secondary": 2,
+              "as_either": 18
+            },
+            "cybersecurity": {
+              "as_primary": 5,
+              "as_secondary": 3,
+              "as_either": 8
+            },
+            "privacy": {
+              "as_primary": 6,
+              "as_secondary": 0,
+              "as_either": 6
+            },
+            "data_governance": {
+              "as_primary": 8,
+              "as_secondary": 7,
+              "as_either": 15
+            },
+            "none": {
+              "as_primary": 175,
+              "as_secondary": 0,
+              "as_either": 175
+            }
+          },
+          "primary_by_secondary": {
+            "sensing": {
+              "sensing": 0,
+              "in_vehicle_networks": 0,
+              "v2x": 1,
+              "cybersecurity": 1,
+              "privacy": 0,
+              "data_governance": 4
+            },
+            "in_vehicle_networks": {
+              "sensing": 3,
+              "in_vehicle_networks": 0,
+              "v2x": 0,
+              "cybersecurity": 0,
+              "privacy": 0,
+              "data_governance": 0
+            },
+            "v2x": {
+              "sensing": 1,
+              "in_vehicle_networks": 1,
+              "v2x": 0,
+              "cybersecurity": 2,
+              "privacy": 0,
+              "data_governance": 2
+            },
+            "cybersecurity": {
+              "sensing": 0,
+              "in_vehicle_networks": 1,
+              "v2x": 1,
+              "cybersecurity": 0,
+              "privacy": 0,
+              "data_governance": 0
+            },
+            "privacy": {
+              "sensing": 1,
+              "in_vehicle_networks": 0,
+              "v2x": 0,
+              "cybersecurity": 0,
+              "privacy": 0,
+              "data_governance": 1
+            },
+            "data_governance": {
+              "sensing": 0,
+              "in_vehicle_networks": 0,
+              "v2x": 0,
+              "cybersecurity": 0,
+              "privacy": 0,
+              "data_governance": 0
+            },
+            "none": {
+              "sensing": 0,
+              "in_vehicle_networks": 0,
+              "v2x": 0,
+              "cybersecurity": 0,
+              "privacy": 0,
+              "data_governance": 0
+            }
+          }
+        }
+      }
+    }
+  },
+  "tranche1_checks": {
+    "disagreement_concentration": {
+      "items": 100,
+      "pairable_values": 175,
+      "class_pairs": {
+        "CONCERN/ENDORSEMENT": {
+          "disagreeing_pairs": 0,
+          "observed_coincidences": 0.0,
+          "expected_coincidences": 48.827586,
+          "observed_over_expected": 0.0
+        },
+        "CONCERN/OTHER": {
+          "disagreeing_pairs": 14,
+          "observed_coincidences": 14.0,
+          "expected_coincidences": 36.413793,
+          "observed_over_expected": 0.38447
+        },
+        "ENDORSEMENT/OTHER": {
+          "disagreeing_pairs": 16,
+          "observed_coincidences": 16.0,
+          "expected_coincidences": 29.83908,
+          "observed_over_expected": 0.53621
+        }
+      },
+      "concentrates_at_concern_other_by_count": true,
+      "concentrates_at_concern_other_by_observed_over_expected": true,
+      "the_two_measures_agree": true
+    },
+    "encoding_sensitivity": {
+      "status": "exploratory (Family C, R5)",
+      "items": 76,
+      "Stage 1": {
+        "alpha": 0.9649,
+        "alpha_exact": "12493/12947",
+        "units": 76,
+        "pairable_values": 228
+      },
+      "Stage 2": {
+        "alpha": 0.7232,
+        "alpha_exact": "431/596",
+        "units": 41,
+        "pairable_values": 121
+      }
+    },
+    "alpha_on_the_100_items_of_record": {
+      "Stage 1": 0.9589,
+      "Stage 2": 0.7393
+    },
+    "annotator_sensitivity": {
+      "status": "exploratory (Family C, R5)",
+      "A": {
+        "sheet_items_rated": 235,
+        "items_by_era": {
+          "2016-2018": 79,
+          "2019-2021": 78,
+          "2022-2025": 78
+        },
+        "coded_relevant": 137,
+        "coded_relevant_without_class": 0,
+        "relevance_share": 0.593289,
+        "class_shares_among_relevant": {
+          "CONCERN": 0.416079,
+          "ENDORSEMENT": 0.340371,
+          "OTHER": 0.24355
+        },
+        "class_counts_among_relevant": {
+          "CONCERN": 58,
+          "ENDORSEMENT": 46,
+          "OTHER": 33
+        }
+      },
+      "B": {
+        "sheet_items_rated": 233,
+        "items_by_era": {
+          "2016-2018": 78,
+          "2019-2021": 78,
+          "2022-2025": 77
+        },
+        "coded_relevant": 137,
+        "coded_relevant_without_class": 0,
+        "relevance_share": 0.606399,
+        "class_shares_among_relevant": {
+          "CONCERN": 0.406286,
+          "ENDORSEMENT": 0.384927,
+          "OTHER": 0.208788
+        },
+        "class_counts_among_relevant": {
+          "CONCERN": 58,
+          "ENDORSEMENT": 51,
+          "OTHER": 28
+        }
+      },
+      "C": {
+        "sheet_items_rated": 232,
+        "items_by_era": {
+          "2016-2018": 78,
+          "2019-2021": 77,
+          "2022-2025": 77
+        },
+        "coded_relevant": 140,
+        "coded_relevant_without_class": 0,
+        "relevance_share": 0.634188,
+        "class_shares_among_relevant": {
+          "CONCERN": 0.361328,
+          "ENDORSEMENT": 0.271339,
+          "OTHER": 0.367333
+        },
+        "class_counts_among_relevant": {
+          "CONCERN": 51,
+          "ENDORSEMENT": 37,
+          "OTHER": 52
+        }
+      }
+    },
+    "bootstrap_alpha_intervals_of_record": {
+      "status": "exploratory (Family C, R5)",
+      "Stage 1": {
+        "alpha": 0.9589,
+        "low": 0.904933,
+        "high": 1.0,
+        "share_of_resamples_below_0.7": 0.0,
+        "resamples_undefined": 0
+      },
+      "Stage 2": {
+        "alpha": 0.7393,
+        "low": 0.620717,
+        "high": 0.845087,
+        "share_of_resamples_below_0.7": 0.2563,
+        "resamples_undefined": 0
+      },
+      "CONCERN against the rest": {
+        "alpha": 0.8358,
+        "low": 0.707638,
+        "high": 0.942461,
+        "share_of_resamples_below_0.7": 0.0193,
+        "resamples_undefined": 0
+      },
+      "ENDORSEMENT against the rest": {
+        "alpha": 0.7966,
+        "low": 0.655617,
+        "high": 0.918182,
+        "share_of_resamples_below_0.7": 0.0839,
+        "resamples_undefined": 0
+      },
+      "OTHER against the rest": {
+        "alpha": 0.5472,
+        "low": 0.322016,
+        "high": 0.72888,
+        "share_of_resamples_below_0.7": 0.9464,
+        "resamples_undefined": 0
+      }
+    }
+  },
+  "deviation_2": {
+    "adjudicated_items": [
+      {
+        "id": "cz1vh4t",
+        "tranche": 2,
+        "level": "Stage 2",
+        "adjudicated": "ENDORSEMENT",
+        "given": {
+          "A": "N",
+          "B": "OTHER",
+          "C": "ENDORSEMENT"
+        }
+      },
+      {
+        "id": "dvznfp7",
+        "tranche": 2,
+        "level": "Stage 2",
+        "adjudicated": "ENDORSEMENT",
+        "given": {
+          "A": "ENDORSEMENT",
+          "B": "OTHER",
+          "C": "CONCERN"
+        }
+      },
+      {
+        "id": "epqj9r1",
+        "tranche": 2,
+        "level": "primary subsystem",
+        "adjudicated": "in_vehicle_networks",
+        "given": {
+          "A": "sensing",
+          "B": "none",
+          "C": "in_vehicle_networks"
+        },
+        "adjudicated_value_given_by_an_annotator": true
+      },
+      {
+        "id": "h4jy9ry",
+        "tranche": 2,
+        "level": "primary subsystem",
+        "adjudicated": "data_governance",
+        "given": {
+          "A": "none",
+          "B": "v2x",
+          "C": "in_vehicle_networks"
+        },
+        "adjudicated_value_given_by_an_annotator": false
+      },
+      {
+        "id": "lifeax3",
+        "tranche": 2,
+        "level": "primary subsystem",
+        "adjudicated": "data_governance",
+        "given": {
+          "A": "privacy",
+          "B": "none",
+          "C": "data_governance"
+        },
+        "adjudicated_value_given_by_an_annotator": true
+      }
+    ],
+    "raw_majority_set": {
+      "status": "sensitivity (Deviation 2: the raw-majority set)",
+      "items_without_a_stage2_class": 2,
+      "items_without_a_gold_subsystem": 3,
+      "relevance_rate": "unchanged: the Stage 1 majority stands (Deviation 2)",
+      "class_shares_among_relevant": {
+        "CONCERN": {
+          "items": 1000,
+          "denominator_items": 596,
+          "numerator_items": 225,
+          "estimate": 0.380833,
+          "estimate_exact": "78363931/205770014",
+          "se": 0.020486,
+          "low": 0.341526,
+          "high": 0.421766,
+          "df": 997
+        },
+        "ENDORSEMENT": {
+          "items": 1000,
+          "denominator_items": 596,
+          "numerator_items": 187,
+          "estimate": 0.314899,
+          "estimate_exact": "64796753/205770014",
+          "se": 0.019577,
+          "low": 0.277802,
+          "high": 0.354517,
+          "df": 997
+        },
+        "OTHER": {
+          "items": 1000,
+          "denominator_items": 596,
+          "numerator_items": 184,
+          "estimate": 0.304268,
+          "estimate_exact": "31304665/102885007",
+          "se": 0.019317,
+          "low": 0.26774,
+          "high": 0.343444,
+          "df": 997
+        }
+      },
+      "class_shares_tranche2": {
+        "CONCERN": {
+          "items": 500,
+          "denominator_items": 299,
+          "numerator_items": 105,
+          "estimate": 0.355423,
+          "estimate_exact": "36744427/103382317",
+          "se": 0.029097,
+          "low": 0.30052,
+          "high": 0.414413,
+          "df": 497
+        },
+        "ENDORSEMENT": {
+          "items": 500,
+          "denominator_items": 299,
+          "numerator_items": 92,
+          "estimate": 0.307439,
+          "estimate_exact": "31783798/103382317",
+          "se": 0.027951,
+          "low": 0.255395,
+          "high": 0.364892,
+          "df": 497
+        },
+        "OTHER": {
+          "items": 500,
+          "denominator_items": 299,
+          "numerator_items": 102,
+          "estimate": 0.337138,
+          "estimate_exact": "34854092/103382317",
+          "se": 0.028627,
+          "low": 0.28338,
+          "high": 0.395466,
+          "df": 497
+        }
+      },
+      "concern_rates_weighted": {
+        "items": 596,
+        "concern_items": 225,
+        "other_items": 371,
+        "tpr": 0.946922,
+        "fpr": 0.236789,
+        "tpr_exact": "74204563/78363931",
+        "fpr_exact": "30168296/127406083",
+        "tpr_counts": {
+          "k": 213,
+          "n": 225,
+          "share": 0.946667,
+          "wilson95_low": 0.909106,
+          "wilson95_high": 0.969231
+        },
+        "fpr_counts": {
+          "k": 84,
+          "n": 371,
+          "share": 0.226415,
+          "wilson95_low": 0.186759,
+          "wilson95_high": 0.271679
+        }
+      },
+      "three_class": {
+        "weighted_rates_gold_by_classified": {
+          "CONCERN": {
+            "CONCERN": 0.946922,
+            "ENDORSEMENT": 0.021944,
+            "OTHER": 0.031134
+          },
+          "ENDORSEMENT": {
+            "CONCERN": 0.174924,
+            "ENDORSEMENT": 0.697049,
+            "OTHER": 0.128027
+          },
+          "OTHER": {
+            "CONCERN": 0.300815,
+            "ENDORSEMENT": 0.111727,
+            "OTHER": 0.587459
+          }
+        },
+        "weighted_rates_exact": {
+          "CONCERN": {
+            "CONCERN": "74204563/78363931",
+            "ENDORSEMENT": "1719604/78363931",
+            "OTHER": "2439764/78363931"
+          },
+          "ENDORSEMENT": {
+            "CONCERN": "11334499/64796753",
+            "ENDORSEMENT": "45166519/64796753",
+            "OTHER": "1185105/9256679"
+          },
+          "OTHER": {
+            "CONCERN": "18833797/62609330",
+            "ENDORSEMENT": "1399025/12521866",
+            "OTHER": "2627172/4472095"
+          }
+        },
+        "counts_gold_by_classified": {
+          "CONCERN": {
+            "CONCERN": 213,
+            "ENDORSEMENT": 4,
+            "OTHER": 8
+          },
+          "ENDORSEMENT": {
+            "CONCERN": 31,
+            "ENDORSEMENT": 131,
+            "OTHER": 25
+          },
+          "OTHER": {
+            "CONCERN": 53,
+            "ENDORSEMENT": 21,
+            "OTHER": 110
+          }
+        },
+        "refusals_counted_as_other": 0,
+        "note": "M[i][j]: the weighted share of the gold class i items that the deployed Stage 2 classifier classifies j, on the primary item set, with the pooled design weights"
+      },
+      "pi_s_pooled": {
+        "shares": {
+          "sensing": {
+            "items": 1000,
+            "denominator_items": 224,
+            "numerator_items": 60,
+            "estimate": 0.240455,
+            "estimate_exact": "4692625/19515598",
+            "se": 0.028212,
+            "low": 0.189492,
+            "high": 0.30005,
+            "df": 997
+          },
+          "in_vehicle_networks": {
+            "items": 1000,
+            "denominator_items": 224,
+            "numerator_items": 12,
+            "estimate": 0.046881,
+            "estimate_exact": "1829823/39031196",
+            "se": 0.013704,
+            "low": 0.026237,
+            "high": 0.082393,
+            "df": 997
+          },
+          "v2x": {
+            "numerator_items": 9,
+            "denominator_items": 224,
+            "note": "reported as a count (R5)"
+          },
+          "cybersecurity": {
+            "items": 1000,
+            "denominator_items": 224,
+            "numerator_items": 2,
+            "estimate": 0.006516,
+            "estimate_exact": "63578/9757799",
+            "se": 0.004426,
+            "low": 0.001711,
+            "high": 0.024479,
+            "df": 997
+          },
+          "privacy": {
+            "items": 1000,
+            "denominator_items": 224,
+            "numerator_items": 4,
+            "estimate": 0.018047,
+            "estimate_exact": "704395/39031196",
+            "se": 0.008874,
+            "low": 0.006832,
+            "high": 0.046803,
+            "df": 997
+          },
+          "data_governance": {
+            "items": 1000,
+            "denominator_items": 224,
+            "numerator_items": 5,
+            "estimate": 0.01949,
+            "estimate_exact": "1521421/78062392",
+            "se": 0.008808,
+            "low": 0.007981,
+            "high": 0.046811,
+            "df": 997
+          },
+          "none": {
+            "items": 1000,
+            "denominator_items": 224,
+            "numerator_items": 132,
+            "estimate": 0.629689,
+            "estimate_exact": "12288755/19515598",
+            "se": 0.032279,
+            "low": 0.564449,
+            "high": 0.690515,
+            "df": 997
+          }
+        },
+        "concern_items_with_gold_subsystem": 224,
+        "concern_items_without_gold_subsystem": 1
+      },
+      "d28": {
+        "alpha_used": 0.7685,
+        "alpha_used_exact": "24803/32273",
+        "rule1_alpha_below_0_6": false,
+        "rule2_condition_i_alpha_at_least_0_7": true,
+        "largest_eligible": "sensing",
+        "second_largest_eligible": "in_vehicle_networks",
+        "lower_limit_of_largest": 0.189492,
+        "upper_limit_of_second": 0.082393,
+        "rule2_condition_ii_intervals_do_not_overlap": true,
+        "rule2_met": true
+      }
+    }
+  },
+  "error_rates": {
+    "rates_of_record_reproduced": {
+      "tpr": 0.946922,
+      "fpr": 0.237641,
+      "tpr_minus_fpr_exact": "2368170585210576/3338832495498181"
+    },
+    "three_class": {
+      "weighted_rates_gold_by_classified": {
+        "CONCERN": {
+          "CONCERN": 0.946922,
+          "ENDORSEMENT": 0.021944,
+          "OTHER": 0.031134
+        },
+        "ENDORSEMENT": {
+          "CONCERN": 0.176989,
+          "ENDORSEMENT": 0.695798,
+          "OTHER": 0.127214
+        },
+        "OTHER": {
+          "CONCERN": 0.300815,
+          "ENDORSEMENT": 0.111727,
+          "OTHER": 0.587459
+        }
+      },
+      "weighted_rates_exact": {
+        "CONCERN": {
+          "CONCERN": "74204563/78363931",
+          "ENDORSEMENT": "1719604/78363931",
+          "OTHER": "2439764/78363931"
+        },
+        "ENDORSEMENT": {
+          "CONCERN": "11541584/65210923",
+          "ENDORSEMENT": "45373604/65210923",
+          "OTHER": "8295735/65210923"
+        },
+        "OTHER": {
+          "CONCERN": "18833797/62609330",
+          "ENDORSEMENT": "1399025/12521866",
+          "OTHER": "2627172/4472095"
+        }
+      },
+      "counts_gold_by_classified": {
+        "CONCERN": {
+          "CONCERN": 213,
+          "ENDORSEMENT": 4,
+          "OTHER": 8
+        },
+        "ENDORSEMENT": {
+          "CONCERN": 32,
+          "ENDORSEMENT": 132,
+          "OTHER": 25
+        },
+        "OTHER": {
+          "CONCERN": 53,
+          "ENDORSEMENT": 21,
+          "OTHER": 110
+        }
+      },
+      "refusals_counted_as_other": 0,
+      "note": "M[i][j]: the weighted share of the gold class i items that the deployed Stage 2 classifier classifies j, on the primary item set, with the pooled design weights"
+    },
+    "relevance_error": {
+      "by_era": {
+        "2016-2018": {
+          "e_in": {
+            "k": 31,
+            "n": 209,
+            "share": 0.148325,
+            "wilson95_low": 0.106504,
+            "wilson95_high": 0.202842,
+            "exact": "31/209"
+          },
+          "e_out": {
+            "k": 18,
+            "n": 125,
+            "share": 0.144,
+            "wilson95_low": 0.093069,
+            "wilson95_high": 0.21616,
+            "exact": "18/125"
+          }
+        },
+        "2019-2021": {
+          "e_in": {
+            "k": 26,
+            "n": 194,
+            "share": 0.134021,
+            "wilson95_low": 0.093127,
+            "wilson95_high": 0.189127,
+            "exact": "13/97"
+          },
+          "e_out": {
+            "k": 15,
+            "n": 140,
+            "share": 0.107143,
+            "wilson95_low": 0.066012,
+            "wilson95_high": 0.169257,
+            "exact": "3/28"
+          }
+        },
+        "2022-2025": {
+          "e_in": {
+            "k": 18,
+            "n": 227,
+            "share": 0.079295,
+            "wilson95_low": 0.050744,
+            "wilson95_high": 0.121848,
+            "exact": "18/227"
+          },
+          "e_out": {
+            "k": 10,
+            "n": 105,
+            "share": 0.095238,
+            "wilson95_low": 0.052556,
+            "wilson95_high": 0.166491,
+            "exact": "2/21"
+          }
+        }
+      },
+      "note": "e_in and e_out are sample proportions within each era; the Wilson intervals are description and do not enter the relevance-error series (Deviation 13)",
+      "wrongly_included_classified_concern_by_stage2": {
+        "k": 24,
+        "n": 75,
+        "share": 0.32,
+        "wilson95_low": 0.22543,
+        "wilson95_high": 0.432111
+      },
+      "wrongly_left_out_gold_concern": {
+        "k": 15,
+        "n": 43,
+        "share": 0.348837,
+        "wilson95_low": 0.224186,
+        "wilson95_high": 0.498282
+      }
+    },
+    "three_way_comparison": {
+      "gold_concern_share_among_gold_relevant": {
+        "items": 1000,
+        "denominator_items": 598,
+        "numerator_items": 225,
+        "estimate": 0.380068,
+        "estimate_exact": "78363931/206184184",
+        "se": 0.020451,
+        "low": 0.340833,
+        "high": 0.420935,
+        "df": 997
+      },
+      "classified_concern_share_among_items_classified_relevant": {
+        "items": 1000,
+        "denominator_items": 630,
+        "numerator_items": 302,
+        "estimate": 0.491175,
+        "estimate_exact": "5900283/12012589",
+        "se": 0.020467,
+        "low": 0.451154,
+        "high": 0.53131,
+        "df": 997
+      },
+      "that_share_corrected_with_the_rates_of_record": 0.357452,
+      "corrected_raw": 0.357452,
+      "corrected_raw_exact": "5084365446950826017815/14223929961012063970632",
+      "corrected_was_clipped": false,
+      "note": "The first two carry the intervals of Deviation 3; the third carries none (Deviation 13)."
+    }
+  },
+  "temporal_calibration_check": {
+    "block_rates": {
+      "both tranches": {
+        "early": {
+          "items": 379,
+          "concern_items": 140,
+          "other_items": 239,
+          "tpr": 0.953857,
+          "fpr": 0.20287,
+          "tpr_exact": "408081/427822",
+          "fpr_exact": "147291/726037",
+          "tpr_counts": {
+            "k": 133,
+            "n": 140,
+            "share": 0.95,
+            "wilson95_low": 0.900393,
+            "wilson95_high": 0.975572
+          },
+          "fpr_counts": {
+            "k": 49,
+            "n": 239,
+            "share": 0.205021,
+            "wilson95_low": 0.158697,
+            "wilson95_high": 0.260678
+          },
+          "tpr_interval95": {
+            "low": 0.917501,
+            "high": 0.983669,
+            "resamples_without_value": 0
+          },
+          "fpr_interval95": {
+            "low": 0.151656,
+            "high": 0.256911,
+            "resamples_without_value": 0
+          }
+        },
+        "late": {
+          "items": 219,
+          "concern_items": 85,
+          "other_items": 134,
+          "tpr": 0.941176,
+          "fpr": 0.268657,
+          "tpr_exact": "16/17",
+          "fpr_exact": "18/67",
+          "tpr_counts": {
+            "k": 80,
+            "n": 85,
+            "share": 0.941176,
+            "wilson95_low": 0.869586,
+            "wilson95_high": 0.974615
+          },
+          "fpr_counts": {
+            "k": 36,
+            "n": 134,
+            "share": 0.268657,
+            "wilson95_low": 0.200826,
+            "wilson95_high": 0.349382
+          },
+          "tpr_interval95": {
+            "low": 0.885057,
+            "high": 0.987809,
+            "resamples_without_value": 0
+          },
+          "fpr_interval95": {
+            "low": 0.198528,
+            "high": 0.347525,
+            "resamples_without_value": 0
+          }
+        },
+        "tpr_late_minus_early": {
+          "difference": -0.012681,
+          "difference_exact": "-5425/427822",
+          "low": -0.075467,
+          "high": 0.047632,
+          "resamples_without_value": 0
+        },
+        "fpr_late_minus_early": {
+          "difference": 0.065787,
+          "difference_exact": "3200169/48644479",
+          "low": -0.023377,
+          "high": 0.159953,
+          "resamples_without_value": 0
+        }
+      },
+      "tranche 1": {
+        "early": {
+          "items": 188,
+          "concern_items": 75,
+          "other_items": 113,
+          "tpr": 0.92938,
+          "fpr": 0.182409,
+          "tpr_exact": "211985/228093",
+          "fpr_exact": "62637/343387",
+          "tpr_counts": {
+            "k": 69,
+            "n": 75,
+            "share": 0.92,
+            "wilson95_low": 0.836252,
+            "wilson95_high": 0.96282
+          },
+          "fpr_counts": {
+            "k": 21,
+            "n": 113,
+            "share": 0.185841,
+            "wilson95_low": 0.124887,
+            "wilson95_high": 0.267452
+          },
+          "tpr_interval95": {
+            "low": 0.867774,
+            "high": 0.978721,
+            "resamples_without_value": 0
+          },
+          "fpr_interval95": {
+            "low": 0.109576,
+            "high": 0.256302,
+            "resamples_without_value": 0
+          }
+        },
+        "late": {
+          "items": 109,
+          "concern_items": 45,
+          "other_items": 64,
+          "tpr": 0.911111,
+          "fpr": 0.28125,
+          "tpr_exact": "41/45",
+          "fpr_exact": "9/32",
+          "tpr_counts": {
+            "k": 41,
+            "n": 45,
+            "share": 0.911111,
+            "wilson95_low": 0.792664,
+            "wilson95_high": 0.964889
+          },
+          "fpr_counts": {
+            "k": 18,
+            "n": 64,
+            "share": 0.28125,
+            "wilson95_low": 0.185934,
+            "wilson95_high": 0.401339
+          },
+          "tpr_interval95": {
+            "low": 0.815744,
+            "high": 0.979592,
+            "resamples_without_value": 0
+          },
+          "fpr_interval95": {
+            "low": 0.180556,
+            "high": 0.397059,
+            "resamples_without_value": 0
+          }
+        },
+        "tpr_late_minus_early": {
+          "difference": -0.018269,
+          "difference_exact": "-62504/3421395",
+          "low": -0.123346,
+          "high": 0.081728,
+          "resamples_without_value": 0
+        },
+        "fpr_late_minus_early": {
+          "difference": 0.098841,
+          "difference_exact": "1086099/10988384",
+          "low": -0.028685,
+          "high": 0.230522,
+          "resamples_without_value": 0
+        }
+      },
+      "tranche 2": {
+        "early": {
+          "items": 191,
+          "concern_items": 65,
+          "other_items": 126,
+          "tpr": 0.98181,
+          "fpr": 0.221231,
+          "tpr_exact": "196096/199729",
+          "fpr_exact": "14109/63775",
+          "tpr_counts": {
+            "k": 64,
+            "n": 65,
+            "share": 0.984615,
+            "wilson95_low": 0.917867,
+            "wilson95_high": 0.997279
+          },
+          "fpr_counts": {
+            "k": 28,
+            "n": 126,
+            "share": 0.222222,
+            "wilson95_low": 0.15846,
+            "wilson95_high": 0.302421
+          },
+          "tpr_interval95": {
+            "low": 0.938511,
+            "high": 1.0,
+            "resamples_without_value": 0
+          },
+          "fpr_interval95": {
+            "low": 0.149317,
+            "high": 0.296071,
+            "resamples_without_value": 0
+          }
+        },
+        "late": {
+          "items": 110,
+          "concern_items": 40,
+          "other_items": 70,
+          "tpr": 0.975,
+          "fpr": 0.257143,
+          "tpr_exact": "39/40",
+          "fpr_exact": "9/35",
+          "tpr_counts": {
+            "k": 39,
+            "n": 40,
+            "share": 0.975,
+            "wilson95_low": 0.871186,
+            "wilson95_high": 0.995573
+          },
+          "fpr_counts": {
+            "k": 18,
+            "n": 70,
+            "share": 0.257143,
+            "wilson95_low": 0.169293,
+            "wilson95_high": 0.370261
+          },
+          "tpr_interval95": {
+            "low": 0.918325,
+            "high": 1.0,
+            "resamples_without_value": 0
+          },
+          "fpr_interval95": {
+            "low": 0.15942,
+            "high": 0.366677,
+            "resamples_without_value": 0
+          }
+        },
+        "tpr_late_minus_early": {
+          "difference": -0.00681,
+          "difference_exact": "-54409/7989160",
+          "low": -0.073171,
+          "high": 0.05002,
+          "resamples_without_value": 0
+        },
+        "fpr_late_minus_early": {
+          "difference": 0.035912,
+          "difference_exact": "16032/446425",
+          "low": -0.080923,
+          "high": 0.172872,
+          "resamples_without_value": 0
+        }
+      }
+    },
+    "stage2_f1_by_block": {
+      "early": {
+        "items": 379,
+        "macro_f1": 0.758413,
+        "macro_f1_exact": "828967/1093029",
+        "per_class": {
+          "CONCERN": {
+            "f1": 0.826087,
+            "tp": 133,
+            "predicted": 182,
+            "gold": 140
+          },
+          "ENDORSEMENT": {
+            "f1": 0.767123,
+            "tp": 84,
+            "predicted": 99,
+            "gold": 120
+          },
+          "OTHER": {
+            "f1": 0.682028,
+            "tp": 74,
+            "predicted": 98,
+            "gold": 119
+          }
+        },
+        "refusals": 0
+      },
+      "late": {
+        "items": 219,
+        "macro_f1": 0.73549,
+        "macro_f1_exact": "3097852/4211955",
+        "per_class": {
+          "CONCERN": {
+            "f1": 0.79602,
+            "tp": 80,
+            "predicted": 116,
+            "gold": 85
+          },
+          "ENDORSEMENT": {
+            "f1": 0.755906,
+            "tp": 48,
+            "predicted": 58,
+            "gold": 69
+          },
+          "OTHER": {
+            "f1": 0.654545,
+            "tp": 36,
+            "predicted": 45,
+            "gold": 65
+          }
+        },
+        "refusals": 0
+      }
+    },
+    "stage1_accuracy_by_block": {
+      "early": {
+        "items": 663,
+        "accuracy_relevant": {
+          "k": 346,
+          "n": 379,
+          "share": 0.912929,
+          "wilson95_low": 0.880241,
+          "wilson95_high": 0.93733
+        },
+        "accuracy_not_relevant": {
+          "k": 227,
+          "n": 284,
+          "share": 0.799296,
+          "wilson95_low": 0.748859,
+          "wilson95_high": 0.841744
+        },
+        "balanced_accuracy": 0.856112,
+        "balanced_accuracy_exact": "184297/215272"
+      },
+      "late": {
+        "items": 337,
+        "accuracy_relevant": {
+          "k": 209,
+          "n": 219,
+          "share": 0.954338,
+          "wilson95_low": 0.918001,
+          "wilson95_high": 0.975011
+        },
+        "accuracy_not_relevant": {
+          "k": 100,
+          "n": 118,
+          "share": 0.847458,
+          "wilson95_low": 0.771728,
+          "wilson95_high": 0.901278
+        },
+        "balanced_accuracy": 0.900898,
+        "balanced_accuracy_exact": "23281/25842"
+      }
+    },
+    "items_by_block": {
+      "primary_item_set": {
+        "early": 379,
+        "late": 219
+      },
+      "stage1_items": {
+        "early": 663,
+        "late": 337
+      }
+    },
+    "item_resamples": {
+      "resamples": 2000,
+      "generator": "numpy.random.default_rng([24916660, 3, 1])",
+      "strata_sizes": {
+        "2016-2018": 196,
+        "2019-2021": 183,
+        "2022-2025": 219
+      },
+      "index_arrays_sha256": "5e3eea48169360cb9e8f85c2826373d4bf92a0d85759a3c3b41ed4eaa35da394",
+      "hash_rule": "each era's array as little-endian 64-bit integers in row-major order, the three joined in era order"
+    },
+    "note": "TPR and FPR for CONCERN against the other two classes, weighted by the pooled design weights; intervals: 2.5th and 97.5th percentiles over the 2,000 item resamples, a figure for one tranche formed from that tranche's items in each resample; Wilson intervals on the unweighted counts. F1 and the Stage 1 accuracies are on both tranches, unweighted and descriptive."
+  },
+  "counts_required_by_the_record": {
+    "tranche2_single_rated_items_by_annotator": {
+      "A": {
+        "items": 134,
+        "N": 51,
+        "CONCERN": 35,
+        "ENDORSEMENT": 21,
+        "OTHER": 27,
+        "relevant without a class": 0,
+        "missing": 0
+      },
+      "B": {
+        "items": 133,
+        "N": 55,
+        "CONCERN": 22,
+        "ENDORSEMENT": 24,
+        "OTHER": 32,
+        "relevant without a class": 0,
+        "missing": 0
+      },
+      "C": {
+        "items": 133,
+        "N": 55,
+        "CONCERN": 28,
+        "ENDORSEMENT": 27,
+        "OTHER": 23,
+        "relevant without a class": 0,
+        "missing": 0
+      }
+    },
+    "missing_labels": {
+      "without_a_gold_stage1_label": [],
+      "relevant_without_a_stage2_label": [],
+      "relevant_without_a_gold_subsystem": [
+        {
+          "id": "dogu859",
+          "era": "2016-2018",
+          "tranche": 2,
+          "reliability_item": false,
+          "annotators": [
+            "C"
+          ]
+        },
+        {
+          "id": "lsdjnzn",
+          "era": "2022-2025",
+          "tranche": 2,
+          "reliability_item": false,
+          "annotators": [
+            "C"
+          ]
+        }
+      ]
+    }
+  },
+  "figures_of_record_reproduced": {
+    "weighted_concern_rates": {
+      "tpr": 0.946922,
+      "fpr": 0.237641,
+      "tpr_minus_fpr_exact": "2368170585210576/3338832495498181"
+    },
+    "unweighted_concern_rates": {
+      "tpr": "213/225",
+      "fpr": "85/373"
+    },
+    "confusion_table_item_sets_and_stage1_accuracies": "as in the evaluation output"
+  },
+  "comparison_with_previews": {
+    "tranche1_subsystem_alpha_register_30_september": {
+      "same": true,
+      "computed": {
+        "two_or_more_labels": [
+          "0.868",
+          59,
+          175
+        ],
+        "all_three_annotators": [
+          "0.867",
+          57,
+          171
+        ]
+      },
+      "preview": {
+        "two_or_more_labels": [
+          "0.868",
+          59,
+          175
+        ],
+        "all_three_annotators": [
+          "0.867",
+          57,
+          171
+        ]
+      }
+    },
+    "tranche1_pi_s_register_4_october": {
+      "same": true,
+      "computed": {
+        "shares": {
+          "sensing": [
+            "27.8",
+            "20.3",
+            "36.8"
+          ],
+          "in_vehicle_networks": [
+            "3.7",
+            "1.5",
+            "8.8"
+          ],
+          "privacy": [
+            "0.7",
+            "0.1",
+            "4.8"
+          ],
+          "none": [
+            "63.5",
+            "54.2",
+            "71.8"
+          ]
+        },
+        "items": {
+          "sensing": 35,
+          "in_vehicle_networks": 5,
+          "v2x": 6,
+          "cybersecurity": 0,
+          "privacy": 1,
+          "data_governance": 0,
+          "none": 73
+        },
+        "concern_items": 120
+      },
+      "preview": {
+        "shares": {
+          "sensing": [
+            "27.8",
+            "20.3",
+            "36.8"
+          ],
+          "in_vehicle_networks": [
+            "3.7",
+            "1.5",
+            "8.8"
+          ],
+          "privacy": [
+            "0.7",
+            "0.1",
+            "4.8"
+          ],
+          "none": [
+            "63.5",
+            "54.2",
+            "71.8"
+          ]
+        },
+        "items": {
+          "sensing": 35,
+          "in_vehicle_networks": 5,
+          "v2x": 6,
+          "cybersecurity": 0,
+          "privacy": 1,
+          "data_governance": 0,
+          "none": 73
+        },
+        "concern_items": 120
+      }
+    },
+    "tranche1_decomposition_deviation_8": {
+      "same": true,
+      "computed": {
+        "difference": "+7.0",
+        "mix": "+6.1",
+        "within": "+0.9"
+      },
+      "preview": {
+        "difference": "+7.0",
+        "mix": "+6.1",
+        "within": "+0.9"
+      }
+    },
+    "pooled_subsystem_alpha_register_10_october": {
+      "same": true,
+      "computed": {
+        "two_or_more_labels": "0.779",
+        "all_three_annotators": "0.769"
+      },
+      "preview": {
+        "two_or_more_labels": "0.779",
+        "all_three_annotators": "0.769"
+      }
+    }
+  },
+  "inputs_sha256": {
+    "tranche1_folds.csv": "a3a7a23acdd98a7fcb7be639f49cd614c8ca27ffeefe783898f1a7cd11a627c3",
+    "tranche2_folds.csv": "1026d74f8566bd08576adb220cb57a335ab8c333702eafc544cac8a8d953d324",
+    "gold_labels.csv": "5a232a1e02c599f65fa769e20fe393149999aec382b3cc69b7cef6617d65b4d6",
+    "zero_shot_input.csv": "2f8d48c3c66ac608d557cc03eb5c2070b357e8f0bd8fdd01b43bce380a7a181f",
+    "finetune_input.csv": "bcae83e718ebfa16b2f66b640f23acb5e091d775c2d53e549fa15a424e25d702",
+    "distilbert predictions": "985b45605edf54fa9e95d311a3a9f86eea11e599eb49e8c350b0778feb93a6db",
+    "roberta predictions": "b17357f25060ed91ad2d9a9a51ea093b85afc9a2210db491c2e107811cac1597",
+    "bart-universal predictions": "c7f6b1eccc433cd805b96a322ea3c82d086d016b2b8440feb6bb7b90e88be5e5",
+    "bart-domain predictions": "9e9280679dc6696332c896f763b33bd64fabc3eabe82a35aa5806e2accbe5e10",
+    "haiku-universal predictions": "56d4dac6e9fdef0755df5a57e6595bfa3ea01aa529e9be43da7a71cd8d7d51fd",
+    "haiku-domain predictions": "1381ea3de49f61c5ff2beadd04469766715b177bfdf168ab1cc8a6f1b7906cd2",
+    "sonnet-universal predictions": "d421907b0a87800834b6379b667c88fca945c1cd6ad937ccfe3fbd67ad3afbf3",
+    "sonnet-domain predictions": "71b56f7270545d131a6cfe5649a1162a1b244b5f91298ff770e1ac80a4abbbaa",
+    "stage1-distilbert predictions": "ae59ab2d9b29f539744056da9fbd4dec3826beefa07d1d50b9ed9d4b046e6cfd",
+    "stage1-roberta predictions": "7258458df43c047ff8b8088fa8a855468acd1e6b8835dddcd42e85c3d8502b57",
+    "stage1-distilbert-textonly predictions": "2c3bb9ed8dcd7e71617df2c31f85ca8544cbc7db6898d9e50d6212d6f7dd400b",
+    "stage1-roberta-textonly predictions": "24d8e3a0de3e8d03d1c6be09fc162b74ff3a51265859bd7248580d0a8c40d94e",
+    "tranche2_master_key.csv": "ae116f8df5f33bfc9231b35519db7a992c6acd7ae5f5bb23bf50ef2524c22d5e",
+    "evaluation_results.json": "411f6c23ef6525b077c74fec15b8e5a06c59c550a8f3f2d15e99eb7d354d32e4",
+    "tranche1_annotator_A (file of record)": "2fe9b29ff2fb3298c4581e2bb79de711b4713abc40cdd065f2070ca0be39e50e",
+    "tranche1_annotator_B (file of record)": "e80439ae671a21c69ffe5307cdebcf96b16bb33599015361304bff3dc71b4c04",
+    "tranche1_annotator_C (file of record)": "4ec6a12a215edb3c4a0c2ac86d92c7871de0fa88ea84fc50d25cdf2f239ba6f6",
+    "tranche1_master_key (file of record)": "ce50173525fd7ac74a3d720bf5f1a395b131066383f5c121002eb7dfc357755f",
+    "tranche1_subsystem_A (file of record)": "bec8eec480569df8d957df2fb048fc887095a477a732fbf9f6c811d2699c6f6b",
+    "tranche1_subsystem_B (file of record)": "b14d11bb09ae4a47af95d5c8513313c391324c9787af718a5a79a1667742ba8c",
+    "tranche1_subsystem_C (file of record)": "f466866e741e605503b449a812768e049a753e95eaec9b9ac1609fd946bb19ff",
+    "tranche2_annotator_A (file of record)": "bbf4f4f62a72b58db73bb5239798a91e577dc0fce23b1ffc732171a1a0fa406d",
+    "tranche2_annotator_B (file of record)": "6dd5d25735b1214d74b28bbee6947f9e6778945950610b6c04675158a993b504",
+    "tranche2_annotator_C (file of record)": "ad73b59b1126f7813dfa295dfcca0a51d240359d7b8ee5c23b95efe0f9ecc33a",
+    "prefilter_input.csv": "d1ae1fbe68f3f805eac720ab5bdbd7e8132333e3c1ae9ed8cfefa9106b3bcb1c",
+    "corpus.parquet (membership checked against R5)": "958f480ec13d469dbf285714e2601e5035cf05e10126a7f9b598e32e4b33b39d",
+    "draw_frame_ids.txt (membership checked against R5)": "ce85a3b046fedf3648861d446832a364ab89e7b60a0e58f10272b33b1997d7b3"
+  },
+  "corpus_checks": {
+    "corpus_rows": 12776,
+    "corpus_membership_sha256": "d187adac10d98ccda1f0145713139f008705349ea6e0b4921092b1ad099559d4",
+    "corpus_counts_by_subreddit_and_tier": "as in R5",
+    "frame_rows": 12166,
+    "frame_membership_sha256": "ce85a3b046fedf3648861d446832a364ab89e7b60a0e58f10272b33b1997d7b3",
+    "frame_split_at_boundary": [
+      6083,
+      6083
+    ],
+    "corpus_file_sha256": "958f480ec13d469dbf285714e2601e5035cf05e10126a7f9b598e32e4b33b39d",
+    "frame_file_sha256": "ce85a3b046fedf3648861d446832a364ab89e7b60a0e58f10272b33b1997d7b3",
+    "note": "R5 records the corpus and the frame by their membership; the files' own SHA-256 are recorded here"
+  }
+}

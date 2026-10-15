@@ -1294,3 +1294,84 @@ it cannot be checked from the files.
 - Item index arrays (`numpy.random.default_rng([24916660, 3, 1])`, 2,000 resamples; strata of 196, 183, 219 items): SHA-256 `5e3eea48169360cb9e8f85c2826373d4bf92a0d85759a3c3b41ed4eaa35da394`.
 - Lexical proxy: term list `CORE_TERMS` in `config.py` as committed at `be001c7` (SHA-256 `92ebb86e725d86c08344862ec7dba2c6dcfe3834af079a8a632ccf46505abb61`); matching rule of Deviation 14.
 - Corpus v2.2 file SHA-256 `958f480ec13d469dbf285714e2601e5035cf05e10126a7f9b598e32e4b33b39d`; frame list `ce85a3b046fedf3648861d446832a364ab89e7b60a0e58f10272b33b1997d7b3` (both recorded here for the first time; R5 records the memberships).
+
+## 14 October 2026 — The deployment script committed before the corpus runs
+
+Drafted on 14 October 2026; the commit date is in the repository history.
+
+### What this commit fixes
+
+- `models_06_deploy.py`, the script of the corpus runs of Deviation 13, SHA-256
+  `651e7f5edb59835ba706f173233eb9aea5ebad5e6617e2f13f5520a91198ec21`. In six
+  steps it checks its inputs before the commit (`--preflight`); writes the
+  comment text of every run, prepared as Deviation 10 prepared it for the
+  pre-filter (`--prepare`); retrains the deployed Stage 1 classifier once on
+  the 1,000 tranche items and runs it once over all 12,776 comments of corpus
+  v2.2, on a GPU (`--stage1`); makes the connection check, which gives the
+  difference D of Deviation 13's estimate (`--check-connection`); and makes the
+  Stage 2 and subsystem runs (`--stage2`, `--subsystem`).
+- Its docstring lists the nine rules it fixes where Deviation 13 is silent or
+  says how a committed rule is applied. Among them: the subreddit is written in
+  the letter case of the training input; training stops at the end of epoch 5
+  of the 10-epoch schedule, and this is checked; every call must be answered by
+  the model version that answered the evaluation run of record; statuses 408
+  and 409, which the client retries, stop a run as a timeout does; a comment
+  set aside after a second rejection is recorded once the next 20 comments, or
+  all those left, are answered; and a ceiling other than US$23 is given on the
+  command line and recorded here first. If a run stops for good under these
+  rules (answers from another model version, or a comment set aside with no
+  comment left to answer), a further deviation decides what is done.
+- The script checks that every module it imports is the file in the repository
+  at `8d9c0d1` (SHA-256 with LF line endings), and its subsystem prompt against
+  Deviation 13 as committed. Only one API step can run at a time.
+
+### State of the work at this commit
+
+The statements below are the author's and cannot be checked from the files.
+
+- Before this commit the script was run on the data of record only in its
+  preflight mode, which runs no model, sends nothing and writes nothing; it
+  passed.
+- No commit after `bb3fbfe`, at which the evaluation runs were made, changed
+  `models_02_claude.py` or `models_04_finetune_cv.py`; the repository history
+  was checked before this commit.
+- Neither deployed classifier has been run on any comment outside the 1,000
+  tranche items, and the subsystem prompt has been sent to no model.
+- Credit for the two API runs is added before they start.
+
+### How the script was arrived at
+
+This section is the author's account and the working record of the sessions; it
+cannot be checked from the files.
+
+- The script was tested on synthetic data only: a generated repository with
+  control characters in some comment texts, run through the committed model and
+  sample scripts; for Stage 1, a tiny, randomly initialised model with a
+  tokenizer trained on synthetic words (transformers 5.19.0, on a CPU); for the
+  two API runs, a simulated API with deterministic answers and injected errors
+  of each kind that Deviation 13 names, with runs halted and resumed. An
+  independent check recomputed the prepared text, the subreddit letter case,
+  the Stage 1 decision rule, every comment's label from the simulated answers,
+  the tokens, cost and spend, the estimate and the set-aside rule, with no
+  failure in three scenarios. Stage 1 gave the same bytes twice from the same
+  inputs. Of 19 fault cases, 18 stopped as intended and one carried on as
+  intended. The test scripts are not committed, so these checks cannot be
+  repeated from the repository. No annotation data, prediction file or corpus
+  output was used in testing or in the review.
+- The script and this entry were reviewed once before this commit, and the
+  findings were applied: a lock against two API steps at once, no running count
+  of refusals in the progress lines (comment ids follow time closely), statuses
+  408 and 409 treated as a timeout, library versions in each step's register
+  lines, and the Stage 1 outputs written only when the step finishes. These
+  corrections were not themselves reviewed again.
+- The nine rules of the script were put to the author in plain words on 14
+  October 2026, and he accepted them before this commit.
+
+### Next
+
+- Run the steps in order, recording each one's register lines here:
+  `--prepare`; `--stage1` on a GPU, with its two output files copied to
+  `data/models/deploy/`; `--check-connection`; `--stage2`; `--subsystem`. No
+  output of the Stage 2 run is tabulated before the subsystem run is complete.
+- Commit the corpus-description script, then the series-analysis script, each
+  before it is run.

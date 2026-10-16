@@ -1395,3 +1395,82 @@ cannot be checked from the files.
 - Inputs: `corpus_input.csv` SHA-256 `816bc9dfea5d73c7fed55446e833aae75b9bcd070bcf89e60e2fd0e3305566b4`; `stage1_corpus_predictions.csv` `087e1e58ff3f9c36efa307e7735ead27e997a918452dbad993b085d119513cdf`; `gold_labels.csv` `5a232a1e02c599f65fa769e20fe393149999aec382b3cc69b7cef6617d65b4d6`.
 - Outputs, in `data/models/deploy/` (not committed): `subsystem_predictions.csv` SHA-256 `538fa8ac682b6113d634eba65cef3f804a1d223ddd5d25210ee8c1306a8669ac`; `subsystem_log.jsonl` `daecd753f46b4d2cd2dca1fba883fdb9a1e27ccd221f1e5f884bbee0e52b389e`; `subsystem_manifest.json` `deda5363f2ee2d969492d390848e9879f256ae279335e8b8af350ad972f74e3e`. Python 3.12.10, anthropic 1.13.0, pandas 3.0.3.
 
+## 17 October 2026 — The corpus-description script committed before it is run
+
+Drafted on 15 October 2026; the commit date is in the repository history.
+
+### What this commit fixes
+
+- `analysis_02_corpus.py`, the committed script that Deviation 13 names for the
+  corpus description, SHA-256
+  `f2240bdd7354dc4fffbe561bca8e9235c0f7db12188904680dd1ca5028b58b0f`. From
+  corpus v2.2 and the raw files alone, it regenerates the year totals, the
+  composition by year, the thread counts, the preprocessing funnel, the lexical
+  proxy, the reweighting cell sizes and the within-year sampling position, and
+  it joins `commentsCount` from the raw post records for R4. It reads no output
+  of the corpus runs. Its run of record writes `corpus_results.json` and
+  `corpus_report.md`, which are copied to `results/` and committed, and
+  `thread_sizes.csv`, each comment's joined thread size, which stays in `data/`
+  and is read by the series-analysis script through its SHA-256.
+- Its docstring lists the seven rules it fixes where Deviation 13 is silent or
+  says how a committed rule is applied. Among them: a thread's size is the
+  largest whole-number `commentsCount` among its post records, and a comment
+  whose thread has no post record, no reported count or a count of zero is left
+  out of R4 and counted; capture and the within-year position follow the
+  methods of `check_capture_rate.py` and `check_c2_audit.py` exactly; the
+  lexical proxy and the composition check of Deviation 8 are those of
+  `analysis_01_sample.py`, applied to the Tier 1+2 comments of the corpus; and
+  the shift in the within-year position across the span is eight times the
+  slope, for the eight intervals between the nine years 2016 to 2024.
+- It stops unless its inputs match the record: the modules it imports as they
+  are at `6d5e400`, `config.py` as committed at `be001c7`, corpus v2.2 as R5
+  and the register of 14 October 2026 record it, and 694 raw files that
+  reproduce the first three stages of the funnel and hold every corpus comment.
+- It compares eight groups of figures recorded earlier on the same corpus or
+  the same raw files (in R5, R3, the design document and
+  `docs/corpus_manifest.md`) with what it computes. Any difference is listed in
+  the run's register lines, and the computed value stands. The
+  pre-registration's "about 0.10 of a year" for the shift is compared at two
+  decimals, so a slope of +0.0133 a year shows as a difference (0.11 of a year,
+  39 days).
+
+### State of the work at this commit
+
+The statements below are the author's and cannot be checked from the files.
+
+- Before this commit the script was run on the data of record only in its
+  preflight mode, which writes nothing; it passed.
+- No output of the corpus runs has been opened or tabulated. The only figures
+  from those runs that the author has seen are the counts and costs their
+  register lines record, and the share of Tier 1+2 comments classified relevant
+  that follows from them (6,503 of 12,212, 53%).
+
+### How the script was arrived at
+
+This section is the author's account and the working record of the sessions; it
+cannot be checked from the files.
+
+- The script was tested on synthetic data only: generated raw files in the
+  shape of the real ones (year-blocked, supplementary, single-window, recovery
+  and empty files; overlapping posts; deleted comments; missing and conflicting
+  counts) and a corpus built from them by the filters of `02_preprocess.py`. An
+  independent recomputation, written from the rules' wording and from the two
+  diagnostic scripts, agreed with every figure it checked on three generated
+  repositories. Forty-three tests passed, among them a stop on each kind of
+  wrong input and identical bytes from the same inputs. The test scripts are
+  not committed, so these checks cannot be repeated from the repository.
+- The script was reviewed once before this commit, and the findings were
+  applied. The report now formats every figure from its exact counts or its
+  unrounded value; otherwise one capture rate would have shown 9.380% for
+  9.379%. The shift is compared at the precision recorded. The date range and
+  funnel figures of R5, the raw-union thread cap and the range of the H1 share
+  are now compared too. Every supplementary group must hold one block for each
+  year. These corrections were not themselves reviewed again.
+- The seven rules of the script were put to the author in plain words before
+  this commit, and he accepted them.
+
+### Next
+
+- Run `analysis_02_corpus.py --confirm-committed` once, copy its two results
+  files to `results/`, and record its register lines here.
+- Commit the series-analysis script before it is run.

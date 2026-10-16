@@ -1474,3 +1474,11 @@ cannot be checked from the files.
 - Run `analysis_02_corpus.py --confirm-committed` once, copy its two results
   files to `results/`, and record its register lines here.
 - Commit the series-analysis script before it is run.
+
+## 17 October 2026 — Corpus description: run of record
+
+- `analysis_02_corpus.py` (SHA-256 `f2240bdd7354dc4fffbe561bca8e9235c0f7db12188904680dd1ca5028b58b0f`) run 2026-10-17T09:36:06+11:00 with `--confirm-committed`: corpus v2.2 matched R5 and its file SHA-256 of record; the 694 top-level raw files (manifest SHA-256 `1c775f8118d19b52fef0df3d84c989ed2f2c0fa1717ccafeffa41c809a3bd2e6`) reproduce the first three stages of the preprocessing funnel (29,649 items, 27,126 comments, 23,534 unique ids); config.py as committed at be001c7. No output of a corpus run was read.
+- Inputs: `preprocess_funnel.csv` SHA-256 `bf59253b3bdbdb6efafe7d00195f11ebacc791beff3b43a79b2c69625c7b8005`; `scrape_log.csv` `d63abf492786fc0a5fa2d11636476062e541bc0ce668edbf816d1db81abc2ab0`.
+- Outputs, in `data/analysis/corpus/run_f2240bdd7354/` (not committed): `corpus_results.json` SHA-256 `a1a59cda8498d503255fa5e47ce7c9630fb45c9163fec1d0a25e8e0792524a83`; `corpus_report.md` `f9867968df983c3e89f599be1ca844877c2762191cf56f2c4849a94480b4278f`; `thread_sizes.csv` `65c4557d6a46ce68b0b14500434ca327ee7a373fbb0c033680f67151f1e832c0` (the commentsCount join of R4, read by the series-analysis script). Python 3.12.10, NumPy 2.5.1, pandas 3.0.3, SciPy 1.18.0, PyArrow 25.0.0.
+- Previews compared (rule 7 of the script): 7 of 8 groups the same; different: within-year sampling position (docs/corpus_manifest.md, design document 7.4) (computed values in corpus_results.json, comparison_with_previews; the computed values stand).
+

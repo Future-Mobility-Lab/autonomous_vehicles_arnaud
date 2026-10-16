@@ -1,0 +1,2517 @@
+{
+  "specification": "Deviation 13 of docs/analysis_preregistration.md (the corpus description and the commentsCount join); R3, R4 and Deviations 8, 13 and 14; analysis_02_corpus.py",
+  "corpus": {
+    "rows": 12776,
+    "membership_sha256": "d187adac10d98ccda1f0145713139f008705349ea6e0b4921092b1ad099559d4",
+    "file_sha256": "958f480ec13d469dbf285714e2601e5035cf05e10126a7f9b598e32e4b33b39d",
+    "counts_by_subreddit_and_tier": "as in R5",
+    "subreddit_display_names": {
+      "teslamotors": "teslamotors",
+      "selfdrivingcars": "SelfDrivingCars",
+      "realtesla": "RealTesla",
+      "waymo": "waymo",
+      "electricvehicles": "electricvehicles",
+      "cars": "cars",
+      "futurology": "Futurology",
+      "technology": "technology",
+      "privacy": "privacy",
+      "cybersecurity": "cybersecurity"
+    },
+    "tier_of_subreddit": {
+      "teslamotors": "Tier 1",
+      "selfdrivingcars": "Tier 1",
+      "realtesla": "Tier 1",
+      "waymo": "Tier 1",
+      "electricvehicles": "Tier 2",
+      "cars": "Tier 2",
+      "futurology": "Tier 2",
+      "technology": "Tier 2",
+      "privacy": "Tier 3",
+      "cybersecurity": "Tier 3"
+    },
+    "first_comment_date": "2016-01-04",
+    "last_comment_date": "2025-04-30",
+    "by_tier": {
+      "Tier 1": 6650,
+      "Tier 2": 5562,
+      "Tier 3": 564
+    },
+    "by_subreddit": {
+      "teslamotors": 2435,
+      "selfdrivingcars": 2143,
+      "realtesla": 1189,
+      "waymo": 883,
+      "electricvehicles": 1757,
+      "cars": 1469,
+      "futurology": 1411,
+      "technology": 925,
+      "privacy": 371,
+      "cybersecurity": 193
+    },
+    "tier_1_and_2": 12212
+  },
+  "year_totals": {
+    "by_year": {
+      "2016": {
+        "all": 724,
+        "tier_1_and_2": 715,
+        "Tier 1": 319,
+        "Tier 2": 396,
+        "Tier 3": 9
+      },
+      "2017": {
+        "all": 816,
+        "tier_1_and_2": 784,
+        "Tier 1": 364,
+        "Tier 2": 420,
+        "Tier 3": 32
+      },
+      "2018": {
+        "all": 1040,
+        "tier_1_and_2": 1004,
+        "Tier 1": 576,
+        "Tier 2": 428,
+        "Tier 3": 36
+      },
+      "2019": {
+        "all": 1303,
+        "tier_1_and_2": 1255,
+        "Tier 1": 849,
+        "Tier 2": 406,
+        "Tier 3": 48
+      },
+      "2020": {
+        "all": 1226,
+        "tier_1_and_2": 1114,
+        "Tier 1": 613,
+        "Tier 2": 501,
+        "Tier 3": 112
+      },
+      "2021": {
+        "all": 1350,
+        "tier_1_and_2": 1280,
+        "Tier 1": 653,
+        "Tier 2": 627,
+        "Tier 3": 70
+      },
+      "2022": {
+        "all": 1289,
+        "tier_1_and_2": 1243,
+        "Tier 1": 538,
+        "Tier 2": 705,
+        "Tier 3": 46
+      },
+      "2023": {
+        "all": 1408,
+        "tier_1_and_2": 1328,
+        "Tier 1": 561,
+        "Tier 2": 767,
+        "Tier 3": 80
+      },
+      "2024": {
+        "all": 2302,
+        "tier_1_and_2": 2205,
+        "Tier 1": 1224,
+        "Tier 2": 981,
+        "Tier 3": 97
+      },
+      "2025": {
+        "all": 1318,
+        "tier_1_and_2": 1284,
+        "Tier 1": 953,
+        "Tier 2": 331,
+        "Tier 3": 34
+      }
+    },
+    "monthly_rate_2025_against_2024": {
+      "all": {
+        "2024_comments": 2302,
+        "2025_comments": 1318,
+        "2025_monthly_rate_over_2024_monthly_rate": 1.717637
+      },
+      "tier_1_and_2": {
+        "2024_comments": 2205,
+        "2025_comments": 1284,
+        "2025_monthly_rate_over_2024_monthly_rate": 1.746939
+      }
+    },
+    "note": "2025 covers January to April (the study window ends on 30 April 2025): four months against twelve"
+  },
+  "composition_by_year": {
+    "comments_by_subreddit_and_year": {
+      "teslamotors": {
+        "2016": 215,
+        "2017": 259,
+        "2018": 319,
+        "2019": 505,
+        "2020": 298,
+        "2021": 266,
+        "2022": 160,
+        "2023": 117,
+        "2024": 225,
+        "2025": 71
+      },
+      "selfdrivingcars": {
+        "2016": 104,
+        "2017": 99,
+        "2018": 131,
+        "2019": 173,
+        "2020": 173,
+        "2021": 230,
+        "2022": 224,
+        "2023": 243,
+        "2024": 491,
+        "2025": 275
+      },
+      "realtesla": {
+        "2016": 0,
+        "2017": 6,
+        "2018": 117,
+        "2019": 139,
+        "2020": 104,
+        "2021": 151,
+        "2022": 152,
+        "2023": 196,
+        "2024": 199,
+        "2025": 125
+      },
+      "waymo": {
+        "2016": 0,
+        "2017": 0,
+        "2018": 9,
+        "2019": 32,
+        "2020": 38,
+        "2021": 6,
+        "2022": 2,
+        "2023": 5,
+        "2024": 309,
+        "2025": 482
+      },
+      "electricvehicles": {
+        "2016": 43,
+        "2017": 31,
+        "2018": 73,
+        "2019": 120,
+        "2020": 154,
+        "2021": 198,
+        "2022": 236,
+        "2023": 260,
+        "2024": 475,
+        "2025": 167
+      },
+      "cars": {
+        "2016": 129,
+        "2017": 128,
+        "2018": 154,
+        "2019": 148,
+        "2020": 139,
+        "2021": 212,
+        "2022": 172,
+        "2023": 156,
+        "2024": 187,
+        "2025": 44
+      },
+      "futurology": {
+        "2016": 131,
+        "2017": 171,
+        "2018": 125,
+        "2019": 93,
+        "2020": 113,
+        "2021": 128,
+        "2022": 154,
+        "2023": 220,
+        "2024": 190,
+        "2025": 86
+      },
+      "technology": {
+        "2016": 93,
+        "2017": 90,
+        "2018": 76,
+        "2019": 45,
+        "2020": 95,
+        "2021": 89,
+        "2022": 143,
+        "2023": 131,
+        "2024": 129,
+        "2025": 34
+      },
+      "privacy": {
+        "2016": 9,
+        "2017": 32,
+        "2018": 33,
+        "2019": 30,
+        "2020": 83,
+        "2021": 39,
+        "2022": 20,
+        "2023": 47,
+        "2024": 52,
+        "2025": 26
+      },
+      "cybersecurity": {
+        "2016": 0,
+        "2017": 0,
+        "2018": 3,
+        "2019": 18,
+        "2020": 29,
+        "2021": 31,
+        "2022": 26,
+        "2023": 33,
+        "2024": 45,
+        "2025": 8
+      }
+    },
+    "share_of_tier_1_and_2_comments_by_year": {
+      "2016": {
+        "teslamotors": 0.300699,
+        "selfdrivingcars": 0.145455,
+        "realtesla": 0.0,
+        "waymo": 0.0,
+        "electricvehicles": 0.06014,
+        "cars": 0.18042,
+        "futurology": 0.183217,
+        "technology": 0.13007
+      },
+      "2017": {
+        "teslamotors": 0.330357,
+        "selfdrivingcars": 0.126276,
+        "realtesla": 0.007653,
+        "waymo": 0.0,
+        "electricvehicles": 0.039541,
+        "cars": 0.163265,
+        "futurology": 0.218112,
+        "technology": 0.114796
+      },
+      "2018": {
+        "teslamotors": 0.317729,
+        "selfdrivingcars": 0.130478,
+        "realtesla": 0.116534,
+        "waymo": 0.008964,
+        "electricvehicles": 0.072709,
+        "cars": 0.153386,
+        "futurology": 0.124502,
+        "technology": 0.075697
+      },
+      "2019": {
+        "teslamotors": 0.40239,
+        "selfdrivingcars": 0.137849,
+        "realtesla": 0.110757,
+        "waymo": 0.025498,
+        "electricvehicles": 0.095618,
+        "cars": 0.117928,
+        "futurology": 0.074104,
+        "technology": 0.035857
+      },
+      "2020": {
+        "teslamotors": 0.267504,
+        "selfdrivingcars": 0.155296,
+        "realtesla": 0.093357,
+        "waymo": 0.034111,
+        "electricvehicles": 0.138241,
+        "cars": 0.124776,
+        "futurology": 0.101436,
+        "technology": 0.085278
+      },
+      "2021": {
+        "teslamotors": 0.207813,
+        "selfdrivingcars": 0.179688,
+        "realtesla": 0.117969,
+        "waymo": 0.004687,
+        "electricvehicles": 0.154688,
+        "cars": 0.165625,
+        "futurology": 0.1,
+        "technology": 0.069531
+      },
+      "2022": {
+        "teslamotors": 0.128721,
+        "selfdrivingcars": 0.180209,
+        "realtesla": 0.122285,
+        "waymo": 0.001609,
+        "electricvehicles": 0.189863,
+        "cars": 0.138375,
+        "futurology": 0.123894,
+        "technology": 0.115044
+      },
+      "2023": {
+        "teslamotors": 0.088102,
+        "selfdrivingcars": 0.182982,
+        "realtesla": 0.14759,
+        "waymo": 0.003765,
+        "electricvehicles": 0.195783,
+        "cars": 0.11747,
+        "futurology": 0.165663,
+        "technology": 0.098645
+      },
+      "2024": {
+        "teslamotors": 0.102041,
+        "selfdrivingcars": 0.222676,
+        "realtesla": 0.090249,
+        "waymo": 0.140136,
+        "electricvehicles": 0.21542,
+        "cars": 0.084807,
+        "futurology": 0.086168,
+        "technology": 0.058503
+      },
+      "2025": {
+        "teslamotors": 0.055296,
+        "selfdrivingcars": 0.214174,
+        "realtesla": 0.097352,
+        "waymo": 0.375389,
+        "electricvehicles": 0.130062,
+        "cars": 0.034268,
+        "futurology": 0.066978,
+        "technology": 0.02648
+      }
+    },
+    "tier_1_share_of_all_comments_by_year": {
+      "2016": {
+        "tier_1": 319,
+        "all": 724,
+        "share": 0.440608
+      },
+      "2017": {
+        "tier_1": 364,
+        "all": 816,
+        "share": 0.446078
+      },
+      "2018": {
+        "tier_1": 576,
+        "all": 1040,
+        "share": 0.553846
+      },
+      "2019": {
+        "tier_1": 849,
+        "all": 1303,
+        "share": 0.651573
+      },
+      "2020": {
+        "tier_1": 613,
+        "all": 1226,
+        "share": 0.5
+      },
+      "2021": {
+        "tier_1": 653,
+        "all": 1350,
+        "share": 0.483704
+      },
+      "2022": {
+        "tier_1": 538,
+        "all": 1289,
+        "share": 0.417378
+      },
+      "2023": {
+        "tier_1": 561,
+        "all": 1408,
+        "share": 0.398438
+      },
+      "2024": {
+        "tier_1": 1224,
+        "all": 2302,
+        "share": 0.531712
+      },
+      "2025": {
+        "tier_1": 953,
+        "all": 1318,
+        "share": 0.723065
+      }
+    },
+    "subreddit_coverage": {
+      "teslamotors": {
+        "comments": 2435,
+        "first": "2016-01-16",
+        "last": "2025-04-27",
+        "missing_study_years": []
+      },
+      "selfdrivingcars": {
+        "comments": 2143,
+        "first": "2016-01-07",
+        "last": "2025-04-30",
+        "missing_study_years": []
+      },
+      "realtesla": {
+        "comments": 1189,
+        "first": "2017-11-07",
+        "last": "2025-04-30",
+        "missing_study_years": [
+          2016
+        ]
+      },
+      "waymo": {
+        "comments": 883,
+        "first": "2018-05-29",
+        "last": "2025-04-30",
+        "missing_study_years": [
+          2016,
+          2017
+        ]
+      },
+      "electricvehicles": {
+        "comments": 1757,
+        "first": "2016-01-27",
+        "last": "2025-04-30",
+        "missing_study_years": []
+      },
+      "cars": {
+        "comments": 1469,
+        "first": "2016-02-11",
+        "last": "2025-04-29",
+        "missing_study_years": []
+      },
+      "futurology": {
+        "comments": 1411,
+        "first": "2016-01-09",
+        "last": "2025-04-27",
+        "missing_study_years": []
+      },
+      "technology": {
+        "comments": 925,
+        "first": "2016-01-04",
+        "last": "2025-04-30",
+        "missing_study_years": []
+      },
+      "privacy": {
+        "comments": 371,
+        "first": "2016-07-21",
+        "last": "2025-04-22",
+        "missing_study_years": []
+      },
+      "cybersecurity": {
+        "comments": 193,
+        "first": "2018-11-08",
+        "last": "2025-04-13",
+        "missing_study_years": [
+          2016,
+          2017
+        ]
+      }
+    },
+    "waymo_comments_in_2024_2025": {
+      "k": 791,
+      "n": 883,
+      "share": 0.89581
+    }
+  },
+  "threads": {
+    "threads": 1898,
+    "threads_by_tier": {
+      "Tier 1": 902,
+      "Tier 2": 878,
+      "Tier 3": 118
+    },
+    "threads_tier_1_and_2": 1780,
+    "threads_in_more_than_one_tier": 0,
+    "threads_in_more_than_one_subreddit": 0,
+    "comments_per_thread": {
+      "mean": 6.731296,
+      "median": 7.0,
+      "largest": 15,
+      "threads_by_number_of_comments": {
+        "1": 168,
+        "2": 129,
+        "3": 138,
+        "4": 150,
+        "5": 144,
+        "6": 175,
+        "7": 165,
+        "8": 158,
+        "9": 192,
+        "10": 162,
+        "11": 128,
+        "12": 101,
+        "13": 55,
+        "14": 31,
+        "15": 2
+      },
+      "threads_with_more_than_15": 0
+    },
+    "raw_union": {
+      "threads": 2023,
+      "most_unique_comments_in_one_thread": 16,
+      "threads_with_more_than_15": 1
+    }
+  },
+  "thread_size_R4": {
+    "join": {
+      "post_records": 2523,
+      "post_records_without_thread_id": 0,
+      "threads_with_a_post_record": 2237,
+      "threads_with_more_than_one_post_record": 262,
+      "threads_whose_post_records_report_different_counts": 8,
+      "threads_with_no_reported_count": 0,
+      "rule": "comment parsedPostId = post parsedId; the largest reported count where a thread has more than one post record (Deviation 13)"
+    },
+    "all tiers": {
+      "comments": 12776,
+      "comments_by_status": {
+        "joined": 12776,
+        "no post record": 0,
+        "no reported count": 0,
+        "reported count of zero": 0
+      },
+      "threads_by_status": {
+        "joined": 1898,
+        "no post record": 0,
+        "no reported count": 0,
+        "reported count of zero": 0
+      },
+      "comments_by_bucket": {
+        "1-5": 516,
+        "6-15": 1929,
+        "16-50": 3969,
+        "51-200": 4269,
+        "201-1000": 1807,
+        "1000+": 286
+      },
+      "threads_by_bucket": {
+        "1-5": 283,
+        "6-15": 353,
+        "16-50": 472,
+        "51-200": 520,
+        "201-1000": 231,
+        "1000+": 39
+      }
+    },
+    "tier_1_and_2": {
+      "comments": 12212,
+      "comments_by_status": {
+        "joined": 12212,
+        "no post record": 0,
+        "no reported count": 0,
+        "reported count of zero": 0
+      },
+      "threads_by_status": {
+        "joined": 1780,
+        "no post record": 0,
+        "no reported count": 0,
+        "reported count of zero": 0
+      },
+      "comments_by_bucket": {
+        "1-5": 415,
+        "6-15": 1715,
+        "16-50": 3792,
+        "51-200": 4209,
+        "201-1000": 1795,
+        "1000+": 286
+      },
+      "threads_by_bucket": {
+        "1-5": 235,
+        "6-15": 312,
+        "16-50": 452,
+        "51-200": 513,
+        "201-1000": 229,
+        "1000+": 39
+      },
+      "comments_by_bucket_and_year": {
+        "2016": {
+          "1-5": 45,
+          "6-15": 207,
+          "16-50": 223,
+          "51-200": 102,
+          "201-1000": 75,
+          "1000+": 63
+        },
+        "2017": {
+          "1-5": 27,
+          "6-15": 121,
+          "16-50": 249,
+          "51-200": 203,
+          "201-1000": 135,
+          "1000+": 49
+        },
+        "2018": {
+          "1-5": 47,
+          "6-15": 145,
+          "16-50": 329,
+          "51-200": 295,
+          "201-1000": 129,
+          "1000+": 59
+        },
+        "2019": {
+          "1-5": 58,
+          "6-15": 182,
+          "16-50": 532,
+          "51-200": 348,
+          "201-1000": 92,
+          "1000+": 43
+        },
+        "2020": {
+          "1-5": 57,
+          "6-15": 234,
+          "16-50": 391,
+          "51-200": 286,
+          "201-1000": 146,
+          "1000+": 0
+        },
+        "2021": {
+          "1-5": 55,
+          "6-15": 242,
+          "16-50": 301,
+          "51-200": 424,
+          "201-1000": 211,
+          "1000+": 47
+        },
+        "2022": {
+          "1-5": 38,
+          "6-15": 150,
+          "16-50": 362,
+          "51-200": 485,
+          "201-1000": 200,
+          "1000+": 8
+        },
+        "2023": {
+          "1-5": 26,
+          "6-15": 155,
+          "16-50": 329,
+          "51-200": 623,
+          "201-1000": 190,
+          "1000+": 5
+        },
+        "2024": {
+          "1-5": 33,
+          "6-15": 202,
+          "16-50": 618,
+          "51-200": 955,
+          "201-1000": 397,
+          "1000+": 0
+        },
+        "2025": {
+          "1-5": 29,
+          "6-15": 77,
+          "16-50": 458,
+          "51-200": 488,
+          "201-1000": 220,
+          "1000+": 12
+        }
+      }
+    }
+  },
+  "capture": {
+    "method": "check_capture_rate.py: captured = unique raw comment ids of a thread; effective denominator = max(commentsCount, captured); a missing commentsCount counts as 0",
+    "threads": 2237,
+    "reported_total": 250781,
+    "effective_total": 250909,
+    "denominator_adjustment": 128,
+    "captured_total": 23534,
+    "original_rate": 0.093843,
+    "corrected_rate": 0.093795,
+    "threads_where_captured_exceeds_commentsCount": 95,
+    "share_of_threads": 0.042468,
+    "total_excess": 128,
+    "largest_excess": 4,
+    "deleted_on_those_threads": 133,
+    "removed_on_those_threads": 13,
+    "threads_whose_excess_deleted_and_removed_cover": 95,
+    "excess_not_covered": 0,
+    "threads_with_no_comment_captured": 191,
+    "by_bucket": {
+      "0": {
+        "threads": 191,
+        "reported": 0,
+        "effective": 0,
+        "captured": 0,
+        "rate": null
+      },
+      "1-5": {
+        "threads": 414,
+        "reported": 1066,
+        "effective": 1096,
+        "captured": 1006,
+        "rate": 0.917883
+      },
+      "6-15": {
+        "threads": 360,
+        "reported": 3496,
+        "effective": 3594,
+        "captured": 3469,
+        "rate": 0.96522
+      },
+      "16-50": {
+        "threads": 474,
+        "reported": 14548,
+        "effective": 14548,
+        "captured": 7089,
+        "rate": 0.487283
+      },
+      "51-200": {
+        "threads": 525,
+        "reported": 54519,
+        "effective": 54519,
+        "captured": 7875,
+        "rate": 0.144445
+      },
+      "201-1000": {
+        "threads": 234,
+        "reported": 91707,
+        "effective": 91707,
+        "captured": 3510,
+        "rate": 0.038274
+      },
+      "1000+": {
+        "threads": 39,
+        "reported": 85445,
+        "effective": 85445,
+        "captured": 585,
+        "rate": 0.006847
+      }
+    },
+    "reconciliation": {
+      "unique_raw_comment_ids_with_a_thread_id": 23534,
+      "of_which_in_threads_with_a_post_record": 23534,
+      "corpus_threads": 1898,
+      "corpus_threads_with_a_post_record": 1898,
+      "sampled_threads_with_no_corpus_comment": 339
+    }
+  },
+  "funnel": {
+    "file_sha256": "bf59253b3bdbdb6efafe7d00195f11ebacc791beff3b43a79b2c69625c7b8005",
+    "stages": [
+      {
+        "stage": "raw items",
+        "items": 29649,
+        "removed": null
+      },
+      {
+        "stage": "comments",
+        "items": 27126,
+        "removed": 2523
+      },
+      {
+        "stage": "after dedup",
+        "items": 23534,
+        "removed": 3592
+      },
+      {
+        "stage": "after body-deleted removed",
+        "items": 22291,
+        "removed": 1243
+      },
+      {
+        "stage": "after bot filter",
+        "items": 22165,
+        "removed": 126
+      },
+      {
+        "stage": "after timestamp parse",
+        "items": 22165,
+        "removed": 0
+      },
+      {
+        "stage": "after study window 2016-01-01..2025-05-01",
+        "items": 22099,
+        "removed": 66
+      },
+      {
+        "stage": "after content bot filter (7 removed)",
+        "items": 22092,
+        "removed": 7
+      },
+      {
+        "stage": "after submission wrapper strip (79 stripped; 7 fall below word floor)",
+        "items": 22092,
+        "removed": 0
+      },
+      {
+        "stage": "after relay duplicate resolution (22 removed)",
+        "items": 22070,
+        "removed": 22
+      },
+      {
+        "stage": "after username masking (61 rows masked)",
+        "items": 22070,
+        "removed": 0
+      },
+      {
+        "stage": "after >= 20-word floor",
+        "items": 12776,
+        "removed": 9294
+      },
+      {
+        "stage": "after English filter",
+        "items": 12776,
+        "removed": 0
+      }
+    ],
+    "word_floor": {
+      "before": 22070,
+      "after": 12776,
+      "removed": 9294,
+      "share_removed": 0.421115
+    },
+    "checks": "the first three stages equal the raw files; the last equals the corpus rows"
+  },
+  "lexical_proxy": {
+    "source": {
+      "file": "config.py",
+      "commit": "be001c7",
+      "sha256_lf": "92ebb86e725d86c08344862ec7dba2c6dcfe3834af079a8a632ccf46505abb61",
+      "term_list": "CORE_TERMS",
+      "rule": "Deviation 14 of docs/analysis_preregistration.md"
+    },
+    "patterns_ignoring_case": [
+      "\\bself[- ]?drivings?\\b",
+      "\\bautonomous[- ]?vehicles?\\b",
+      "\\brobotaxis?\\b",
+      "\\bautopilots?\\b",
+      "\\bfsds?\\b",
+      "\\bwaymos?\\b",
+      "\\bv2xs?\\b",
+      "\\blidars?\\b"
+    ],
+    "text": "clean_body of corpus v2.2",
+    "overall": {
+      "all tiers": {
+        "k": 4176,
+        "n": 12776,
+        "share": 0.326863,
+        "wilson95_low": 0.318782,
+        "wilson95_high": 0.335047
+      },
+      "tier_1_and_2": {
+        "k": 4162,
+        "n": 12212,
+        "share": 0.340812,
+        "wilson95_low": 0.332457,
+        "wilson95_high": 0.349268
+      },
+      "Tier 1": {
+        "k": 2653,
+        "n": 6650,
+        "share": 0.398947,
+        "wilson95_low": 0.38724,
+        "wilson95_high": 0.410772
+      },
+      "Tier 2": {
+        "k": 1509,
+        "n": 5562,
+        "share": 0.271305,
+        "wilson95_low": 0.259781,
+        "wilson95_high": 0.283145
+      },
+      "Tier 3": {
+        "k": 14,
+        "n": 564,
+        "share": 0.024823,
+        "wilson95_low": 0.014843,
+        "wilson95_high": 0.041232
+      }
+    },
+    "by_subreddit": {
+      "teslamotors": {
+        "k": 952,
+        "n": 2435,
+        "share": 0.390965,
+        "wilson95_low": 0.37177,
+        "wilson95_high": 0.410504
+      },
+      "selfdrivingcars": {
+        "k": 820,
+        "n": 2143,
+        "share": 0.382641,
+        "wilson95_low": 0.362291,
+        "wilson95_high": 0.403412
+      },
+      "realtesla": {
+        "k": 453,
+        "n": 1189,
+        "share": 0.380992,
+        "wilson95_low": 0.353814,
+        "wilson95_high": 0.408937
+      },
+      "waymo": {
+        "k": 428,
+        "n": 883,
+        "share": 0.484711,
+        "wilson95_low": 0.451885,
+        "wilson95_high": 0.51767
+      },
+      "electricvehicles": {
+        "k": 506,
+        "n": 1757,
+        "share": 0.287991,
+        "wilson95_low": 0.267298,
+        "wilson95_high": 0.309609
+      },
+      "cars": {
+        "k": 330,
+        "n": 1469,
+        "share": 0.224643,
+        "wilson95_low": 0.204035,
+        "wilson95_high": 0.246687
+      },
+      "futurology": {
+        "k": 372,
+        "n": 1411,
+        "share": 0.263643,
+        "wilson95_low": 0.241317,
+        "wilson95_high": 0.287252
+      },
+      "technology": {
+        "k": 301,
+        "n": 925,
+        "share": 0.325405,
+        "wilson95_low": 0.295988,
+        "wilson95_high": 0.356267
+      },
+      "privacy": {
+        "k": 9,
+        "n": 371,
+        "share": 0.024259,
+        "wilson95_low": 0.012814,
+        "wilson95_high": 0.045454
+      },
+      "cybersecurity": {
+        "k": 5,
+        "n": 193,
+        "share": 0.025907,
+        "wilson95_low": 0.011115,
+        "wilson95_high": 0.059202
+      }
+    },
+    "by_subreddit_and_era": {
+      "teslamotors": {
+        "2016-2018": {
+          "k": 296,
+          "n": 793,
+          "share": 0.373266,
+          "wilson95_low": 0.340289,
+          "wilson95_high": 0.407465
+        },
+        "2019-2021": {
+          "k": 439,
+          "n": 1069,
+          "share": 0.410664,
+          "wilson95_low": 0.381545,
+          "wilson95_high": 0.440424
+        },
+        "2022-2025": {
+          "k": 217,
+          "n": 573,
+          "share": 0.378709,
+          "wilson95_low": 0.339924,
+          "wilson95_high": 0.419109
+        }
+      },
+      "selfdrivingcars": {
+        "2016-2018": {
+          "k": 97,
+          "n": 334,
+          "share": 0.290419,
+          "wilson95_low": 0.244337,
+          "wilson95_high": 0.341268
+        },
+        "2019-2021": {
+          "k": 229,
+          "n": 576,
+          "share": 0.397569,
+          "wilson95_low": 0.358408,
+          "wilson95_high": 0.438088
+        },
+        "2022-2025": {
+          "k": 494,
+          "n": 1233,
+          "share": 0.400649,
+          "wilson95_low": 0.373646,
+          "wilson95_high": 0.428269
+        }
+      },
+      "realtesla": {
+        "2016-2018": {
+          "k": 51,
+          "n": 123,
+          "share": 0.414634,
+          "wilson95_low": 0.331444,
+          "wilson95_high": 0.502995
+        },
+        "2019-2021": {
+          "k": 149,
+          "n": 394,
+          "share": 0.378173,
+          "wilson95_low": 0.331683,
+          "wilson95_high": 0.427015
+        },
+        "2022-2025": {
+          "k": 253,
+          "n": 672,
+          "share": 0.376488,
+          "wilson95_low": 0.340656,
+          "wilson95_high": 0.413725
+        }
+      },
+      "waymo": {
+        "2016-2018": {
+          "k": 6,
+          "n": 9,
+          "share": 0.666667,
+          "wilson95_low": 0.354202,
+          "wilson95_high": 0.879416
+        },
+        "2019-2021": {
+          "k": 34,
+          "n": 76,
+          "share": 0.447368,
+          "wilson95_low": 0.340807,
+          "wilson95_high": 0.558995
+        },
+        "2022-2025": {
+          "k": 388,
+          "n": 798,
+          "share": 0.486216,
+          "wilson95_low": 0.451687,
+          "wilson95_high": 0.520876
+        }
+      },
+      "electricvehicles": {
+        "2016-2018": {
+          "k": 23,
+          "n": 147,
+          "share": 0.156463,
+          "wilson95_low": 0.106579,
+          "wilson95_high": 0.223843
+        },
+        "2019-2021": {
+          "k": 121,
+          "n": 472,
+          "share": 0.256356,
+          "wilson95_low": 0.219043,
+          "wilson95_high": 0.297602
+        },
+        "2022-2025": {
+          "k": 362,
+          "n": 1138,
+          "share": 0.318102,
+          "wilson95_low": 0.291693,
+          "wilson95_high": 0.345735
+        }
+      },
+      "cars": {
+        "2016-2018": {
+          "k": 77,
+          "n": 411,
+          "share": 0.187348,
+          "wilson95_low": 0.152584,
+          "wilson95_high": 0.227902
+        },
+        "2019-2021": {
+          "k": 101,
+          "n": 499,
+          "share": 0.202405,
+          "wilson95_low": 0.169486,
+          "wilson95_high": 0.23987
+        },
+        "2022-2025": {
+          "k": 152,
+          "n": 559,
+          "share": 0.271914,
+          "wilson95_low": 0.236679,
+          "wilson95_high": 0.310263
+        }
+      },
+      "futurology": {
+        "2016-2018": {
+          "k": 108,
+          "n": 427,
+          "share": 0.252927,
+          "wilson95_low": 0.214025,
+          "wilson95_high": 0.296235
+        },
+        "2019-2021": {
+          "k": 85,
+          "n": 334,
+          "share": 0.254491,
+          "wilson95_low": 0.210752,
+          "wilson95_high": 0.303813
+        },
+        "2022-2025": {
+          "k": 179,
+          "n": 650,
+          "share": 0.275385,
+          "wilson95_low": 0.242439,
+          "wilson95_high": 0.31097
+        }
+      },
+      "technology": {
+        "2016-2018": {
+          "k": 62,
+          "n": 259,
+          "share": 0.239382,
+          "wilson95_low": 0.191465,
+          "wilson95_high": 0.294917
+        },
+        "2019-2021": {
+          "k": 74,
+          "n": 229,
+          "share": 0.323144,
+          "wilson95_low": 0.26592,
+          "wilson95_high": 0.386204
+        },
+        "2022-2025": {
+          "k": 165,
+          "n": 437,
+          "share": 0.377574,
+          "wilson95_low": 0.333375,
+          "wilson95_high": 0.423907
+        }
+      },
+      "privacy": {
+        "2016-2018": {
+          "k": 4,
+          "n": 74,
+          "share": 0.054054,
+          "wilson95_low": 0.021219,
+          "wilson95_high": 0.130904
+        },
+        "2019-2021": {
+          "k": 4,
+          "n": 152,
+          "share": 0.026316,
+          "wilson95_low": 0.01028,
+          "wilson95_high": 0.065704
+        },
+        "2022-2025": {
+          "k": 1,
+          "n": 145,
+          "share": 0.006897,
+          "wilson95_low": 0.001218,
+          "wilson95_high": 0.038028
+        }
+      },
+      "cybersecurity": {
+        "2016-2018": {
+          "k": 0,
+          "n": 3,
+          "share": 0.0,
+          "wilson95_low": 0.0,
+          "wilson95_high": 0.561497
+        },
+        "2019-2021": {
+          "k": 2,
+          "n": 78,
+          "share": 0.025641,
+          "wilson95_low": 0.00706,
+          "wilson95_high": 0.088753
+        },
+        "2022-2025": {
+          "k": 3,
+          "n": 112,
+          "share": 0.026786,
+          "wilson95_low": 0.009151,
+          "wilson95_high": 0.075805
+        }
+      }
+    },
+    "by_tier_and_era": {
+      "Tier 1": {
+        "2016-2018": {
+          "k": 450,
+          "n": 1259,
+          "share": 0.357427,
+          "wilson95_low": 0.331425,
+          "wilson95_high": 0.384296
+        },
+        "2019-2021": {
+          "k": 851,
+          "n": 2115,
+          "share": 0.402364,
+          "wilson95_low": 0.381661,
+          "wilson95_high": 0.423422
+        },
+        "2022-2025": {
+          "k": 1352,
+          "n": 3276,
+          "share": 0.412698,
+          "wilson95_low": 0.395952,
+          "wilson95_high": 0.42965
+        }
+      },
+      "Tier 2": {
+        "2016-2018": {
+          "k": 270,
+          "n": 1244,
+          "share": 0.217042,
+          "wilson95_low": 0.195024,
+          "wilson95_high": 0.240802
+        },
+        "2019-2021": {
+          "k": 381,
+          "n": 1534,
+          "share": 0.24837,
+          "wilson95_low": 0.227395,
+          "wilson95_high": 0.270603
+        },
+        "2022-2025": {
+          "k": 858,
+          "n": 2784,
+          "share": 0.30819,
+          "wilson95_low": 0.291312,
+          "wilson95_high": 0.325596
+        }
+      },
+      "Tier 3": {
+        "2016-2018": {
+          "k": 4,
+          "n": 77,
+          "share": 0.051948,
+          "wilson95_low": 0.020385,
+          "wilson95_high": 0.126093
+        },
+        "2019-2021": {
+          "k": 6,
+          "n": 230,
+          "share": 0.026087,
+          "wilson95_low": 0.01201,
+          "wilson95_high": 0.055735
+        },
+        "2022-2025": {
+          "k": 4,
+          "n": 257,
+          "share": 0.015564,
+          "wilson95_low": 0.006069,
+          "wilson95_high": 0.039328
+        }
+      }
+    },
+    "by_era": {
+      "tier_1_and_2": {
+        "2016-2018": {
+          "k": 720,
+          "n": 2503,
+          "share": 0.287655,
+          "wilson95_low": 0.270257,
+          "wilson95_high": 0.305703
+        },
+        "2019-2021": {
+          "k": 1232,
+          "n": 3649,
+          "share": 0.337627,
+          "wilson95_low": 0.322461,
+          "wilson95_high": 0.353134
+        },
+        "2022-2025": {
+          "k": 2210,
+          "n": 6060,
+          "share": 0.364686,
+          "wilson95_low": 0.352657,
+          "wilson95_high": 0.376888
+        }
+      },
+      "all tiers": {
+        "2016-2018": {
+          "k": 724,
+          "n": 2580,
+          "share": 0.28062,
+          "wilson95_low": 0.263619,
+          "wilson95_high": 0.298274
+        },
+        "2019-2021": {
+          "k": 1238,
+          "n": 3879,
+          "share": 0.319154,
+          "wilson95_low": 0.30467,
+          "wilson95_high": 0.333997
+        },
+        "2022-2025": {
+          "k": 2214,
+          "n": 6317,
+          "share": 0.350483,
+          "wilson95_low": 0.338811,
+          "wilson95_high": 0.362336
+        }
+      }
+    },
+    "by_year": {
+      "tier_1_and_2": {
+        "2016": {
+          "k": 199,
+          "n": 715,
+          "share": 0.278322,
+          "wilson95_low": 0.246722,
+          "wilson95_high": 0.31229
+        },
+        "2017": {
+          "k": 200,
+          "n": 784,
+          "share": 0.255102,
+          "wilson95_low": 0.225833,
+          "wilson95_high": 0.286759
+        },
+        "2018": {
+          "k": 321,
+          "n": 1004,
+          "share": 0.319721,
+          "wilson95_low": 0.291607,
+          "wilson95_high": 0.349209
+        },
+        "2019": {
+          "k": 443,
+          "n": 1255,
+          "share": 0.352988,
+          "wilson95_low": 0.327033,
+          "wilson95_high": 0.37984
+        },
+        "2020": {
+          "k": 346,
+          "n": 1114,
+          "share": 0.310592,
+          "wilson95_low": 0.284109,
+          "wilson95_high": 0.338378
+        },
+        "2021": {
+          "k": 443,
+          "n": 1280,
+          "share": 0.346094,
+          "wilson95_low": 0.320528,
+          "wilson95_high": 0.372581
+        },
+        "2022": {
+          "k": 416,
+          "n": 1243,
+          "share": 0.334674,
+          "wilson95_low": 0.308986,
+          "wilson95_high": 0.361381
+        },
+        "2023": {
+          "k": 434,
+          "n": 1328,
+          "share": 0.326807,
+          "wilson95_low": 0.302111,
+          "wilson95_high": 0.352502
+        },
+        "2024": {
+          "k": 795,
+          "n": 2205,
+          "share": 0.360544,
+          "wilson95_low": 0.340761,
+          "wilson95_high": 0.380812
+        },
+        "2025": {
+          "k": 565,
+          "n": 1284,
+          "share": 0.440031,
+          "wilson95_low": 0.413099,
+          "wilson95_high": 0.467321
+        }
+      },
+      "all tiers": {
+        "2016": {
+          "k": 200,
+          "n": 724,
+          "share": 0.276243,
+          "wilson95_low": 0.244918,
+          "wilson95_high": 0.30993
+        },
+        "2017": {
+          "k": 202,
+          "n": 816,
+          "share": 0.247549,
+          "wilson95_low": 0.219165,
+          "wilson95_high": 0.278298
+        },
+        "2018": {
+          "k": 322,
+          "n": 1040,
+          "share": 0.309615,
+          "wilson95_low": 0.28226,
+          "wilson95_high": 0.338372
+        },
+        "2019": {
+          "k": 446,
+          "n": 1303,
+          "share": 0.342287,
+          "wilson95_low": 0.317022,
+          "wilson95_high": 0.368479
+        },
+        "2020": {
+          "k": 346,
+          "n": 1226,
+          "share": 0.282219,
+          "wilson95_low": 0.257735,
+          "wilson95_high": 0.308062
+        },
+        "2021": {
+          "k": 446,
+          "n": 1350,
+          "share": 0.33037,
+          "wilson95_low": 0.305793,
+          "wilson95_high": 0.355911
+        },
+        "2022": {
+          "k": 416,
+          "n": 1289,
+          "share": 0.322731,
+          "wilson95_low": 0.297768,
+          "wilson95_high": 0.348747
+        },
+        "2023": {
+          "k": 436,
+          "n": 1408,
+          "share": 0.309659,
+          "wilson95_low": 0.286054,
+          "wilson95_high": 0.3343
+        },
+        "2024": {
+          "k": 796,
+          "n": 2302,
+          "share": 0.345786,
+          "wilson95_low": 0.326628,
+          "wilson95_high": 0.365458
+        },
+        "2025": {
+          "k": 566,
+          "n": 1318,
+          "share": 0.429439,
+          "wilson95_low": 0.402958,
+          "wilson95_high": 0.456329
+        }
+      }
+    },
+    "composition_check_tier_1_and_2": {
+      "status": "exploratory (Family C, R5)",
+      "method": "Deviation 8 (analysis_01_sample.decomposition), S_e = each era's Tier 1+2 comments",
+      "note": "standardised_era_rates_pooled_frame_mix (the helper's name) holds the era rates standardised to the pooled mix of the three eras' Tier 1+2 comments, not to the draw frame",
+      "seven_groups": {
+        "era_rates": {
+          "2016-2018": 0.287655,
+          "2019-2021": 0.337627,
+          "2022-2025": 0.364686
+        },
+        "items_by_era": {
+          "2016-2018": 2503,
+          "2019-2021": 3649,
+          "2022-2025": 6060
+        },
+        "difference_2022_2025_minus_2016_2018": 0.077032,
+        "mix_part": 0.001314,
+        "within_group_part": 0.075717,
+        "standardised_era_rates_pooled_frame_mix": {
+          "2016-2018": 0.281609,
+          "2019-2021": 0.333768,
+          "2022-2025": 0.358669
+        },
+        "pooled_frame_mix": {
+          "teslamotors": 0.199394,
+          "selfdrivingcars+waymo": 0.247789,
+          "realtesla": 0.097363,
+          "electricvehicles": 0.143875,
+          "cars": 0.120292,
+          "futurology": 0.115542,
+          "technology": 0.075745
+        },
+        "groups": {
+          "teslamotors": {
+            "2016-2018": {
+              "items": 793,
+              "share_of_era": 0.31682,
+              "rate": 0.373266
+            },
+            "2019-2021": {
+              "items": 1069,
+              "share_of_era": 0.292957,
+              "rate": 0.410664
+            },
+            "2022-2025": {
+              "items": 573,
+              "share_of_era": 0.094554,
+              "rate": 0.378709
+            }
+          },
+          "selfdrivingcars+waymo": {
+            "2016-2018": {
+              "items": 343,
+              "share_of_era": 0.137036,
+              "rate": 0.300292
+            },
+            "2019-2021": {
+              "items": 652,
+              "share_of_era": 0.178679,
+              "rate": 0.403374
+            },
+            "2022-2025": {
+              "items": 2031,
+              "share_of_era": 0.335149,
+              "rate": 0.434269
+            }
+          },
+          "realtesla": {
+            "2016-2018": {
+              "items": 123,
+              "share_of_era": 0.049141,
+              "rate": 0.414634
+            },
+            "2019-2021": {
+              "items": 394,
+              "share_of_era": 0.107975,
+              "rate": 0.378173
+            },
+            "2022-2025": {
+              "items": 672,
+              "share_of_era": 0.110891,
+              "rate": 0.376488
+            }
+          },
+          "electricvehicles": {
+            "2016-2018": {
+              "items": 147,
+              "share_of_era": 0.05873,
+              "rate": 0.156463
+            },
+            "2019-2021": {
+              "items": 472,
+              "share_of_era": 0.129351,
+              "rate": 0.256356
+            },
+            "2022-2025": {
+              "items": 1138,
+              "share_of_era": 0.187789,
+              "rate": 0.318102
+            }
+          },
+          "cars": {
+            "2016-2018": {
+              "items": 411,
+              "share_of_era": 0.164203,
+              "rate": 0.187348
+            },
+            "2019-2021": {
+              "items": 499,
+              "share_of_era": 0.13675,
+              "rate": 0.202405
+            },
+            "2022-2025": {
+              "items": 559,
+              "share_of_era": 0.092244,
+              "rate": 0.271914
+            }
+          },
+          "futurology": {
+            "2016-2018": {
+              "items": 427,
+              "share_of_era": 0.170595,
+              "rate": 0.252927
+            },
+            "2019-2021": {
+              "items": 334,
+              "share_of_era": 0.091532,
+              "rate": 0.254491
+            },
+            "2022-2025": {
+              "items": 650,
+              "share_of_era": 0.107261,
+              "rate": 0.275385
+            }
+          },
+          "technology": {
+            "2016-2018": {
+              "items": 259,
+              "share_of_era": 0.103476,
+              "rate": 0.239382
+            },
+            "2019-2021": {
+              "items": 229,
+              "share_of_era": 0.062757,
+              "rate": 0.323144
+            },
+            "2022-2025": {
+              "items": 437,
+              "share_of_era": 0.072112,
+              "rate": 0.377574
+            }
+          }
+        },
+        "flags": []
+      },
+      "two_groups": {
+        "era_rates": {
+          "2016-2018": 0.287655,
+          "2019-2021": 0.337627,
+          "2022-2025": 0.364686
+        },
+        "items_by_era": {
+          "2016-2018": 2503,
+          "2019-2021": 3649,
+          "2022-2025": 6060
+        },
+        "difference_2022_2025_minus_2016_2018": 0.077032,
+        "mix_part": 0.011818,
+        "within_group_part": 0.065214,
+        "standardised_era_rates_pooled_frame_mix": {
+          "2016-2018": 0.289277,
+          "2019-2021": 0.343159,
+          "2022-2025": 0.355544
+        },
+        "pooled_frame_mix": {
+          "narrow": 0.247789,
+          "broad": 0.752211
+        },
+        "groups": {
+          "narrow": {
+            "2016-2018": {
+              "items": 343,
+              "share_of_era": 0.137036,
+              "rate": 0.300292
+            },
+            "2019-2021": {
+              "items": 652,
+              "share_of_era": 0.178679,
+              "rate": 0.403374
+            },
+            "2022-2025": {
+              "items": 2031,
+              "share_of_era": 0.335149,
+              "rate": 0.434269
+            }
+          },
+          "broad": {
+            "2016-2018": {
+              "items": 2160,
+              "share_of_era": 0.862964,
+              "rate": 0.285648
+            },
+            "2019-2021": {
+              "items": 2997,
+              "share_of_era": 0.821321,
+              "rate": 0.323323
+            },
+            "2022-2025": {
+              "items": 4029,
+              "share_of_era": 0.664851,
+              "rate": 0.32961
+            }
+          }
+        },
+        "flags": []
+      }
+    },
+    "threads_with_a_matching_comment": {
+      "Tier 1": {
+        "k": 753,
+        "n": 902,
+        "share": 0.834812,
+        "wilson95_low": 0.809167,
+        "wilson95_high": 0.857616
+      },
+      "Tier 2": {
+        "k": 526,
+        "n": 878,
+        "share": 0.599089,
+        "wilson95_low": 0.566308,
+        "wilson95_high": 0.631006
+      },
+      "Tier 3": {
+        "k": 11,
+        "n": 118,
+        "share": 0.09322,
+        "wilson95_low": 0.052852,
+        "wilson95_high": 0.159239
+      }
+    },
+    "tier_3": {
+      "threads_with_a_matching_comment": 11,
+      "comments_in_those_threads": 36,
+      "matching_comments": 14,
+      "comments": 564
+    },
+    "by_reply_depth_tier_1_and_2": {
+      "0": {
+        "k": 1111,
+        "n": 2813,
+        "share": 0.394952,
+        "wilson95_low": 0.377042,
+        "wilson95_high": 0.413148
+      },
+      "1": {
+        "k": 1393,
+        "n": 4144,
+        "share": 0.336149,
+        "wilson95_low": 0.321924,
+        "wilson95_high": 0.350677
+      },
+      "2": {
+        "k": 868,
+        "n": 2797,
+        "share": 0.310332,
+        "wilson95_low": 0.293458,
+        "wilson95_high": 0.327728
+      },
+      "3": {
+        "k": 397,
+        "n": 1324,
+        "share": 0.299849,
+        "wilson95_low": 0.275777,
+        "wilson95_high": 0.325079
+      },
+      "4": {
+        "k": 203,
+        "n": 601,
+        "share": 0.33777,
+        "wilson95_low": 0.301095,
+        "wilson95_high": 0.376506
+      },
+      "5": {
+        "k": 96,
+        "n": 285,
+        "share": 0.336842,
+        "wilson95_low": 0.284463,
+        "wilson95_high": 0.393561
+      },
+      "6": {
+        "k": 49,
+        "n": 134,
+        "share": 0.365672,
+        "wilson95_low": 0.288927,
+        "wilson95_high": 0.449903
+      },
+      "7 or more": {
+        "k": 45,
+        "n": 114,
+        "share": 0.394737,
+        "wilson95_low": 0.309849,
+        "wilson95_high": 0.486487
+      }
+    },
+    "tier_1_and_2_comments_without_a_reply_depth": 0,
+    "depth_0_against_depth_3_or_more": {
+      "depth_0": {
+        "k": 1111,
+        "n": 2813,
+        "share": 0.394952,
+        "wilson95_low": 0.377042,
+        "wilson95_high": 0.413148
+      },
+      "depth_3_or_more": {
+        "k": 790,
+        "n": 2458,
+        "share": 0.3214,
+        "wilson95_low": 0.303228,
+        "wilson95_high": 0.340128
+      },
+      "difference": 0.073552
+    }
+  },
+  "reweighting_cells": {
+    "full span, 2016 Q1 to 2025 Q2": {
+      "quarters": 38,
+      "years": 10,
+      "comments": 12212,
+      "subreddit_quarter_cells": {
+        "cells": 304,
+        "non_empty": 274,
+        "empty": 30,
+        "median_non_empty": 35.0,
+        "below_ten": 30,
+        "below_ten_share": 0.109489
+      },
+      "subreddit_year_cells": {
+        "cells": 80,
+        "non_empty": 77,
+        "empty": 3,
+        "median_non_empty": 139.0,
+        "below_ten": 5,
+        "below_ten_share": 0.064935
+      }
+    },
+    "trend span, 2016 Q1 to 2024 Q4": {
+      "quarters": 36,
+      "years": 9,
+      "comments": 10928,
+      "subreddit_quarter_cells": {
+        "cells": 288,
+        "non_empty": 258,
+        "empty": 30,
+        "median_non_empty": 34.5,
+        "below_ten": 28,
+        "below_ten_share": 0.108527
+      },
+      "subreddit_year_cells": {
+        "cells": 72,
+        "non_empty": 69,
+        "empty": 3,
+        "median_non_empty": 143.0,
+        "below_ten": 5,
+        "below_ten_share": 0.072464
+      }
+    }
+  },
+  "within_year_sampling_position": {
+    "method": "check_c2_audit.py: year-blocked files, positions within the year, 2016-2024",
+    "integrity": {
+      "year_blocked_files": 627,
+      "annual_files": 330,
+      "supplementary_files": 297,
+      "supplementary_groups": 33,
+      "complete_supplementary_groups": 33,
+      "groups_with_one_block_for_each_year_2016_to_2024": 33,
+      "files_over_their_post_cap": {
+        "annual": 0,
+        "supp": 0
+      },
+      "posts_outside_their_window": 0,
+      "empty_supplementary_files": 53
+    },
+    "before_C2_annual_blocks": {
+      "posts": 738,
+      "by_year": {
+        "2016": {
+          "posts": 54,
+          "mean_position": 0.712228
+        },
+        "2017": {
+          "posts": 63,
+          "mean_position": 0.575012
+        },
+        "2018": {
+          "posts": 77,
+          "mean_position": 0.636293
+        },
+        "2019": {
+          "posts": 87,
+          "mean_position": 0.705819
+        },
+        "2020": {
+          "posts": 90,
+          "mean_position": 0.735442
+        },
+        "2021": {
+          "posts": 95,
+          "mean_position": 0.723325
+        },
+        "2022": {
+          "posts": 87,
+          "mean_position": 0.781088
+        },
+        "2023": {
+          "posts": 90,
+          "mean_position": 0.762071
+        },
+        "2024": {
+          "posts": 95,
+          "mean_position": 0.879811
+        }
+      },
+      "mean_position": 0.731864,
+      "quarterly_shares_percent": [
+        10,
+        11,
+        16,
+        63
+      ],
+      "chi_square": 573.457995,
+      "slope_per_year": 0.025643,
+      "p_value": 0.007511,
+      "shift_across_the_span_years": 0.205147,
+      "shift_across_the_span_days": 74.929955
+    },
+    "after_C2_deduplicated_primary": {
+      "posts": 1062,
+      "by_year": {
+        "2016": {
+          "posts": 73,
+          "mean_position": 0.616075
+        },
+        "2017": {
+          "posts": 80,
+          "mean_position": 0.527586
+        },
+        "2018": {
+          "posts": 101,
+          "mean_position": 0.565106
+        },
+        "2019": {
+          "posts": 119,
+          "mean_position": 0.617361
+        },
+        "2020": {
+          "posts": 130,
+          "mean_position": 0.62205
+        },
+        "2021": {
+          "posts": 140,
+          "mean_position": 0.608017
+        },
+        "2022": {
+          "posts": 134,
+          "mean_position": 0.634691
+        },
+        "2023": {
+          "posts": 135,
+          "mean_position": 0.63114
+        },
+        "2024": {
+          "posts": 150,
+          "mean_position": 0.706075
+        }
+      },
+      "mean_position": 0.621351,
+      "quarterly_shares_percent": [
+        13,
+        32,
+        11,
+        44
+      ],
+      "chi_square": 316.583804,
+      "slope_per_year": 0.013341,
+      "p_value": 0.020905,
+      "shift_across_the_span_years": 0.106732,
+      "shift_across_the_span_days": 38.983716
+    },
+    "after_C2_overlaps_kept_sensitivity": {
+      "posts": 1205,
+      "by_year": {
+        "2016": {
+          "posts": 86,
+          "mean_position": 0.567945
+        },
+        "2017": {
+          "posts": 103,
+          "mean_position": 0.456116
+        },
+        "2018": {
+          "posts": 127,
+          "mean_position": 0.506405
+        },
+        "2019": {
+          "posts": 142,
+          "mean_position": 0.566571
+        },
+        "2020": {
+          "posts": 146,
+          "mean_position": 0.576678
+        },
+        "2021": {
+          "posts": 154,
+          "mean_position": 0.573662
+        },
+        "2022": {
+          "posts": 145,
+          "mean_position": 0.60418
+        },
+        "2023": {
+          "posts": 145,
+          "mean_position": 0.605422
+        },
+        "2024": {
+          "posts": 157,
+          "mean_position": 0.69035
+        }
+      },
+      "mean_position": 0.578345,
+      "quarterly_shares_percent": [
+        17,
+        35,
+        10,
+        39
+      ],
+      "chi_square": 278.893776,
+      "slope_per_year": 0.019003,
+      "p_value": 0.00983,
+      "shift_across_the_span_years": 0.152023,
+      "shift_across_the_span_days": 55.526511
+    },
+    "duplicate_retrievals_removed": 143,
+    "retrievals": 1205,
+    "yield_by_year": {
+      "2016": {
+        "annual_files": 33,
+        "annual_posts": 54,
+        "annual_per_block": 1.64,
+        "supp_files": 33,
+        "supp_posts": 32,
+        "supp_per_block": 0.97,
+        "H1_share_percent": 37.0
+      },
+      "2017": {
+        "annual_files": 33,
+        "annual_posts": 63,
+        "annual_per_block": 1.91,
+        "supp_files": 33,
+        "supp_posts": 40,
+        "supp_per_block": 1.21,
+        "H1_share_percent": 39.0
+      },
+      "2018": {
+        "annual_files": 33,
+        "annual_posts": 77,
+        "annual_per_block": 2.33,
+        "supp_files": 33,
+        "supp_posts": 50,
+        "supp_per_block": 1.52,
+        "H1_share_percent": 39.0
+      },
+      "2019": {
+        "annual_files": 33,
+        "annual_posts": 87,
+        "annual_per_block": 2.64,
+        "supp_files": 33,
+        "supp_posts": 55,
+        "supp_per_block": 1.67,
+        "H1_share_percent": 39.0
+      },
+      "2020": {
+        "annual_files": 33,
+        "annual_posts": 90,
+        "annual_per_block": 2.73,
+        "supp_files": 33,
+        "supp_posts": 56,
+        "supp_per_block": 1.7,
+        "H1_share_percent": 38.0
+      },
+      "2021": {
+        "annual_files": 33,
+        "annual_posts": 95,
+        "annual_per_block": 2.88,
+        "supp_files": 33,
+        "supp_posts": 59,
+        "supp_per_block": 1.79,
+        "H1_share_percent": 38.0
+      },
+      "2022": {
+        "annual_files": 33,
+        "annual_posts": 87,
+        "annual_per_block": 2.64,
+        "supp_files": 33,
+        "supp_posts": 58,
+        "supp_per_block": 1.76,
+        "H1_share_percent": 40.0
+      },
+      "2023": {
+        "annual_files": 33,
+        "annual_posts": 90,
+        "annual_per_block": 2.73,
+        "supp_files": 33,
+        "supp_posts": 55,
+        "supp_per_block": 1.67,
+        "H1_share_percent": 38.0
+      },
+      "2024": {
+        "annual_files": 33,
+        "annual_posts": 95,
+        "annual_per_block": 2.88,
+        "supp_files": 33,
+        "supp_posts": 62,
+        "supp_per_block": 1.88,
+        "H1_share_percent": 39.0
+      }
+    },
+    "collection_log": {
+      "rows": 750,
+      "logged_spend_usd": 80.248,
+      "supplementary_rows": 297,
+      "supplementary_items_logged": 6067,
+      "supplementary_items_in_files": 6067,
+      "supplementary_posts_in_files": 467,
+      "supplementary_comments_in_files": 5600,
+      "supplementary_spend_usd": 18.074
+    }
+  },
+  "raw_files": {
+    "files": 694,
+    "manifest_sha256": "1c775f8118d19b52fef0df3d84c989ed2f2c0fa1717ccafeffa41c809a3bd2e6",
+    "manifest_rule": "SHA-256 of the lines 'file name:SHA-256 of the file', sorted by name, joined by a newline, no trailing newline (models_common.pairs_sha256)",
+    "raw_items": 29649,
+    "raw_comments": 27126,
+    "unique_raw_comment_ids": 23534
+  },
+  "inputs_sha256": {
+    "corpus.parquet": "958f480ec13d469dbf285714e2601e5035cf05e10126a7f9b598e32e4b33b39d",
+    "preprocess_funnel.csv": "bf59253b3bdbdb6efafe7d00195f11ebacc791beff3b43a79b2c69625c7b8005",
+    "scrape_log.csv": "d63abf492786fc0a5fa2d11636476062e541bc0ce668edbf816d1db81abc2ab0",
+    "raw files (manifest)": "1c775f8118d19b52fef0df3d84c989ed2f2c0fa1717ccafeffa41c809a3bd2e6",
+    "config.py (LF)": "92ebb86e725d86c08344862ec7dba2c6dcfe3834af079a8a632ccf46505abb61"
+  },
+  "config": {
+    "file": "config.py",
+    "commit": "be001c7",
+    "sha256_lf": "92ebb86e725d86c08344862ec7dba2c6dcfe3834af079a8a632ccf46505abb61",
+    "constants": {
+      "STUDY_START": "2016-01-01",
+      "STUDY_END": "2025-04-30",
+      "MAX_POSTS_PER_BLOCK": 3,
+      "MAX_POSTS_PER_SUPP_BLOCK": 2
+    }
+  },
+  "comparison_with_previews": {
+    "corpus v2.2 (R5)": {
+      "same": true,
+      "items": {
+        "date range": {
+          "recorded": "2016-01-04 to 2025-04-30",
+          "computed": "2016-01-04 to 2025-04-30",
+          "same": true
+        },
+        "after the author-based bot filter": {
+          "recorded": "22165",
+          "computed": "22165",
+          "same": true
+        },
+        "removed by the content-based filter": {
+          "recorded": "7",
+          "computed": "7",
+          "same": true
+        },
+        "wrapper stripping: rows modified / below the word floor": {
+          "recorded": "79/7",
+          "computed": "79/7",
+          "same": true
+        },
+        "removed as relay duplicates": {
+          "recorded": "22",
+          "computed": "22",
+          "same": true
+        },
+        "rows masked": {
+          "recorded": "61",
+          "computed": "61",
+          "same": true
+        }
+      }
+    },
+    "thread caps (docs/corpus_manifest.md; design document 7.10e)": {
+      "same": true,
+      "items": {
+        "raw union: most unique comments in one thread": {
+          "recorded": "16",
+          "computed": "16",
+          "same": true
+        },
+        "raw union: threads with more than 15": {
+          "recorded": "1",
+          "computed": "1",
+          "same": true
+        },
+        "corpus v2.2: threads with more than 15": {
+          "recorded": "0",
+          "computed": "0",
+          "same": true
+        }
+      }
+    },
+    "reweighting cells, trend span (R3)": {
+      "same": true,
+      "items": {
+        "subreddit-quarter cells, non-empty": {
+          "recorded": "258",
+          "computed": "258",
+          "same": true
+        },
+        "subreddit-quarter cells, median": {
+          "recorded": "34",
+          "computed": "34",
+          "same": true
+        },
+        "subreddit-quarter cells, below ten (%)": {
+          "recorded": "10.9",
+          "computed": "10.9",
+          "same": true
+        },
+        "subreddit-quarter cells, empty": {
+          "recorded": "30",
+          "computed": "30",
+          "same": true
+        },
+        "subreddit-year cells, non-empty": {
+          "recorded": "69",
+          "computed": "69",
+          "same": true
+        },
+        "subreddit-year cells, median": {
+          "recorded": "143",
+          "computed": "143",
+          "same": true
+        },
+        "subreddit-year cells, below ten (%)": {
+          "recorded": "7",
+          "computed": "7",
+          "same": true
+        }
+      }
+    },
+    "reweighting cells, full span (design document 7.10d)": {
+      "same": true,
+      "items": {
+        "comments": {
+          "recorded": "12212",
+          "computed": "12212",
+          "same": true
+        },
+        "subreddit-quarter cells, non-empty": {
+          "recorded": "274",
+          "computed": "274",
+          "same": true
+        },
+        "subreddit-quarter cells, median": {
+          "recorded": "35",
+          "computed": "35",
+          "same": true
+        },
+        "subreddit-quarter cells, below ten (%)": {
+          "recorded": "10.9",
+          "computed": "10.9",
+          "same": true
+        },
+        "subreddit-quarter cells, empty": {
+          "recorded": "30",
+          "computed": "30",
+          "same": true
+        },
+        "subreddit-year cells, non-empty": {
+          "recorded": "77",
+          "computed": "77",
+          "same": true
+        },
+        "subreddit-year cells, median": {
+          "recorded": "139",
+          "computed": "139",
+          "same": true
+        },
+        "subreddit-year cells, below ten (%)": {
+          "recorded": "6",
+          "computed": "6",
+          "same": true
+        }
+      }
+    },
+    "coverage (design document 7.1 and 7.10c)": {
+      "same": true,
+      "items": {
+        "realtesla missing study years": {
+          "recorded": "2016",
+          "computed": "2016",
+          "same": true
+        },
+        "cybersecurity missing study years": {
+          "recorded": "2016,2017",
+          "computed": "2016,2017",
+          "same": true
+        },
+        "waymo missing study years": {
+          "recorded": "2016,2017",
+          "computed": "2016,2017",
+          "same": true
+        },
+        "waymo comments 2021/2022/2023": {
+          "recorded": "6/2/5",
+          "computed": "6/2/5",
+          "same": true
+        },
+        "waymo share of its comments in 2024-2025 (%)": {
+          "recorded": "89.6",
+          "computed": "89.6",
+          "same": true
+        },
+        "Tier 1 share of all comments by year (%)": {
+          "recorded": "44.1/44.6/55.4/65.2/50.0/48.4/41.7/39.8/53.2/72.3",
+          "computed": "44.1/44.6/55.4/65.2/50.0/48.4/41.7/39.8/53.2/72.3",
+          "same": true
+        }
+      }
+    },
+    "capture (docs/corpus_manifest.md)": {
+      "same": true,
+      "items": {
+        "threads": {
+          "recorded": "2237",
+          "computed": "2237",
+          "same": true
+        },
+        "reported total": {
+          "recorded": "250781",
+          "computed": "250781",
+          "same": true
+        },
+        "effective denominator": {
+          "recorded": "250909",
+          "computed": "250909",
+          "same": true
+        },
+        "captured": {
+          "recorded": "23534",
+          "computed": "23534",
+          "same": true
+        },
+        "original rate (%)": {
+          "recorded": "9.384",
+          "computed": "9.384",
+          "same": true
+        },
+        "corrected rate (%)": {
+          "recorded": "9.379",
+          "computed": "9.379",
+          "same": true
+        },
+        "threads where captured exceeds commentsCount": {
+          "recorded": "95",
+          "computed": "95",
+          "same": true
+        },
+        "of all threads (%)": {
+          "recorded": "4.2",
+          "computed": "4.2",
+          "same": true
+        },
+        "total excess": {
+          "recorded": "128",
+          "computed": "128",
+          "same": true
+        },
+        "largest excess": {
+          "recorded": "4",
+          "computed": "4",
+          "same": true
+        },
+        "[deleted] on those threads": {
+          "recorded": "133",
+          "computed": "133",
+          "same": true
+        },
+        "[removed] on those threads": {
+          "recorded": "13",
+          "computed": "13",
+          "same": true
+        },
+        "threads whose excess deleted and removed cover": {
+          "recorded": "95",
+          "computed": "95",
+          "same": true
+        },
+        "excess not covered": {
+          "recorded": "0",
+          "computed": "0",
+          "same": true
+        },
+        "by bucket: threads": {
+          "recorded": "191/414/360/474/525/234/39",
+          "computed": "191/414/360/474/525/234/39",
+          "same": true
+        },
+        "by bucket: reported": {
+          "recorded": "0/1066/3496/14548/54519/91707/85445",
+          "computed": "0/1066/3496/14548/54519/91707/85445",
+          "same": true
+        },
+        "by bucket: effective": {
+          "recorded": "0/1096/3594/14548/54519/91707/85445",
+          "computed": "0/1096/3594/14548/54519/91707/85445",
+          "same": true
+        },
+        "by bucket: captured": {
+          "recorded": "0/1006/3469/7089/7875/3510/585",
+          "computed": "0/1006/3469/7089/7875/3510/585",
+          "same": true
+        },
+        "by bucket: rate (%)": {
+          "recorded": "n/a/91.8/96.5/48.7/14.4/3.8/0.7",
+          "computed": "n/a/91.8/96.5/48.7/14.4/3.8/0.7",
+          "same": true
+        }
+      }
+    },
+    "within-year sampling position (docs/corpus_manifest.md, design document 7.4)": {
+      "same": false,
+      "items": {
+        "before C2: posts": {
+          "recorded": "738",
+          "computed": "738",
+          "same": true
+        },
+        "before C2: mean position": {
+          "recorded": "0.73",
+          "computed": "0.73",
+          "same": true
+        },
+        "before C2: quarterly shares (%)": {
+          "recorded": "10/11/16/63",
+          "computed": "10/11/16/63",
+          "same": true
+        },
+        "before C2: slope per year": {
+          "recorded": "+0.0256",
+          "computed": "+0.0256",
+          "same": true
+        },
+        "before C2: p": {
+          "recorded": "0.0075",
+          "computed": "0.0075",
+          "same": true
+        },
+        "after C2: mean position": {
+          "recorded": "0.62",
+          "computed": "0.62",
+          "same": true
+        },
+        "after C2: quarterly shares (%)": {
+          "recorded": "13/32/11/44",
+          "computed": "13/32/11/44",
+          "same": true
+        },
+        "after C2: slope per year": {
+          "recorded": "+0.0133",
+          "computed": "+0.0133",
+          "same": true
+        },
+        "after C2: p": {
+          "recorded": "0.0209",
+          "computed": "0.0209",
+          "same": true
+        },
+        "overlaps kept: slope per year": {
+          "recorded": "+0.0190",
+          "computed": "+0.0190",
+          "same": true
+        },
+        "overlaps kept: p": {
+          "recorded": "0.0098",
+          "computed": "0.0098",
+          "same": true
+        },
+        "duplicate retrievals removed / retrievals": {
+          "recorded": "143/1205",
+          "computed": "143/1205",
+          "same": true
+        },
+        "H1 share across years, lowest/highest (%)": {
+          "recorded": "37/40",
+          "computed": "37/40",
+          "same": true
+        },
+        "shift across the span (years)": {
+          "recorded": "0.10",
+          "computed": "0.11",
+          "same": false
+        },
+        "shift across the span (days)": {
+          "recorded": "37",
+          "computed": "39",
+          "same": false
+        }
+      }
+    },
+    "collection log (docs/corpus_manifest.md)": {
+      "same": true,
+      "items": {
+        "log rows": {
+          "recorded": "750",
+          "computed": "750",
+          "same": true
+        },
+        "logged spend (USD)": {
+          "recorded": "80.25",
+          "computed": "80.25",
+          "same": true
+        },
+        "supplementary files": {
+          "recorded": "297",
+          "computed": "297",
+          "same": true
+        },
+        "supplementary posts / comments / items": {
+          "recorded": "467/5600/6067",
+          "computed": "467/5600/6067",
+          "same": true
+        },
+        "supplementary spend (USD)": {
+          "recorded": "18.07",
+          "computed": "18.07",
+          "same": true
+        }
+      }
+    }
+  }
+}

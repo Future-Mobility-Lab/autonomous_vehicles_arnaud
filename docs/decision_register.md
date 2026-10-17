@@ -1599,3 +1599,102 @@ cannot be checked from the files.
 - Comment index arrays (`numpy.random.default_rng([24916660, 3, 2])`, 2,000 resamples, 38 quarters, 1,493 thread draws per resample): SHA-256 `83754f88452123f2add44960001da745d368e35d5562a8045b09700908f5c8d4`.
 - Outputs, in `data/analysis/series/run_8ebbf3d2e66c/` (not committed): `series_results.json` SHA-256 `d955027383c7c1e55800a629c5a67f1c850389e25bea7fa483c97fb6a9465de8`; `series_report.md` `5efa6d9c1035192b3a5324fa33041dc8539cde2451ccfd1893cac56baa7da30e`; `series_values.csv` `e27615d6dd1d66c3c414640dbb2df994692b77d24ebb89b31ddd47b362208a7c`; 18 figure files, with their SHA-256 in `series_manifest.json` `f862d0e497989ff881246acc95c31401bf5dc66b1db7644531084bc97bd18f61`; `tier3_relevant_comments.csv` `230df34973779bca246cb66bc923a6d191fc6878a83708ae1d9d7720459c1796` (comment text for the author's reading; not committed). Python 3.12.10, NumPy 2.5.1, pandas 3.0.3, SciPy 1.18.0, scikit-learn 1.9.0, pymannkendall 1.4.3, ruptures 1.1.10, statsmodels 0.15.0, matplotlib 3.11.2.
 
+## 17 October 2026 — The report-tables script committed before it is run
+
+Drafted on 17 October 2026; the commit date is in the repository history.
+
+### What this commit fixes
+
+- `analysis_04_tables.py`, SHA-256
+  `fcb80a36d39bde98a644fea3f4525f89668891d116831e04d39b35c88741d6b2`. It formats the
+  report's data tables and three data figures from the results files of record,
+  so that no number in them is typed by hand. It computes nothing that its inputs
+  do not hold, apart from the share that two recorded counts give and the per cent
+  of each preprocessing stage. The tables are:
+  - the preprocessing funnel of corpus v2.2;
+  - the classifiers compared and their roles;
+  - Krippendorff's alpha by stage, class and tranche;
+  - macro-F1 and per-class F1 of the eight Stage 2 configurations;
+  - the trend statistics of the concern series;
+  - Family A;
+  - the sensitivity analyses;
+  - the success criteria of Deviation 12 with their outcomes.
+
+  The figures are:
+  - the per-class F1 of the Stage 2 configurations;
+  - the subreddit composition of the Tier 1+2 comments by year;
+  - the relevance rate by era with and without the subreddit rule.
+
+  Its run of record writes the tables as LaTeX files and the figures as PDF and
+  PNG. They are copied to `results/report_tables/` and `results/report_figures/`
+  and committed.
+- It stops unless each input matches its SHA-256 of record, read with LF line
+  endings: `evaluation_results.json` of 11 October 2026,
+  `results/sample_results.json` of 14 October 2026, `results/corpus_results.json`
+  and `results/series_results.json` of 17 October 2026, and `models_config.py` as
+  `analysis_03_series.py` records it. `models_config.py` is read as text, for its
+  checkpoints and model identifiers, and is not run. The script imports no
+  repository module and checks NumPy 2.5.1 and matplotlib 3.11.2.
+- Its docstring fixes four rules:
+  - every number is formatted from the most exact value its input holds, with
+    rounding half to even;
+  - the formats of shares, rates, slopes, p-values, costs and counts;
+  - the tables decide nothing. Where Deviation 12 or 13 fixes the consequence
+    of an outcome, the outcome is given as the series analyses of record state
+    it, or in the words of the deviation; where no rule applies, the cell says
+    so. Deviation 12's criteria are given word for word, and its
+    domain-specific schema is labelled exploratory;
+  - the figures show recorded values and intervals only, with no smoothing and
+    no fitted line.
+
+### State of the work at this commit
+
+The statements below are the author's and cannot be checked from the files.
+
+- Before this commit the script was run on the files of record only in its
+  preflight mode. That mode checks the inputs, builds every table and figure in
+  memory, discards them and writes no output. It passed.
+- No library was installed or changed for this script.
+
+### How the script was arrived at
+
+This section is the author's account and the working record of the sessions; it
+cannot be checked from the files.
+
+- The script was tested on the real results files and on synthetic series and
+  corpus results made by the earlier scripts' test repositories. 136 tests
+  passed, among them:
+  - a stop on each of 22 kinds of wrong input;
+  - identical bytes from the same inputs, also from a checkout with Windows line
+    endings;
+  - 11 deliberate errors put into copies of the script, each caught.
+- An independent recomputation with exact fractions agreed with every cell it
+  compared (391 in each scenario). The 203 table cells that also
+  appear in `results/corpus_report.md`, `results/series_report.md` and
+  `results/sample_report.md` agreed with them. The test scripts are not
+  committed, so these checks cannot be repeated from the repository.
+- The script was reviewed once before this commit, and the findings were applied:
+  - the success criteria are quoted word for word from Deviation 12;
+  - the count of quarterly values with an interval covers only the 36 values
+    of the primary series;
+  - the domain-specific configurations are labelled exploratory, as Deviation
+    12 requires;
+  - no outcome cell is left for the author where a rule fixes the outcome, and
+    every interval is labelled;
+  - matplotlib's defaults are restored before any figure is drawn, so that no
+    local configuration file can change the figures;
+  - the figures were redrawn to fit their slots;
+  - the tables use standard column types only.
+
+  These corrections were not themselves reviewed again.
+- The rules of the script were put to the author in plain words before this
+  commit, and he accepted them.
+
+### Next
+
+- Run `analysis_04_tables.py --confirm-committed` once, copy its tables and
+  figures to `results/`, and record its register lines here.
+- In the same commit, regenerate `requirements.txt` from the project's
+  environment, in which statsmodels 0.15.0 and matplotlib 3.11.2 have been
+  installed since 17 October 2026.
+

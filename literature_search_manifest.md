@@ -429,6 +429,7 @@ Past tense; Australian English. Bracketed items remain provisional until the cor
 - [x] **11.11 Log consistency.** Evidence-workbook Stage 2 pointer, B-i 1,117/1,124 correction, B-ii 2,120/2,131 labels, disk filenames, search-phase evidence provenance line and FB2 other-sources routing correction completed.
 - [x] **11.12 S2-0307.** Closed 4 October 2026. Corrected from EXCLUDE E2 to INCLUDE, moved in Zotero, added to the Full-text Screening Log and reflected in PRISMA counts.
 - [x] **11.13 Full-text workload.** Closed 5 October 2026. Workflow decisions D1–D10 and rulings R1–R12 were adopted as recommended and are recorded in `full_text_screening_instructions_v1.0_20261005.md`. Full-text screening starts after the commit that records this.
+- [x] **11.19 IEEE Xplore Strand A confirmation re-run.** Closed 17 October 2026: the three IEEE Xplore block strings were recovered from the session record of 20 September 2026 and confirmed by re-run (84,356 / 13,610 / 452 / 410 / 337); recorded verbatim in Appendix F of the report and in the Search Evidence tab of PRISMA_search_evidence_log.xlsx.
 
 ### Repository commit
 

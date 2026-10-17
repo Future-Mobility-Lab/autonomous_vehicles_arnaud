@@ -1482,3 +1482,113 @@ cannot be checked from the files.
 - Outputs, in `data/analysis/corpus/run_f2240bdd7354/` (not committed): `corpus_results.json` SHA-256 `a1a59cda8498d503255fa5e47ce7c9630fb45c9163fec1d0a25e8e0792524a83`; `corpus_report.md` `f9867968df983c3e89f599be1ca844877c2762191cf56f2c4849a94480b4278f`; `thread_sizes.csv` `65c4557d6a46ce68b0b14500434ca327ee7a373fbb0c033680f67151f1e832c0` (the commentsCount join of R4, read by the series-analysis script). Python 3.12.10, NumPy 2.5.1, pandas 3.0.3, SciPy 1.18.0, PyArrow 25.0.0.
 - Previews compared (rule 7 of the script): 7 of 8 groups the same; different: within-year sampling position (docs/corpus_manifest.md, design document 7.4) (computed values in corpus_results.json, comparison_with_previews; the computed values stand).
 
+## 17 October 2026 — The series-analysis script committed before it is run
+
+Drafted on 17 October 2026; the commit date is in the repository history.
+
+### What this commit fixes
+
+- `analysis_03_series.py`, the committed script that Deviation 13 names for the
+  series analyses, SHA-256
+  `8ebbf3d2e66cd15f6620461577643b154bb87dc5a58bf7e686c68794f8cad13e`. From the
+  three prediction files of the corpus runs, corpus v2.2, the `commentsCount`
+  join of the corpus-description run and the inputs of the sample analyses, it
+  computes every figure of Deviation 13 that rests on the corpus runs: the rule
+  of the temporal calibration check for a material effect, with the interval of
+  the difference in Sen's slope; RQ1's primary series by quarter, half-year and
+  year, with its trend statistics, changepoints, STL decomposition and
+  exploratory GLM; the block-specific, companion, pooled, tier-level and
+  three-class series; R4's thread-size decomposition; the two relevance-error
+  series; the three sensitivity analyses; RQ2's subsystem measures and Family A;
+  the subsystem classifier's agreement with the gold subsystems; the comparison
+  of the two Stage 2 runs on the tranche items; and the Tier 3 share. Its run of
+  record writes `series_results.json`, `series_report.md`, `series_values.csv`
+  and the figures (PDF and PNG), which are copied to `results/` and committed, and
+  `tier3_relevant_comments.csv`, the Tier 3 comments classified relevant with
+  their text, which stays in `data/` for the author's reading.
+- Its docstring lists the seventeen rules it fixes where Deviation 13 is silent or
+  says how a committed rule is applied. Among them: the exact Mann-Kendall test
+  below ten values is taken over every ordering of the values; for each penalty
+  an exact tie between numbers of changepoints goes to the smaller number; a
+  statistic formed from several values has no value in a resample in which one
+  of them has none; in the size-stratified series a bucket with no comment in a
+  year of a resample is left out of that year, as on the full corpus; a
+  subsystem that the sparsity rule reports as counts only, V2X and the
+  unclassified comments are reported as counts; the GLM takes r/teslamotors as
+  the reference subreddit; and the quarters of 2025 are computed and plotted and
+  enter no statistic.
+- Two figures are added with this script, after the counts of the corpus runs
+  had been seen, and are labelled so in the results: the share of comments
+  classified relevant at Stage 1 in the corpus, beside the design-weighted share
+  classified relevant by the cross-validated predictions and the gold relevance
+  rate on the annotated sample; and the corpus run's Stage 1 labels on the
+  tranche items against their gold labels, which the retrained model had seen.
+  They are description and decide nothing.
+- It stops unless its inputs match the record: the modules it imports as they
+  are at `1397cc9`; every input of the sample analyses, as
+  `analysis_01_sample.py` checks them; corpus v2.2 and its file SHA-256 of
+  14 October 2026; the three prediction files of 15 October 2026, each holding
+  exactly the comments its run covered; and `thread_sizes.csv` of
+  17 October 2026. Before anything else it reproduces the rates of record and
+  the item index arrays recorded on 14 October 2026.
+- It uses four libraries that the earlier scripts do not, and stops unless
+  they and SciPy have the versions it was tested with: SciPy 1.18.0,
+  pymannkendall 1.4.3, ruptures 1.1.10, statsmodels 0.15.0 and matplotlib
+  3.11.2.
+
+### State of the work at this commit
+
+The statements below are the author's and cannot be checked from the files.
+
+- Before this commit the script was run on the data of record only in its
+  preflight mode. That mode checks the inputs, then runs every analysis once on
+  the real comments with the labels of the three runs replaced by made-up
+  labels drawn at random, so that no label of a corpus run enters it, discards
+  the result unseen and writes no output; it passed.
+- The four libraries were installed in the project's environment before the
+  preflight, and NumPy, SciPy, pandas, PyArrow and scikit-learn had the same
+  versions after the installation as before it.
+- No output of the corpus runs has been opened, tabulated or read against
+  period, era, subreddit, tier, subsystem or thread size. The only figures from
+  those runs that the author has seen are the counts and costs their register
+  lines record, and the share of Tier 1+2 comments classified relevant that
+  follows from them (6,503 of 12,212, 53%).
+
+### How the script was arrived at
+
+This section is the author's account and the working record of the sessions; it
+cannot be checked from the files.
+
+- The script was tested on synthetic data only: four generated repositories,
+  built through the committed model and sample scripts and given threads, word
+  counts, thread sizes and the three prediction files in the shape of the real
+  ones (subreddit-years below the floor of ten, a step at 2022 Q1, sparse
+  quarters and subsystems, and a flat series). An independent recomputation,
+  written from the rules' wording with its own resampling (the comments of each
+  drawn thread gathered one by one) and its own statistics (Sen's slope, the
+  Gilbert interval, Mann-Kendall, the exact test, Hamed-Rao, dynamic
+  programming for the changepoints, and the GLM by iteratively reweighted least
+  squares with clustered standard errors), agreed with every figure it
+  compared, between 1,956 and 2,079 in each repository. 98 tests passed,
+  among them a stop on each of 25 kinds of wrong input, identical bytes
+  from the same inputs, and twelve deliberate errors put into copies of the
+  script, each caught by the independent recomputation. The test scripts are
+  not committed, so these checks cannot be repeated from the repository.
+- The script was reviewed once before this commit, and the findings were
+  applied. A temporal effect is now qualified as established or not only when
+  it is material. The preflight's dry run now replaces the labels of the three
+  runs with made-up ones; before, it moved the real labels between comments,
+  which kept their overall frequencies. RQ2's measures as classified now carry
+  intervals. The report gives the raw value beside a clipped one, states the
+  outcome for each changepoint, and gives |C| / (TPR - FPR) when R4's outcomes
+  are not applied. P-values, Sen's slopes and Gilbert limits are written
+  unrounded, SciPy's version is checked, and the values file holds every
+  series. These corrections were not themselves reviewed again.
+- The rules of the script were put to the author in plain words before this
+  commit, and he accepted them.
+
+### Next
+
+- Run `analysis_03_series.py --confirm-committed` once, copy its results files
+  and figures to `results/`, and record its register lines here.
+- Bring `README.md`, `MODEL_NOTES.md` and `requirements.txt` up to date.

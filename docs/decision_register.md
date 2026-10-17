@@ -1592,3 +1592,10 @@ cannot be checked from the files.
 - Run `analysis_03_series.py --confirm-committed` once, copy its results files
   and figures to `results/`, and record its register lines here.
 - Bring `README.md`, `MODEL_NOTES.md` and `requirements.txt` up to date.
+
+## 17 October 2026 — Series analyses: run of record
+
+- `analysis_03_series.py` (SHA-256 `8ebbf3d2e66cd15f6620461577643b154bb87dc5a58bf7e686c68794f8cad13e`) run 2026-10-17T12:51:11+11:00 with `--confirm-committed`: every input matched its SHA-256 of record (the inputs of the sample analyses, checked by `analysis_01_sample.py`; corpus v2.2; `stage1_corpus_predictions.csv`, `stage2_predictions.csv` and `subsystem_predictions.csv`; `thread_sizes.csv`); the rates of record were reproduced and the item index arrays matched `5e3eea48169360cb9e8f85c2826373d4bf92a0d85759a3c3b41ed4eaa35da394`.
+- Comment index arrays (`numpy.random.default_rng([24916660, 3, 2])`, 2,000 resamples, 38 quarters, 1,493 thread draws per resample): SHA-256 `83754f88452123f2add44960001da745d368e35d5562a8045b09700908f5c8d4`.
+- Outputs, in `data/analysis/series/run_8ebbf3d2e66c/` (not committed): `series_results.json` SHA-256 `d955027383c7c1e55800a629c5a67f1c850389e25bea7fa483c97fb6a9465de8`; `series_report.md` `5efa6d9c1035192b3a5324fa33041dc8539cde2451ccfd1893cac56baa7da30e`; `series_values.csv` `e27615d6dd1d66c3c414640dbb2df994692b77d24ebb89b31ddd47b362208a7c`; 18 figure files, with their SHA-256 in `series_manifest.json` `f862d0e497989ff881246acc95c31401bf5dc66b1db7644531084bc97bd18f61`; `tier3_relevant_comments.csv` `230df34973779bca246cb66bc923a6d191fc6878a83708ae1d9d7720459c1796` (comment text for the author's reading; not committed). Python 3.12.10, NumPy 2.5.1, pandas 3.0.3, SciPy 1.18.0, scikit-learn 1.9.0, pymannkendall 1.4.3, ruptures 1.1.10, statsmodels 0.15.0, matplotlib 3.11.2.
+

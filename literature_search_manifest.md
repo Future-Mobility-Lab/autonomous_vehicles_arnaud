@@ -1,7 +1,7 @@
 # Literature Search Manifest
 
 **File:** `docs/literature_search_manifest.md`  
-**Version:** 0.7, 17 October 2026. Records the completed full-text stage and the final PRISMA counts (carried from the uncommitted 0.6 draft of 10 October), the verification of every count against the files of record on 14 October, the four Longitudinal-tag corrections, the other-sources count as at Section 2, the figures as built on 14 October, the published status of Lee et al. (2026), and the recovery and confirmation of the IEEE Xplore strings on 17 October. Supersedes 0.5 (committed) and 0.6 (drafted, not committed).  
+**Version:** 0.8, 17 October 2026. Records the supervisor's template as PRISMA 2020 and the figure redrawn in the two-column 2020 layout (11.20 closed), the PRISMA 2020 statement added to the other relevant references (18), the S2-1182 DOI correction (11.14 closed) and the confirmation of the Lee et al. (2026) figures against the accepted manuscript. Version 0.7, earlier the same day, recorded the completed full-text stage and final counts (from the uncommitted 0.6 draft), the 14 October verification, the tag corrections, the figures as built on 14 October and the IEEE Xplore string recovery.  
 **Evidence files:** `PRISMA_search_evidence_log.xlsx` (search phase, 20–21 Sep: verbatim strings for every variant, known-item tests, year histograms; IEEE Xplore strings and confirmation re-run added 17 Oct) and `PRISMA_Search_and_Screening_Log_20260921.xlsx` (rebuild, screening, Full-text Screening Log, PRISMA Summary). Both are primary evidence. Files of record for the stages: `stage_2_abstract_screening_FINAL_20260927.xlsx` (Stage 2), the Full-text Screening Log (full text), `lit_review_reading_notes_20261010.xlsx` (reading and tags), `included_studies_final_20261010.xlsx` (PRISMA counts tab). Verification record: `prisma_verification_20261014.md`.  
 **Governs:** §2.1 (search strategy and screening) and Appendix F of the final report; supervisor feedback items FB1, FB2 and FB6.
 
@@ -20,7 +20,7 @@ This is the literature-search counterpart of `corpus_manifest.md`. It holds ever
 ## 1. Scope and design
 
 - A structured search reported with a PRISMA-style flow diagram. It is **not** an exhaustive systematic review, and §2.1 says so.
-- **Diagram template:** the supervisor's. Its phases (Identification → Screening → Eligibility → Included) follow the PRISMA 2009 structure, so the diagram is labelled with the version it actually follows (governing document 8B-10). Confirm the template version at the next supervision meeting (Part 14, item 4). **PENDING.** A 2009-phase single-flow figure was built on 14 October 2026 (`prisma_flow_20261014.tex`); if the template proves to follow the 2020 two-column layout, the database arm screens 2,192 and the other-sources arm 70, with OS-1 entering at "sought", and the figure is redrawn with the same counts.
+- **Diagram template:** the supervisor's, confirmed on 17 October 2026 as the PRISMA 2020 flow diagram (Page et al., 2021). The figure follows the 2020 two-column layout: identification via databases and registers (deduplicated, screened, sought, assessed) and identification via other methods (sought, assessed), merging at Included; phases Identification, Screening, Included. The 2009-phase single-flow figure of 14 October is superseded (§9). **VERIFIED.**
 - **Two arms:** database searches, and other sources. Strands A and B are reported separately at the Included box.
 - **Methods, model and tool references** enter through the other-sources arm, not the database funnel, in accordance with governing document FB2 and §13.4.
 
@@ -113,7 +113,7 @@ Operative question: *is the comparison between zero-shot and fine-tuned, or betw
 | Search | Result | Why |
 |---|---|---|
 | B-i Scopus, `evaluat*` removed | 773 | Known item Yin, Hay & Roth (2019) not retrieved; narrowing rejected under the pre-set terminal rule; original query restored. |
-| B-ii Scopus, early variants | 8,850 → 3,590 → 1,980 → 2,120 database hits | Bare *quantification* retrieved uncertainty-quantification, chemistry and metrology literature. The final superseded broad Scopus variant returned 2,120 database hits and produced 2,131 Zotero-imported records. Both figures are retained with their respective labels. |
+| B-ii Scopus, early variants | 8,850 → 3,590 → 1,980 → 2,131 database hits | Bare *quantification* retrieved uncertainty-quantification, chemistry and metrology literature. The final superseded broad Scopus variant (20 September) returned 2,131 records, exported as `scopus_strandBii_20260920.ris` and reconciled in Zotero at 2,131. A 2,120 figure recorded on 4 October as the database hit count had no source in the search-phase evidence and was withdrawn on 17 October 2026 (Search Log rows 8 and 28). |
 | B-ii Scopus, reopened | 1,981 → 978 with the Computer Science filter | Generic terms replaced with the exact Saerens title phrase; count still above the precision threshold. |
 | B-ii Scopus, title-restricted | 325 (year analyser showed 322; three-record discrepancy retained) | Known item González et al. (2017) was not retrieved; Saerens et al. (2002) was not tested once the terminal rule fired. Audit of 26 Sep 2026 confirmed that Scopus indexes González et al. under the malformed title "A review onquantification learning", so the failure reflects a title-indexing/tokenisation defect. Decision: do not reopen calibration; retain the search as SUPERSEDED. |
 | B-ii arXiv | 449 candidates | Known items González et al. (2017) and Saerens et al. (2002) not retrieved; rejected at calibration, 0 exported. |
@@ -132,6 +132,8 @@ Each search was calibrated against papers already known to belong in its strand.
 - **IEEE Xplore, Strand A:** all three Strand A known items are published by Springer Nature or Elsevier and are not indexed by IEEE Xplore. The original FAIL therefore could not validly assess IEEE coverage. IEEE was retained for engineering coverage of V2X, in-vehicle networks and CAV security. The known-item criterion is recorded as not applicable to IEEE Xplore. A dated correction was entered on 4 October 2026.
 - **Scopus, B-ii:** González et al. is indexed under a malformed title, so it fails the title-restricted search while passing a DOI lookup.
 - **ACM DL, B-i:** Yin, Hay & Roth (2019) is an EMNLP paper outside ACM's scope. The failure was expected and ACM DL was not used for B-i.
+
+**What the known-item tests showed (clarified 17 October 2026; manifest 11.15(b)).** The PASS results recorded for the Strand A and B-i Scopus searches on 20 September were database-coverage checks by title search (Known Item Tests tab of the evidence workbook: each paper confirmed indexed; the result count for Yin, Hay & Roth was not captured). Containment of a known item in a candidate set, tested by constraining the set with the item's DOI, was applied on 21 September to the B-i 773-record narrowing, which lost Yin, Hay & Roth and was rejected under the terminal rule, and to the B-ii Scopus variants (González et al. and Saerens et al.). Where this manifest says a search "passed" its known-item tests, it means coverage was confirmed and, where a narrowing was tested, the narrowing was rejected; it does not claim a direct containment test of every known item in the accepted set.
 
 ---
 
@@ -337,19 +339,19 @@ The search log records that backward citation searching cannot identify literatu
 
 The proposed ACL Anthology hand-search was **not run**.
 
-It was a fallback to be used if Scopus failed to retrieve the B-i known items associated with ACL-family venues. Scopus passed all four B-i known-item tests, so the fallback condition was not triggered.
+It was a fallback to be used if Scopus failed to retrieve the B-i known items associated with ACL-family venues. All four B-i known items were confirmed indexed in Scopus (§3.3), so the fallback condition was not triggered.
 
 ### 8.4 Supervisor recommendation
 
-Lee et al. (2026) is logged as one record identified through supervisor recommendation. The study is now published (Social Network Analysis and Mining, online 29 July 2026, doi 10.1007/s13278-026-01633-0) and is cited as such; the version read and screened was the preprint. Its volume and article number are to be added to `biblio.bib` if assigned before submission.
+Lee et al. (2026) is logged as one record identified through supervisor recommendation (Search Log row 18, updated 17 October). The study is now published (Social Network Analysis and Mining, online 29 July 2026, doi 10.1007/s13278-026-01633-0) and is cited as such; the version read and screened was the preprint. The six figures quoted in Section 2 were confirmed on 17 October 2026 against the accepted manuscript (Article in Press; received 27 May 2026, accepted 17 July 2026), which carries no volume or article number yet; add them to `biblio.bib` if assigned before submission.
 
 ### 8.5 Other relevant references
 
-Works cited in the body of the report that are not among the 367 included studies enter through the other-sources arm without screening and are counted in the dashed box of the figure. Counted at Section 2 drafting on 14 October 2026: **17**, comprising four reviews named in supervisor feedback (FB4) that the searches did not retrieve (Becker & Axhausen, 2017; Golbabaei et al., 2020; Othman, 2021; Lee & Hess, 2022), eight references held before the search (Acquisti et al., 2015; Barth & de Jong, 2017; Kokolakis, 2017; Chen & Tomblin, 2021; Proferes et al., 2021; Ahangar et al., 2021; Yoshizawa et al., 2023; Glancy, 2012) and five methods, model and tool references (§8.6). The list is in `prisma_verification_20261014.md`. Section 1 (14 October) cites only works already in this count. Appendix-only citations are not counted (Nordhoff, 2024, appears in the comparison table only). To be recounted from `biblio.bib` when Sections 3–7 are drafted (11.17).
+Works cited in the body of the report that are not among the 367 included studies enter through the other-sources arm without screening and are counted in the dashed box of the figure. Counted at Section 2 drafting on 14 October 2026 and updated on 17 October: **18**, comprising four reviews named in supervisor feedback (FB4) that the searches did not retrieve (Becker & Axhausen, 2017; Golbabaei et al., 2020; Othman, 2021; Lee & Hess, 2022), eight references held before the search (Acquisti et al., 2015; Barth & de Jong, 2017; Kokolakis, 2017; Chen & Tomblin, 2021; Proferes et al., 2021; Ahangar et al., 2021; Yoshizawa et al., 2023; Glancy, 2012) and six methods, model and tool references (§8.6). The list is in `prisma_verification_20261014.md`. Section 1 (14 October) cites only works already in this count. Appendix-only citations are not counted (Nordhoff, 2024, appears in the comparison table only). To be recounted from `biblio.bib` when Sections 3–7 are drafted (11.17).
 
 ### 8.6 Methods, model and tool references
 
-Methods, model and tool references enter through the PRISMA other-sources arm rather than the database funnel, under governing document FB2 and §13.4. As at Section 2: five (Lewis et al., 2020; Yin et al., 2019; the `facebook/bart-large-mnli` model card; O'Connor & Joffe, 2020; Krippendorff, 2019), included in the 17 of §8.5.
+Methods, model and tool references enter through the PRISMA other-sources arm rather than the database funnel, under governing document FB2 and §13.4. As at Section 2: six (Lewis et al., 2020; Yin et al., 2019; the `facebook/bart-large-mnli` model card; O'Connor & Joffe, 2020; Krippendorff, 2019; Page et al., 2021, cited in the figure note), included in the 18 of §8.5.
 
 ---
 
@@ -360,7 +362,7 @@ Methods, model and tool references enter through the PRISMA other-sources arm ra
 | Identified, by accepted database | IEEE A 336 · Scopus A 476 · Scopus B-i 1,124 · arXiv B-i 301 · ACM B-ii 118 | VERIFIED | Search Log rows; re-derived 14 Oct |
 | Identified, database total | 2,355 | VERIFIED | Search Log |
 | Duplicates removed | 163 | VERIFIED | Zotero / frozen corpus |
-| Screened at title | 2,192 | VERIFIED | Stage 1 records |
+| Screened at title | 2,192 | VERIFIED | Stage 1 records; the 2020 figure's "records screened" box |
 | Excluded at title | 1,008 | VERIFIED | Final title-stage decisions after E8 amendment |
 | Carried after title | 1,184 | VERIFIED | Final title-stage decisions after E8 amendment |
 | Screened at abstract | 1,184 | VERIFIED | Stage 2 FINAL + E8 addendum; row-level re-derivation 14 Oct |
@@ -377,11 +379,11 @@ Methods, model and tool references enter through the PRISMA other-sources arm ra
 | Assessed for eligibility | 399 | VERIFIED | 403 − 4 |
 | Excluded at full text, with reasons | 32 | VERIFIED | E2 28 (B-i 26 · A 1 · B-ii 1) · E3 2 · E1 1 · E7 1 |
 | Included after full text | 367 | VERIFIED | A 205 · B-i 58 · B-ii 104; by source: database 328 · citation searching 38 · supervisor recommendation 1 |
-| Other relevant references, not screened (dashed box) | 17 as at Section 2 | VERIFIED against `biblio.bib` and the Section 1–2 text, 14 Oct; recount at submission (11.17) | §8.5 |
+| Other relevant references, not screened (dashed box) | 18 as at Section 2 | VERIFIED against `biblio.bib` and the Section 1–2 text, 17 Oct; recount at submission (11.17) | §8.5 |
 
-**Figure as built (14 October 2026):** `prisma_flow_20261014.pdf` (vector; source `prisma_flow_20261014.tex`, every count set once in its header; `\nOtherCited` = 17). Phases Identification → Screening → Eligibility → Included (PRISMA 2009), a database arm and an other-sources arm merging after deduplication, strands split at Included, and a dashed box for other relevant references cited through the other-sources arm without screening. Combined counts across both arms: identified 2,433 (2,355 + 78) · duplicates removed 170 (163 + 7) · screened 2,263 · excluded at title or abstract 1,860 (title 1,035 = 1,008 + 27; abstract 825 = 820 + 5) · sought 403 · not retrieved 4 · assessed 399 · excluded with reasons 32 · included 367. Every box was re-derived on 14 October 2026 from the row-level records where the rows are held and by arithmetic where they are not (`prisma_verification_20261014.md`). The `PRISMA counts` tab of `included_studies_final_20261010.xlsx` recomputes the same counts from the included-studies list. The 10 October figure (`prisma_flow_20261010.pdf`) is superseded.
+**Figure as built (17 October 2026):** `prisma_flow_2020_20261017.pdf` (vector; source `prisma_flow_2020_20261017.tex`, every count set once in its header; `\nOtherCited` = 18). PRISMA 2020 two-column layout. Database arm: identified 2,355 (by database as above) · duplicates removed 163 · screened 2,192 · excluded 1,828 (title 1,008; abstract 820) · sought 364 · not retrieved 4 · assessed 360 · excluded with reasons 32 (E2 28 · E3 2 · E1 1 · E7 1) · included 328. Other-methods arm: identified 78 (77 citation-search references, of which 7 were already in the database set, 27 were excluded on title and 5 on abstract, leaving 38; plus 1 supervisor recommendation) · sought 39 · not retrieved 0 · assessed 39 · excluded 0 · included 39. Studies included 367 = 328 + 39 (A 205 · B-i 58 · B-ii 104). The dashed box holds the 18 other relevant references of §8.5. The combined counts of the superseded 14 October figure (identified 2,433 · duplicates 170 · screened 2,263 · excluded 1,860 · sought 403 · not retrieved 4 · assessed 399 · excluded 32 · included 367) are the same records arranged in one flow; both arrangements are reconciled in `prisma_verification_20261014.md` and its 17 October addendum. The `PRISMA counts` tab of `included_studies_final_20261010.xlsx` recomputes the included counts from the included-studies list.
 
-Whether title and abstract screening appear as one Screening box or two is decided by the supervisor's template (11.20).
+Title and abstract screening appear as one Screening box, as in the 2020 template; the excluded-records box gives the split (title 1,008; abstract 820).
 
 **Publications-per-year chart (FB6), built 14 October 2026:** `publications_per_year.pdf` (vector; data in `pubs_data.json`), from the `Year Histograms` tab of `PRISMA_search_evidence_log.xlsx`: 2015–2025, three strands stacked; Strand A 957 (Scopus 621 after the year filter + IEEE Xplore 336 after all filters), Strand B-i 980 of 1,425, Strand B-ii 90 of 118. What the window omits (436 B-i and 10 B-ii records dated 2026, nine B-i records dated 2027, 18 ACM records dated 1988–2014) is stated in the figure note.
 
@@ -389,15 +391,15 @@ Whether title and abstract screening appear as one Screening box or two is decid
 
 ## 10. Section 2.1 as written
 
-The draft sentences of versions 0.5 and 0.6 are superseded by the final text of 13 October 2026 (`section2_final_20261013.tex`; figures added in `section2_block_20261014.tex`). The search subsection reads:
+The draft sentences of versions 0.5 and 0.6 are superseded by the final text of 13 October 2026, amended on 17 October for the 2020 layout (`section2_final_20261013.tex`; figures added in `section2_block_20261014.tex`). The search subsection reads:
 
 > A structured search was used; exhaustive retrieval was not attempted. Strand A covered concern about CAVs bearing on privacy, data or security; Strand B-i, zero-shot or prompted against fine-tuned classifiers on short user-generated text; and Strand B-ii, class-prevalence estimation and prior-shift correction. Searches were run on 20–21 September 2026 in Scopus and IEEE Xplore (A), Scopus and arXiv (B-i) and the ACM Digital Library (B-ii); the as-run strings and filters are in Appendix F. Journal and conference papers, preprints and theses in English were eligible from 2015 (A), 2019 (B-i) and 2000 (B-ii). A single screener assessed titles, abstracts and full texts, recording one exclusion reason per record, the first failed check in a fixed order; a blind re-screen of 50 abstracts agreed on 47 (94%).
 
-> Figure 1 reports the flow: database searches identified 2,355 records and other sources 78, namely 77 references from backward citation searching of González et al. (2017) and one supervisor-recommended study (Lee et al., 2026). After 170 duplicates were removed, 2,263 records were screened and 1,860 excluded; of 403 full texts sought, four were not retrieved, and 32 of the 399 assessed were excluded, 28 for failing the strand test, leaving 367 included studies (A 205, B-i 58, B-ii 104).
+> Figure 1 reports the flow. Database searches identified 2,355 records; 2,192 remained after deduplication and 364 passed title and abstract screening. Other methods identified 78: 77 references from backward citation searching of González et al. (2017), of which 38 passed the same screening, and one supervisor-recommended study (Lee et al., 2026). Of 403 full texts sought, four were not retrieved, and 32 of the 399 assessed were excluded, 28 for failing the strand test, leaving 367 included studies (A 205, B-i 58, B-ii 104).
 
 > Other relevant references enter through the other-sources arm; Appendix G compares the studies closest to the gap.
 
-Appendix F (`appendixF_search_20261014.tex`) carries the five as-run strings with dates, filters and counts, the strand tests of §2.4 with the B-i criterion quoted as locked, and the exclusion codes of §2.3.
+The figure note reads: "Layout and phases follow the PRISMA 2020 flow diagram (Page et al., 2021). The dashed box counts other relevant references cited through the other-methods arm without screening; its value is recounted from the final bibliography." Appendix F (`appendixF_search_20261014.tex`) carries the five as-run strings with dates, filters and counts, the strand tests of §2.4 with the B-i criterion quoted as locked, and the exclusion codes of §2.3.
 
 ---
 
@@ -414,11 +416,14 @@ Appendix F (`appendixF_search_20261014.tex`) carries the five as-run strings wit
 - [x] **11.7 Full-text stage.** Closed 10 October 2026. 403 sought, 4 not retrieved, 399 assessed, 32 excluded with reasons, 367 included (§7.3). The D9 consistency check was not recorded.
 - [x] **11.8 Publications-per-year chart.** Closed 14 October 2026: `publications_per_year.pdf` built from the `Year Histograms` tab (§9).
 - [x] **11.10 IEEE Xplore correction.** Dated correction added to the Search Log and corresponding evidence-workbook notes updated.
-- [x] **11.11 Log consistency.** Evidence-workbook Stage 2 pointer, B-i 1,117/1,124 correction, B-ii 2,120/2,131 labels, disk filenames, search-phase evidence provenance line and FB2 other-sources routing correction completed.
+- [x] **11.11 Log consistency.** Evidence-workbook Stage 2 pointer, B-i 1,117/1,124 correction, B-ii 2,120/2,131 labels (withdrawn 17 October; see 11.15(a)), disk filenames, search-phase evidence provenance line and FB2 other-sources routing correction completed.
 - [x] **11.12 S2-0307.** Closed 4 October 2026. Corrected from EXCLUDE E2 to INCLUDE, moved in Zotero, added to the Full-text Screening Log and reflected in PRISMA counts.
 - [x] **11.13 Full-text workload.** Closed 5 October 2026. Workflow decisions D1–D10 and rulings R1–R12 were adopted as recommended and are recorded in `full_text_screening_instructions_v1.0_20261005.md`.
 - [x] **11.15(c) Generic notes and unexplained exclusions.** Closed 14 October 2026: in the file of record every one of the 820 Stage 2 exclusions carries a code and a note; wording corrected in §6.4.
-- [x] **11.16 PRISMA figure.** Closed 14 October 2026: `prisma_flow_20261014.pdf` replaces the 10 October figure; counts unchanged; dashed box filled (§9).
+- [x] **11.16 PRISMA figure.** Closed 14 October 2026 and redrawn 17 October 2026: `prisma_flow_2020_20261017.pdf` (2020 layout) replaces the 14 October figure, which replaced the 10 October one; counts unchanged; dashed box filled (§9).
+- [x] **11.14 S2-1182 DOI field.** Closed 17 October 2026: the arXiv DOI was cleared from cell H2 of sheet `E8 addendum` in `stage_2_abstract_screening_FINAL_20260927.xlsx`, with a dated note in the Screening note cell (J2). Decision and counts unchanged.
+- [x] **11.20 Template version.** Closed 17 October 2026: the supervisor's template is the PRISMA 2020 flow diagram; figure redrawn (§1, §9).
+- [x] **11.15(a)–(b) Record corrections.** Closed 17 October 2026. (a) Search Log row 8: hits 2,120 → 2,131 and export file `scopus_strandBii_20260921.ris` → `scopus_strandBii_20260920.ris`, to agree with the search-phase evidence; §3.2 corrected. (b) Search Log row 10 and §3.3, §8.3: the known-item wording clarified as coverage checks plus the rejected narrowing. Search Log rows 27–32 record the 17 October entries. Neither changes a PRISMA count. 
 - [x] **11.18 Longitudinal-tag corrections.** Closed 14 October 2026: four corrections adopted (S2-0142, S2-0186, S2-0231, S2-0254), S2-0059 retained; recorded by dated note in the reading-notes workbook (§7.3).
 - [x] **11.19 IEEE Xplore Strand A confirmation re-run.** Closed 17 October 2026: the three IEEE Xplore block strings were recovered from the session record of 20 September 2026 and confirmed by re-run (84,356 / 13,610 / 452 / 410 / 337); recorded verbatim in Appendix F of the report and in the Search Evidence tab of PRISMA_search_evidence_log.xlsx (§3.1). Commit `adf5354`.
 
@@ -429,10 +434,7 @@ Appendix F (`appendixF_search_20261014.tex`) carries the five as-run strings wit
 
 ### Remaining work
 
-- [ ] **11.14 S2-1182 DOI field.** In the Stage 2 file of record (sheet `E8 addendum`, cell H2) the DOI recorded is that of the arXiv e-print of the thesis, not of the dissertation, which has none. Clear it by dated correction before submission; the full-text stage has since closed, so the original deadline ("before the first full-text decision") has passed.
-- [ ] **11.15(a)–(b) Record corrections.** (a) The counts and export file recorded for the superseded B-ii Scopus search (§3.2; Search Log row 8). (b) The wording on what the known-item tests showed (§3.2, §3.3, §8.3; Search Log row 10). Details and proposed wording: `literature_search_corrections_20261005.md`. Neither changes a PRISMA count. Status at 17 October 2026: not recorded as done.
-- [ ] **11.17 Other-sources count at submission.** 17 as at Section 2 (§8.5); recount from `biblio.bib` when Sections 3–7 are drafted, update `\nOtherCited` in `prisma_flow_20261014.tex` and recompile. Report-body citations only.
-- [ ] **11.20 Template version.** Confirm with the supervisor whether her template follows the 2009 single flow or the 2020 two-column layout (§1). If 2020, redraw with two columns; counts unchanged.
+- [ ] **11.17 Other-sources count at submission.** 18 as at Section 2 (§8.5); recount from `biblio.bib` when Sections 3–7 are drafted, update `\nOtherCited` in `prisma_flow_2020_20261017.tex` and recompile. Report-body citations only.
 
 ---
 
@@ -446,4 +448,5 @@ Appendix F (`appendixF_search_20261014.tex`) carries the five as-run strings wit
 | 0.4 | 4 Oct 2026 | fe69005 | Applied the E8 thesis amendment to the three affected records; completed backward-citation screening; recorded decisions not to run forward citation searching or the ACL fallback; corrected S2-0307 to INCLUDE; reconciled Stage 2 and full-text counts; completed IEEE and search-log corrections; recorded the optional 118-record check as offered and not run. |
 | 0.5 | 5 Oct 2026 | *record on commit* | Recorded the full-text workflow decisions and rulings (11.13 closed); aligned the exclusion-code wording in §2.3 with the Full-text Screening Log; recorded the corrected and extended log (§7.4); opened 11.14 and 11.15. |
 | 0.6 | 10 Oct 2026 | not committed; merged into 0.7 | Recorded the completed full-text stage (§7, 11.7 closed), the final PRISMA counts and the 10 October figure (§9, 11.16), and the §2.0 full-text sentences (§10); opened 11.17 and 11.18; 11.8 narrowed to the publications-per-year chart. |
-| 0.7 | 17 Oct 2026 | *record on commit* | Counts re-derived from the files of record (14 Oct); four Longitudinal-tag corrections, the S2-0163 and S2-0754 corrections and the Calibration-tab freeze recorded; D5 notes; other relevant references counted (17 at Section 2); PRISMA figure and publications-per-year chart as built on 14 Oct; Lee et al. (2026) recorded as published; §10 replaced by the final §2.1 text; IEEE Xplore strings recovered and confirmed (17 Oct); 11.8, 11.15(c), 11.16, 11.18 and 11.19 closed; 11.20 opened; 11.14, 11.15(a)–(b) and 11.17 remain open. |
+| 0.7 | 17 Oct 2026 | *hash as committed* | Counts re-derived from the files of record (14 Oct); four Longitudinal-tag corrections, the S2-0163 and S2-0754 corrections and the Calibration-tab freeze recorded; D5 notes; other relevant references counted (17 at Section 2); PRISMA figure and publications-per-year chart as built on 14 Oct; Lee et al. (2026) recorded as published; §10 replaced by the final §2.1 text; IEEE Xplore strings recovered and confirmed (17 Oct); 11.8, 11.15(c), 11.16, 11.18 and 11.19 closed; 11.20 opened; 11.14, 11.15(a)–(b) and 11.17 remain open. |
+| 0.8 | 17 Oct 2026 | *record on commit* | Template confirmed as PRISMA 2020 and the figure redrawn in the two-column layout (§1, §9; 11.20 closed); Page et al. (2021) added to the other relevant references (18; §8.5, §8.6); §10 search paragraph and figure note updated; S2-1182 DOI cleared (11.14 closed); 11.15(a)–(b) closed (§3.2, §3.3, §8.3; Search Log rows 8, 10 and 27–32); Lee et al. (2026) figures confirmed against the accepted manuscript (§8.4). |

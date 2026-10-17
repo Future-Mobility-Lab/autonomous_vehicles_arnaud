@@ -1702,3 +1702,185 @@ cannot be checked from the files.
 
 - `analysis_04_tables.py` (SHA-256 `fcb80a36d39bde98a644fea3f4525f89668891d116831e04d39b35c88741d6b2`) run 2026-10-17T17:31:04+11:00 with `--confirm-committed`: every input matched its SHA-256 of record (`evaluation_results.json`, `results/sample_results.json`, `results/corpus_results.json`, `results/series_results.json`, `models_config.py`).
 - Outputs, in `data/analysis/tables/run_fcb80a36d39b/` (not committed; copied to `results/report_tables/` and `results/report_figures/`): 8 table files and 6 figure files, with their SHA-256 in `tables_manifest.json` `385b6e836d55b267a56fd06b6c4c9265873747c635b0c059dac66540705d6d97`. Python 3.12.10, NumPy 2.5.1, matplotlib 3.11.2.
+
+
+## 17 October 2026 — The calibration and cost script committed before it is run
+
+Drafted on 17 October 2026; the commit date is in the repository history.
+
+### What this commit fixes
+
+- `analysis_05_calibration_cost.py`, SHA-256
+  `c6ebf3dbcf21147a909b851a8323a61380341f940e73944298b4c20849f3f6ae`.
+  It computes the following from the files of record, so that no figure in
+  them is typed by hand:
+  - Krippendorff's alpha of the 30-item calibration round at Stage 1, at
+    Stage 2 and for each class against the rest, and the branch of R2 that
+    follows from it;
+  - the calibration disagreements found in the three sheets, and the review
+    sheet's records compared with them, as counts (no comment identifier is
+    written);
+  - the annotation time, estimated from the seconds recorded on the
+    calibration sheets;
+  - the cost break-even of design decision D17, under incremental and full
+    accounting;
+  - the project's spend by line.
+
+  Its run of record writes a results file, a report, three LaTeX tables
+  (calibration, cost and budget) and one figure, as PDF and PNG: the cost of
+  each approach against the number of Stage 2 comments. They are copied to
+  `results/`, `results/report_tables/` and `results/report_figures/` and
+  committed.
+- `docs/cost_inputs.json`, SHA-256
+  `8c433df56a128ce522259c37fda3ac825071473b20e99c9f7ceb7096af03fac3`
+  (read with LF line endings), is committed with the script. It holds the
+  figures that no file of record holds:
+  - the five card charges, in Australian dollars, from the author's card
+    statement: Apify on 3 August (A$43.22), 29 August (A$77.67) and
+    3 September 2026 (A$4.87); Anthropic credit on 10 October (A$7.92 for
+    US$5.50) and 15 October 2026 (A$31.66 for US$22.00);
+  - the Anthropic credit, from the Anthropic API console on 17 October 2026:
+    US$25.00 bought, US$17.26 used, US$7.74 unused;
+  - the GPU runs on Google Colab: no separate charge, because they were
+    covered by the author's existing personal subscription;
+  - the hourly rate: A$59.76. This is the UTS casual rate for HEW 5.1
+    professional staff from 1 August 2026. It includes the 25% casual loading
+    (clause 31.2) and excludes superannuation and other on-costs. Source:
+    University of Technology Sydney Staff Agreement 2025, Schedule 5, page 125,
+    and clause 31.6; approved in [2026] FWCA 2599 and operating from
+    25 September 2026. The copy used has SHA-256
+    `7dbe5a67be4f6218feb4bed4464a79769d03a6b5e5f5c4c38671cde96f5b9037` and is
+    not committed. UTS gives "Research Assistant HEW 5.1" as its example of a
+    casual research assistant (CPDRF and CPDIRF Instructions to Applicants,
+    updated 13 April 2022).
+- The script stops unless each input matches its SHA-256 of record. The data
+  files are fingerprinted as their bytes stand:
+  - `data/annotation/calibration_annotator_A_filled.xlsx`
+    `dbfef978c3d89fd00093cac22a4b92e65fecf81b9a0c9673f86e71a5cd9effbb`;
+  - `data/annotation/calibration_annotator_B_filled.csv`
+    `5e9e5d9ad939ec620a7952c00ed2d7bf992a8b2982d24c3fa33ab4ae19351e3f`;
+  - `data/annotation/calibration_annotator_C_filled.csv`
+    `af9f66c22cdb5b58f57720b6951eed2de0623944b07ceab21887d2f3f11b7f6e`;
+  - `data/annotation/calibration_review_sheet_filled.csv`
+    `acecb0ba873d9a3cc033f97d9dbc586ad7e15679a8875a5625b0863dd08a6134`;
+  - `data/models/deploy/stage2_manifest.json`, as recorded on 15 October 2026.
+
+  `results/sample_results.json` of 14 October 2026, `evaluation_results.json`
+  of 11 October 2026 and `docs/cost_inputs.json` are read with LF line endings.
+  The script imports no repository module and checks NumPy 2.5.1 and
+  matplotlib 3.11.2. It records the version of openpyxl, which reads A's
+  workbook.
+- Its docstring fixes nine rules. In brief:
+  - the format of the sheets, their membership and their allowed values;
+    anything else stops the script;
+  - alpha, nominal, computed exactly as the evaluation of record computes it;
+  - disagreements found from the sheets, with the review sheet's records
+    counted and compared, and every difference reported as a count;
+  - the seconds per rating of each stage, as the mean over the annotators of
+    each annotator's mean, from the times recorded on ratings made at that
+    stage;
+  - the annotation hours, as each tranche's ratings times the seconds per
+    rating, with the calibration round's own recorded time. The estimate counts
+    time on the items only, so it is a floor;
+  - the cost per comment of the deployed configuration, from the corpus run.
+    Australian dollars per US dollar of credit include what the card was
+    charged above the credit. The rule also fixes the two accountings, the
+    break-even, and the break-even for each A$10 an hour of the rate;
+  - the spend by line;
+  - formats and rounding;
+  - the figure.
+- R2 does not say which stage's alpha it means. The script requires alpha of
+  at least 0.7 at both stages for "proceed context-free, unchanged".
+- What the results mean is fixed here, before they are computed:
+  - If R2's branch is "proceed context-free, unchanged", the decision of
+    September 2026 to annotate without the post title is confirmed. If it is
+    any other branch, that branch was required and was not applied. If alpha
+    is below 0.7 and no single cause has a plurality, R2 names no branch, and
+    the report says so. In either of the last two cases the tranches, the
+    evaluation and the corpus runs, which are complete, are not redone, and the
+    report states the departure in its method and in its limitations.
+  - The calibration figures in the design documents (Stage 1 alpha 0.780,
+    Stage 2 alpha 0.733; nine disagreements, six of cause (a) and three of
+    cause (c)) were not computed by a committed script and are not in this
+    register. The script's figures are the figures of record. Where they
+    differ from the earlier ones, the report uses the script's figures.
+  - The break-even is reported as resting on an estimated, minimum labelling
+    time, under both accountings, together with its value for each A$10 an
+    hour of the rate.
+
+### State of the work at this commit
+
+The statements below are the author's and cannot be checked from the files.
+
+- The calibration sheets of A, B and C and the review sheet are as they were
+  completed in September 2026, and no cell has been changed since. They were
+  first fingerprinted on 17 October 2026, when they were copied into
+  `data/annotation/`, so the repository cannot show their state before that
+  date.
+- The design documents planned to total each annotator's minutes for
+  tranche 1, the subsystem retrofit and the calibration round. Those totals
+  were not recorded, and the tranche sheets have no time columns. The
+  annotation time is therefore estimated from the calibration sheets (rules 4
+  and 5).
+- On 17 October 2026, before rules 4 and 5 were written, a rough estimate of
+  the annotation minutes was made from the times on the calibration sheets, at
+  the author's request. It is not of record.
+- Before this commit the script was run on the files of record only in its
+  preflight mode. That mode checks the inputs, builds every output in memory,
+  discards it and writes no output. It passed.
+- No library was installed or changed for this script.
+
+### How the script was arrived at
+
+This section is the author's account and the working record of the sessions; it
+cannot be checked from the files.
+
+- The script was tested on synthetic sheets in the formats of record: a
+  workbook, and two CSV files with a byte-order mark and Windows line endings.
+  They reproduce the features of the real sheets, such as B's Stage 2 times on
+  rows rated N, B's blank subsystem times and other blank times. 142
+  tests passed across eight scenarios, among them:
+  - a stop on each of 25 kinds of wrong input;
+  - identical bytes from the same inputs, also from a checkout with Windows
+    line endings;
+  - 19 deliberate errors put into copies of the script, each caught;
+  - the three tables compiled without error or overfull line under the
+    report's preamble.
+- An independent recomputation, with the krippendorff package and
+  floating-point arithmetic, agreed with every figure it compared (108
+  in each scenario). The tables, the report and the figure were read back and
+  agreed with the results file (58 cells and 11 plotted values in each
+  scenario). The test scripts are not committed, so these checks cannot be
+  repeated from the repository.
+- Before the commit, the real calibration files were read with the script's
+  own readers to check their format only (columns, membership, allowed
+  values). No agreement, time or cost was computed from them.
+- The script was reviewed once before this commit, and the findings were
+  applied:
+  - a skip cell must be blank or a recognised skip mark, and any other value
+    stops the script; nothing else is read on a skipped rating, and the
+    missing ratings are counted and reported;
+  - empty header cells after the twelfth column are ignored, and a blank
+    codebook flag is accepted where the review sheet records no disagreement;
+  - a subsystem rating, like a Stage 2 rating, needs a Y;
+  - an alpha that would show as 0.700 is shown with as many decimals as it
+    takes to tell it from 0.7;
+  - a time or an amount that is not a finite number stops the script, and each
+    input is checked on the same bytes that are then read;
+  - the figure's axis reaches past the corpus run, and an arrow points to the
+    corpus run with its cost;
+  - the docstring states every rule the code applies;
+  - the tests read the tables, the report and the figure back and compare them
+    with the results file.
+
+  These corrections were not themselves reviewed again.
+- The rules of the script were put to the author in plain words before this
+  commit, and he accepted them.
+
+### Next
+
+- Run `analysis_05_calibration_cost.py --confirm-committed` once. Copy its
+  results file and report to `results/`, its tables to `results/report_tables/`
+  and its figure to `results/report_figures/`. Record its register lines here,
+  and list the new files in `README.md`.
+

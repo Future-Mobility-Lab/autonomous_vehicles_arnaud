@@ -1,0 +1,32 @@
+{
+  "description": "Inputs of the cost break-even (design decision D17) and the budget that no file in the repository holds: the card charges in Australian dollars, the hourly rate and its source, and the Colab position. Recorded by the author on 17 October 2026 from his card statement, the Anthropic API console and the UTS Staff Agreement 2025. Read by analysis_05_calibration_cost.py, which checks this file against its SHA-256 of record.",
+  "card_charges": [
+    {"date": "2026-08-03", "line": "Collection (Apify)", "statement": "PayPal, Apify subscription", "aud": "43.22"},
+    {"date": "2026-08-29", "line": "Collection (Apify)", "statement": "PayPal, Apify invoice", "aud": "77.67"},
+    {"date": "2026-09-03", "line": "Collection (Apify)", "statement": "PayPal, Apify invoice", "aud": "4.87"},
+    {"date": "2026-10-10", "line": "Model API (Anthropic credit)", "statement": "Anthropic, 5.50 US dollars", "aud": "7.92", "usd": "5.50"},
+    {"date": "2026-10-15", "line": "Model API (Anthropic credit)", "statement": "Anthropic, 22.00 US dollars", "aud": "31.66", "usd": "22.00"}
+  ],
+  "anthropic_credit": {
+    "bought_usd": "25.00",
+    "used_usd": "17.26",
+    "remaining_usd": "7.74",
+    "as_of": "2026-10-17",
+    "source": "Anthropic API console, Cost page (month to date) and Credits page, 17 October 2026"
+  },
+  "colab": {
+    "aud": "0.00",
+    "basis": "The GPU runs on Google Colab were covered by the author's existing personal subscription: no separate charge."
+  },
+  "hourly_rate": {
+    "aud": "59.76",
+    "classification": "HEW 5.1, casual professional staff, from 1 August 2026",
+    "includes": "the 25% casual loading (clause 31.2)",
+    "excludes": "superannuation and other on-costs",
+    "source": "University of Technology Sydney Staff Agreement 2025, Schedule 5 (Professional Casual Rates of Pay), page 125, column 01-Aug-26; clause 31.6 (increase payable from the first full pay period on or after 1 August 2026)",
+    "approval": "[2026] FWCA 2599 (AG2026/2437), operating from 25 September 2026",
+    "document_sha256": "7dbe5a67be4f6218feb4bed4464a79769d03a6b5e5f5c4c38671cde96f5b9037",
+    "classification_basis": "UTS, CPDRF and CPDIRF Instructions to Applicants (updated 13 April 2022), which give 'Research Assistant HEW 5.1' as their example of a casual research assistant"
+  },
+  "rate_step_aud_per_hour": "10.00"
+}

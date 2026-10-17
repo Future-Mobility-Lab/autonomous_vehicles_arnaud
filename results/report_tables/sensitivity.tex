@@ -1,0 +1,35 @@
+% sensitivity.tex: written by analysis_04_tables.py from the results files of record; do not edit by hand.
+% Sources: series_results.json: sensitivities.seasonality.{mean_H1_minus_H2_2016_2024, month_of_year_decomposition}; sensitivities.word_floor_25.{trend, criteria, statement}; sensitivities.tier_strata.{tier1, tier2}.trend; rq1.{pooled_series, companion_series, tier_level_series, three_class_correction}.{trend, criteria, statement}; thread_size_R4; temporal_calibration_check_rule | Deviation 13 (constants in this file): the analyses not run, and their reasons
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.04\linewidth}>{\raggedright\arraybackslash}p{0.24\linewidth}>{\raggedright\arraybackslash}p{0.36\linewidth}>{\raggedright\arraybackslash}p{0.28\linewidth}@{}}
+  \caption{Sensitivity Analyses}\label{tab:sensitivity}\\
+  \toprule
+  \textbf{No.} & \textbf{Analysis} & \textbf{Result} & \textbf{Outcome under the rules} \\
+  \midrule
+  \endfirsthead
+  \toprule
+  \textbf{No.} & \textbf{Analysis} & \textbf{Result} & \textbf{Outcome under the rules} \\
+  \midrule
+  \endhead
+  \bottomrule
+  \endfoot
+  \multicolumn{4}{@{}l}{\textit{Family C sensitivities (exploratory; Deviation 13)}} \\
+  1 & Seasonality: first against second half-year, 2016--2024 (description) & Mean of January--June minus July--December: $+0.67$ points [95\% bootstrap interval $-4.80$ to $+6.25$]. & Decides nothing: reported as description (Deviation 13). \\
+  1 & Seasonality: month-of-year decomposition, $C_m$ against $0.20 \times |T|$ & $C_m$ = $+1.76$ points; $T$ = $+7.55$ points; $0.20 \times |T|$ = 1.51; $C_m/T$ = $0.2329$ (a common trend would give $0.0483$). & Outcome not applied: the primary series' Mann--Kendall test is not significant (Deviation 13); $|C_m|/(\mathrm{TPR}-\mathrm{FPR})$ = 2.48 points of corrected share. \\
+  2 & Word floor of 25 words & Sen's slope $+1.72$ points per year [Gilbert 95\% interval $+0.27$ to $+3.12$]; $p$ = 0.0246. R3's criterion 1 fails, criterion 2 holds. & R3's criterion 1 fails. Exploratory (Family C): stated with the series and in the limitations, and the primary series stays the result (Deviation 13). \\
+  3 & Tier strata: Tier 1 and Tier 2 separately & Tier 1: Sen's slope $+1.21$ points per year [Gilbert 95\% interval $-0.88$ to $+3.18$]; $p$ = 0.2328. Tier 2: Sen's slope $+1.70$ points per year [Gilbert 95\% interval $+0.17$ to $+3.58$]; $p$ = 0.0410. & No criterion is applied (Deviation 13). \\
+  \midrule
+  \multicolumn{4}{@{}l}{\textit{Comparisons under R3 and R4, and the temporal calibration check}} \\
+   & Pooled series against the reweighted series (R3) & Sen's slope $+1.21$ points per year [Gilbert 95\% interval $-0.06$ to $+2.81$]; $p$ = 0.0548. R3's criterion 1 holds, criterion 2 holds. & Both of R3's criteria hold; the series agrees with the primary series. \\
+   & Companion series: the subreddits retained in every year (Deviation 13) & Sen's slope $+0.53$ points per year [Gilbert 95\% interval $-1.25$ to $+2.10$]; $p$ = 0.4873. R3's criterion 1 holds, criterion 2 holds. & Both of R3's criteria hold; the series agrees with the primary series. \\
+   & Tier-level reweighting (R3) & Sen's slope $+1.63$ points per year [Gilbert 95\% interval $+0.03$ to $+3.03$]; $p$ = 0.0437. & Reported as the robustness check R3 names; no criterion is applied (Deviation 13). \\
+   & Three-class correction, CONCERN component (exploratory) & Sen's slope $+1.31$ points per year [Gilbert 95\% interval $-0.17$ to $+2.94$]; $p$ = 0.0886. R3's criterion 1 holds, criterion 2 holds. & Both of R3's criteria hold; the series agrees with the primary series. \\
+   & Thread-size composition (R4) & $C$ = $+3.03$ points, $T$ = $+7.55$ points (classified shares, 2016--2024); $|C|$ = 3.03, $0.20 \times |T|$ = 1.51, $0.50 \times |T|$ = 3.77; $C/T$ = $0.4016$ (a common trend would give $0.0787$). Size-stratified series: $+6.56$ points over the span, $p$ = 0.1802 (exact). & Outcome not applied: the primary series' Mann--Kendall test is not significant, so $T$ cannot be told from zero (Deviation 13); $|C|/(\mathrm{TPR}-\mathrm{FPR})$ = 4.27 points of corrected share. \\
+   & Temporal calibration check: block-specific against primary series & R3's criterion 1 holds, criterion 2 holds. Difference in Sen's slope (block-specific minus primary): $-0.85$ points per year [95\% bootstrap interval $-2.26$ to $+0.53$]. & The block-specific series agrees with the primary series by R3's two criteria: the temporal effect is not material, and the primary series is the result. \\
+  \midrule
+  \multicolumn{4}{@{}l}{\textit{Planned in the project's design and not run (Deviation 13)}} \\
+   & Word floor at 15 words & Not run (Deviation 13): the frozen corpus has no comment below 20 words. & -- \\
+   & Relevance classification with the post title added & Not run (Deviation 13): no title was shown to the annotators, so labels assigned with the title in view do not exist. & -- \\
+   & The re-annotation held open as O17(c) in the governing document & Not run (Deviation 13). It would show how the subreddit rule of Deviation 1 bears on the relevance labels; that question is answered only in part, by the era rates on the six subreddits and the text-only variant reported under RQ4. & -- \\
+\end{longtable}
+}

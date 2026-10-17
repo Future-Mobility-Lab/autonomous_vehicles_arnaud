@@ -1,0 +1,22 @@
+% funnel.tex: written by analysis_04_tables.py from the results files of record; do not edit by hand.
+% Sources: corpus_results.json: funnel.stages[].{stage, items, removed}; corpus.rows
+\small
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.52\linewidth}>{\raggedleft\arraybackslash}p{0.12\linewidth}>{\raggedleft\arraybackslash}p{0.12\linewidth}>{\raggedleft\arraybackslash}p{0.16\linewidth}@{}}
+\toprule
+Stage & Retained & Removed & Per cent of the previous stage \\
+\midrule
+Raw items & 29,649 & -- & -- \\
+Comments & 27,126 & -- & -- \\
+After dedup & 23,534 & 3,592 & 86.8 \\
+After body-deleted removed & 22,291 & 1,243 & 94.7 \\
+After bot filter & 22,165 & 126 & 99.4 \\
+After timestamp parse & 22,165 & 0 & 100.0 \\
+After study window 2016-01-01..2025-05-01 & 22,099 & 66 & 99.7 \\
+After content bot filter (7 removed) & 22,092 & 7 & 99.97 \\
+After submission wrapper strip (79 stripped; 7 fall below word floor) & 22,092 & 0 & 100.0 \\
+After relay duplicate resolution (22 removed) & 22,070 & 22 & 99.9 \\
+After username masking (61 rows masked) & 22,070 & 0 & 100.0 \\
+After $\geq$ 20-word floor & 12,776 & 9,294 & 57.9 \\
+After English filter & 12,776 & 0 & 100.0 \\
+\bottomrule
+\end{tabular}

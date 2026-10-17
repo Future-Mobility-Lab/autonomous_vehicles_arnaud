@@ -1,0 +1,15 @@
+% models.tex: written by analysis_04_tables.py from the results files of record; do not edit by hand.
+% Sources: models_config.py: CHECKPOINTS (repo, commit), CLAUDE_MODELS | evaluation_results.json: stage2.configurations.*.cost_usd_per_1000_comments, stage2.deployment.deployed, stage1.deployment.deployed, stage1.deployment.text_only_variant
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.11\linewidth}>{\raggedright\arraybackslash}p{0.11\linewidth}>{\raggedright\arraybackslash}p{0.09\linewidth}>{\raggedright\arraybackslash}p{0.10\linewidth}>{\raggedright\arraybackslash}p{0.21\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}>{\raggedright\arraybackslash}p{0.17\linewidth}@{}}
+\toprule
+Model & Paradigm & Size or developer & Access & Identifier & Cost per 1,000 items & Role \\
+\midrule
+DistilBERT & Fine-tuned encoder & Base, uncased; Hugging Face & Open weights, run on a GPU (Google Colab) & \path{distilbert/distilbert-base-uncased}, commit \path{12040ac} & US\$0 (no API charge) & Stage 1 candidate; Stage 2 compared \\
+RoBERTa & Fine-tuned encoder & Base; Facebook AI & Open weights, run on a GPU (Google Colab) & \path{FacebookAI/roberta-base}, commit \path{e2da8e2} & US\$0 (no API charge) & Stage 1 \textbf{deployed} (subreddit and comment), its text-only variant as a sensitivity; Stage 2 compared \\
+BART-MNLI & Zero-shot, natural language inference & Large; Facebook AI & Open weights, run on a GPU (Google Colab) & \path{facebook/bart-large-mnli}, commit \path{d7645e1} & US\$0 (no API charge) & Stage 2 compared (both schemas) \\
+Claude Haiku 4.5 & Zero-shot, prompted language model & Anthropic & Anthropic API (paid) & \path{claude-haiku-4-5-20251001} & US\$0.201 (universal); US\$0.268 (domain-specific) & Stage 2 compared (both schemas) \\
+Claude Sonnet 4.6 & Zero-shot, prompted language model & Anthropic & Anthropic API (paid) & \path{claude-sonnet-4-6} & US\$0.605 (universal); US\$0.799 (domain-specific) & Stage 2 \textbf{deployed} (domain-specific schema; universal schema compared); subsystem classifier (Deviation 13) \\
+\bottomrule
+\end{tabular}

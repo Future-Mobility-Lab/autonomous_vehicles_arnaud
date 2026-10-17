@@ -1,0 +1,15 @@
+% family_a.tex: written by analysis_04_tables.py from the results files of record; do not edit by hand.
+% Sources: series_results.json: rq2.family_A.{tests, size, holm_adjusted_p}; rq2.values.<subsystem>.sparsity.{reported_as, median_quarterly_count, median_annual_count}; rq2.values.<subsystem>.family_A_test.{values, mann_kendall.s, p, test, holm_adjusted_p, sen_slope_per_year, gilbert95_low_per_year, gilbert95_high_per_year}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.15\linewidth}>{\raggedright\arraybackslash}p{0.16\linewidth}>{\raggedleft\arraybackslash}p{0.05\linewidth}>{\raggedright\arraybackslash}p{0.10\linewidth}>{\raggedright\arraybackslash}p{0.08\linewidth}>{\raggedright\arraybackslash}p{0.23\linewidth}>{\raggedright\arraybackslash}p{0.15\linewidth}@{}}
+\toprule
+Subsystem & Resolution & $S$ & $p$ & $p$ (Holm) & Sen's slope of $\pi_s$, points per year [Gilbert 95\% interval] & Median count (sparsity rule) \\
+\midrule
+Sensing & annual, 9 values & $-4$ & 0.7614 (exact) & 0.7614 & $-0.41$ [$-1.61$, $+1.59$] & 27.5 a quarter; 122 a year \\
+In-vehicle networks & not tested: counts only & -- & -- & -- & -- & 1 a quarter; 5 a year \\
+Cybersecurity & not tested: counts only & -- & -- & -- & -- & 0 a quarter; 2 a year \\
+Privacy & not tested: counts only & -- & -- & -- & -- & 1 a quarter; 7 a year \\
+Data governance & not tested: counts only & -- & -- & -- & -- & 2 a quarter; 12 a year \\
+\bottomrule
+\end{tabular}

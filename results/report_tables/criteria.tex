@@ -1,0 +1,15 @@
+% criteria.tex: written by analysis_04_tables.py from the results files of record; do not edit by hand.
+% Sources: evaluation_results.json: success_criteria.{1, 2, 6}; reliability.both tranches (200 items).*.alpha_exact; stage2.prevalence_correction_error_rates.weighted.tpr_minus_fpr_exact; stage2.configurations.*.{cost_usd_per_1000_comments, refusal_rate_all_items, name} | series_results.json: rq1.primary_series.rows[].interval95.low; rq2.family_A.tests | sample_results.json: temporal_calibration_check.block_rates; prevalence.pooled.relevance_rate.overall | Deviation 12 (constants in this file): the six criteria, word for word
+\small
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.04\linewidth}>{\raggedright\arraybackslash}p{0.46\linewidth}>{\raggedright\arraybackslash}p{0.44\linewidth}@{}}
+\toprule
+ & Criterion (Deviation 12, fixed before the model runs) & Outcome \\
+\midrule
+1 & Krippendorff's $\alpha$ is at least 0.7 at Stage 1 and at Stage 2 on the 200 reliability items. Any per-class $\alpha$ below 0.7 is reported beside it. & Met: Stage 1 $\alpha$ 0.896, Stage 2 $\alpha$ 0.757; per-class $\alpha$ below 0.7: OTHER against the rest 0.604. \\
+2 & The model comparison is completed under R5 and this deviation, with a measured cost and refusal rate for every configuration. & Recorded as met in the evaluation of record: a cost per 1,000 items and a refusal rate for all 8 configurations. \\
+3 & The concern share is reported with the prevalence correction and intervals, and the subsystem measures are reported as Deviation 9 specifies. & Reported: the corrected primary series with a 95\% interval for 36 of its 36 quarterly values, 2016 Q1 to 2024 Q4, and the subsystem measures $\pi_s$, $C_s$ and $E_s$ under Deviation 9's sparsity rule, with Family A of 1 test (\path{results/series_results.json}); the design-weighted subsystem shares on the pooled sample (\path{results/sample_results.json}). \\
+4 & The temporal calibration check is reported on both tranches, and on each alone, before the corrected series (Deviation 11). & Reported on both tranches together and on each alone (\path{results/sample_results.json}), and the block-specific series against the primary series (\path{results/series_results.json}). \\
+5 & The relevance rate is reported with a design-weighted interval, beside the composition check of Deviation 8 and the text-only sensitivity. & Reported: 61.1\% [95\% interval 58.0 to 64.2], design-weighted, beside the composition check and the text-only sensitivity (\path{results/sample_results.json}). \\
+6 & The deployed Stage 2 classifier has a TPR $-$ FPR for CONCERN of at least 0.25 on the primary item set. The bar is a judgement call; its value is that it is fixed before the author has seen any classifier scored. If it is not met, the uncorrected series is reported beside the corrected one and the instability is stated. & Met: TPR $-$ FPR 0.709 for Claude Sonnet 4.6 (domain-specific) on the primary item set, weighted as the correction uses it (unweighted 0.719). \\
+\bottomrule
+\end{tabular}

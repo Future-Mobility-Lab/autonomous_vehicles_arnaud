@@ -1698,3 +1698,7 @@ cannot be checked from the files.
   environment, in which statsmodels 0.15.0 and matplotlib 3.11.2 have been
   installed since 17 October 2026.
 
+## 17 October 2026 — Report tables: run of record
+
+- `analysis_04_tables.py` (SHA-256 `fcb80a36d39bde98a644fea3f4525f89668891d116831e04d39b35c88741d6b2`) run 2026-10-17T17:31:04+11:00 with `--confirm-committed`: every input matched its SHA-256 of record (`evaluation_results.json`, `results/sample_results.json`, `results/corpus_results.json`, `results/series_results.json`, `models_config.py`).
+- Outputs, in `data/analysis/tables/run_fcb80a36d39b/` (not committed; copied to `results/report_tables/` and `results/report_figures/`): 8 table files and 6 figure files, with their SHA-256 in `tables_manifest.json` `385b6e836d55b267a56fd06b6c4c9265873747c635b0c059dac66540705d6d97`. Python 3.12.10, NumPy 2.5.1, matplotlib 3.11.2.

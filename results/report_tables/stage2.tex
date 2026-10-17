@@ -1,0 +1,18 @@
+% stage2.tex: written by analysis_04_tables.py from the results files of record; do not edit by hand.
+% Sources: evaluation_results.json: stage2.configurations.*.pooled.macro_f1_exact, stage2.configurations.*.pooled.per_class.*.f1_exact (the 598 primary items), stage2.configurations.*.folds.{macro_f1, CONCERN, ENDORSEMENT, OTHER}.sd (in brackets), stage2.configurations.*.name, stage2.deployment.deployed
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.15\linewidth}>{\raggedright\arraybackslash}p{0.17\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}>{\raggedright\arraybackslash}p{0.18\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}@{}}
+\toprule
+Model & Schema & Macro-F1 (fold SD) & F1 CONCERN (fold SD) & F1 ENDORSEMENT (fold SD) & F1 OTHER (fold SD) \\
+\midrule
+DistilBERT & -- & 0.456 (0.037) & 0.513 (0.056) & 0.405 (0.082) & 0.450 (0.046) \\
+RoBERTa & -- & 0.523 (0.094) & 0.580 (0.106) & 0.493 (0.155) & 0.495 (0.098) \\
+BART-MNLI & Universal & 0.328 (0.052) & 0.586 (0.025) & 0.399 (0.132) & 0.000 (0.000) \\
+BART-MNLI & Domain-specific (exploratory) & 0.356 (0.044) & 0.602 (0.040) & 0.454 (0.103) & 0.011 (0.024) \\
+Claude Haiku 4.5 & Universal & 0.618 (0.035) & 0.715 (0.017) & 0.628 (0.090) & 0.510 (0.061) \\
+Claude Haiku 4.5 & Domain-specific (exploratory) & 0.725 (0.064) & 0.809 (0.028) & 0.695 (0.106) & 0.670 (0.077) \\
+Claude Sonnet 4.6 & Universal & 0.656 (0.045) & 0.742 (0.015) & 0.693 (0.051) & 0.532 (0.117) \\
+Claude Sonnet 4.6 & Domain-specific (exploratory; \textbf{deployed}) & 0.750 (0.034) & 0.815 (0.024) & 0.763 (0.027) & 0.673 (0.087) \\
+\bottomrule
+\end{tabular}

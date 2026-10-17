@@ -1,0 +1,20 @@
+% reliability.tex: written by analysis_04_tables.py from the results files of record; do not edit by hand.
+% Sources: evaluation_results.json: reliability.{tranche 1 (100 items), tranche 2 (100 items), both tranches (200 items)}.{Stage 1, Stage 2, CONCERN/ENDORSEMENT/OTHER against the rest}.{alpha_exact, interval95.low, interval95.high, units} | sample_results.json: subsystem.alpha.*.{two_or_more_labels, all_three_annotators}.{alpha_exact, units}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.30\linewidth}>{\raggedright\arraybackslash}p{0.15\linewidth}>{\raggedright\arraybackslash}p{0.15\linewidth}>{\raggedright\arraybackslash}p{0.15\linewidth}>{\raggedleft\arraybackslash}p{0.15\linewidth}@{}}
+\toprule
+Measure & Tranche 1 & Tranche 2 & Both tranches & Units (tranche 1/\allowbreak tranche 2/\allowbreak both) \\
+\midrule
+\multicolumn{5}{@{}l}{\textit{Relevance and stance: Krippendorff's alpha [95\% interval]}} \\
+Stage 1 (relevance) & 0.959\newline [0.905, 1.000] & 0.832\newline [0.734, 0.916] & 0.896\newline [0.843, 0.944] & 100/100/200 \\
+Stage 2 (three classes) & 0.739\newline [0.621, 0.845] & 0.774\newline [0.655, 0.877] & 0.757\newline [0.675, 0.830] & 59/62/121 \\
+CONCERN against the rest & 0.836\newline [0.708, 0.942] & 0.853\newline [0.724, 0.953] & 0.844\newline [0.757, 0.919] & 59/62/121 \\
+ENDORSEMENT against the rest & 0.797\newline [0.656, 0.918] & 0.807\newline [0.665, 0.923] & 0.801\newline [0.707, 0.887] & 59/62/121 \\
+OTHER against the rest & 0.547\newline [0.322, 0.729] & 0.653\newline [0.479, 0.803] & 0.604\newline [0.471, 0.720] & 59/62/121 \\
+\addlinespace
+\multicolumn{5}{@{}l}{\textit{Primary subsystem: Krippendorff's alpha (no interval recorded)}} \\
+Primary subsystem, items with two or more labels & 0.868 & 0.704 & 0.779 & 59/61/120 \\
+Primary subsystem, items all three annotators labelled & 0.867 & 0.680 & 0.769 & 57/54/111 \\
+\bottomrule
+\end{tabular}

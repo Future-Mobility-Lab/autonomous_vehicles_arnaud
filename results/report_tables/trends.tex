@@ -1,0 +1,22 @@
+% trends.tex: written by analysis_04_tables.py from the results files of record; do not edit by hand.
+% Sources: series_results.json: rq1.primary_series.trend.{values, mann_kendall.s, p, test, sen_slope_per_year, gilbert95_low_per_year, gilbert95_high_per_year}; rq1.block_specific_series.trend.{values, mann_kendall.s, p, test, sen_slope_per_year, gilbert95_low_per_year, gilbert95_high_per_year}; rq1.companion_series.trend.{values, mann_kendall.s, p, test, sen_slope_per_year, gilbert95_low_per_year, gilbert95_high_per_year}; rq1.pooled_series.trend.{values, mann_kendall.s, p, test, sen_slope_per_year, gilbert95_low_per_year, gilbert95_high_per_year}; rq1.tier_level_series.trend.{values, mann_kendall.s, p, test, sen_slope_per_year, gilbert95_low_per_year, gilbert95_high_per_year}; rq1.three_class_correction.trend.{values, mann_kendall.s, p, test, sen_slope_per_year, gilbert95_low_per_year, gilbert95_high_per_year}; sensitivities.word_floor_25.trend.{values, mann_kendall.s, p, test, sen_slope_per_year, gilbert95_low_per_year, gilbert95_high_per_year}; sensitivities.tier_strata.tier1.trend.{values, mann_kendall.s, p, test, sen_slope_per_year, gilbert95_low_per_year, gilbert95_high_per_year}; sensitivities.tier_strata.tier2.trend.{values, mann_kendall.s, p, test, sen_slope_per_year, gilbert95_low_per_year, gilbert95_high_per_year}; thread_size_R4.size_stratified_series.trend.{values, mann_kendall.s, p, test, sen_slope_per_year, gilbert95_low_per_year, gilbert95_high_per_year}; relevance_error_series.low_sen_slope.{values, mann_kendall.s, p, test, sen_slope_per_year, gilbert95_low_per_year, gilbert95_high_per_year}; relevance_error_series.high_sen_slope.{values, mann_kendall.s, p, test, sen_slope_per_year, gilbert95_low_per_year, gilbert95_high_per_year}; rq1.primary_series.trend.hamed_rao.{computed, computable, p, variance_changed}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.25\linewidth}>{\raggedleft\arraybackslash}p{0.06\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}>{\raggedright\arraybackslash}p{0.11\linewidth}>{\raggedright\arraybackslash}p{0.27\linewidth}>{\raggedright\arraybackslash}p{0.11\linewidth}@{}}
+\toprule
+Series & $S$ & Mann--Kendall $p$ & Hamed--Rao $p$ & Sen's slope, points per year [Gilbert 95\% interval] & Values \\
+\midrule
+Primary series (reweighted, corrected) & $134$ & 0.0701 & 0.0701 (variance unchanged) & $+1.38$ [$-0.10$, $+3.03$] & 36 quarters \\
+Block-specific series (temporal check) & $58$ & 0.4375 & -- & $+0.54$ [$-0.75$, $+2.12$] & 36 quarters \\
+Companion series (subreddits retained every year) & $52$ & 0.4873 & -- & $+0.53$ [$-1.25$, $+2.10$] & 36 quarters \\
+Pooled series (R3) & $142$ & 0.0548 & -- & $+1.21$ [$-0.06$, $+2.81$] & 36 quarters \\
+Tier-level series (R3) & $143$ & 0.0437 & -- & $+1.63$ [$+0.03$, $+3.03$] & 35 quarters \\
+Three-class correction, CONCERN (exploratory) & $126$ & 0.0886 & -- & $+1.31$ [$-0.17$, $+2.94$] & 36 quarters \\
+Word floor of 25 (exploratory) & $166$ & 0.0246 & -- & $+1.72$ [$+0.27$, $+3.12$] & 36 quarters \\
+Tier 1 only (exploratory) & $85$ & 0.2328 & -- & $+1.21$ [$-0.88$, $+3.18$] & 35 quarters \\
+Tier 2 only (exploratory) & $151$ & 0.0410 & -- & $+1.70$ [$+0.17$, $+3.58$] & 36 quarters \\
+Size-stratified series (R4) & $14$ & 0.1802 (exact) & -- & $+0.82$ [$-0.55$, $+2.20$] & 9 years \\
+Relevance error, low series & -- & -- & -- & $+2.70$ (no interval; not a bound on the slope) & 36 quarters \\
+Relevance error, high series & -- & -- & -- & $-0.24$ (no interval; not a bound on the slope) & 36 quarters \\
+\bottomrule
+\end{tabular}

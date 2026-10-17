@@ -25,6 +25,7 @@ change is recorded as a dated deviation.
 |---|---|
 | `docs/analysis_preregistration.md` | The analysis plan: rules R1-R5 and the dated deviations from them. Binding for every analysis. |
 | `docs/decision_register.md` | Dated record of decisions, script commits and runs, with the SHA-256 of every input and output. |
+| `docs/cost_inputs.json` | The card charges, the Anthropic credit, the Colab position and the hourly rate with its source, read by `analysis_05_calibration_cost.py`. |
 | `docs/corpus_manifest.md` | How the corpus was collected and filtered (written for corpus v1; later figures are in the register and in `results/corpus_report.md`). |
 | `docs/annotation_codebook.md`, `docs/codebook_reference_labels.csv` | The annotation rules and the 60 worked examples (text column removed). |
 | `docs/calibration_instructions.md`, `docs/subsystem_retrofit_instructions.md` | The calibration round and the subsystem labelling instructions. |
@@ -39,7 +40,8 @@ change is recorded as a dated deviation.
 | `results/sample_results.json`, `results/sample_report.md` | `analysis_01_sample.py`: the annotated sample (prevalence, RQ4, reliability, error rates, the temporal calibration check) |
 | `results/corpus_results.json`, `results/corpus_report.md` | `analysis_02_corpus.py`: the corpus description and the thread-size join |
 | `results/series_results.json`, `results/series_report.md`, `results/series_values.csv`, `results/series_figures/` | `analysis_03_series.py`: the series analyses (RQ1, RQ2, R3, R4, the sensitivity analyses) |
-| `results/report_tables/`, `results/report_figures/` | `analysis_04_tables.py`: the report's data tables and figures, read from the files above |
+| `results/report_tables/`, `results/report_figures/` | `analysis_04_tables.py`: the report's data tables and figures, read from the files above; `analysis_05_calibration_cost.py`: the calibration, cost and budget tables and the cost figure |
+| `results/calibration_cost_results.json`, `results/calibration_cost_report.md` | `analysis_05_calibration_cost.py`: the calibration round's agreement (R2), the annotation time estimated from the calibration sheets, the cost break-even (D17) and the spend |
 
 `results/*_report.md` gives the main figures in readable form; the `.json` files hold
 every figure with its counts.
@@ -84,7 +86,8 @@ there.
    12,776 comments, then the Stage 2 classifier and the subsystem classifier over the
    6,503 Tier 1+2 comments classified relevant.
 7. **Analyses.** `analysis_01_sample.py`, `analysis_02_corpus.py`,
-   `analysis_03_series.py` and `analysis_04_tables.py`, in that order (see the
+   `analysis_03_series.py`, `analysis_04_tables.py` and
+   `analysis_05_calibration_cost.py`, in that order (see the
    results table above).
 
 ## Diagnostics and audits

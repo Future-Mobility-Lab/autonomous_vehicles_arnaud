@@ -16,7 +16,9 @@ register fingerprints data files, and the repository text files with LF line end
 into CRLF changes nothing that is read). Nothing else is read and no repository module is imported.
   data/annotation/calibration_annotator_A_filled.xlsx   the calibration sheets as A, B and C completed them
   data/annotation/calibration_annotator_B_filled.csv    (September 2026), fingerprinted on 17 October 2026, when
-  data/annotation/calibration_annotator_C_filled.csv    they were copied into the repository folder
+  data/annotation/calibration_annotator_C_filled.csv    they were copied into the repository folder (B's sheet as
+                                                         it stood on 19 October: other bytes, the same content;
+                                                         see the register)
   data/annotation/calibration_review_sheet_filled.csv   the review sheet (R2): the three labels, the disagreement, its
                                                          cause, the agreed label
   results/sample_results.json                            the sample analyses of record (14 October 2026): the ratings
@@ -142,7 +144,7 @@ INPUTS = {   # name: (path, SHA-256 of record, "bytes" for a data file as it sta
         "dbfef978c3d89fd00093cac22a4b92e65fecf81b9a0c9673f86e71a5cd9effbb", "bytes"),
     "calibration_annotator_B_filled.csv": (
         ANN / "calibration_annotator_B_filled.csv",
-        "5e9e5d9ad939ec620a7952c00ed2d7bf992a8b2982d24c3fa33ab4ae19351e3f", "bytes"),
+        "bc4a04e9d1f14eaf30efe9a515737c09ce511963f79f93c906f6f3ab100b3a16", "bytes"),
     "calibration_annotator_C_filled.csv": (
         ANN / "calibration_annotator_C_filled.csv",
         "af9f66c22cdb5b58f57720b6951eed2de0623944b07ceab21887d2f3f11b7f6e", "bytes"),

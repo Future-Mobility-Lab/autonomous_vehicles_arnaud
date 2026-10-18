@@ -1884,3 +1884,56 @@ cannot be checked from the files.
   and its figure to `results/report_figures/`. Record its register lines here,
   and list the new files in `README.md`.
 
+## 19 October 2026 — The calibration and cost script replaced before it is run
+
+Drafted on 19 October 2026; the commit date is in the repository history.
+
+- The calibration and cost script committed at `b0ef89f`, SHA-256
+  `c6ebf3dbcf21147a909b851a8323a61380341f940e73944298b4c20849f3f6ae`,
+  has not been run on the files of record. Its preflight stopped before that
+  commit, and again on 19 October, each time before any figure was computed:
+  B's calibration sheet did not match the fingerprint the script records. The
+  entry that committed it says that the preflight passed before the commit;
+  that is not correct. No output of the script was written.
+- It is replaced, before any run, by `analysis_05_calibration_cost.py`, SHA-256
+  `ef5b32d08d294ca1048e160099d10078f6948053cc81e439c1efb3ccab7e33ca`.
+  The two files differ in two places only:
+  - B's fingerprint;
+  - one docstring line, which becomes three, saying which copy of B's sheet is
+    fingerprinted.
+
+  Every rule, every other input and fingerprint, and every output are
+  unchanged. The entry "The calibration and cost script committed before it is
+  run" stands for everything else.
+- B's sheet was fingerprinted on 17 October 2026 as
+  `5e9e5d9ad939ec620a7952c00ed2d7bf992a8b2982d24c3fa33ab4ae19351e3f`. The
+  author held a second copy of B's returned sheet, with other bytes (SHA-256
+  `bc4a04e9d1f14eaf30efe9a515737c09ce511963f79f93c906f6f3ab100b3a16`), and
+  later copied it into `data/annotation/` in place of the first. Read as the
+  script reads it (UTF-8 without the byte-order mark, then parsed as CSV), the
+  file in `data/annotation/` gave 31 rows with the same fingerprint when
+  checked on 17 October and again on 19 October, before this commit:
+  `c506531fa4325c2db61b80c8e8a7156cf39330c311c4ea5d5809d13791902430`, the
+  SHA-256 of the rows as Python writes the list. The replacement records the
+  file as it now stands.
+
+### State of the work at this commit
+
+The statements below are the author's and cannot be checked from the files.
+
+- No run of record was made with the script committed at `b0ef89f`.
+- Before this commit the replacement was run on the files of record only in
+  its preflight mode. That mode checks the inputs, builds every output in
+  memory, discards it and writes no output. It passed.
+- No library was installed or changed for this script.
+- The script's full test suite (142 tests, on synthetic sheets) passed on
+  the replacement. The test scripts are not committed, so this check cannot be
+  repeated from the repository.
+
+### Next
+
+- Run `analysis_05_calibration_cost.py --confirm-committed` once. Copy its
+  results file and report to `results/`, its tables to `results/report_tables/`
+  and its figure to `results/report_figures/`, and record its register lines
+  here.
+

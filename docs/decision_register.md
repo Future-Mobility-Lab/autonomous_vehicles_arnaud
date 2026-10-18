@@ -1937,3 +1937,8 @@ The statements below are the author's and cannot be checked from the files.
   and its figure to `results/report_figures/`, and record its register lines
   here.
 
+## 19 October 2026 — Calibration and cost: run of record
+
+- `analysis_05_calibration_cost.py` (SHA-256 `ef5b32d08d294ca1048e160099d10078f6948053cc81e439c1efb3ccab7e33ca`) run 2026-10-19T09:17:36+11:00 with `--confirm-committed`: every input matched its SHA-256 of record (the four calibration sheets, `results/sample_results.json`, `evaluation_results.json`, `stage2_manifest.json`, `docs/cost_inputs.json`).
+- Outputs, in `data/analysis/calibration_cost/run_ef5b32d08d29/` (not committed; the results file and report copied to `results/`, the tables to `results/report_tables/`, the figures to `results/report_figures/`): `calibration_cost_results.json` `c3104dde1b9d33d8694df7a4048ca2ea6b23620f941298bc3a3ac8962fc89bfe`; `calibration_cost_report.md` `426adb71abe60d1ed29ae98e32f9a4f3c0b2a0ebfb0f55981a187efb2def6fab`; 3 table files and 2 figure files, with their SHA-256 in `calibration_cost_manifest.json` `f915cdee5c877b35f5b54f14e0c3630a645532db7230c52c48a5c158f4b28d64`. Python 3.12.10, NumPy 2.5.1, matplotlib 3.11.2, openpyxl 3.1.5.
+

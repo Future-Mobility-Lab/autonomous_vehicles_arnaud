@@ -1,0 +1,30 @@
+% cost.tex: written by analysis_05_calibration_cost.py from the files of record; do not edit by hand.
+\small
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.47\linewidth}>{\raggedleft\arraybackslash}p{0.14\linewidth}>{\raggedright\arraybackslash}p{0.33\linewidth}@{}}
+\toprule
+Quantity & Value & Basis \\
+\midrule
+\multicolumn{3}{@{}l}{\textit{Zero-shot classification: the deployed configuration}} \\
+Cost per 1,000 Stage 2 comments, corpus run (6,503 comments) & A\$1.321 & US\$0.834 \\
+Cost per 1,000 comments, evaluation run & A\$1.266 & US\$0.799 \\
+Australian dollars per US dollar of credit (card charges / credit bought) & 1.5832 & card rate 1.4393; charged 10.0\% above the credit \\
+\addlinespace
+\multicolumn{3}{@{}l}{\textit{Labelling time, estimated from the calibration sheets (time on the items only)}} \\
+Relevance (Stage 1): seconds per rating & 7.9 & ratings: tranche 1 700, tranche 2 700 \\
+Stance (Stage 2): seconds per rating & 8.9 & ratings: tranche 1 414, tranche 2 419 \\
+Subsystem: seconds per rating & 7.1 & ratings: tranche 1 414, tranche 2 419 \\
+Relevance and stance labelling, calibration included (charged) & 5.5 h &  \\
+Subsystem labelling (RQ2; not charged) & 1.7 h &  \\
+\addlinespace
+\multicolumn{3}{@{}l}{\textit{Break-even (design decision D17)}} \\
+Incremental accounting: fine-tuned classifier, per comment & A\$0.00 & cheaper at every corpus size; the annotated set is needed to evaluate any classifier \\
+Zero-shot cost of the corpus run (6,503 comments) & A\$8.59 &  \\
+Full accounting: labelling charged to fine-tuning & A\$325.90 & 5.5 h at A\$59.76 an hour (UTS HEW 5.1, casual professional staff, from 1 August 2026; no on-costs) \\
+Break-even, Stage 2 comments & 247,000 & 38 times the corpus run; zero-shot is cheaper below it \\
+Break-even per A\$10 an hour of the rate & 41,000 & Stage 2 comments; proportional to the rate \\
+\addlinespace
+\multicolumn{3}{@{}l}{\textit{Accuracy (evaluation of record, macro-F1 on 598 items)}} \\
+Deployed: Claude Sonnet 4.6 (domain-specific) & 0.750 &  \\
+Best fine-tuned: RoBERTa & 0.523 &  \\
+\bottomrule
+\end{tabular}

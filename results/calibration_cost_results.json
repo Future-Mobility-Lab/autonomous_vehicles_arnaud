@@ -1,0 +1,530 @@
+{
+  "specification": "analysis_05_calibration_cost.py, rules 1-9 of its docstring; R2 of docs/analysis_preregistration.md; design decision D17",
+  "script_sha256_lf": "ef5b32d08d294ca1048e160099d10078f6948053cc81e439c1efb3ccab7e33ca",
+  "inputs_sha256": {
+    "calibration_annotator_A_filled.xlsx": "dbfef978c3d89fd00093cac22a4b92e65fecf81b9a0c9673f86e71a5cd9effbb",
+    "calibration_annotator_B_filled.csv": "bc4a04e9d1f14eaf30efe9a515737c09ce511963f79f93c906f6f3ab100b3a16",
+    "calibration_annotator_C_filled.csv": "af9f66c22cdb5b58f57720b6951eed2de0623944b07ceab21887d2f3f11b7f6e",
+    "calibration_review_sheet_filled.csv": "acecb0ba873d9a3cc033f97d9dbc586ad7e15679a8875a5625b0863dd08a6134",
+    "sample_results.json": "be9db9a168e6d432d5f7b6190a7a204a624e1aa4992cd399cbb90288a383c5d7",
+    "evaluation_results.json": "411f6c23ef6525b077c74fec15b8e5a06c59c550a8f3f2d15e99eb7d354d32e4",
+    "stage2_manifest.json": "eafaefada3c07b02ebe14b5afa9c0e075585e7b86640184fe30e28f9d72462ef",
+    "cost_inputs.json": "8c433df56a128ce522259c37fda3ac825071473b20e99c9f7ceb7096af03fac3"
+  },
+  "calibration": {
+    "alphas": {
+      "Stage 1": {
+        "alpha": 0.7802,
+        "alpha_exact": "316/405",
+        "units": 30,
+        "pairable_values": 90
+      },
+      "Stage 2": {
+        "alpha": 0.7329,
+        "alpha_exact": "118/161",
+        "units": 16,
+        "pairable_values": 44
+      },
+      "CONCERN against the rest": {
+        "alpha": 0.7952,
+        "alpha_exact": "167/210",
+        "units": 16,
+        "pairable_values": 44
+      },
+      "ENDORSEMENT against the rest": {
+        "alpha": 0.7121,
+        "alpha_exact": "319/448",
+        "units": 16,
+        "pairable_values": 44
+      },
+      "OTHER against the rest": {
+        "alpha": 0.6929,
+        "alpha_exact": "97/140",
+        "units": 16,
+        "pairable_values": 44
+      }
+    },
+    "missing_ratings": {
+      "A": 0,
+      "B": 0,
+      "C": 0
+    },
+    "disagreements_from_the_sheets": {
+      "total": 9,
+      "stage1": 5,
+      "stage2": 4,
+      "stage1_items_whose_relevant_ratings_also_differ_in_class": 0
+    },
+    "review_sheet": {
+      "disagreements_recorded": {
+        "total": 9,
+        "stage1": 6,
+        "stage2": 3
+      },
+      "causes_recorded": {
+        "a": 6,
+        "b": 0,
+        "c": 3
+      },
+      "items_recorded_otherwise_than_the_sheets": [
+        {
+          "recorded": "stage1",
+          "from_the_sheets": "stage2",
+          "items": 1
+        }
+      ],
+      "disagreements_from_the_sheets_without_a_cause": 0,
+      "causes_on_items_without_a_disagreement_in_the_sheets": 0,
+      "labels_differing_from_the_sheets": {
+        "A": 0,
+        "B": 0,
+        "C": 0
+      },
+      "agreed_labels_checked_on_unanimous_items": 21,
+      "agreed_labels_differing_from_the_unanimous_label": 1,
+      "codebook_change_needed": 0
+    },
+    "r2_branch": {
+      "key": "pass",
+      "plurality_cause": null,
+      "text": "proceed context-free, unchanged"
+    }
+  },
+  "timings": {
+    "per_annotator": {
+      "A": {
+        "stage1": {
+          "ratings": 30,
+          "with_a_time": 30,
+          "without_a_time": 0,
+          "times_without_a_label_not_used": 0,
+          "mean": {
+            "value": 6.666667,
+            "exact": "20/3"
+          },
+          "median": {
+            "value": 5.0,
+            "exact": "5/1"
+          },
+          "total": {
+            "value": 200.0,
+            "exact": "200/1"
+          }
+        },
+        "stage2": {
+          "ratings": 14,
+          "with_a_time": 12,
+          "without_a_time": 2,
+          "times_without_a_label_not_used": 0,
+          "mean": {
+            "value": 6.666667,
+            "exact": "20/3"
+          },
+          "median": {
+            "value": 5.0,
+            "exact": "5/1"
+          },
+          "total": {
+            "value": 80.0,
+            "exact": "80/1"
+          }
+        },
+        "subsystem": {
+          "ratings": 14,
+          "with_a_time": 11,
+          "without_a_time": 3,
+          "times_without_a_label_not_used": 0,
+          "mean": {
+            "value": 5.909091,
+            "exact": "65/11"
+          },
+          "median": {
+            "value": 5.0,
+            "exact": "5/1"
+          },
+          "total": {
+            "value": 65.0,
+            "exact": "65/1"
+          }
+        }
+      },
+      "B": {
+        "stage1": {
+          "ratings": 30,
+          "with_a_time": 30,
+          "without_a_time": 0,
+          "times_without_a_label_not_used": 0,
+          "mean": {
+            "value": 9.2,
+            "exact": "46/5"
+          },
+          "median": {
+            "value": 7.0,
+            "exact": "7/1"
+          },
+          "total": {
+            "value": 276.0,
+            "exact": "276/1"
+          }
+        },
+        "stage2": {
+          "ratings": 16,
+          "with_a_time": 16,
+          "without_a_time": 0,
+          "times_without_a_label_not_used": 14,
+          "mean": {
+            "value": 8.0625,
+            "exact": "129/16"
+          },
+          "median": {
+            "value": 8.5,
+            "exact": "17/2"
+          },
+          "total": {
+            "value": 129.0,
+            "exact": "129/1"
+          }
+        },
+        "subsystem": {
+          "ratings": 15,
+          "with_a_time": 15,
+          "without_a_time": 0,
+          "times_without_a_label_not_used": 0,
+          "mean": {
+            "value": 7.133333,
+            "exact": "107/15"
+          },
+          "median": {
+            "value": 7.0,
+            "exact": "7/1"
+          },
+          "total": {
+            "value": 107.0,
+            "exact": "107/1"
+          }
+        }
+      },
+      "C": {
+        "stage1": {
+          "ratings": 30,
+          "with_a_time": 30,
+          "without_a_time": 0,
+          "times_without_a_label_not_used": 0,
+          "mean": {
+            "value": 7.9,
+            "exact": "79/10"
+          },
+          "median": {
+            "value": 7.0,
+            "exact": "7/1"
+          },
+          "total": {
+            "value": 237.0,
+            "exact": "237/1"
+          }
+        },
+        "stage2": {
+          "ratings": 15,
+          "with_a_time": 15,
+          "without_a_time": 0,
+          "times_without_a_label_not_used": 0,
+          "mean": {
+            "value": 12.0,
+            "exact": "12/1"
+          },
+          "median": {
+            "value": 5.0,
+            "exact": "5/1"
+          },
+          "total": {
+            "value": 180.0,
+            "exact": "180/1"
+          }
+        },
+        "subsystem": {
+          "ratings": 14,
+          "with_a_time": 12,
+          "without_a_time": 2,
+          "times_without_a_label_not_used": 0,
+          "mean": {
+            "value": 8.333333,
+            "exact": "25/3"
+          },
+          "median": {
+            "value": 7.5,
+            "exact": "15/2"
+          },
+          "total": {
+            "value": 100.0,
+            "exact": "100/1"
+          }
+        }
+      }
+    },
+    "seconds_per_rating": {
+      "stage1": {
+        "value": 7.922222,
+        "exact": "713/90"
+      },
+      "stage2": {
+        "value": 8.909722,
+        "exact": "1283/144"
+      },
+      "subsystem": {
+        "value": 7.125253,
+        "exact": "3527/495"
+      }
+    }
+  },
+  "ratings_by_tranche": {
+    "tranche 1": {
+      "stage1": 700,
+      "stage2": 414,
+      "subsystem": 414
+    },
+    "tranche 2": {
+      "stage1": 700,
+      "stage2": 419,
+      "subsystem": 419
+    },
+    "tranche_2_single_rated_items": 400
+  },
+  "annotation_hours": {
+    "tranches": {
+      "tranche 1": {
+        "stage1": {
+          "value": 1.540432,
+          "exact": "4991/3240"
+        },
+        "stage2": {
+          "value": 1.024618,
+          "exact": "29509/28800"
+        },
+        "subsystem": {
+          "value": 0.819404,
+          "exact": "81121/99000"
+        }
+      },
+      "tranche 2": {
+        "stage1": {
+          "value": 1.540432,
+          "exact": "4991/3240"
+        },
+        "stage2": {
+          "value": 1.036993,
+          "exact": "537577/518400"
+        },
+        "subsystem": {
+          "value": 0.8293,
+          "exact": "1477813/1782000"
+        }
+      }
+    },
+    "calibration": {
+      "stage1": {
+        "recorded_seconds": {
+          "value": 713.0,
+          "exact": "713/1"
+        },
+        "ratings_without_a_time": 0,
+        "hours": {
+          "value": 0.198056,
+          "exact": "713/3600"
+        }
+      },
+      "stage2": {
+        "recorded_seconds": {
+          "value": 389.0,
+          "exact": "389/1"
+        },
+        "ratings_without_a_time": 2,
+        "hours": {
+          "value": 0.113005,
+          "exact": "29291/259200"
+        }
+      },
+      "subsystem": {
+        "recorded_seconds": {
+          "value": 272.0,
+          "exact": "272/1"
+        },
+        "ratings_without_a_time": 5,
+        "hours": {
+          "value": 0.085452,
+          "exact": "6091/71280"
+        }
+      }
+    },
+    "charged_relevance_and_stance": {
+      "value": 5.453536,
+      "exact": "942371/172800"
+    },
+    "subsystem_not_charged": {
+      "value": 1.734156,
+      "exact": "1545133/891000"
+    }
+  },
+  "cost": {
+    "deployed": "sonnet-domain",
+    "deployed_name": "Claude Sonnet 4.6 (domain-specific)",
+    "corpus_run": {
+      "comments": 6503,
+      "cost_usd": {
+        "value": 5.425983,
+        "exact": "5425983/1000000"
+      },
+      "model": "claude-sonnet-4-6"
+    },
+    "per_1000_usd_corpus_run": {
+      "value": 0.834382,
+      "exact": "5425983/6503000"
+    },
+    "per_1000_usd_evaluation": {
+      "value": 0.799461,
+      "exact": "799461/1000000"
+    },
+    "per_1000_aud_corpus_run": {
+      "value": 1.320993,
+      "exact": "10738020357/8128750000"
+    },
+    "per_1000_aud_evaluation": {
+      "value": 1.265707,
+      "exact": "1582133319/1250000000"
+    },
+    "api_charges_aud": {
+      "value": 39.58,
+      "exact": "1979/50"
+    },
+    "api_charges_usd": {
+      "value": 27.5,
+      "exact": "55/2"
+    },
+    "credit_bought_usd": {
+      "value": 25.0,
+      "exact": "25/1"
+    },
+    "aud_per_usd_of_credit": {
+      "value": 1.5832,
+      "exact": "1979/1250"
+    },
+    "aud_per_usd_on_the_card": {
+      "value": 1.439273,
+      "exact": "1979/1375"
+    },
+    "charged_above_the_credit": {
+      "value": 0.1,
+      "exact": "1/10"
+    },
+    "hourly_rate_aud": {
+      "value": 59.76,
+      "exact": "1494/25"
+    },
+    "rate_step_aud": {
+      "value": 10.0,
+      "exact": "10/1"
+    },
+    "labelling_hours_charged": {
+      "value": 5.453536,
+      "exact": "942371/172800"
+    },
+    "labelling_cost_aud": {
+      "value": 325.903304,
+      "exact": "78216793/240000"
+    },
+    "breakeven_stage2_comments": {
+      "value": 246710.882981,
+      "exact": "7947559451234375/32214061071"
+    },
+    "breakeven_per_rate_step": {
+      "value": 41283.614957,
+      "exact": "11969216041015625/289926549639"
+    },
+    "corpus_run_cost_aud": {
+      "value": 8.590416,
+      "exact": "10738020357/1250000000"
+    },
+    "incremental_fine_tuning_aud_per_comment": {
+      "value": 0.0,
+      "exact": "0/1"
+    },
+    "macro_f1": {
+      "sonnet-domain": {
+        "value": 0.750107,
+        "exact": "66579398/88759899"
+      },
+      "roberta": {
+        "value": 0.522694,
+        "exact": "48967393/93682680"
+      }
+    },
+    "best_fine_tuned": "roberta",
+    "best_fine_tuned_name": "RoBERTa",
+    "evaluation_items": 598,
+    "rate_classification": "HEW 5.1, casual professional staff, from 1 August 2026"
+  },
+  "budget": {
+    "totals_by_line": {
+      "Collection (Apify)": {
+        "value": 125.76,
+        "exact": "3144/25"
+      },
+      "Model API (Anthropic credit)": {
+        "value": 39.58,
+        "exact": "1979/50"
+      }
+    },
+    "colab": {
+      "value": 0.0,
+      "exact": "0/1"
+    },
+    "total_paid": {
+      "value": 165.34,
+      "exact": "8267/50"
+    },
+    "card_charges": {
+      "Collection (Apify)": [
+        {
+          "date": "2026-08-03",
+          "line": "Collection (Apify)",
+          "statement": "PayPal, Apify subscription",
+          "aud": "43.22"
+        },
+        {
+          "date": "2026-08-29",
+          "line": "Collection (Apify)",
+          "statement": "PayPal, Apify invoice",
+          "aud": "77.67"
+        },
+        {
+          "date": "2026-09-03",
+          "line": "Collection (Apify)",
+          "statement": "PayPal, Apify invoice",
+          "aud": "4.87"
+        }
+      ],
+      "Model API (Anthropic credit)": [
+        {
+          "date": "2026-10-10",
+          "line": "Model API (Anthropic credit)",
+          "statement": "Anthropic, 5.50 US dollars",
+          "aud": "7.92",
+          "usd": "5.50"
+        },
+        {
+          "date": "2026-10-15",
+          "line": "Model API (Anthropic credit)",
+          "statement": "Anthropic, 22.00 US dollars",
+          "aud": "31.66",
+          "usd": "22.00"
+        }
+      ]
+    },
+    "anthropic_credit": {
+      "bought_usd": "25.00",
+      "used_usd": "17.26",
+      "remaining_usd": "7.74",
+      "as_of": "2026-10-17",
+      "source": "Anthropic API console, Cost page (month to date) and Credits page, 17 October 2026"
+    }
+  }
+}

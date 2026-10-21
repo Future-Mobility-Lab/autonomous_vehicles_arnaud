@@ -2125,3 +2125,223 @@ scripts compute under this rule. They are not the design document's, which
 used other term lists or an earlier corpus, and they may differ from them. The
 model comparison of record rests on the adjudicated gold set alone. Nothing
 else in Deviations 2 and 13 changes.
+
+### Deviation 15 — Exploratory runs of Claude Opus 5.5 and Claude Fable 5.1 at the supervisor's request
+
+**Specified 20 October 2026, against commit 823270e. The commit date is in the
+repository history.**
+
+At the final supervision session on 20 October 2026, held after every result of
+record had been presented, the supervisor asked for the comments to be
+classified with Claude Opus 5.5 and Claude Fable 5.1, two models released after
+the evaluation of record, to see what they give. Neither model is named in R1
+to R5 or in Deviations 1 to 14. This deviation fixes how the two models are
+run, what is computed from their outputs and how it is reported. It changes no
+rule of record and no result of record.
+
+**What had been seen.** Every result of record: the evaluation of record
+(Deviation 12), the corpus runs and the series analyses (Deviation 13), the
+sample analyses (Deviation 14), the corpus description, the report tables, and
+the calibration and cost analysis, each in full. The analyses fixed here are
+therefore exploratory, and none of them can confirm a result. The rules were
+fixed before either model had been sent any prompt of this study through the
+API and before any output of either existed for any comment; this statement is
+the author's and cannot be checked from the files. The cost estimate used below
+to choose the effort level was formed from the token counts of the corpus runs
+of record and the published prices, not from any output of either model.
+
+**What does not change.** The deployed classifiers (RoBERTa with the subreddit
+and the comment at Stage 1; Claude Sonnet 4.6 with the domain-specific schema
+at Stage 2; Claude Sonnet 4.6 for the subsystem), the comparison of record and
+its Holm family (Family B), the error rates of record, the primary series, and
+every series, test, family and success criterion of Deviations 12 to 14 stand
+as they are. Whatever the two models give, neither replaces a deployed
+classifier and no result of record is recomputed with them in its place. Their
+results are reported beside the results of record, not instead of them.
+
+**Models and prompts.** `claude-opus-5-5` and `claude-fable-5-1`, through the
+Anthropic API with the client of record (`anthropic` 1.13.0). Each identifier
+names one model version and carries no date. Every answer must be returned
+under the identifier asked for, and every answer from one model by the same
+model version, by the rule of `models_02_claude.py`; otherwise the run stops for
+good and a further deviation decides what is done. The prompts are those of
+record, unchanged: at Stage 2 the universal and the domain-specific prompt,
+built by `models_02_claude.py` (`bb3fbfe`); for the subsystem the prompt of
+Deviation 13, built by `models_06_deploy.py` (`b436b24`). There is no system
+prompt. Before a run sends any comment, the SHA-256 of each prompt it will send
+is compared with the `prompt_sha256` that the run of record logged for the same
+comment and prompt (the evaluation runs at Stage 2, the corpus runs for the
+corpus and the subsystem), and the run stops if any differs.
+
+**Settings that cannot be those of record.** Both models reject a temperature
+other than the default and cannot run without thinking, so the requests of
+record (temperature 0, at most 50 output tokens, no thinking) cannot be sent to
+them. Every request to either model sends the user message alone with
+`max_tokens` 4,000, which covers thinking and answer together,
+`output_config` `{"effort": "low"}`, and `inference_geo` `"global"`, the
+default routing, set so that the list prices below hold whatever default the
+account has (inference restricted to the United States costs 10% more). It
+sends no temperature, top-p, top-k or thinking setting, so the models use
+their default sampling and adaptive thinking. Effort `low` is fixed for both
+models and every call: it is the cheapest of the five levels, the closest to
+the runs of record without thinking, and the only level at which the author's
+estimate fits the full order of runs below within the credit available. The
+thinking is neither requested nor stored. The answer is the text of the
+response's text blocks, as `models_02_claude.py` reads it, and it is read by
+the rule of record: `parse_answer` of that file at Stage 2, and the rule of
+Deviation 13 for the subsystem. An answer that names no class or label, an
+empty answer included, is retried once with the same prompt (Deviation 12);
+after a second such answer the comment is a refusal at Stage 2 and unclassified
+in a subsystem run.
+
+**Refusals.** A response whose stop reason is `refusal` is recorded as a
+refusal at Stage 2, or as unclassified in a subsystem run, with the category the
+API gives. It is not retried, because the request would not change. No fallback
+to another model is requested, so every label comes from the model named.
+Refusals are counted by model, run and category. In the corrections a refusal
+counts as not CONCERN in the binary correction and as OTHER in the three-class
+correction, as Deviation 13 fixes.
+
+**Batches.** The evaluation and corpus runs are sent through the Message
+Batches API, at its prices; the connection check and the pilot are sent as
+single requests. A run is sent one batch at a time: at most 100 requests until
+it has 50 answered calls, so that its own cost per call is measured before
+larger batches go out, and at most 1,000 after that. A batch is created once,
+without automatic retries; if its creation is not confirmed, the API's list of
+batches is read before anything more is sent, so that no batch is created twice
+or left unread. A request that expired or was cancelled, or that errored for a
+reason that is not about the request (an API, overload, rate-limit or timeout
+error), is sent again. A request that errored as invalid is sent again once; if
+it errors again, the comment is a refusal (unclassified in a subsystem run) and
+is listed. An authentication, permission, not-found or billing error, an error
+of any other type, any error about a spending limit or a credit balance, or
+errors on more than 5% of a batch's requests, stop the run without being counted
+against any comment; the run resumes from its log. A comment with five sends
+whose outcome was logged, and no result, stops the run for good, and a further
+deviation decides. Every answered request is logged as in the runs of record
+(identifier, stop reason, refusal category, tokens, thinking tokens, message
+identifier and batch identifier), and the outputs of every run are hashed and
+recorded in the register.
+
+**Items and order of runs.** In this order, each step only when the one before
+it is complete or was not made under the pilot gate:
+
+1. *Connection check*: each model with each of the three prompts on the
+   connection-check sentence of `models_02_claude.py`. No comment is sent.
+2. *Pilot*: 30 comments drawn from the 6,503 Tier 1+2 comments classified
+   relevant at Stage 1, the 1,000 tranche items left out, with
+   `numpy.random.default_rng([24916660, 15]).choice(n, 30, replace=False)` over
+   the n remaining comments sorted by id as strings in code-point order. Each is
+   sent to each model with the three prompts (180 comment-prompts). The pilot
+   measures tokens per call, refusals and answers that name no label, and
+   nothing else: its answers are not tabulated, enter no figure and are not
+   reused, and no prompt or setting is changed in the light of it. If more than
+   10% of a model's 90 pilot answers are refusals, or more than 10% name no
+   label after the retry, that model's later runs are not made and the other
+   model's runs go on.
+3. *Evaluation, Claude Opus 5.5*: the 598 tranche items with a gold Stage 2
+   class, with each Stage 2 prompt and with the subsystem prompt. The evaluation
+   runs of record sent all 1,000 items, but only these 598 enter the Stage 2
+   metrics, and the subsystem classifier of record labelled the same 598, of
+   which 596 have a gold primary subsystem.
+4. *Evaluation, Claude Fable 5.1*: the same.
+5. *Corpus, Claude Opus 5.5*: the Stage 2 run with the domain-specific schema
+   over the 6,503 comments, then the subsystem run over the same comments.
+6. *Corpus, Claude Fable 5.1*: the same two runs.
+
+**Credit and the stopping rule.** No credit is added for these runs. The
+credit available on 20 October 2026, read from the Claude Console before the
+connection check, was US$107.73 (US$7.73 bought and US$100.00 promotional).
+Spending is measured as in Deviation 13, over every logged call of this
+deviation, at the list prices of 20 October 2026: US$4 and US$20 per million
+input and output tokens for Claude Opus 5.5, and US$10 and US$50 for Claude
+Fable 5.1, for single requests; half those prices through the Batches API;
+thinking billed as output. The ceiling is US$104.73, the credit less US$3.00
+held back. Before each run of steps 3 to 6, its cost is estimated from the
+pilot: the run's number of comments times the pilot's calls per comment and
+mean cost per call at batch prices for that model and prompt, plus 20%. A run
+starts only if this estimate, added to the measured spend, is within the
+ceiling. Before each later batch the rest of the run is estimated again, from
+the run's own calls once it has 50 answered calls, plus 20%, and the run halts
+if the estimate no longer fits. Every estimate is recorded with the batch it
+preceded. A run that does not start for cost, or halts, ends this deviation's
+runs: no later run is made. The rule looks at cost only, never at an output. A
+run that halts is reported as incomplete with its counts, and its outputs enter
+no figure.
+
+**What is computed.** All of it is exploratory and is reported whatever the
+values.
+
+- From each evaluation run: on the 598 items, the Stage 2 metrics of the
+  evaluation of record for each schema (macro-F1, per-class F1, the weighted and
+  unweighted CONCERN true- and false-positive rates, and the three-class rates
+  M_ij), computed by the functions of `models_05_evaluate.py`, and M_ij by those
+  of `analysis_01_sample.py`; and, on the 596
+  items with a gold primary subsystem, the subsystem classifier's agreement with
+  the gold label, with the share of each gold value given that value and the
+  share of each assigned value that is right, with Wilson 95% intervals, as
+  Deviation 13 reports them for the classifier of record.
+- Comparisons on macro-F1 by the item-level permutation test of the evaluation
+  of record (`models_05_evaluate.py`, 10,000 permutations): under the universal
+  schema, each new model against Claude Sonnet 4.6, each against RoBERTa, and
+  the two new models against each other; under the domain-specific schema, each
+  new model against Claude Sonnet 4.6 and the two against each other. These
+  tests form one family of their own, outside every family of R5 and
+  Deviation 12, with Holm's correction within it at 0.05. A test whose model was
+  not run is dropped from the family.
+- From each model whose two corpus runs are complete: the agreement between its
+  corpus run and its evaluation run (domain-specific schema, and subsystem) on
+  the tranche items that both cover, reported as for the classifier of record,
+  a refusal being a fourth value; the primary series and each series of
+  Deviation 13 that carries a Sen's slope and a Gilbert interval (the pooled
+  series, the companion series, the tier-level series, the three-class
+  correction, the block-specific series with that model's own block rates, the
+  series with a 25-word floor, and the Tier 1 and Tier 2 series), each with its
+  Sen's slope, Gilbert interval and Mann–Kendall p-value, computed as the series
+  analyses of record compute them but with that model's labels and its own
+  weighted rates from its evaluation run in place of the rates of record; and
+  the RQ2 measures π_s, C_s and E_s for sensing and none, with the counts of the
+  other five values; and, if the sparsity rule gives sensing a series, its test
+  as Family A computes it, with no other value tested. Changepoints,
+  decompositions, R4, and the seasonality and relevance-error analyses are not
+  computed for these instruments.
+- Cost per 1,000 comments, at batch and at standard list prices, from the logged
+  tokens, with thinking tokens reported separately.
+
+**Reporting.** Every figure listed above is reported beside the figure of
+record it parallels, labelled exploratory, with the statement that these rules
+were fixed after every result of record had been seen. A run that was not made,
+or halted, is reported as such with the reason. The script that makes the runs,
+and the script that computes the figures above, are each committed before they
+are run on the data of record. The run script prints progress, counts of calls,
+of refusals with their categories and of comments with no label, spend, and file
+hashes only. No output of these runs is tabulated by class, period, era,
+subreddit, tier, subsystem or thread size before the analysis script for them is
+committed; this is an undertaking by the author and cannot be checked.
+
+**What changes in R2, R5 and Deviations 12 and 13.** Nothing changes for the
+instruments of record. For the two further models: the settings of record are
+replaced as set out above, because the models do not accept them; the
+evaluation runs cover the 598 gold-relevant items and not all 1,000; Deviation
+13's rule for API errors is replaced by the batch rule above; and the
+comparisons above form a family of their own.
+
+**Cost.** The two models differ from the models of record in more than the
+model: they think before answering, at a level the author set, and sample in a
+way the author cannot fix, so their runs are less reproducible than the runs of
+record. The agreement between the corpus and evaluation runs on the tranche
+items measures this in part. Effort `low` is one of five levels and was chosen
+for cost; other levels might give other results. The same 598 items supply each
+new model's error rates and judge it, as for the models of record, so the rates
+are somewhat optimistic. Every rule here was fixed after every result of record
+had been seen, so the comparisons cannot be confirmatory. The credit may not
+reach the last runs, and the order puts the Claude Fable 5.1 corpus runs last.
+
+**Mitigation.** The rules are committed before any call. Every prompt is checked
+against the prompt of record for the same comment. The order of runs and any
+stop are decided by cost and by the pilot gate alone. Every figure listed is
+reported whatever its value, beside the figure of record.
+
+**Consequence.** The results of the two models show how far RQ3's comparison
+and the answers to RQ1 and RQ2 depend on the classifier chosen. They are
+exploratory and change no result of record.

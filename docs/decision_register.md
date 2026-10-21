@@ -1942,3 +1942,105 @@ The statements below are the author's and cannot be checked from the files.
 - `analysis_05_calibration_cost.py` (SHA-256 `ef5b32d08d294ca1048e160099d10078f6948053cc81e439c1efb3ccab7e33ca`) run 2026-10-19T09:17:36+11:00 with `--confirm-committed`: every input matched its SHA-256 of record (the four calibration sheets, `results/sample_results.json`, `evaluation_results.json`, `stage2_manifest.json`, `docs/cost_inputs.json`).
 - Outputs, in `data/analysis/calibration_cost/run_ef5b32d08d29/` (not committed; the results file and report copied to `results/`, the tables to `results/report_tables/`, the figures to `results/report_figures/`): `calibration_cost_results.json` `c3104dde1b9d33d8694df7a4048ca2ea6b23620f941298bc3a3ac8962fc89bfe`; `calibration_cost_report.md` `426adb71abe60d1ed29ae98e32f9a4f3c0b2a0ebfb0f55981a187efb2def6fab`; 3 table files and 2 figure files, with their SHA-256 in `calibration_cost_manifest.json` `f915cdee5c877b35f5b54f14e0c3630a645532db7230c52c48a5c158f4b28d64`. Python 3.12.10, NumPy 2.5.1, matplotlib 3.11.2, openpyxl 3.1.5.
 
+## 20 October 2026 — Deviation 15 and the run script of the two further models committed before any call
+
+Drafted on 20 October 2026; the commit date is in the repository history.
+
+### What this commit fixes
+
+- Deviation 15 in `docs/analysis_preregistration.md`: exploratory runs of
+  Claude Opus 5.5 and Claude Fable 5.1, asked for by the supervisor at the
+  final supervision session on 20 October 2026, after every result of record
+  had been presented. It changes no rule and no result of record.
+- `models_07_frontier.py`, the script of those runs, SHA-256
+  `fa9906d43d6b4a4151f07980e3198e1598861d6e67591e04effd9d1dbe118009`. It checks its inputs and
+  every prompt before the commit (`--preflight`); sends six single requests on
+  the test sentence (`--check-connection`); runs the pilot of Deviation 15 and
+  prints its gate and the plan of the stopping rule (`--pilot`); makes the runs
+  of each step through the Message Batches API, in the order `opus-eval`,
+  `fable-eval`, `opus-corpus`, `fable-corpus` (`--run`); reports the state of
+  every run (`--status`); and gives the register lines of a run not started or
+  halted, with the complete runs of its step (`--stops`).
+- Its docstring lists the eight rules it fixes where Deviation 15 is silent or
+  says how a rule is applied. Among them: every module it imports is checked
+  against its SHA-256 at `aff4276`; every prompt is compared with the prompt of
+  record for the same comment before any comment is sent; the first batch of a
+  run holds at most 100 requests; a batch is created once, without automatic
+  retries, and a creation that is not confirmed is looked up in the API's list
+  of batches before anything more is sent; single requests wait up to 600
+  seconds; an error that is not about a request stops a run without being
+  counted against a comment; every estimate of the stopping rule is saved with
+  the batch it preceded; and a run not started for cost, or halted, ends the
+  runs of Deviation 15.
+- The credit for the runs, read from the Claude Console on 20 October 2026:
+  US$107.73 (US$7.73 bought and US$100.00 promotional). The ceiling is
+  US$104.73. No credit is added for these runs.
+
+### State of the work at this commit
+
+The statements below are the author's and cannot be checked from the files.
+
+- Before this commit the script was run on the data of record only in its
+  preflight mode, which runs no model, sends nothing and writes nothing; it
+  passed.
+- Neither model has been sent any prompt of this study through the API, and no
+  output of either exists for any comment of corpus v2.2.
+- The organisation's monthly spend cap and the account's own spend limit, as the
+  Console's Billing page showed them, allow the runs to use the whole credit in
+  October 2026, and the promotional credit may be used for these calls.
+
+### How the script was arrived at
+
+This section is the author's account and the working record of the sessions; it
+cannot be checked from the files.
+
+- The script was tested on synthetic data only: a generated repository holding
+  the committed modules of `aff4276`, the committed pre-registration and fold
+  files, synthetic gold labels, comments, corpus-run manifests and logs of
+  record; and a simulated API, reached over HTTP through the client of record,
+  that checked every request against Deviation 15 and answered with refusals,
+  answers naming no label, empty answers, invalid, expired, overloaded and
+  billing errors, errors of an unknown type, answers from another identifier or
+  another inference region, refused and slow batch creations, and slow single
+  answers. An independent check recomputed every label, status, retry, token
+  count, cost, pilot figure and estimate, and the measured spend, in seventeen
+  scenarios, with a unit check of the rates of the stopping rule. They included
+  an interruption while results were being logged, the pilot gate, a run not
+  started and a run halted under the stopping rule, a run completed by a batch
+  that took the spend past the ceiling, a batch whose creation was not confirmed
+  and that was created at once, late or never, and the refusal of a changed log,
+  prompt or module. 272 of 272 checks passed. The test scripts
+  are not committed, so these checks cannot be repeated from the repository. No
+  annotation data, prediction file or corpus output of record was used in
+  testing or in the reviews.
+- The script and Deviation 15 were reviewed before this commit, and the
+  findings of both reviews were applied. Three of them could have spent credit
+  without recording it: a batch could be created twice when its creation was
+  slow to be confirmed, because the client of record retries a request up to
+  eight times; a batch could still appear in the API's list of batches after it
+  had been taken as not created; and a single request that took longer than the
+  client's 60 seconds was abandoned and sent again. Batches are now created
+  once; a creation that is not confirmed is looked up in the API's list of
+  batches, and a batch absent from it is taken as not created only 15 minutes
+  after the attempt; and single requests wait up to 600 seconds. The other
+  corrections: `--stops` gives the register lines of the complete runs of a step
+  that stops, and the counts and log hash of a halted run; every request asks
+  for global routing, which the list prices assume, and the region and service
+  tier of every answer are logged; an answer from another model is logged before
+  the step stops; the estimates of the stopping rule are saved; the run's own
+  calls per comment count the retries still to come; only sends whose outcome
+  was logged count towards the five; an error of an unknown type stops the run;
+  a run completed by its last batch is not recorded as halted; and the pilot
+  given again leaves its summary unchanged. The corrections of the second review
+  were not themselves reviewed again.
+
+
+### Next
+
+- In this order, recording each step's register lines here:
+  `--check-connection`; `--pilot`; then `--run opus-eval`, `--run fable-eval`,
+  `--run opus-corpus` and `--run fable-corpus`, as the pilot gate and the
+  stopping rule allow, with `--stops` if a run is not started or halts. No
+  output of these runs is tabulated before the analysis script for them is
+  committed.
+- Commit the analysis script for these runs before it is run.

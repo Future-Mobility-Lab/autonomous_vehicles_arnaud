@@ -2055,3 +2055,71 @@ cannot be checked from the files.
 - Gate (rule 5): Claude Opus 5.5 passes (refusals 0, no label after the retry 0, of 90 answers); Claude Fable 5.1 passes (refusals 0, no label after the retry 0, of 90 answers).
 - Plan (estimates at batch prices plus 20%): opus-eval-universal US$0.6578 fits; opus-eval-domain US$0.8636 fits; opus-eval-subsystem US$1.2293 fits; fable-eval-universal US$1.0998 fits; fable-eval-domain US$1.5723 fits; fable-eval-subsystem US$2.6702 fits; opus-corpus-stage2 US$9.3909 fits; opus-corpus-subsystem US$13.3681 fits; fable-corpus-stage2 US$17.0977 fits; fable-corpus-subsystem US$29.0372 fits. Measured spend US$0.6931; ceiling US$104.73. Python 3.12.10, anthropic 1.13.0, NumPy 2.5.1, pandas 3.0.3.
 
+## 20 October 2026 — The analysis script of the two further models committed before it is run
+
+Drafted on 20 October 2026; the commit date is in the repository history.
+
+### What this commit fixes
+
+- `analysis_06_frontier.py`, SHA-256
+  `2a50992cb09da2c396d9cac7d3a49613cf0158f3ec2b5aab8ce06a3558a7b332`: the script that
+  computes the figures Deviation 15 lists under "What is computed" from the
+  runs of `models_07_frontier.py` (SHA-256
+  `fa9906d43d6b4a4151f07980e3198e1598861d6e67591e04effd9d1dbe118009`), each
+  beside the figure of record it parallels and labelled exploratory. It has two
+  modes: `--preflight`, before this commit, and `--confirm-committed`, the run
+  of record, made once after the runs of Deviation 15 have ended.
+- Its docstring lists the fifteen rules it fixes where Deviation 15 is silent
+  or says how a rule is applied. Among them: every module it imports, the
+  results files of record and the manifests of the corpus runs of record are
+  checked against their SHA-256; a run of Deviation 15 enters a figure only if
+  its manifest and files pass every check, and a run without a manifest is
+  reported as halted or not made with its recorded reason; a model's error
+  rates and three-class rates come from its own evaluation run with the
+  domain-specific schema, with the item resamples of record; the series,
+  RQ2 and the subsystem agreement are computed by the functions of record of
+  `analysis_03_series.py`, `analysis_01_sample.py` and `models_05_evaluate.py`;
+  only sensing is tested under RQ2, in a family of one; changepoints, the
+  decompositions, R4 and the seasonality and relevance-error analyses are not
+  computed for these models; and before any label of the runs of Deviation 15
+  is used, the same code path must reproduce, on the labels of record, every
+  figure of record it recomputes, or the script stops.
+- One reading is fixed here. Deviation 15 lists π_s, C_s and E_s for sensing
+  and none; they are computed as the series analyses of record compute them,
+  so only at a resolution that the sparsity rule gives to the model's labels,
+  and a value the rule leaves at counts only is reported by its counts.
+
+
+### How the script was arrived at
+
+This section is the author's account and the working record of the sessions; it
+cannot be checked from the files.
+
+- The script was tested on synthetic data only: a generated repository on which
+  the evaluation of record and `analysis_03_series.py` were themselves run to
+  make the results of record, with the annotation sheets replaced by a stand-in;
+  and runs of Deviation 15 written by the committed `models_07_frontier.py`
+  through a simulated API. An independent check, which imports nothing from the
+  repository, recomputed every figure (237 in the scenario with all ten runs
+  complete). Scenarios: no run yet, all ten runs complete, a run halted and
+  later runs not made, a run not started for cost, a model that failed the pilot
+  gate, and runs not ended; with faults in every input. 62 of 62 checks passed.
+  The test scripts are not committed, so these checks cannot be repeated from
+  the repository. No annotation data, prediction file or corpus output of record
+  was used in testing or in the review.
+- The script was reviewed once before this commit, and the findings were
+  applied: every series in the values file is labelled exploratory; the note on
+  the three-class rates of each model names that model instead of the deployed
+  classifier; a run with no file yet is reported as not yet made, and a
+  comparison left out as dropped; and the docstring states the tolerance of the
+  reproduction check and that π_s, C_s and E_s follow the sparsity rule. The
+  review found nothing that changes a figure. These corrections were not
+  themselves reviewed again.
+
+### Next
+
+- Finish the runs of Deviation 15 (`--run opus-eval`, `fable-eval`,
+  `opus-corpus`, `fable-corpus`, as the pilot gate and the stopping rule allow),
+  recording each step's register lines here.
+- Then run this script with `--confirm-committed`, copy its results file,
+  report and values to `results/`, and commit them with its register lines.
